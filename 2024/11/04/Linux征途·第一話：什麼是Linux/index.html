@@ -10,19 +10,21 @@
     <meta name="copyright" content="Ken Hsu">
         <meta name="keywords" content="python,full-stack,web,development,backend,frontend,database,server,client,network,security,algorithm,data structure,programming,software,engineering,computer,science,technology,learning,sharing,experience,knowledge,tutorial">
     <meta name="description" content="這是一篇關於技術學習的部落格文章，分享了撰寫技術筆記的過程。">
-    <meta name="description" content="這是一篇關於技術學習的部落格文章，分享了撰寫技術筆記的過程。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="朝向全端之路：從基礎到進階的技術探索 by Ken">
-<meta property="og:url" content="https://miruorange.github.io/blog/archives/2024/10/index.html">
+    <meta name="description" content="第一個系列文部落格開張後，我一直在想該寫什麼主題，各種想法在腦海中反覆浮現，卻始終沒能確定下來。今天，主管在向新進人員介紹我時，讓我意外地, 主管居然用Infra這個詞來介紹我, 真的是何德何能呀。不過, 既然如此，剛好最近就在鑽研Linux, 那就先寫篇Linux的系列文吧。 初學者的困惑我是一名轉職進入這個行業的人，因此對於剛踏入這個領域的新手心態非常了解，因為我曾經走過同樣的路。很多新手可能">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux征途·第一話：什麼是Linux">
+<meta property="og:url" content="https://miruorange.github.io/blog/2024/11/04/Linux%E5%BE%81%E9%80%94%C2%B7%E7%AC%AC%E4%B8%80%E8%A9%B1%EF%BC%9A%E4%BB%80%E9%BA%BC%E6%98%AFLinux/index.html">
 <meta property="og:site_name" content="朝向全端之路：從基礎到進階的技術探索 by Ken">
-<meta property="og:description" content="這是一篇關於技術學習的部落格文章，分享了撰寫技術筆記的過程。">
+<meta property="og:description" content="第一個系列文部落格開張後，我一直在想該寫什麼主題，各種想法在腦海中反覆浮現，卻始終沒能確定下來。今天，主管在向新進人員介紹我時，讓我意外地, 主管居然用Infra這個詞來介紹我, 真的是何德何能呀。不過, 既然如此，剛好最近就在鑽研Linux, 那就先寫篇Linux的系列文吧。 初學者的困惑我是一名轉職進入這個行業的人，因此對於剛踏入這個領域的新手心態非常了解，因為我曾經走過同樣的路。很多新手可能">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2024-11-04T14:52:32.000Z">
+<meta property="article:modified_time" content="2024-11-04T15:36:35.391Z">
 <meta property="article:author" content="Ken Hsu">
 <meta name="twitter:card" content="summary">
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <link rel="icon" href="/blog/assets/favicon.ico">
-    <title>朝向全端之路：從基礎到進階的技術探索 by Ken</title>
+    <title>Linux征途·第一話：什麼是Linux · 朝向全端之路：從基礎到進階的技術探索 by Ken</title>
     <!-- /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
 /* This file is meant as a standalone workflow for
 - testing support for link[rel=preload]
@@ -210,6 +212,7 @@
             document.write('<script src="/blog/lib/jquery.min.js" />')
         }
     </script>
+        <body class="post-body">
         <!-- header -->
         <header class="header header-mobile">
     <!-- top read progress line -->
@@ -239,7 +242,7 @@
             <a href="/blog/">邁向全端之路</a>
         </div>
         <div class="post-title header-element">
-            <a href="#" class="post-name"></a>
+            <a href="#" class="post-name">Linux征途·第一話：什麼是Linux</a>
         </div>
     </div>
 </header>
@@ -256,20 +259,50 @@
 
         <!-- wrapper -->
         <div class="wrapper">
-            <div class="site-intro" style="">
+            <div class="site-intro" style="    height:50vh;
+">
     <!-- 主页  -->
+    <!-- 404页  -->
     <div class="site-intro-placeholder"></div>
-    <div class="site-intro-img" style="background-image: url(/blog/)"></div>
+    <div class="site-intro-img" style="background-image: url(/blog/intro/post-bg.jpg)"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
+                Linux征途·第一話：什麼是Linux
+            <!-- 404 -->
         </h1>
         <!-- 副标题 -->
         <p class="intro-subtitle">
             <!-- 主页副标题  -->
+            <!-- 404 -->
         </p>
         <!-- 文章页 meta -->
+            <div class="post-intros">
+                <!-- 文章页标签  -->
+                    <div class="post-intro-tags" >
+</div>
+
+                <!-- 文章字数统计 -->
+                <div class="post-intro-meta">
+                    <!-- 撰写日期 -->
+                    <span class="iconfont-archer post-intro-calander">&#xe676;</span>
+                    <span class="post-intro-time">2024/11/04</span>
+                    <!-- busuanzi -->
+                        <span id="busuanzi_container_page_pv" class="busuanzi-pv">
+                            <span class="iconfont-archer post-intro-busuanzi">&#xe602;</span>
+                            <span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    <!-- 文章分享 -->
+                    <span class="share-wrapper">
+                        <span class="iconfont-archer share-icon">&#xe71d;</span>
+                        <span class="share-text">Share</span>
+                        <ul class="share-list">
+                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
     </div>
 </div>
 
@@ -398,31 +431,55 @@
 
             <img class="loading" src="/blog/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" alt="loading">
             <div class="container container-unloaded">
-                <main class="main index-page">
-            
-        <article class="index-post">
-            <a class="abstract-title" href="/blog/2024/10/27/%E8%A8%98%E9%8C%84%E6%92%B0%E5%AF%AB%E6%8A%80%E8%A1%93Blog%E7%9A%84%E7%AC%AC%E4%B8%80%E5%A4%A9/">
-                <span class="abstract-title-text">記錄撰寫技術Blog的第一天</span>
-            </a>
-            <div class="abstract-content">
-                初衷為什麼要開始寫技術部落格？作為一名後端工程師，我一直渴望有一個屬於自己的平台來記錄學習過程中的每一步。這不僅僅是追蹤成長的軌跡，更是希望能通過撰寫和整理知識來鞭策自己持續學習。當日常工作中遇到挑戰或解決棘手的問題時，把這些經驗寫成文章，不僅加深了理解，也讓未來回顧時更加方便，甚至可能幫助到和我有相似經歷的開發者們。
-精進全端技能作為一名後端工程師，我一直感到在後端開發中缺乏一種「看得見」的成果呈現方式。僅僅靠後端的程式碼與邏輯，往往難以清楚展示自己的技術深度和實力。思索之下，建立一個技術部落格成為了最佳選擇。通過從無到有地架設一個完整的網站，不僅讓我得以展示所學，還能讓這個網站成為我...
-            </div>
-            <!-- read more -->
-            <div class="abstract-post-meta">
-                <!-- date -->
-                <div class="abstract-date" title="Last updated: 2024/11/01">
-                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2024/10/27</span>
-                </div>
-                <!-- tags -->
-                    <div class="abstract-tags" >
-        <a class="post-tag" href="javascript:void(0);" data-tags="個人介紹">個人介紹</a>
-</div>
+                <main class="main post-page">
+    <article class="article-entry">
+        <h2 id="第一個系列文"><a href="#第一個系列文" class="headerlink" title="第一個系列文"></a>第一個系列文</h2><p>部落格開張後，我一直在想該寫什麼主題，各種想法在腦海中反覆浮現，卻始終沒能確定下來。今天，主管在向新進人員介紹我時，讓我意外地, 主管居然用<strong>Infra</strong>這個詞來介紹我, 真的是何德何能呀。不過, 既然如此，剛好最近就在鑽研Linux, 那就先寫篇Linux的系列文吧。</p>
+<h2 id="初學者的困惑"><a href="#初學者的困惑" class="headerlink" title="初學者的困惑"></a>初學者的困惑</h2><p>我是一名轉職進入這個行業的人，因此對於剛踏入這個領域的新手心態非常了解，因為我曾經走過同樣的路。很多新手可能會有這樣的疑問：學完了基礎的編程知識後，接下來該怎麼辦？會寫迴圈、陣列、流程控制後，還能做什麼？這種不確定感，我非常熟悉，因為我也曾經困惑過。</p>
+<h2 id="程式學習的目標：自動化"><a href="#程式學習的目標：自動化" class="headerlink" title="程式學習的目標：自動化"></a>程式學習的目標：自動化</h2><p>其實，學習程式的最終目的往往是自動化。自動化讓我們能夠隨時隨地自動獲取資訊，讓電腦來處理重複、繁瑣的工作，減少人力消耗。然而，如果每次都需要手動點擊來執行已寫好的程式，這未免顯得效率低下且過於繁瑣。這時候，你需要的是一台能夠24小時持續運行的機器，也就是我們所說的Server。</p>
+<h2 id="什麼是Server？"><a href="#什麼是Server？" class="headerlink" title="什麼是Server？"></a>什麼是Server？</h2><p>Server本質上就是一台可以執行程式的電腦主機。它可以是桌上型電腦、筆記型電腦，甚至像我一樣，使用樹莓派來搭建一台個人Server也完全可行。<br><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Ry_dR29oK0k&list=PLEKonaDKILV1hCGWCHhHlAHG2WvOYI2UC&index=2">點此觀看我的 YouTube 影片</a></p>
+<h2 id="Server的應用場景"><a href="#Server的應用場景" class="headerlink" title="Server的應用場景"></a>Server的應用場景</h2><p>當你擁有一台能夠連網的Server，再加上你所掌握的編程技術，你就能完成很多事情。對我來說，最有趣的應用之一就是在我的樹莓派上安裝爬蟲程式，定期抓取我需要的資訊並整理成報告，甚至自動發送郵件給自己。</p>
+<h2 id="超越爬蟲的可能性"><a href="#超越爬蟲的可能性" class="headerlink" title="超越爬蟲的可能性"></a>超越爬蟲的可能性</h2><p>除了爬蟲，還可以利用Server的排程功能來執行不同的程式，串接各種API，進而實現許多實用的功能。例如，自動收集天氣預報、空氣品質數據，或者搭建一個個人網站，無論是部落格、形象網站，還是電子商務平台，甚至是搭建一個AI的智能機器人, 皆可實現。</p>
+<h2 id="為什麼選擇Linux？"><a href="#為什麼選擇Linux？" class="headerlink" title="為什麼選擇Linux？"></a>為什麼選擇Linux？</h2><p>為什麼？因為它免費、高效、省電、多工。當你學會了編程，再掌握Linux的操作，就如同打通了任督二脈——唯有你想不到的，沒有你做不到的。因此，為什麼不開始學習Linux呢？</p>
 
-            </div>
-        </article>
-        <div class="index-post-divider"></div>
-    <!-- paginator  -->
+    </article>
+    <!-- license -->
+        <div class="license-wrapper">
+            <p>Author：<a href="https://miruorange.github.io/blog">Ken Hsu</a>
+            <p>Link：<a href="https://miruorange.github.io/blog/2024/11/04/Linux%E5%BE%81%E9%80%94%C2%B7%E7%AC%AC%E4%B8%80%E8%A9%B1%EF%BC%9A%E4%BB%80%E9%BA%BC%E6%98%AFLinux/">https://miruorange.github.io/blog/2024/11/04/Linux%E5%BE%81%E9%80%94%C2%B7%E7%AC%AC%E4%B8%80%E8%A9%B1%EF%BC%9A%E4%BB%80%E9%BA%BC%E6%98%AFLinux/</a>
+            <p>Publish date：<a href="https://miruorange.github.io/blog/2024/11/04/Linux%E5%BE%81%E9%80%94%C2%B7%E7%AC%AC%E4%B8%80%E8%A9%B1%EF%BC%9A%E4%BB%80%E9%BA%BC%E6%98%AFLinux/">November 4th 2024, 10:52:32 pm</a>
+            <p>Update date：<a href="https://miruorange.github.io/blog/2024/11/04/Linux%E5%BE%81%E9%80%94%C2%B7%E7%AC%AC%E4%B8%80%E8%A9%B1%EF%BC%9A%E4%BB%80%E9%BA%BC%E6%98%AFLinux/">November 4th 2024, 11:36:35 pm</a>
+            <p>License：本文依 <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a> 授權</p>
+        </div>
+    <!-- paginator -->
+    <ul class="post-paginator">
+        <li class="next">
+        </li>
+        <li class="previous">
+                <div class="prevSlogan">Previous Post</div>
+                <a href="/blog/2024/10/27/%E8%A8%98%E9%8C%84%E6%92%B0%E5%AF%AB%E6%8A%80%E8%A1%93Blog%E7%9A%84%E7%AC%AC%E4%B8%80%E5%A4%A9/" title="記錄撰寫技術Blog的第一天">
+                    <div class="prevTitle">記錄撰寫技術Blog的第一天</div>
+                </a>
+        </li>
+    </ul>
+    <!-- comment -->
+        <div class="post-comment">
+            <!-- 来必力 City 版安装代码 -->
+
+            
+            
+            
+            <!-- utteranc评论 -->
+
+            <!-- partial('_partial/comment/changyan') -->
+            <!--PC版-->
+
+            
+            
+            
+        </div>
+    <!-- timeliness note -->
+    <!-- idea from: https://hexo.fluid-dev.com/posts/hexo-injector/#%E6%96%87%E7%AB%A0%E6%97%B6%E6%95%88%E6%80%A7%E6%8F%90%E7%A4%BA -->
+    <!-- Mathjax -->
 </main>
 
                 <!-- profile -->
@@ -445,6 +502,13 @@
 
         </div>
         <!-- toc -->
+            <div class="toc-wrapper toc-wrapper-loding" style=    top:50vh;
+>
+                <div class="toc-catalog">
+                    <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+                </div>
+                <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E5%80%8B%E7%B3%BB%E5%88%97%E6%96%87"><span class="toc-number">1.</span> <span class="toc-text">第一個系列文</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%9D%E5%AD%B8%E8%80%85%E7%9A%84%E5%9B%B0%E6%83%91"><span class="toc-number">2.</span> <span class="toc-text">初學者的困惑</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A8%8B%E5%BC%8F%E5%AD%B8%E7%BF%92%E7%9A%84%E7%9B%AE%E6%A8%99%EF%BC%9A%E8%87%AA%E5%8B%95%E5%8C%96"><span class="toc-number">3.</span> <span class="toc-text">程式學習的目標：自動化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E9%BA%BC%E6%98%AFServer%EF%BC%9F"><span class="toc-number">4.</span> <span class="toc-text">什麼是Server？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Server%E7%9A%84%E6%87%89%E7%94%A8%E5%A0%B4%E6%99%AF"><span class="toc-number">5.</span> <span class="toc-text">Server的應用場景</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B6%85%E8%B6%8A%E7%88%AC%E8%9F%B2%E7%9A%84%E5%8F%AF%E8%83%BD%E6%80%A7"><span class="toc-number">6.</span> <span class="toc-text">超越爬蟲的可能性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%82%BA%E4%BB%80%E9%BA%BC%E9%81%B8%E6%93%87Linux%EF%BC%9F"><span class="toc-number">7.</span> <span class="toc-text">為什麼選擇Linux？</span></a></li></ol>
+            </div>
         <!-- sidebar -->
         <div class="sidebar sidebar-hide">
     <ul class="sidebar-tabs sidebar-tabs-active-0">
@@ -526,6 +590,7 @@
         <!-- busuanzi -->
             <script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script>
         <!-- async load share.js -->
+            <script src="/blog/scripts/share.js" async></script>
         <!-- mermaid -->
     </body>
 </html>
