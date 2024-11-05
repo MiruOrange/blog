@@ -17,11 +17,14 @@
 <meta property="og:site_name" content="朝向全端之路：從基礎到進階的技術探索 by Ken">
 <meta property="og:description" content="第一個系列文部落格開張後，我一直在思索該寫什麼主題。各種想法在腦海中反覆浮現，卻始終無法確定。直到今天，主管向新進人員介紹我時，竟然用了 Infra 這個詞來形容我的職位。真是意外之喜，何德何能呀！的確我平時的工作除了後端的開發外, 也擔負著系統的維護的責任。最近為了解一些資安的需求, 剛好也在進一步鑽研Linux, 既然如此, 那就先寫篇Linux的系列文吧。  Infra 是 Infrastr">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://miruorange.github.io/blog/2024/11/04/Linux%E5%BE%81%E9%80%94%C2%B7%E7%AC%AC%E4%B8%80%E8%A9%B1%EF%BC%9A%E4%BB%80%E9%BA%BC%E6%98%AFLinux/%E7%88%AC%E8%9F%B2%E7%A8%8B%E5%BC%8F.png">
+<meta property="og:image" content="https://miruorange.github.io/blog/2024/11/04/Linux%E5%BE%81%E9%80%94%C2%B7%E7%AC%AC%E4%B8%80%E8%A9%B1%EF%BC%9A%E4%BB%80%E9%BA%BC%E6%98%AFLinux/%E6%94%BF%E5%BA%9C%E8%B3%87%E6%96%99%E9%96%8B%E6%94%BE%E5%B9%B3%E8%87%BA.png">
 <meta property="article:published_time" content="2024-11-04T14:52:32.000Z">
-<meta property="article:modified_time" content="2024-11-05T14:12:58.464Z">
+<meta property="article:modified_time" content="2024-11-05T14:26:47.694Z">
 <meta property="article:author" content="Ken Hsu">
 <meta property="article:tag" content="Linux">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://miruorange.github.io/blog/2024/11/04/Linux%E5%BE%81%E9%80%94%C2%B7%E7%AC%AC%E4%B8%80%E8%A9%B1%EF%BC%9A%E4%BB%80%E9%BA%BC%E6%98%AFLinux/%E7%88%AC%E8%9F%B2%E7%A8%8B%E5%BC%8F.png">
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <link rel="icon" href="/blog/assets/favicon.ico">
@@ -442,8 +445,8 @@
 <h2 id="初學者的困惑"><a href="#初學者的困惑" class="headerlink" title="初學者的困惑"></a>初學者的困惑</h2><p>我是一名轉職進入這個行業的人，因此對於剛踏入這個領域的新手心態非常了解，因為我曾經走過同樣的路。很多新手可能會有這樣的疑問：學完了基礎的編程知識後，接下來該怎麼辦？會寫迴圈、陣列、流程控制後，還能做什麼？這種不確定感，我非常熟悉，因為我也曾經困惑過。</p>
 <h2 id="程式學習的目標：自動化"><a href="#程式學習的目標：自動化" class="headerlink" title="程式學習的目標：自動化"></a>程式學習的目標：自動化</h2><p>其實，學習程式的最終目的往往是自動化。自動化讓我們能夠隨時隨地自動獲取資訊，讓電腦來處理重複、繁瑣的工作，減少人力消耗。然而，如果每次都需要手動執行已寫好的程式，這未免顯得效率低下且過於繁瑣。這時候，你需要的是一台能夠24小時持續運行的機器，也就是我們所說的Server。</p>
 <h2 id="什麼是Server？"><a href="#什麼是Server？" class="headerlink" title="什麼是Server？"></a>什麼是Server？</h2><p>Server本質上就是一台可以執行程式的電腦主機。它可以是桌上型電腦、筆記型電腦，甚至像我一樣，使用樹莓派來搭建一台個人Server也完全可行。<br><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Ry_dR29oK0k&list=PLEKonaDKILV1hCGWCHhHlAHG2WvOYI2UC&index=2">點此觀看我如何在樹莓派上安裝Linux系統</a></p>
-<h2 id="Server的應用場景"><a href="#Server的應用場景" class="headerlink" title="Server的應用場景"></a>Server的應用場景</h2><p>當你擁有一台能夠連網的Server，再加上你所掌握的編程技術，你就能完成很多事情。對我來說，最有趣的應用之一就是在我的樹莓派上安裝爬蟲程式，定期抓取我需要的資訊並整理成報告，甚至自動發送郵件給自己。</p>
-<h2 id="超越爬蟲的可能性"><a href="#超越爬蟲的可能性" class="headerlink" title="超越爬蟲的可能性"></a>超越爬蟲的可能性</h2><p>除了爬蟲，還可以利用Server的排程功能來執行不同的程式，串接各種API，進而實現許多實用的功能。例如，自動收集天氣預報、空氣品質數據，或者搭建一個個人網站，無論是部落格、形象網站，還是電子商務平台，甚至是搭建一個AI的智能機器人, 皆可實現。</p>
+<h2 id="Server的應用場景"><a href="#Server的應用場景" class="headerlink" title="Server的應用場景"></a>Server的應用場景</h2><p>當你擁有一台能夠連網的Server，再加上你所掌握的編程技術，你就能完成很多事情。對我來說，最有趣的應用之一就是在我的樹莓派上安裝爬蟲程式，定期抓取我需要的資訊並整理成報告，甚至自動發送郵件給自己。<br><img src="https://miruorange.github.io/blog/2024/11/04/Linux%E5%BE%81%E9%80%94%C2%B7%E7%AC%AC%E4%B8%80%E8%A9%B1%EF%BC%9A%E4%BB%80%E9%BA%BC%E6%98%AFLinux/%E7%88%AC%E8%9F%B2%E7%A8%8B%E5%BC%8F.png" alt="爬取PTT指定關鍵字的爬蟲程式"></p>
+<h2 id="超越爬蟲的可能性"><a href="#超越爬蟲的可能性" class="headerlink" title="超越爬蟲的可能性"></a>超越爬蟲的可能性</h2><p>除了爬蟲，還可以利用Server的排程功能來執行不同的程式，串接各種API，進而實現許多實用的功能。例如，自動收集天氣預報、空氣品質數據，或者搭建一個個人網站，無論是部落格、形象網站，還是電子商務平台，甚至是搭建一個AI的智能機器人, 皆可實現。<br><img src="https://miruorange.github.io/blog/2024/11/04/Linux%E5%BE%81%E9%80%94%C2%B7%E7%AC%AC%E4%B8%80%E8%A9%B1%EF%BC%9A%E4%BB%80%E9%BA%BC%E6%98%AFLinux/%E6%94%BF%E5%BA%9C%E8%B3%87%E6%96%99%E9%96%8B%E6%94%BE%E5%B9%B3%E8%87%BA.png" alt="政府資料開放平台-有滿滿的API可以串"></p>
 <h2 id="為什麼選擇Linux？"><a href="#為什麼選擇Linux？" class="headerlink" title="為什麼選擇Linux？"></a>為什麼選擇Linux？</h2><p>為什麼？因為它免費、高效、省電、多工。當你學會了編程，再掌握Linux的操作，就如同打通了任督二脈——唯有你想不到的，沒有你做不到的。因此，為什麼不開始學習Linux呢？</p>
 <h2 id="常見問題-FAQ"><a href="#常見問題-FAQ" class="headerlink" title="常見問題 (FAQ)"></a>常見問題 (FAQ)</h2><h3 id="Q1-Server只能建在Linux環境上嗎？"><a href="#Q1-Server只能建在Linux環境上嗎？" class="headerlink" title="Q1: Server只能建在Linux環境上嗎？"></a>Q1: Server只能建在Linux環境上嗎？</h3><p>不一定！事實上，只要是能運行排程任務的電腦，都可以作為 Server 使用。Server 的重點不在於操作系統，而是在於服務的目的性和穩定性。舉例來說，一個網站的 Server 就專注於提供網頁服務，因此我們不會在 Server 上安裝影音播放器、文字處理軟體（如 Word、Excel）等不必要的程式。這樣精簡的配置，不僅能降低硬體的負擔，還能讓 Server 更加省電、高效、穩定地運行。</p>
 <h3 id="Q2-Linux和windows及mac-os是不一樣的東西嗎？"><a href="#Q2-Linux和windows及mac-os是不一樣的東西嗎？" class="headerlink" title="Q2: Linux和windows及mac os是不一樣的東西嗎？"></a>Q2: Linux和windows及mac os是不一樣的東西嗎？</h3><p>是的，Linux、Windows 和 macOS 是三個不同的操作系統，各自有不同的設計哲學與用途。</p>
@@ -459,7 +462,7 @@
             <p>Author：<a href="https://miruorange.github.io/blog">Ken Hsu</a>
             <p>Link：<a href="https://miruorange.github.io/blog/2024/11/04/Linux%E5%BE%81%E9%80%94%C2%B7%E7%AC%AC%E4%B8%80%E8%A9%B1%EF%BC%9A%E4%BB%80%E9%BA%BC%E6%98%AFLinux/">https://miruorange.github.io/blog/2024/11/04/Linux%E5%BE%81%E9%80%94%C2%B7%E7%AC%AC%E4%B8%80%E8%A9%B1%EF%BC%9A%E4%BB%80%E9%BA%BC%E6%98%AFLinux/</a>
             <p>Publish date：<a href="https://miruorange.github.io/blog/2024/11/04/Linux%E5%BE%81%E9%80%94%C2%B7%E7%AC%AC%E4%B8%80%E8%A9%B1%EF%BC%9A%E4%BB%80%E9%BA%BC%E6%98%AFLinux/">November 4th 2024, 10:52:32 pm</a>
-            <p>Update date：<a href="https://miruorange.github.io/blog/2024/11/04/Linux%E5%BE%81%E9%80%94%C2%B7%E7%AC%AC%E4%B8%80%E8%A9%B1%EF%BC%9A%E4%BB%80%E9%BA%BC%E6%98%AFLinux/">November 5th 2024, 10:12:58 pm</a>
+            <p>Update date：<a href="https://miruorange.github.io/blog/2024/11/04/Linux%E5%BE%81%E9%80%94%C2%B7%E7%AC%AC%E4%B8%80%E8%A9%B1%EF%BC%9A%E4%BB%80%E9%BA%BC%E6%98%AFLinux/">November 5th 2024, 10:26:47 pm</a>
             <p>License：本文依 <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a> 授權</p>
         </div>
     <!-- paginator -->
