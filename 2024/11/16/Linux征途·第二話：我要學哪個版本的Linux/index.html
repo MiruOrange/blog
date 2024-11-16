@@ -10,15 +10,15 @@
     <meta name="copyright" content="Ken Hsu">
         <meta name="keywords" content="python,full-stack,web,development,backend,frontend,database,server,client,network,security,algorithm,data structure,programming,software,engineering,computer,science,technology,learning,sharing,experience,knowledge,tutorial">
     <meta name="description" content="這是一篇關於技術學習的部落格文章，分享了撰寫技術筆記的過程。">
-    <meta name="description" content="先上結論如果你是 Linux 的新手，我推薦從 Ubuntu 開始學習。原因很簡單，Windows 的 WSL（Windows Subsystem for Linux）預設就是用 Ubuntu，對於新手來說，這無疑是最容易入門的選擇。  我自己在寫的 Side Project，甚至在公司用的，也都是用 Ubuntu。所以其實免費的就很好用了呢！而且不同的版本核心的指令差不多，要理解或切換也很快，不">
+    <meta name="description" content="先上結論如果你剛開始接觸 Linux，我推薦你從 Ubuntu 開始學習。為什麼？因為它簡單好用，資源又多，而且 Windows 的 WSL（Windows Subsystem for Linux）預設用的就是 Ubuntu，直接開箱即用，不用安裝虛擬機，對於新手來說非常友善。  就拿我自己來說，不管是平常寫 Side Project 還是在公司裡工作，大多用的也是 Ubuntu！重點是它免費又夠">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux征途·第二話：我要學哪個版本的Linux">
 <meta property="og:url" content="https://miruorange.github.io/blog/2024/11/16/Linux%E5%BE%81%E9%80%94%C2%B7%E7%AC%AC%E4%BA%8C%E8%A9%B1%EF%BC%9A%E6%88%91%E8%A6%81%E5%AD%B8%E5%93%AA%E5%80%8B%E7%89%88%E6%9C%AC%E7%9A%84Linux/index.html">
 <meta property="og:site_name" content="朝向全端之路：從基礎到進階的技術探索 by Ken">
-<meta property="og:description" content="先上結論如果你是 Linux 的新手，我推薦從 Ubuntu 開始學習。原因很簡單，Windows 的 WSL（Windows Subsystem for Linux）預設就是用 Ubuntu，對於新手來說，這無疑是最容易入門的選擇。  我自己在寫的 Side Project，甚至在公司用的，也都是用 Ubuntu。所以其實免費的就很好用了呢！而且不同的版本核心的指令差不多，要理解或切換也很快，不">
+<meta property="og:description" content="先上結論如果你剛開始接觸 Linux，我推薦你從 Ubuntu 開始學習。為什麼？因為它簡單好用，資源又多，而且 Windows 的 WSL（Windows Subsystem for Linux）預設用的就是 Ubuntu，直接開箱即用，不用安裝虛擬機，對於新手來說非常友善。  就拿我自己來說，不管是平常寫 Side Project 還是在公司裡工作，大多用的也是 Ubuntu！重點是它免費又夠">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2024-11-16T02:34:26.000Z">
-<meta property="article:modified_time" content="2024-11-16T03:08:56.578Z">
+<meta property="article:modified_time" content="2024-11-16T03:14:48.228Z">
 <meta property="article:author" content="Ken Hsu">
 <meta property="article:tag" content="Linux">
 <meta name="twitter:card" content="summary">
@@ -435,90 +435,91 @@
             <div class="container container-unloaded">
                 <main class="main post-page">
     <article class="article-entry">
-        <h2 id="先上結論"><a href="#先上結論" class="headerlink" title="先上結論"></a><strong>先上結論</strong></h2><p>如果你是 Linux 的新手，我推薦從 <strong>Ubuntu</strong> 開始學習。原因很簡單，Windows 的 WSL（Windows Subsystem for Linux）預設就是用 Ubuntu，對於新手來說，這無疑是最容易入門的選擇。</p>
+        <h2 id="先上結論"><a href="#先上結論" class="headerlink" title="先上結論"></a><strong>先上結論</strong></h2><p>如果你剛開始接觸 Linux，我推薦你從 <strong>Ubuntu</strong> 開始學習。為什麼？因為它簡單好用，資源又多，而且 Windows 的 WSL（Windows Subsystem for Linux）預設用的就是 Ubuntu，直接開箱即用，不用安裝虛擬機，對於新手來說非常友善。</p>
 <blockquote>
-<p>我自己在寫的 Side Project，甚至在公司用的，也都是用 Ubuntu。所以其實免費的就很好用了呢！而且不同的版本核心的指令差不多，要理解或切換也很快，不會因為學了 Ubuntu 後，之後想改用其它系列就要重學。這就是學習 Linux 的好處之一。</p>
+<p>就拿我自己來說，不管是平常寫 Side Project 還是在公司裡工作，大多用的也是 Ubuntu！重點是它免費又夠用啊！而且不同版本之間，基本指令其實都差不多，學了 Ubuntu 以後，你要切換到別的版本也很快上手，完全不用擔心「學了白學」這種事。</p>
 </blockquote>
 <hr>
-<h2 id="什麼叫做-Linux-的核心-Kernel"><a href="#什麼叫做-Linux-的核心-Kernel" class="headerlink" title="什麼叫做 Linux 的核心 (Kernel)"></a><strong>什麼叫做 Linux 的核心 (Kernel)</strong></h2><p>我們先來理解什麼是「核心」。</p>
-<p>電腦是一台由電子元件組成的機器，要讓這台機器「動起來」，比如讓它讀懂鍵盤輸入，或者把文字顯示在螢幕上，都需要一個負責翻譯我們需求的「大腦」——這就是作業系統的核心功能。而 <strong>Linux 核心</strong> 就是這樣的一個「翻譯者」，它負責把我們的指令轉換成機器能理解的語言，讓硬體為我們服務。</p>
-<p>舉個例子，如果把電腦比作一輛車，Linux 核心就是那部「引擎」。有了這個引擎，我們才能讓車子開起來。但光有引擎還不夠，我們還需要方向盤、座椅和車架，這些組件才能讓整台車真正運行。這些額外的組件，就像發行版本裡打包的工具和應用程式一樣。</p>
+<h2 id="什麼叫做-Linux-的核心-Kernel"><a href="#什麼叫做-Linux-的核心-Kernel" class="headerlink" title="什麼叫做 Linux 的核心 (Kernel)"></a><strong>什麼叫做 Linux 的核心 (Kernel)</strong></h2><p>要了解 Linux，先來搞清楚什麼是「核心」。</p>
+<p>電腦其實就像一堆硬體零件拼起來的機器，想讓它動起來，總得有個「翻譯官」幫我們把需求講給硬體聽。比如你敲鍵盤，電腦怎麼知道你按的是哪個鍵？這些事情全靠作業系統的核心處理，而 <strong>Linux 核心</strong> 就是這個翻譯官。</p>
+<p>打個比方，電腦就像一輛車，Linux 核心是它的「引擎」。有了引擎，車子才能跑起來，但如果沒有方向盤、車架和座椅呢？那這車也沒法開。所以，我們需要在核心之外，再配上一些工具和軟體，這些就是我們常說的「發行版本」。</p>
 <hr>
-<h2 id="什麼是-Linux-發行版本"><a href="#什麼是-Linux-發行版本" class="headerlink" title="什麼是 Linux 發行版本"></a><strong>什麼是 Linux 發行版本</strong></h2><p>Linux 的核心本身只是工具，要讓它更好用，我們需要把核心和其他應用程式（比如檔案管理器、網路工具、圖形介面等等）打包起來，這樣的「打包版本」就稱為 <strong>Linux 發行版本</strong>。</p>
-<p>Linux 發行版本可以理解為一台車的不同型號，有的適合賽車手，有的適合家庭用戶，而有的專為企業設計。雖然這些型號的核心（引擎）都一樣，但它們配備的工具和優化方向各有不同。以下是幾個常見的 Linux 發行版本：</p>
+<h2 id="什麼是-Linux-發行版本"><a href="#什麼是-Linux-發行版本" class="headerlink" title="什麼是 Linux 發行版本"></a><strong>什麼是 Linux 發行版本</strong></h2><p>簡單來說，Linux 發行版本就是把「核心」和其他實用工具包裝在一起的一個「套裝版」，用起來更方便，適合不同需求的使用者。</p>
+<p>就像車有不同的型號一樣，有的車適合賽車手，有的適合帶孩子上下學，有的專為運貨設計。同樣，Linux 的發行版本也有很多選擇，雖然它們的核心（引擎）一樣，但裡面的工具和設計方向可能很不一樣。下面我介紹幾個比較有名的版本：</p>
 <h3 id="Ubuntu"><a href="#Ubuntu" class="headerlink" title="Ubuntu"></a><strong>Ubuntu</strong></h3><ul>
-<li><strong>性質</strong>：自由軟體，由 Canonical 公司主導，社群也參與維護。</li>
+<li><strong>性質</strong>：免費軟體，由 Canonical 公司開發，社群也有參與維護。</li>
 <li><strong>優點</strong>：<ul>
-<li>免費，對於初學者非常友好。</li>
-<li>社群活躍，線上有大量學習資源和支援。</li>
-<li>升級和更新頻繁，可以體驗到許多最新功能。</li>
+<li>免費而且容易上手，對初學者非常友好。</li>
+<li>網上有超多學習資源和社群可以幫你解答問題。</li>
+<li>更新速度快，可以試到不少最新的功能。</li>
 </ul>
 </li>
 <li><strong>缺點</strong>：<ul>
-<li>雖然 Canonical 提供 LTS（長期支援）版本，但相比商業產品，更新與技術支援可能沒有那麼即時可靠。</li>
+<li>雖然有「LTS」長期支援版，但如果真的遇到很複雜的問題，可能還是得靠自己多查資料，因為不像商業產品那樣有專人技術支援。</li>
 </ul>
 </li>
 </ul>
 <blockquote>
-<p>適合對象：初學者、個人使用者，或者需要快速搭建測試環境的開發者。</p>
+<p>適合誰：想試試 Linux 的新手、需要快速搭建開發環境的程式設計師。</p>
 </blockquote>
 <hr>
 <h3 id="Red-Hat-RHEL"><a href="#Red-Hat-RHEL" class="headerlink" title="Red Hat (RHEL)"></a><strong>Red Hat (RHEL)</strong></h3><ul>
-<li><strong>性質</strong>：商業產品，由 Red Hat 公司維護，提供企業級技術支援。</li>
+<li><strong>性質</strong>：商業版，由 Red Hat 公司開發，提供企業級支援。</li>
 <li><strong>優點</strong>：<ul>
-<li>全球知名的 Linux 發行版本，專為企業和伺服器環境設計。</li>
-<li>提供穩定的更新和高效的技術支援，特別適合重視安全性和穩定性的企業。</li>
-<li>Red Hat 的證照（RHCE、RHCA）是業界的黃金標準，持有者往往能獲得不錯的職涯機會。</li>
+<li>非常穩定，很多公司用它來當伺服器系統。</li>
+<li>有專業的技術支援，安全性和可靠性都很高。</li>
+<li>它家的證照（比如 RHCE、RHCA）在 IT 界可是「黃金招牌」，很多大公司都認。</li>
 </ul>
 </li>
 <li><strong>缺點</strong>：<ul>
-<li>需要付費，對於個人用戶或新手可能成本較高。</li>
+<li>要花錢買授權，對於個人來說成本比較高。</li>
 </ul>
 </li>
 </ul>
 <blockquote>
-<p>適合對象：企業用戶、想學習企業級 Linux 的 IT 工程師。</p>
+<p>適合誰：公司用戶，或者想深度學習企業級 Linux 的工程師。</p>
 </blockquote>
 <hr>
 <h3 id="其他發行版本簡介"><a href="#其他發行版本簡介" class="headerlink" title="其他發行版本簡介"></a><strong>其他發行版本簡介</strong></h3><ol>
 <li><p><strong>Debian</strong>  </p>
 <ul>
-<li>非常穩定，是 Ubuntu 的上游版本。適合追求穩定性且不急於使用最新功能的用戶。</li>
+<li>非常穩定的版本，也是 Ubuntu 的上游來源。適合追求穩定性、不需要太多新功能的人。</li>
 </ul>
 </li>
 <li><p><strong>Fedora</strong>  </p>
 <ul>
-<li>Red Hat 社群版，專注於最新技術，適合想要體驗前沿功能的開發者。</li>
+<li>Red Hat 社群版，比較前沿，適合想要嘗試最新技術的開發者。</li>
 </ul>
 </li>
 <li><p><strong>Kali Linux</strong>  </p>
 <ul>
-<li>專為資安和滲透測試設計，內建大量安全測試工具。</li>
+<li>專門為資安和滲透測試設計，內建很多安全工具。</li>
 </ul>
 </li>
 <li><p><strong>openSUSE</strong>  </p>
 <ul>
-<li>社群友好，分為穩定版（Leap）和滾動更新版（Tumbleweed），適合用於開發或伺服器管理。</li>
+<li>分為 Leap（穩定版）和 Tumbleweed（滾動更新版），適合開發或伺服器管理。</li>
 </ul>
 </li>
 <li><p><strong>Alpine Linux</strong>  </p>
 <ul>
-<li>超輕量級的 Linux 發行版本，適合對系統資源要求極低的環境，比如容器。</li>
+<li>極簡、輕量級版本，非常適合資源受限的環境，比如容器化系統。</li>
 </ul>
 </li>
 </ol>
 <hr>
-<h2 id="為什麼推薦-Ubuntu？"><a href="#為什麼推薦-Ubuntu？" class="headerlink" title="為什麼推薦 Ubuntu？"></a><strong>為什麼推薦 Ubuntu？</strong></h2><p>對於 Linux 初學者，Ubuntu 是理想的入門選擇，原因如下：</p>
+<h2 id="為什麼推薦-Ubuntu？"><a href="#為什麼推薦-Ubuntu？" class="headerlink" title="為什麼推薦 Ubuntu？"></a><strong>為什麼推薦 Ubuntu？</strong></h2><p>對於新手來說，Ubuntu 真的是最友好的選擇，理由如下：</p>
 <ol>
-<li><strong>資源豐富</strong>：無論是安裝指導、教學影片還是社群論壇，都有大量內容可以參考。</li>
-<li><strong>WSL 支援</strong>：Windows 提供的 WSL 預設安裝 Ubuntu，幾乎不需要額外配置，初學者可以快速上手。</li>
-<li><strong>穩定且現代</strong>：同時兼顧穩定性和使用最新技術，對於日常使用或開發都非常適合。</li>
+<li><strong>資源超多</strong>：不管是教學影片還是解答論壇，搜尋 Ubuntu 相關問題幾乎都能找到答案。</li>
+<li><strong>WSL 支援</strong>：Windows 提供的 WSL 預設就安裝 Ubuntu，免去一堆繁瑣的設定，直接上手。</li>
+<li><strong>穩定又現代</strong>：穩定性和新功能兼具，對於平時學習、開發都很適合。</li>
 </ol>
-<hr>
-<h2 id="結語"><a href="#結語" class="headerlink" title="結語"></a><strong>結語</strong></h2><p>Linux 是一個強大的工具，但它的學習曲線對於新手可能有點陡峭。選擇一個適合自己的發行版本，是學習 Linux 的第一步。如果你是剛入門的使用者，我還是推薦先從 <strong>Ubuntu</strong> 開始，等熟悉了之後，再探索其他發行版本，比如企業級的 RHEL 或針對特定需求的 Kali。</p>
 <blockquote>
-<p>下一篇文章，我將帶你進入實戰環節，從安裝 WSL 開始，一步步構建你的 Linux 環境，敬請期待！</p>
+<p>重點是，Ubuntu 的學習門檻低，幾乎不會踩坑，讓你可以專注學習 Linux 的基礎操作。</p>
 </blockquote>
+<hr>
+<h2 id="結語"><a href="#結語" class="headerlink" title="結語"></a><strong>結語</strong></h2><p>學 Linux，就像開啟了一場全新的冒險。雖然一開始有點難，但只要選對了發行版本，學習曲線會變得很平緩。對於剛入門的人，我還是建議先從 <strong>Ubuntu</strong> 開始，熟悉之後你可以再試試像 RHEL 或 Kali 這樣的專業發行版。</p>
+<p>下一篇文章，我會帶你從 <strong>WSL 開始安裝 Ubuntu</strong>，一起實戰操作，讓你的 Linux 征途真正啟動！準備好動手了嗎？我們下一篇見！😊</p>
 
     </article>
     <!-- license -->
@@ -526,7 +527,7 @@
             <p>Author：<a href="https://miruorange.github.io/blog">Ken Hsu</a>
             <p>Link：<a href="https://miruorange.github.io/blog/2024/11/16/Linux%E5%BE%81%E9%80%94%C2%B7%E7%AC%AC%E4%BA%8C%E8%A9%B1%EF%BC%9A%E6%88%91%E8%A6%81%E5%AD%B8%E5%93%AA%E5%80%8B%E7%89%88%E6%9C%AC%E7%9A%84Linux/">https://miruorange.github.io/blog/2024/11/16/Linux%E5%BE%81%E9%80%94%C2%B7%E7%AC%AC%E4%BA%8C%E8%A9%B1%EF%BC%9A%E6%88%91%E8%A6%81%E5%AD%B8%E5%93%AA%E5%80%8B%E7%89%88%E6%9C%AC%E7%9A%84Linux/</a>
             <p>Publish date：<a href="https://miruorange.github.io/blog/2024/11/16/Linux%E5%BE%81%E9%80%94%C2%B7%E7%AC%AC%E4%BA%8C%E8%A9%B1%EF%BC%9A%E6%88%91%E8%A6%81%E5%AD%B8%E5%93%AA%E5%80%8B%E7%89%88%E6%9C%AC%E7%9A%84Linux/">November 16th 2024, 10:34:26 am</a>
-            <p>Update date：<a href="https://miruorange.github.io/blog/2024/11/16/Linux%E5%BE%81%E9%80%94%C2%B7%E7%AC%AC%E4%BA%8C%E8%A9%B1%EF%BC%9A%E6%88%91%E8%A6%81%E5%AD%B8%E5%93%AA%E5%80%8B%E7%89%88%E6%9C%AC%E7%9A%84Linux/">November 16th 2024, 11:08:56 am</a>
+            <p>Update date：<a href="https://miruorange.github.io/blog/2024/11/16/Linux%E5%BE%81%E9%80%94%C2%B7%E7%AC%AC%E4%BA%8C%E8%A9%B1%EF%BC%9A%E6%88%91%E8%A6%81%E5%AD%B8%E5%93%AA%E5%80%8B%E7%89%88%E6%9C%AC%E7%9A%84Linux/">November 16th 2024, 11:14:48 am</a>
             <p>License：本文依 <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a> 授權</p>
         </div>
     <!-- paginator -->
