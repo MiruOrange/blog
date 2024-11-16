@@ -10,27 +10,22 @@
     <meta name="copyright" content="Ken Hsu">
         <meta name="keywords" content="python,full-stack,web,development,backend,frontend,database,server,client,network,security,algorithm,data structure,programming,software,engineering,computer,science,technology,learning,sharing,experience,knowledge,tutorial">
     <meta name="description" content="這是一篇關於技術學習的部落格文章，分享了撰寫技術筆記的過程。">
-    <meta name="description" content="關於我 現職：ASUS Python後端工程師人格性質：外向、喜歡與人相處、樂於學習及分享, 每天不是在學習就是在前往學習的路上 個人作品集  Gihub專案：https:&#x2F;&#x2F;github.com&#x2F;MiruOrange 個人Youtube：www.youtube.com&#x2F;@拍繩攻城師 個人Blog：https:&#x2F;&#x2F;miruorange.github.io&#x2F;blog&#x2F; 聯絡我: &#109;&amp;#x6">
-<meta property="og:type" content="website">
-<meta property="og:title" content="about">
-<meta property="og:url" content="https://miruorange.github.io/blog/about/index.html">
+    <meta name="description" content="先上結論如果你是 Linux 的新手，我推薦從 Ubuntu 開始學習。原因很簡單，Windows 的 WSL（Windows Subsystem for Linux）預設就是用 Ubuntu，對於新手來說，這無疑是最容易入門的選擇。  我自己在寫的 Side Project，甚至在公司用的，也都是用 Ubuntu。所以其實免費的就很好用了呢！而且不同的版本核心的指令差不多，要理解或切換也很快，不">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux征途·第二話：我要學哪個版本的Linux">
+<meta property="og:url" content="https://miruorange.github.io/blog/2024/11/16/Linux%E5%BE%81%E9%80%94%C2%B7%E7%AC%AC%E4%BA%8C%E8%A9%B1%EF%BC%9A%E6%88%91%E8%A6%81%E5%AD%B8%E5%93%AA%E5%80%8B%E7%89%88%E6%9C%AC%E7%9A%84Linux/index.html">
 <meta property="og:site_name" content="朝向全端之路：從基礎到進階的技術探索 by Ken">
-<meta property="og:description" content="關於我 現職：ASUS Python後端工程師人格性質：外向、喜歡與人相處、樂於學習及分享, 每天不是在學習就是在前往學習的路上 個人作品集  Gihub專案：https:&#x2F;&#x2F;github.com&#x2F;MiruOrange 個人Youtube：www.youtube.com&#x2F;@拍繩攻城師 個人Blog：https:&#x2F;&#x2F;miruorange.github.io&#x2F;blog&#x2F; 聯絡我: &#109;&amp;#x6">
+<meta property="og:description" content="先上結論如果你是 Linux 的新手，我推薦從 Ubuntu 開始學習。原因很簡單，Windows 的 WSL（Windows Subsystem for Linux）預設就是用 Ubuntu，對於新手來說，這無疑是最容易入門的選擇。  我自己在寫的 Side Project，甚至在公司用的，也都是用 Ubuntu。所以其實免費的就很好用了呢！而且不同的版本核心的指令差不多，要理解或切換也很快，不">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://miruorange.github.io/blog/images/photo.jpg">
-<meta property="og:image" content="https://miruorange.github.io/blog/2024/10/27/%E8%A8%98%E9%8C%84%E6%92%B0%E5%AF%AB%E6%8A%80%E8%A1%93Blog%E7%9A%84%E7%AC%AC%E4%B8%80%E5%A4%A9/ithome_iron_man.png">
-<meta property="og:image" content="https://miruorange.github.io/blog/2024/10/27/%E8%A8%98%E9%8C%84%E6%92%B0%E5%AF%AB%E6%8A%80%E8%A1%93Blog%E7%9A%84%E7%AC%AC%E4%B8%80%E5%A4%A9/Joeman_interview.png">
-<meta property="og:image" content="https://miruorange.github.io/blog/2024/10/27/%E8%A8%98%E9%8C%84%E6%92%B0%E5%AF%AB%E6%8A%80%E8%A1%93Blog%E7%9A%84%E7%AC%AC%E4%B8%80%E5%A4%A9/CICD_deploy_image.png">
-<meta property="og:image" content="https://miruorange.github.io/blog/2024/10/27/%E8%A8%98%E9%8C%84%E6%92%B0%E5%AF%AB%E6%8A%80%E8%A1%93Blog%E7%9A%84%E7%AC%AC%E4%B8%80%E5%A4%A9/AI_RAG.png">
-<meta property="article:published_time" content="2024-10-27T04:40:38.000Z">
-<meta property="article:modified_time" content="2024-11-04T23:29:57.555Z">
+<meta property="article:published_time" content="2024-11-16T02:34:26.000Z">
+<meta property="article:modified_time" content="2024-11-16T03:08:56.578Z">
 <meta property="article:author" content="Ken Hsu">
+<meta property="article:tag" content="Linux">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://miruorange.github.io/blog/images/photo.jpg">
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <link rel="icon" href="/blog/assets/favicon.ico">
-    <title>about · 朝向全端之路：從基礎到進階的技術探索 by Ken</title>
+    <title>Linux征途·第二話：我要學哪個版本的Linux · 朝向全端之路：從基礎到進階的技術探索 by Ken</title>
     <!-- /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
 /* This file is meant as a standalone workflow for
 - testing support for link[rel=preload]
@@ -218,6 +213,7 @@
             document.write('<script src="/blog/lib/jquery.min.js" />')
         }
     </script>
+        <body class="post-body">
         <!-- header -->
         <header class="header header-mobile">
     <!-- top read progress line -->
@@ -247,7 +243,7 @@
             <a href="/blog/">邁向全端之路</a>
         </div>
         <div class="post-title header-element">
-            <a href="#" class="post-name">about</a>
+            <a href="#" class="post-name">Linux征途·第二話：我要學哪個版本的Linux</a>
         </div>
     </div>
 </header>
@@ -264,20 +260,51 @@
 
         <!-- wrapper -->
         <div class="wrapper">
-            <div class="site-intro" style="">
+            <div class="site-intro" style="    height:50vh;
+">
     <!-- 主页  -->
+    <!-- 404页  -->
     <div class="site-intro-placeholder"></div>
-    <div class="site-intro-img" style="background-image: url(/blog/)"></div>
+    <div class="site-intro-img" style="background-image: url(/blog/intro/post-bg.jpg)"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
+                Linux征途·第二話：我要學哪個版本的Linux
+            <!-- 404 -->
         </h1>
         <!-- 副标题 -->
         <p class="intro-subtitle">
             <!-- 主页副标题  -->
+            <!-- 404 -->
         </p>
         <!-- 文章页 meta -->
+            <div class="post-intros">
+                <!-- 文章页标签  -->
+                    <div class="post-intro-tags" >
+        <a class="post-tag" href="javascript:void(0);" data-tags="Linux">Linux</a>
+</div>
+
+                <!-- 文章字数统计 -->
+                <div class="post-intro-meta">
+                    <!-- 撰写日期 -->
+                    <span class="iconfont-archer post-intro-calander">&#xe676;</span>
+                    <span class="post-intro-time">2024/11/16</span>
+                    <!-- busuanzi -->
+                        <span id="busuanzi_container_page_pv" class="busuanzi-pv">
+                            <span class="iconfont-archer post-intro-busuanzi">&#xe602;</span>
+                            <span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    <!-- 文章分享 -->
+                    <span class="share-wrapper">
+                        <span class="iconfont-archer share-icon">&#xe71d;</span>
+                        <span class="share-text">Share</span>
+                        <ul class="share-list">
+                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
     </div>
 </div>
 
@@ -408,51 +435,98 @@
             <div class="container container-unloaded">
                 <main class="main post-page">
     <article class="article-entry">
-        <h1 id="關於我"><a href="#關於我" class="headerlink" title="關於我"></a>關於我</h1><p><img src="https://miruorange.github.io/blog/images/photo.jpg" alt="個人照"></p>
-<p><strong>現職</strong>：ASUS Python後端工程師<br><strong>人格性質</strong>：外向、喜歡與人相處、樂於學習及分享, 每天不是在學習就是在前往學習的路上</p>
-<p><strong>個人作品集</strong></p>
-<ul>
-<li><strong>Gihub專案</strong>：<a target="_blank" rel="noopener" href="https://github.com/MiruOrange">https://github.com/MiruOrange</a></li>
-<li><strong>個人Youtube</strong>：<a target="_blank" rel="noopener" href="http://www.youtube.com/@%E6%8B%8D%E7%B9%A9%E6%94%BB%E5%9F%8E%E5%B8%AB">www.youtube.com/@拍繩攻城師</a></li>
-<li><strong>個人Blog</strong>：<a href="https://miruorange.github.io/blog/">https://miruorange.github.io/blog/</a></li>
-<li><strong>聯絡我</strong>: <a href="mailto:&#109;&#x61;&#102;&#105;&#97;&#104;&#115;&#117;&#x30;&#x2e;&#x31;&#64;&#103;&#x6d;&#x61;&#x69;&#108;&#x2e;&#x63;&#111;&#x6d;">&#109;&#x61;&#102;&#105;&#97;&#104;&#115;&#117;&#x30;&#x2e;&#x31;&#64;&#103;&#x6d;&#x61;&#x69;&#108;&#x2e;&#x63;&#111;&#x6d;</a></li>
-</ul>
-<p>專注於以下技術領域：</p>
-<ul>
-<li><strong>作業系統</strong>：Ubuntu (Linux)</li>
-<li><strong>資料庫</strong>：MySQL、PostgreSQL、Oracle、Redis</li>
-<li><strong>後端框架</strong>：Python Flask，並善於使用 <code>async</code> 技術以優化 I&#x2F;O 密集型應用的並發處理</li>
-<li><strong>前端技能</strong>：HTML, CSS,SCSS, Bootstrap, Javascript, Vue.js</li>
-<li><strong>任務隊列與異步處理</strong>：使用 Celery 進行任務隊列管理，讓後端處理能夠非同步執行並提升效率</li>
-<li><strong>容器化技術</strong>：Docker、Docker Compose</li>
-<li><strong>CICD</strong>: Gitlab</li>
-<li><strong>伺服器配置</strong>：Nginx 作為反向代理和負載均衡</li>
-<li><strong>API 測試</strong>：Postman</li>
-<li><strong>資料處理</strong>：Pandas</li>
-<li><strong>網路爬蟲</strong>：Beautiful Soup、Selenium</li>
-<li><strong>影像辨識</strong>：pytesseract</li>
-<li><strong>AI 應用</strong>：使用 GPT 模型串接 RAG 服務</li>
-<li><strong>第三方服務整合</strong>：<ul>
-<li>LINE</li>
-<li>Google API</li>
-<li>綠界科技</li>
+        <h2 id="先上結論"><a href="#先上結論" class="headerlink" title="先上結論"></a><strong>先上結論</strong></h2><p>如果你是 Linux 的新手，我推薦從 <strong>Ubuntu</strong> 開始學習。原因很簡單，Windows 的 WSL（Windows Subsystem for Linux）預設就是用 Ubuntu，對於新手來說，這無疑是最容易入門的選擇。</p>
+<blockquote>
+<p>我自己在寫的 Side Project，甚至在公司用的，也都是用 Ubuntu。所以其實免費的就很好用了呢！而且不同的版本核心的指令差不多，要理解或切換也很快，不會因為學了 Ubuntu 後，之後想改用其它系列就要重學。這就是學習 Linux 的好處之一。</p>
+</blockquote>
+<hr>
+<h2 id="什麼叫做-Linux-的核心-Kernel"><a href="#什麼叫做-Linux-的核心-Kernel" class="headerlink" title="什麼叫做 Linux 的核心 (Kernel)"></a><strong>什麼叫做 Linux 的核心 (Kernel)</strong></h2><p>我們先來理解什麼是「核心」。</p>
+<p>電腦是一台由電子元件組成的機器，要讓這台機器「動起來」，比如讓它讀懂鍵盤輸入，或者把文字顯示在螢幕上，都需要一個負責翻譯我們需求的「大腦」——這就是作業系統的核心功能。而 <strong>Linux 核心</strong> 就是這樣的一個「翻譯者」，它負責把我們的指令轉換成機器能理解的語言，讓硬體為我們服務。</p>
+<p>舉個例子，如果把電腦比作一輛車，Linux 核心就是那部「引擎」。有了這個引擎，我們才能讓車子開起來。但光有引擎還不夠，我們還需要方向盤、座椅和車架，這些組件才能讓整台車真正運行。這些額外的組件，就像發行版本裡打包的工具和應用程式一樣。</p>
+<hr>
+<h2 id="什麼是-Linux-發行版本"><a href="#什麼是-Linux-發行版本" class="headerlink" title="什麼是 Linux 發行版本"></a><strong>什麼是 Linux 發行版本</strong></h2><p>Linux 的核心本身只是工具，要讓它更好用，我們需要把核心和其他應用程式（比如檔案管理器、網路工具、圖形介面等等）打包起來，這樣的「打包版本」就稱為 <strong>Linux 發行版本</strong>。</p>
+<p>Linux 發行版本可以理解為一台車的不同型號，有的適合賽車手，有的適合家庭用戶，而有的專為企業設計。雖然這些型號的核心（引擎）都一樣，但它們配備的工具和優化方向各有不同。以下是幾個常見的 Linux 發行版本：</p>
+<h3 id="Ubuntu"><a href="#Ubuntu" class="headerlink" title="Ubuntu"></a><strong>Ubuntu</strong></h3><ul>
+<li><strong>性質</strong>：自由軟體，由 Canonical 公司主導，社群也參與維護。</li>
+<li><strong>優點</strong>：<ul>
+<li>免費，對於初學者非常友好。</li>
+<li>社群活躍，線上有大量學習資源和支援。</li>
+<li>升級和更新頻繁，可以體驗到許多最新功能。</li>
 </ul>
 </li>
-<li><strong>開發工具</strong>：ngrok 用於本地服務外網測試</li>
+<li><strong>缺點</strong>：<ul>
+<li>雖然 Canonical 提供 LTS（長期支援）版本，但相比商業產品，更新與技術支援可能沒有那麼即時可靠。</li>
 </ul>
-<h2 id="成長及專案經驗"><a href="#成長及專案經驗" class="headerlink" title="成長及專案經驗"></a>成長及專案經驗</h2><h3 id="2022-年-iThome-鐵人賽：挑戰自我、持續精進"><a href="#2022-年-iThome-鐵人賽：挑戰自我、持續精進" class="headerlink" title="2022 年 iThome 鐵人賽：挑戰自我、持續精進"></a>2022 年 iThome 鐵人賽：挑戰自我、持續精進</h3><p>在 2022 年，我參加了 iThome 鐵人賽，這是一項每日持續挑戰的技術分享賽事。為了完成主題為「三十天全端工程師挑戰」的教學影片，我在 Raspberry Pi 上架設了簡易的購物商城，實現了基本的全端開發功能。這段經歷讓我在高度專注的狀態下學習，幾乎是「不眠不休」地完成了整個項目，讓我快速掌握了技術應用並鍛煉了專案管理能力。<br><img src="https://miruorange.github.io/blog/2024/10/27/%E8%A8%98%E9%8C%84%E6%92%B0%E5%AF%AB%E6%8A%80%E8%A1%93Blog%E7%9A%84%E7%AC%AC%E4%B8%80%E5%A4%A9/ithome_iron_man.png" alt="鐵人賽參賽影片畫面"></p>
-<h3 id="Raspberry-Pi-部署服務：結合硬體及軟體"><a href="#Raspberry-Pi-部署服務：結合硬體及軟體" class="headerlink" title="Raspberry Pi 部署服務：結合硬體及軟體"></a>Raspberry Pi 部署服務：結合硬體及軟體</h3><p>在學習後端技術之初，我利用 Raspberry Pi 架設了小型伺服器，並部署了網路爬蟲程式來收集數據並進行自動化處理。這是我第一次將技術應用於硬體平台，從安裝系統到配置網路，每一個步驟都讓我深刻體會到系統架設的細緻與成就感。這項經驗不僅讓我理解了硬體伺服器的部署，也大大提升了我處理網路爬蟲與數據處理的能力。在2024年, 甚至因為使用爬蟲爬取租屋網站, 獲得了Joeman的採訪。<br><img src="https://miruorange.github.io/blog/2024/10/27/%E8%A8%98%E9%8C%84%E6%92%B0%E5%AF%AB%E6%8A%80%E8%A1%93Blog%E7%9A%84%E7%AC%AC%E4%B8%80%E5%A4%A9/Joeman_interview.png" alt="Joeman節目採訪"></p>
-<h3 id="GitLab-CI-CD-學習：實踐自動化部署"><a href="#GitLab-CI-CD-學習：實踐自動化部署" class="headerlink" title="GitLab CI&#x2F;CD 學習：實踐自動化部署"></a>GitLab CI&#x2F;CD 學習：實踐自動化部署</h3><p>為了加強 CI&#x2F;CD 能力，我利用假日時間參加了 GitLab CI&#x2F;CD 的相關課程。在課程中，掌握了 Docker、Docker Compose 以及 GitLab 自動化部署的技能，並將其應用於工作專案中，大大提升了開發和部署效率。這項學習經歷讓我能夠以更自動化的方式來進行版本控制與部署，也進一步強化了我的技術架構設計能力。<br><img src="https://miruorange.github.io/blog/2024/10/27/%E8%A8%98%E9%8C%84%E6%92%B0%E5%AF%AB%E6%8A%80%E8%A1%93Blog%E7%9A%84%E7%AC%AC%E4%B8%80%E5%A4%A9/CICD_deploy_image.png" alt="CICD畫面"></p>
-<h3 id="AI-應用學習：搭建-GPT-串接服務的-Side-Project"><a href="#AI-應用學習：搭建-GPT-串接服務的-Side-Project" class="headerlink" title="AI 應用學習：搭建 GPT 串接服務的 Side Project"></a>AI 應用學習：搭建 GPT 串接服務的 Side Project</h3><p>在 AI 領域的應用中，我創建了一個 Side Project，並租用雲端主機架設後端伺服器，串接 GPT 的 API，讓使用者可以註冊、訂閱並客製化知識內容，還能串接到特定的社群媒體平台。這項專案還在持續開發中，但我已經收穫了不少實踐經驗，並深入了解了 AI 與應用程式的整合流程。<br><img src="https://miruorange.github.io/blog/2024/10/27/%E8%A8%98%E9%8C%84%E6%92%B0%E5%AF%AB%E6%8A%80%E8%A1%93Blog%E7%9A%84%E7%AC%AC%E4%B8%80%E5%A4%A9/AI_RAG.png" alt="LINE串接畫面"></p>
-<h3 id="前端學習：進一步拓展技能"><a href="#前端學習：進一步拓展技能" class="headerlink" title="前端學習：進一步拓展技能"></a>前端學習：進一步拓展技能</h3><p>雖然我的主力是後端開發，但在項目過程中，我開始學習 JavaScript 和 Vue 框架的應用。通過這些學習，我逐步掌握了前端設計的基礎，並學會了如何與後端進行無縫對接。這種多方面的技能拓展讓我在技術開發上更加游刃有餘，也讓我對技術整合有了更深的理解。</p>
+</li>
+</ul>
+<blockquote>
+<p>適合對象：初學者、個人使用者，或者需要快速搭建測試環境的開發者。</p>
+</blockquote>
+<hr>
+<h3 id="Red-Hat-RHEL"><a href="#Red-Hat-RHEL" class="headerlink" title="Red Hat (RHEL)"></a><strong>Red Hat (RHEL)</strong></h3><ul>
+<li><strong>性質</strong>：商業產品，由 Red Hat 公司維護，提供企業級技術支援。</li>
+<li><strong>優點</strong>：<ul>
+<li>全球知名的 Linux 發行版本，專為企業和伺服器環境設計。</li>
+<li>提供穩定的更新和高效的技術支援，特別適合重視安全性和穩定性的企業。</li>
+<li>Red Hat 的證照（RHCE、RHCA）是業界的黃金標準，持有者往往能獲得不錯的職涯機會。</li>
+</ul>
+</li>
+<li><strong>缺點</strong>：<ul>
+<li>需要付費，對於個人用戶或新手可能成本較高。</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>適合對象：企業用戶、想學習企業級 Linux 的 IT 工程師。</p>
+</blockquote>
+<hr>
+<h3 id="其他發行版本簡介"><a href="#其他發行版本簡介" class="headerlink" title="其他發行版本簡介"></a><strong>其他發行版本簡介</strong></h3><ol>
+<li><p><strong>Debian</strong>  </p>
+<ul>
+<li>非常穩定，是 Ubuntu 的上游版本。適合追求穩定性且不急於使用最新功能的用戶。</li>
+</ul>
+</li>
+<li><p><strong>Fedora</strong>  </p>
+<ul>
+<li>Red Hat 社群版，專注於最新技術，適合想要體驗前沿功能的開發者。</li>
+</ul>
+</li>
+<li><p><strong>Kali Linux</strong>  </p>
+<ul>
+<li>專為資安和滲透測試設計，內建大量安全測試工具。</li>
+</ul>
+</li>
+<li><p><strong>openSUSE</strong>  </p>
+<ul>
+<li>社群友好，分為穩定版（Leap）和滾動更新版（Tumbleweed），適合用於開發或伺服器管理。</li>
+</ul>
+</li>
+<li><p><strong>Alpine Linux</strong>  </p>
+<ul>
+<li>超輕量級的 Linux 發行版本，適合對系統資源要求極低的環境，比如容器。</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h2 id="為什麼推薦-Ubuntu？"><a href="#為什麼推薦-Ubuntu？" class="headerlink" title="為什麼推薦 Ubuntu？"></a><strong>為什麼推薦 Ubuntu？</strong></h2><p>對於 Linux 初學者，Ubuntu 是理想的入門選擇，原因如下：</p>
+<ol>
+<li><strong>資源豐富</strong>：無論是安裝指導、教學影片還是社群論壇，都有大量內容可以參考。</li>
+<li><strong>WSL 支援</strong>：Windows 提供的 WSL 預設安裝 Ubuntu，幾乎不需要額外配置，初學者可以快速上手。</li>
+<li><strong>穩定且現代</strong>：同時兼顧穩定性和使用最新技術，對於日常使用或開發都非常適合。</li>
+</ol>
+<hr>
+<h2 id="結語"><a href="#結語" class="headerlink" title="結語"></a><strong>結語</strong></h2><p>Linux 是一個強大的工具，但它的學習曲線對於新手可能有點陡峭。選擇一個適合自己的發行版本，是學習 Linux 的第一步。如果你是剛入門的使用者，我還是推薦先從 <strong>Ubuntu</strong> 開始，等熟悉了之後，再探索其他發行版本，比如企業級的 RHEL 或針對特定需求的 Kali。</p>
+<blockquote>
+<p>下一篇文章，我將帶你進入實戰環節，從安裝 WSL 開始，一步步構建你的 Linux 環境，敬請期待！</p>
+</blockquote>
 
     </article>
     <!-- license -->
         <div class="license-wrapper">
             <p>Author：<a href="https://miruorange.github.io/blog">Ken Hsu</a>
-            <p>Link：<a href="https://miruorange.github.io/blog/about/index.html">https://miruorange.github.io/blog/about/index.html</a>
-            <p>Publish date：<a href="https://miruorange.github.io/blog/about/index.html">October 27th 2024, 12:40:38 pm</a>
-            <p>Update date：<a href="https://miruorange.github.io/blog/about/index.html">November 5th 2024, 7:29:57 am</a>
+            <p>Link：<a href="https://miruorange.github.io/blog/2024/11/16/Linux%E5%BE%81%E9%80%94%C2%B7%E7%AC%AC%E4%BA%8C%E8%A9%B1%EF%BC%9A%E6%88%91%E8%A6%81%E5%AD%B8%E5%93%AA%E5%80%8B%E7%89%88%E6%9C%AC%E7%9A%84Linux/">https://miruorange.github.io/blog/2024/11/16/Linux%E5%BE%81%E9%80%94%C2%B7%E7%AC%AC%E4%BA%8C%E8%A9%B1%EF%BC%9A%E6%88%91%E8%A6%81%E5%AD%B8%E5%93%AA%E5%80%8B%E7%89%88%E6%9C%AC%E7%9A%84Linux/</a>
+            <p>Publish date：<a href="https://miruorange.github.io/blog/2024/11/16/Linux%E5%BE%81%E9%80%94%C2%B7%E7%AC%AC%E4%BA%8C%E8%A9%B1%EF%BC%9A%E6%88%91%E8%A6%81%E5%AD%B8%E5%93%AA%E5%80%8B%E7%89%88%E6%9C%AC%E7%9A%84Linux/">November 16th 2024, 10:34:26 am</a>
+            <p>Update date：<a href="https://miruorange.github.io/blog/2024/11/16/Linux%E5%BE%81%E9%80%94%C2%B7%E7%AC%AC%E4%BA%8C%E8%A9%B1%EF%BC%9A%E6%88%91%E8%A6%81%E5%AD%B8%E5%93%AA%E5%80%8B%E7%89%88%E6%9C%AC%E7%9A%84Linux/">November 16th 2024, 11:08:56 am</a>
             <p>License：本文依 <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a> 授權</p>
         </div>
     <!-- paginator -->
@@ -460,6 +534,10 @@
         <li class="next">
         </li>
         <li class="previous">
+                <div class="prevSlogan">Previous Post</div>
+                <a href="/blog/2024/11/04/Linux%E5%BE%81%E9%80%94%C2%B7%E7%AC%AC%E4%B8%80%E8%A9%B1%EF%BC%9A%E7%82%BA%E4%BB%80%E9%BA%BC%E8%A6%81%E5%AD%B8Linux/" title="Linux征途·第一話：為什麼要學Linux">
+                    <div class="prevTitle">Linux征途·第一話：為什麼要學Linux</div>
+                </a>
         </li>
     </ul>
     <!-- comment -->
@@ -503,6 +581,13 @@
 
         </div>
         <!-- toc -->
+            <div class="toc-wrapper toc-wrapper-loding" style=    top:50vh;
+>
+                <div class="toc-catalog">
+                    <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+                </div>
+                <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%88%E4%B8%8A%E7%B5%90%E8%AB%96"><span class="toc-number">1.</span> <span class="toc-text">先上結論</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E9%BA%BC%E5%8F%AB%E5%81%9A-Linux-%E7%9A%84%E6%A0%B8%E5%BF%83-Kernel"><span class="toc-number">2.</span> <span class="toc-text">什麼叫做 Linux 的核心 (Kernel)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E9%BA%BC%E6%98%AF-Linux-%E7%99%BC%E8%A1%8C%E7%89%88%E6%9C%AC"><span class="toc-number">3.</span> <span class="toc-text">什麼是 Linux 發行版本</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Ubuntu"><span class="toc-number">3.1.</span> <span class="toc-text">Ubuntu</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Red-Hat-RHEL"><span class="toc-number">3.2.</span> <span class="toc-text">Red Hat (RHEL)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B6%E4%BB%96%E7%99%BC%E8%A1%8C%E7%89%88%E6%9C%AC%E7%B0%A1%E4%BB%8B"><span class="toc-number">3.3.</span> <span class="toc-text">其他發行版本簡介</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%82%BA%E4%BB%80%E9%BA%BC%E6%8E%A8%E8%96%A6-Ubuntu%EF%BC%9F"><span class="toc-number">4.</span> <span class="toc-text">為什麼推薦 Ubuntu？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B5%90%E8%AA%9E"><span class="toc-number">5.</span> <span class="toc-text">結語</span></a></li></ol>
+            </div>
         <!-- sidebar -->
         <div class="sidebar sidebar-hide">
     <ul class="sidebar-tabs sidebar-tabs-active-0">
@@ -593,6 +678,7 @@
         <!-- busuanzi -->
             <script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script>
         <!-- async load share.js -->
+            <script src="/blog/scripts/share.js" async></script>
         <!-- mermaid -->
     </body>
 </html>
