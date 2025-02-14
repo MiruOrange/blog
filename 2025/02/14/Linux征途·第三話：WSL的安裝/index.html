@@ -18,8 +18,10 @@
 <meta property="og:description" content="前言在前一篇文章，我們聊到了該學哪個版本的 Linux。如果你決定從 Ubuntu 開始，那麼最簡單的方式就是直接在 Windows 上安裝 WSL（Windows Subsystem for Linux）。 WSL 讓你不用安裝虛擬機或雙系統，就能直接在 Windows 裡跑 Linux，對於開發者和學習者來說超級方便。今天就來教你如何安裝 WSL，讓你的 Linux 之旅正式開始！  進入命令">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://miruorange.github.io/blog/2025/02/14/Linux%E5%BE%81%E9%80%94%C2%B7%E7%AC%AC%E4%B8%89%E8%A9%B1%EF%BC%9AWSL%E7%9A%84%E5%AE%89%E8%A3%9D/enter_cmd.png">
+<meta property="og:image" content="https://miruorange.github.io/blog/2025/02/14/Linux%E5%BE%81%E9%80%94%C2%B7%E7%AC%AC%E4%B8%89%E8%A9%B1%EF%BC%9AWSL%E7%9A%84%E5%AE%89%E8%A3%9D/install_wsl.png">
+<meta property="og:image" content="https://miruorange.github.io/blog/2025/02/14/Linux%E5%BE%81%E9%80%94%C2%B7%E7%AC%AC%E4%B8%89%E8%A9%B1%EF%BC%9AWSL%E7%9A%84%E5%AE%89%E8%A3%9D/icheck_wsl_version.png">
 <meta property="article:published_time" content="2025-02-14T10:43:35.000Z">
-<meta property="article:modified_time" content="2025-02-14T11:12:53.530Z">
+<meta property="article:modified_time" content="2025-02-14T11:18:13.660Z">
 <meta property="article:author" content="Ken Hsu">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://miruorange.github.io/blog/2025/02/14/Linux%E5%BE%81%E9%80%94%C2%B7%E7%AC%AC%E4%B8%89%E8%A9%B1%EF%BC%9AWSL%E7%9A%84%E5%AE%89%E8%A3%9D/enter_cmd.png">
@@ -445,7 +447,7 @@
 <hr>
 <h2 id="安裝-WSL"><a href="#安裝-WSL" class="headerlink" title="安裝 WSL"></a><strong>安裝 WSL</strong></h2><p>直接輸入以下指令：</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wsl --install</span><br></pre></td></tr></table></figure>
-
+<p><img src="https://miruorange.github.io/blog/2025/02/14/Linux%E5%BE%81%E9%80%94%C2%B7%E7%AC%AC%E4%B8%89%E8%A9%B1%EF%BC%9AWSL%E7%9A%84%E5%AE%89%E8%A3%9D/install_wsl.png" alt="install_wsl"></p>
 <p>這個指令會自動安裝 WSL2 及預設的 Linux 發行版（通常是 Ubuntu）。</p>
 <blockquote>
 <p><strong>注意</strong>：</p>
@@ -456,7 +458,7 @@
 <hr>
 <h2 id="確認-WSL-版本"><a href="#確認-WSL-版本" class="headerlink" title="確認 WSL 版本"></a><strong>確認 WSL 版本</strong></h2><p>安裝完成後，輸入以下指令查看 WSL 版本：</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wsl --version</span><br></pre></td></tr></table></figure>
-
+<p><img src="https://miruorange.github.io/blog/2025/02/14/Linux%E5%BE%81%E9%80%94%C2%B7%E7%AC%AC%E4%B8%89%E8%A9%B1%EF%BC%9AWSL%E7%9A%84%E5%AE%89%E8%A3%9D/icheck_wsl_version.png" alt="check_wsl_version"></p>
 <p>使用 WSL 2比WSL 1的效能來得更好，也支援完整的 Linux 核心。</p>
 <p>要檢查目前的 WSL 版本，可以輸入：</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wsl -l -v</span><br></pre></td></tr></table></figure>
@@ -499,7 +501,7 @@
             <p>Author：<a href="https://miruorange.github.io/blog">Ken Hsu</a>
             <p>Link：<a href="https://miruorange.github.io/blog/2025/02/14/Linux%E5%BE%81%E9%80%94%C2%B7%E7%AC%AC%E4%B8%89%E8%A9%B1%EF%BC%9AWSL%E7%9A%84%E5%AE%89%E8%A3%9D/">https://miruorange.github.io/blog/2025/02/14/Linux%E5%BE%81%E9%80%94%C2%B7%E7%AC%AC%E4%B8%89%E8%A9%B1%EF%BC%9AWSL%E7%9A%84%E5%AE%89%E8%A3%9D/</a>
             <p>Publish date：<a href="https://miruorange.github.io/blog/2025/02/14/Linux%E5%BE%81%E9%80%94%C2%B7%E7%AC%AC%E4%B8%89%E8%A9%B1%EF%BC%9AWSL%E7%9A%84%E5%AE%89%E8%A3%9D/">February 14th 2025, 6:43:35 pm</a>
-            <p>Update date：<a href="https://miruorange.github.io/blog/2025/02/14/Linux%E5%BE%81%E9%80%94%C2%B7%E7%AC%AC%E4%B8%89%E8%A9%B1%EF%BC%9AWSL%E7%9A%84%E5%AE%89%E8%A3%9D/">February 14th 2025, 7:12:53 pm</a>
+            <p>Update date：<a href="https://miruorange.github.io/blog/2025/02/14/Linux%E5%BE%81%E9%80%94%C2%B7%E7%AC%AC%E4%B8%89%E8%A9%B1%EF%BC%9AWSL%E7%9A%84%E5%AE%89%E8%A3%9D/">February 14th 2025, 7:18:13 pm</a>
             <p>License：本文依 <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a> 授權</p>
         </div>
     <!-- paginator -->
