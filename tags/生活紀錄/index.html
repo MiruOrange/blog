@@ -463,15 +463,20 @@
         
         
         
+        
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 5
+        Total : 6
         </div>
         <!-- search  -->
     </div>
     <div class="post-archive">
             <div class="archive-year"> 2025 </div>
             <ul class="year-list">
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/23</span>
+            <a class="archive-post-title" href="/blog/2025/08/23/Vibe-Coding-%E6%99%82%E4%BB%A3%E4%B8%8B%E7%9A%84%E9%96%8B%E7%99%BC%E8%80%85%E7%94%9F%E5%AD%98%E4%B9%8B%E9%81%93/">Vibe Coding 時代下的開發者生存之道</a>
+        </li>
         <li class="archive-post-item">
             <span class="archive-post-date">08/07</span>
             <a class="archive-post-title" href="/blog/2025/08/07/Toastmaster%E6%A1%8C%E9%81%8A%E6%97%A5%EF%BC%9A%E4%B8%80%E5%A0%B4%E5%85%85%E6%BB%BF%E6%AD%A1%E7%AC%91%E8%88%87%E7%AD%96%E7%95%A5%E7%9A%84%E7%B2%BE%E5%BD%A9%E7%94%9F%E6%B4%BB%E7%B4%80%E9%8C%84/">Toastmaster桌遊日：一場充滿歡笑與策略的精彩生活紀錄</a>
@@ -517,6 +522,18 @@
                 <span class="iconfont-archer">&#xe606;</span>
                 個人介紹
             </span>
+            <span class="sidebar-tag-name" data-tags="AI">
+                <span class="iconfont-archer">&#xe606;</span>
+                AI
+            </span>
+            <span class="sidebar-tag-name" data-tags="Vibe Coding">
+                <span class="iconfont-archer">&#xe606;</span>
+                Vibe Coding
+            </span>
+            <span class="sidebar-tag-name" data-tags="職涯規劃">
+                <span class="iconfont-archer">&#xe606;</span>
+                職涯規劃
+            </span>
     </div>
     <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
     <div class="tag-load-fail" style="display: none; color: #ccc; font-size: 0.6rem;">
@@ -558,8 +575,47 @@
         <!-- algolia -->
         <!-- busuanzi -->
             <script src="//api.busuanzi.cc/static/3.6.9/busuanzi.min.js" defer></script>
-        """        <!-- async load share.js -->
+        <!-- async load share.js -->
         <script async src="https://static.addtoany.com/menu/page.js"></script>
-        <!-- mermaid -->""
+        <!-- mermaid -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // 獲取當前頁面的路徑作為 page_slug
+    const pageSlug = window.location.pathname;
+
+    // 你API的網址
+    const apiUrl = 'https://your-api-domain.com/api/view';
+
+    fetch(apiUrl, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            page_slug: pageSlug
+        })
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        return response.json();
+    })
+    .then(data => {
+        // 假設你有一個ID為 'my-page-views' 的元素來顯示計數
+        const viewElement = document.getElementById('my-page-views');
+        if (viewElement) {
+            viewElement.innerText = data.views;
+        }
+    })
+    .catch(error => {
+        console.error('Error updating page view:', error);
+        const viewElement = document.getElementById('my-page-views');
+        if (viewElement) {
+            viewElement.innerText = 'N/A';
+        }
+    });
+});
+</script>
     </body>
 </html>
