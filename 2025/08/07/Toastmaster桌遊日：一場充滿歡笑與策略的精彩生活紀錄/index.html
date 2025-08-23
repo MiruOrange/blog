@@ -308,12 +308,11 @@
                     <!-- 撰写日期 -->
                     <span class="iconfont-archer post-intro-calander">&#xe676;</span>
                     <span class="post-intro-time">2025/08/07</span>
-                    <!-- busuanzi -->
-                        <span id="busuanzi_container_page_pv" class="busuanzi-pv">
-                            <span class="iconfont-archer post-intro-busuanzi">&#xe602;</span>
-                            <span id="busuanzi_value_page_pv"></span>
-                        </span>
-                        <span id="my-page-views">--</span> 次瀏覽
+                    <!-- Custom View Counter -->
+                    <span id="custom-view-counter-container" style="display: none;">
+                        <span class="iconfont-archer post-intro-busuanzi">&#xe602;</span>
+                        <span id="my-page-views"></span> 次瀏覽
+                    </span>
                     <!-- 文章分享 -->
                     <span class="share-wrapper">
                         <span class="iconfont-archer share-icon">&#xe71d;</span>
@@ -667,8 +666,6 @@
         <!-- fancybox -->
         <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.36/dist/fancybox/fancybox.umd.js" onload="window.Fancybox.bind('[data-fancybox]')" defer></script>
         <!-- algolia -->
-        <!-- busuanzi -->
-            <script src="//api.busuanzi.cc/static/3.6.9/busuanzi.min.js" defer></script>
         <!-- async load share.js -->
             <script src="/blog/scripts/share.js" async></script>
         <script async src="https://static.addtoany.com/menu/page.js"></script>
@@ -698,18 +695,16 @@ document.addEventListener('DOMContentLoaded', function() {
         return response.json();
     })
     .then(data => {
-        // 假設你有一個ID為 'my-page-views' 的元素來顯示計數
         const viewElement = document.getElementById('my-page-views');
-        if (viewElement) {
+        const container = document.getElementById('custom-view-counter-container');
+        if (viewElement && container && data.views) {
             viewElement.innerText = data.views;
+            container.style.display = 'inline';
         }
     })
     .catch(error => {
+        // 當API呼叫失敗或回傳錯誤時，不執行任何動作，讓計數器區塊保持隱藏
         console.error('Error updating page view:', error);
-        const viewElement = document.getElementById('my-page-views');
-        if (viewElement) {
-            viewElement.innerText = 'N/A';
-        }
     });
 });
 </script>

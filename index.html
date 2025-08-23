@@ -744,8 +744,6 @@ Infra 是 Infrastructure 的縮寫，代表我負責公司或團隊的基礎設�
         <!-- fancybox -->
         <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.36/dist/fancybox/fancybox.umd.js" onload="window.Fancybox.bind('[data-fancybox]')" defer></script>
         <!-- algolia -->
-        <!-- busuanzi -->
-            <script src="//api.busuanzi.cc/static/3.6.9/busuanzi.min.js" defer></script>
         <!-- async load share.js -->
         <script async src="https://static.addtoany.com/menu/page.js"></script>
         <!-- mermaid -->
@@ -773,18 +771,16 @@ document.addEventListener('DOMContentLoaded', function() {
         return response.json();
     })
     .then(data => {
-        // 假設你有一個ID為 'my-page-views' 的元素來顯示計數
         const viewElement = document.getElementById('my-page-views');
-        if (viewElement) {
+        const container = document.getElementById('custom-view-counter-container');
+        if (viewElement && container && data.views) {
             viewElement.innerText = data.views;
+            container.style.display = 'inline';
         }
     })
     .catch(error => {
+        // 當API呼叫失敗或回傳錯誤時，不執行任何動作，讓計數器區塊保持隱藏
         console.error('Error updating page view:', error);
-        const viewElement = document.getElementById('my-page-views');
-        if (viewElement) {
-            viewElement.innerText = 'N/A';
-        }
     });
 });
 </script>
