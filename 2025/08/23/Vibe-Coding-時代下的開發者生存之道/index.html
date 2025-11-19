@@ -308,9 +308,9 @@
                     <span class="iconfont-archer post-intro-calander">&#xe676;</span>
                     <span class="post-intro-time">2025/08/23</span>
                     <!-- Custom View Counter -->
-                    <span id="custom-view-counter-container" style="display: none;">
-                        <span class="iconfont-archer post-intro-busuanzi">&#xe602;</span>
-                        <span id="my-page-views"></span> 次瀏覽
+                    <span id="custom-view-counter-container" style="margin-left: 10px; display: none;">
+                        <span class="iconfont-archer post-intro-calander">&#xe602;</span>
+                        <span id="my-page-views"></span>
                     </span>
                     <!-- 文章分享 -->
                     <span class="share-wrapper">
@@ -732,42 +732,46 @@
         <script async src="https://static.addtoany.com/menu/page.js"></script>
         <!-- mermaid -->
             <script src='https://cdn.jsdelivr.net/npm/mermaid@8.11.0/dist/mermaid.min.js' onload="window.mermaid.initialize({theme: 'dark'})" async></script>
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    // 獲取當前頁面的路徑作為 page_slug
-    const pageSlug = window.location.pathname;
+        
+        <!-- Custom Page View Counter Script -->
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                // Only run on post pages
+                if (document.body.classList.contains('post-body')) {
+                    const container = document.getElementById('custom-view-counter-container');
+                    const viewsElement = document.getElementById('my-page-views');
 
-    // 你API的網址
-    const apiUrl = 'https://your-api-domain.com/api/view';
+                    if (!viewsElement || !container) {
+                        return; 
+                    }
 
-    fetch(apiUrl, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-            page_slug: pageSlug
-        })
-    })
-    .then(response => {
-        if (!response.ok) {
-            throw new Error('Network response was not ok');
-        }
-        return response.json();
-    })
-    .then(data => {
-        const viewElement = document.getElementById('my-page-views');
-        const container = document.getElementById('custom-view-counter-container');
-        if (viewElement && container && data.views) {
-            viewElement.innerText = data.views;
-            container.style.display = 'inline';
-        }
-    })
-    .catch(error => {
-        // 當API呼叫失敗或回傳錯誤時，不執行任何動作，讓計數器區塊保持隱藏
-        console.error('Error updating page view:', error);
-    });
-});
-</script>
+                    const postUrl = window.location.href;
+
+                    fetch('https://blog.mirubattery.com/api/blog/v1/posts', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({ url: postUrl }),
+                    })
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Network response was not ok for view counter.');
+                        }
+                        return response.json();
+                    })
+                    .then(data => {
+                        if (data && data.views) {
+                            viewsElement.innerText = data.views;
+                            container.style.display = 'inline';
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error fetching post views:', error);
+                        // Do not show the counter if the API fails
+                    });
+                }
+            });
+        </script>
     </body>
 </html>
