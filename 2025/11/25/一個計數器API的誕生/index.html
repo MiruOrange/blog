@@ -10,15 +10,15 @@
     <meta name="copyright" content="Ken Hsu">
         <meta name="keywords" content="python,full-stack,web,development,backend,frontend,database,server,client,network,security,algorithm,data structure,programming,software,engineering,computer,science,technology,learning,sharing,experience,knowledge,tutorial">
     <meta name="description" content="這是一篇關於技術學習的部落格文章，分享了撰寫技術筆記的過程。">
-    <meta name="description" content="最近完成了一個小小的 Side Project，為這個部落格打造了一個專屬的頁面計數器 API。回顧整個過程，我赫然發現，這段心路歷程的複雜與精彩程度，大概都能當作明年的鐵人賽主題了。 起心動念：告別不穩定的免費服務故事的開頭很單純。一直以來，我的部落格都是使用免費的第三方計數器服務。但天下沒有白吃的午餐，這個服務時好時壞，數據也常常在某次更新後就人間蒸發。身為一個有強迫症的工程師，看著數字歸零或">
+    <meta name="description" content="最近完成了一個小小的 Side Project，為這個部落格打造了一個專屬的頁面計數器 API。回顧整個過程，我赫然發現，這段心路歷程的複雜與精彩程度，大概都能當作明年的鐵人賽主題了。 💡 起心動念：告別不穩定的免費服務 故事的開頭很單純。一直以來，我的部落格都是使用免費的第三方計數器服務。但天下沒有白吃的午餐，這個服務時好時壞，數據也常常在某次更新後就人間蒸發。身為一個有強迫症的工程師，看著數">
 <meta property="og:type" content="article">
 <meta property="og:title" content="一個計數器API的誕生：看似簡單卻暗藏玄機的Side Project">
 <meta property="og:url" content="https://miruorange.github.io/blog/2025/11/25/%E4%B8%80%E5%80%8B%E8%A8%88%E6%95%B8%E5%99%A8API%E7%9A%84%E8%AA%95%E7%94%9F/index.html">
 <meta property="og:site_name" content="朝向全端之路：從基礎到進階的技術探索 by Ken">
-<meta property="og:description" content="最近完成了一個小小的 Side Project，為這個部落格打造了一個專屬的頁面計數器 API。回顧整個過程，我赫然發現，這段心路歷程的複雜與精彩程度，大概都能當作明年的鐵人賽主題了。 起心動念：告別不穩定的免費服務故事的開頭很單純。一直以來，我的部落格都是使用免費的第三方計數器服務。但天下沒有白吃的午餐，這個服務時好時壞，數據也常常在某次更新後就人間蒸發。身為一個有強迫症的工程師，看著數字歸零或">
+<meta property="og:description" content="最近完成了一個小小的 Side Project，為這個部落格打造了一個專屬的頁面計數器 API。回顧整個過程，我赫然發現，這段心路歷程的複雜與精彩程度，大概都能當作明年的鐵人賽主題了。 💡 起心動念：告別不穩定的免費服務 故事的開頭很單純。一直以來，我的部落格都是使用免費的第三方計數器服務。但天下沒有白吃的午餐，這個服務時好時壞，數據也常常在某次更新後就人間蒸發。身為一個有強迫症的工程師，看著數">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2025-11-25T10:30:00.000Z">
-<meta property="article:modified_time" content="2025-11-25T13:34:04.077Z">
+<meta property="article:modified_time" content="2025-11-25T13:41:57.885Z">
 <meta property="article:author" content="Ken Hsu">
 <meta property="article:tag" content="Side Project">
 <meta property="article:tag" content="API">
@@ -463,41 +463,38 @@
                 <main class="main post-page">
     """    <article class="article-entry">
         <p>最近完成了一個小小的 Side Project，為這個部落格打造了一個專屬的頁面計數器 API。回顧整個過程，我赫然發現，這段心路歷程的複雜與精彩程度，大概都能當作明年的鐵人賽主題了。</p>
-<h3 id="起心動念：告別不穩定的免費服務"><a href="#起心動念：告別不穩定的免費服務" class="headerlink" title="起心動念：告別不穩定的免費服務"></a>起心動念：告別不穩定的免費服務</h3><p>故事的開頭很單純。一直以來，我的部落格都是使用免費的第三方計數器服務。但天下沒有白吃的午餐，這個服務時好時壞，數據也常常在某次更新後就人間蒸發。身為一個有強迫症的工程師，看著數字歸零或無法顯示，實在是難以忍受。</p>
+<h3 id="💡-起心動念：告別不穩定的免費服務"><a href="#💡-起心動念：告別不穩定的免費服務" class="headerlink" title="💡 起心動念：告別不穩定的免費服務"></a>💡 起心動念：告別不穩定的免費服務</h3><blockquote>
+<p>故事的開頭很單純。一直以來，我的部落格都是使用免費的第三方計數器服務。但天下沒有白吃的午餐，這個服務時好時壞，數據也常常在某次更新後就人間蒸發。身為一個有強迫症的工程師，看著數字歸零或無法顯示，實在是難以忍受。</p>
 <p>於是，一個念頭油然而生：「乾脆自己架一個 API 來計數吧！」</p>
+</blockquote>
 <p>這個想法聽起來很直接，但在我的部落格架構下卻有一個根本性的挑戰：我的網站是基於 GitHub Pages 的靜態頁面，這意味著我沒有任何可以執行後端程式的空間。要實現這個目標，等於是從零到一打造一個獨立的網路服務。</p>
-<h3 id="盤點與規劃：從零到一的建置藍圖"><a href="#盤點與規劃：從零到一的建置藍圖" class="headerlink" title="盤點與規劃：從零到一的建置藍圖"></a>盤點與規劃：從零到一的建置藍圖</h3><p>在下了這個「自幹」的決心後，我深吸一口氣，開始盤點所有需要完成的任務。不列不知道，一列嚇一跳，整個待辦清單遠比想像中來得長：</p>
+<h3 id="🗺️-盤點與規劃：從零到一的建置藍圖"><a href="#🗺️-盤點與規劃：從零到一的建置藍圖" class="headerlink" title="🗺️ 盤點與規劃：從零到一的建置藍圖"></a>🗺️ 盤點與規劃：從零到一的建置藍圖</h3><p>在下了這個「自幹」的決心後，我深吸一口氣，開始盤點所有需要完成的任務。不列不知道，一列嚇一跳，整個待辦清單遠比想像中來得長：</p>
 <ol>
-<li><strong>申請雲端主機</strong>：在 Oracle Cloud 上申請一台 Always Free 等級的 VM，作為我服務的家。</li>
-<li><strong>環境容器化</strong>：在 VM 上安裝 Docker，讓未來的服務都能標準化、好管理。</li>
-<li><strong>建立網路門戶</strong>：啟動一個 Nginx 服務，作為所有流量的入口。</li>
-<li><strong>準備數據倉庫</strong>：同樣用 Docker 啟動一個 PostgreSQL 資料庫服務。</li>
-<li><strong>擁有自己的門牌</strong>：購買一個專屬的網域名稱。</li>
-<li><strong>打通防火牆</strong>：設定 Oracle Cloud 的網路安全群組 (Firewall)，開放 80 和 443 埠。</li>
-<li><strong>建立網址指向</strong>：在 DNS 服務商那邊設定 CNAME，將我的網址指向 VM 的公開 IP。</li>
-<li><strong>配置反向代理</strong>：調整 Nginx 設定，增加 Certbot 驗證用的路由規則。</li>
-<li><strong>取得安全憑證</strong>：撰寫 Shell Script，自動化 Certbot 容器的啟動與驗證，順利拿到免費的 SSL 憑證。</li>
-<li><strong>開發 API 雛形</strong>：啟一個 Flask 服務，並在 VM 本地端測試確定能成功訪問。</li>
-<li><strong>設計計數功能</strong>：為 Flask 服務增加計數器的 Route，並用 Postman 徹底測試請求與回應。</li>
-<li><strong>建立資料表</strong>：在 PostgreSQL 資料庫上建立專門用來儲存計數資訊的 Table。</li>
-<li><strong>串接資料庫</strong>：在 Flask 中增加存取資料庫的函式，並測試 CRUD（建立、讀取、更新、刪除）功能是否正常。</li>
-<li><strong>完成 API 邏輯</strong>：將計數器 API 的所有邏輯完成，並精心設計 Response 的 JSON 格式。</li>
-<li><strong>前端串接</strong>：回到部落格的程式碼，調整前端 JavaScript，非同步地呼叫我全新的 API。</li>
-<li><strong>大功告成</strong>！</li>
+<li>☁️ <strong>申請雲端主機</strong>：在 Oracle Cloud 上申請一台 Always Free 等級的 VM。</li>
+<li>🐳 <strong>環境容器化</strong>：在 VM 上安裝 Docker，讓未來的服務都能標準化、好管理。</li>
+<li>🌐 <strong>建立網路門戶</strong>：啟動一個 Nginx 服務，作為所有流量的入口。</li>
+<li>📦 <strong>準備數據倉庫</strong>：同樣用 Docker 啟動一個 PostgreSQL 資料庫服務。</li>
+<li>🏷️ <strong>擁有自己的門牌</strong>：購買一個專屬的網域名稱。</li>
+<li>🔥 <strong>打通防火牆</strong>：設定 Oracle Cloud 的網路安全群組 (Firewall)，開放 80 和 443 埠。</li>
+<li>➡️ <strong>建立網址指向</strong>：在 DNS 服務商那邊設定 CNAME，將我的網址指向 VM 的公開 IP。</li>
+<li>⚙️ <strong>配置反向代理</strong>：調整 Nginx 設定，增加 Certbot 驗證用的路由規則。</li>
+<li>🔒 <strong>取得安全憑證</strong>：撰寫 Shell Script，自動化 Certbot 容器的啟動與驗證，順利拿到免費的 SSL 憑證。</li>
+<li>🧪 <strong>開發 API 雛形</strong>：啟一個 Flask 服務，並在 VM 本地端測試確定能成功訪問。</li>
+<li>📈 <strong>設計計數功能</strong>：為 Flask 服務增加計數器的 Route，並用 Postman 徹底測試請求與回應。</li>
+<li>🗂️ <strong>建立資料表</strong>：在 PostgreSQL 資料庫上建立專門用來儲存計數資訊的 Table。</li>
+<li>🔄 <strong>串接資料庫</strong>：在 Flask 中增加存取資料庫的函式，並測試 CRUD 功能是否正常。</li>
+<li>✅ <strong>完成 API 邏輯</strong>：將計數器 API 的所有邏輯完成，並精心設計 Response 的 JSON 格式。</li>
+<li>💻 <strong>前端串接</strong>：回到部落格的程式碼，調整前端 JavaScript，非同步地呼叫我全新的 API。</li>
+<li>🎉 <strong>大功告成</strong>！</li>
 </ol>
-<h3 id="知識的廣度：一個都不能少"><a href="#知識的廣度：一個都不能少" class="headerlink" title="知識的廣度：一個都不能少"></a>知識的廣度：一個都不能少</h3><p>這個看似簡單的計數器，背後卻牽涉了相當廣泛的知識領域。每一個環節都是一門專業，缺一不可：</p>
-<ul>
-<li>申請與管理 VM 的<strong>雲端基礎設施</strong>知識</li>
-<li><strong>Docker</strong> 的使用與容器化觀念</li>
-<li>雲端<strong>防火牆</strong>與網路安全規則的設定</li>
-<li>建立 <strong>SSH Tunnel</strong> 連線並管理雲端資料庫的技巧</li>
-<li>使用 <strong>Certbot</strong> 申請免費 SSL 憑證的流程</li>
-<li><strong>Nginx</strong> 的反向代理與路由設定</li>
-<li><strong>Flask</strong> 網站框架的開發與實踐</li>
-<li><strong>前端 Code</strong> 的調整與 API 串接</li>
-</ul>
+<h3 id="📚-知識的廣度：一個都不能少"><a href="#📚-知識的廣度：一個都不能少" class="headerlink" title="📚 知識的廣度：一個都不能少"></a>📚 知識的廣度：一個都不能少</h3><p>這個看似簡單的計數器，背後卻牽涉了相當廣泛的知識領域。每一個環節都是一門專業，缺一不可：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">- 申請與管理 VM 的雲端基礎設施知識</span><br><span class="line">- Docker 的使用與容器化觀念</span><br><span class="line">- 雲端防火牆與網路安全規則的設定</span><br><span class="line">- 建立 SSH Tunnel 連線並管理雲端資料庫的技巧</span><br><span class="line">- 使用 Certbot 申請免費 SSL 憑證的流程</span><br><span class="line">- Nginx 的反向代理與路由設定</span><br><span class="line">- Flask 網站框架的開發與實踐</span><br><span class="line">- 前端 Code 的調整與 API 串接</span><br></pre></td></tr></table></figure>
+
 <p>完成這個小小的 API，竟然需要橫跨這麼多領域的技能。有時候我會開玩笑地想，這樣的分享會不會直接勸退一堆想當工程師的朋友呢？（笑）</p>
-<h3 id="總結：工程師不只寫-Code，更要學會規劃與執行"><a href="#總結：工程師不只寫-Code，更要學會規劃與執行" class="headerlink" title="總結：工程師不只寫 Code，更要學會規劃與執行"></a>總結：工程師不只寫 Code，更要學會規劃與執行</h3><p>這個專案最大的收穫，不僅僅是那個穩定運作的計數器，更是再次體悟到：「想當一個稱職的工程師，除了鑽研技術，更要學會規劃與執行計畫。」</p>
+<hr>
+<h3 id="🎯-總結：工程師不只寫-Code，更要學會規劃與執行"><a href="#🎯-總結：工程師不只寫-Code，更要學會規劃與執行" class="headerlink" title="🎯 總結：工程師不只寫 Code，更要學會規劃與執行"></a>🎯 總結：工程師不只寫 Code，更要學會規劃與執行</h3><blockquote>
+<p>這個專案最大的收穫，不僅僅是那個穩定運作的計數器，更是再次體悟到：「想當一個稱職的工程師，除了鑽研技術，更要學會規劃與執行計畫。」</p>
+</blockquote>
 <p>面對這份長長的待辦清單，如果想著要一次做完，恐怕永遠沒有開始的勇氣。這次我採用了<strong>「原子習慣」</strong>的精神，將任務切分成每天一點點、一點點的進度。我規定自己每天至少要完成一小步，哪怕只是「建立一個資料夾」這種微不足道的小事。</p>
 <p>透過身體力行，讓「持續推進專案」成為一種習慣。最終，這個看似龐大的工程，就在每天的累積下一步步完成了。</p>
 <p>希望這次的經驗分享，能帶給螢幕前的你一些啟發。</p>
@@ -514,7 +511,7 @@
             <p>Author：<a href="https://miruorange.github.io/blog">Ken Hsu</a>
             <p>Link：<a href="https://miruorange.github.io/blog/2025/11/25/%E4%B8%80%E5%80%8B%E8%A8%88%E6%95%B8%E5%99%A8API%E7%9A%84%E8%AA%95%E7%94%9F/">https://miruorange.github.io/blog/2025/11/25/%E4%B8%80%E5%80%8B%E8%A8%88%E6%95%B8%E5%99%A8API%E7%9A%84%E8%AA%95%E7%94%9F/</a>
             <p>Publish date：<a href="https://miruorange.github.io/blog/2025/11/25/%E4%B8%80%E5%80%8B%E8%A8%88%E6%95%B8%E5%99%A8API%E7%9A%84%E8%AA%95%E7%94%9F/">November 25th 2025, 6:30:00 pm</a>
-            <p>Update date：<a href="https://miruorange.github.io/blog/2025/11/25/%E4%B8%80%E5%80%8B%E8%A8%88%E6%95%B8%E5%99%A8API%E7%9A%84%E8%AA%95%E7%94%9F/">November 25th 2025, 9:34:04 pm</a>
+            <p>Update date：<a href="https://miruorange.github.io/blog/2025/11/25/%E4%B8%80%E5%80%8B%E8%A8%88%E6%95%B8%E5%99%A8API%E7%9A%84%E8%AA%95%E7%94%9F/">November 25th 2025, 9:41:57 pm</a>
             <p>License：本文依 <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a> 授權</p>
         </div>
     <!-- paginator -->
@@ -574,7 +571,7 @@
                 <div class="toc-catalog">
                     <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
                 </div>
-                <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B5%B7%E5%BF%83%E5%8B%95%E5%BF%B5%EF%BC%9A%E5%91%8A%E5%88%A5%E4%B8%8D%E7%A9%A9%E5%AE%9A%E7%9A%84%E5%85%8D%E8%B2%BB%E6%9C%8D%E5%8B%99"><span class="toc-number">1.</span> <span class="toc-text">起心動念：告別不穩定的免費服務</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9B%A4%E9%BB%9E%E8%88%87%E8%A6%8F%E5%8A%83%EF%BC%9A%E5%BE%9E%E9%9B%B6%E5%88%B0%E4%B8%80%E7%9A%84%E5%BB%BA%E7%BD%AE%E8%97%8D%E5%9C%96"><span class="toc-number">2.</span> <span class="toc-text">盤點與規劃：從零到一的建置藍圖</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9F%A5%E8%AD%98%E7%9A%84%E5%BB%A3%E5%BA%A6%EF%BC%9A%E4%B8%80%E5%80%8B%E9%83%BD%E4%B8%8D%E8%83%BD%E5%B0%91"><span class="toc-number">3.</span> <span class="toc-text">知識的廣度：一個都不能少</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B8%BD%E7%B5%90%EF%BC%9A%E5%B7%A5%E7%A8%8B%E5%B8%AB%E4%B8%8D%E5%8F%AA%E5%AF%AB-Code%EF%BC%8C%E6%9B%B4%E8%A6%81%E5%AD%B8%E6%9C%83%E8%A6%8F%E5%8A%83%E8%88%87%E5%9F%B7%E8%A1%8C"><span class="toc-number">4.</span> <span class="toc-text">總結：工程師不只寫 Code，更要學會規劃與執行</span></a></li></ol>
+                <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%92%A1-%E8%B5%B7%E5%BF%83%E5%8B%95%E5%BF%B5%EF%BC%9A%E5%91%8A%E5%88%A5%E4%B8%8D%E7%A9%A9%E5%AE%9A%E7%9A%84%E5%85%8D%E8%B2%BB%E6%9C%8D%E5%8B%99"><span class="toc-number">1.</span> <span class="toc-text">💡 起心動念：告別不穩定的免費服務</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%97%BA%EF%B8%8F-%E7%9B%A4%E9%BB%9E%E8%88%87%E8%A6%8F%E5%8A%83%EF%BC%9A%E5%BE%9E%E9%9B%B6%E5%88%B0%E4%B8%80%E7%9A%84%E5%BB%BA%E7%BD%AE%E8%97%8D%E5%9C%96"><span class="toc-number">2.</span> <span class="toc-text">🗺️ 盤點與規劃：從零到一的建置藍圖</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%93%9A-%E7%9F%A5%E8%AD%98%E7%9A%84%E5%BB%A3%E5%BA%A6%EF%BC%9A%E4%B8%80%E5%80%8B%E9%83%BD%E4%B8%8D%E8%83%BD%E5%B0%91"><span class="toc-number">3.</span> <span class="toc-text">📚 知識的廣度：一個都不能少</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%8E%AF-%E7%B8%BD%E7%B5%90%EF%BC%9A%E5%B7%A5%E7%A8%8B%E5%B8%AB%E4%B8%8D%E5%8F%AA%E5%AF%AB-Code%EF%BC%8C%E6%9B%B4%E8%A6%81%E5%AD%B8%E6%9C%83%E8%A6%8F%E5%8A%83%E8%88%87%E5%9F%B7%E8%A1%8C"><span class="toc-number">4.</span> <span class="toc-text">🎯 總結：工程師不只寫 Code，更要學會規劃與執行</span></a></li></ol>
             </div>
         <!-- sidebar -->
         <div class="sidebar sidebar-hide">
