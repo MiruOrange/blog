@@ -10,15 +10,15 @@
     <meta name="copyright" content="Ken Hsu">
         <meta name="keywords" content="python,full-stack,web,development,backend,frontend,database,server,client,network,security,algorithm,data structure,programming,software,engineering,computer,science,technology,learning,sharing,experience,knowledge,tutorial">
     <meta name="description" content="這是一篇關於技術學習的部落格文章，分享了撰寫技術筆記的過程。">
-    <meta name="description" content="最近，我終於完成了一個放在心上許久的目標——去上了CCNA認證課程。當我跟身邊的工程師朋友、同事提到這個決定時，不少人露出了疑惑的表情：「一個後端工程師，為什麼要去學那個？我們又不是要當網管。」 這篇文章，我想分享我的心路歷程，以及為什麼我現在會斬釘截鐵地說：「如果你是個有企圖心的後端工程師，你真的該去了解CCNA在談些什麼。」 旅程的起點：一個 Docker 網路衝突這一切的開端，源自於工作上一">
+    <meta name="description" content="最近，我終於完成了一個放在心上許久的目標——去上了CCNA認證課程。當我跟身邊的工程師朋友、同事提到這個決定時，不少人露出了疑惑的表情：「一個後端工程師，為什麼要去學那個？我們又不是要當網管。」 這篇文章，我想分享我的心路歷程，以及為什麼我現在會斬釘截鐵地說：「如果你是個有企圖心的後端工程師，你真的該去了解CCNA在談些什麼。」  🚀 旅程的起點：一個 Docker 網路衝突這一切的開端，源自於">
 <meta property="og:type" content="article">
 <meta property="og:title" content="後端工程師的網通入坑之路：為什麼我推薦每個後端都該懂CCNA">
 <meta property="og:url" content="https://miruorange.github.io/blog/2025/12/08/why-backend-engineers-should-learn-ccna/index.html">
 <meta property="og:site_name" content="朝向全端之路：從基礎到進階的技術探索 by Ken">
-<meta property="og:description" content="最近，我終於完成了一個放在心上許久的目標——去上了CCNA認證課程。當我跟身邊的工程師朋友、同事提到這個決定時，不少人露出了疑惑的表情：「一個後端工程師，為什麼要去學那個？我們又不是要當網管。」 這篇文章，我想分享我的心路歷程，以及為什麼我現在會斬釘截鐵地說：「如果你是個有企圖心的後端工程師，你真的該去了解CCNA在談些什麼。」 旅程的起點：一個 Docker 網路衝突這一切的開端，源自於工作上一">
+<meta property="og:description" content="最近，我終於完成了一個放在心上許久的目標——去上了CCNA認證課程。當我跟身邊的工程師朋友、同事提到這個決定時，不少人露出了疑惑的表情：「一個後端工程師，為什麼要去學那個？我們又不是要當網管。」 這篇文章，我想分享我的心路歷程，以及為什麼我現在會斬釘截鐵地說：「如果你是個有企圖心的後端工程師，你真的該去了解CCNA在談些什麼。」  🚀 旅程的起點：一個 Docker 網路衝突這一切的開端，源自於">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2025-12-08T07:30:00.000Z">
-<meta property="article:modified_time" content="2025-12-08T09:32:31.279Z">
+<meta property="article:modified_time" content="2025-12-08T09:39:43.611Z">
 <meta property="article:author" content="Ken Hsu">
 <meta property="article:tag" content="職涯規劃">
 <meta property="article:tag" content="CCNA">
@@ -454,10 +454,14 @@
     """    <article class="article-entry">
         <p>最近，我終於完成了一個放在心上許久的目標——去上了CCNA認證課程。當我跟身邊的工程師朋友、同事提到這個決定時，不少人露出了疑惑的表情：「一個後端工程師，為什麼要去學那個？我們又不是要當網管。」</p>
 <p>這篇文章，我想分享我的心路歷程，以及為什麼我現在會斬釘截鐵地說：「如果你是個有企圖心的後端工程師，你真的該去了解CCNA在談些什麼。」</p>
-<h3 id="旅程的起點：一個-Docker-網路衝突"><a href="#旅程的起點：一個-Docker-網路衝突" class="headerlink" title="旅程的起點：一個 Docker 網路衝突"></a>旅程的起點：一個 Docker 網路衝突</h3><p>這一切的開端，源自於工作上一個看似單純卻又棘手的問題。當時，我正在本地開發環境中運行一個 Docker 容器，卻發現它內部的網段(CIDR)正好與公司內網的某個重要服務發生了衝突，導致我無法從容器中存取該服務。</p>
+<hr>
+<h3 id="🚀-旅程的起點：一個-Docker-網路衝突"><a href="#🚀-旅程的起點：一個-Docker-網路衝突" class="headerlink" title="🚀 旅程的起點：一個 Docker 網路衝突"></a>🚀 旅程的起點：一個 Docker 網路衝突</h3><p>這一切的開端，源自於工作上一個看似單純卻又棘手的問題。當時，我正在本地開發環境中運行一個 Docker 容器，卻發現它內部的網段(CIDR)正好與公司內網的某個重要服務發生了衝突，導致我無法從容器中存取該服務。</p>
 <p>為了解決這個問題，我花了很多時間去查資料、問同事，雖然最終靠著修改 Docker 的網路配置繞過了，但我心中那個最大的疑問始終揮之不去：「這一切底下，究竟是怎麼運作的？為什麼會衝突？網段又是什麼？」我知道，我對網路的理解，還停留在非常表層的階段。</p>
-<h3 id="被質疑的決定與現實的殘酷"><a href="#被質疑的決定與現實的殘酷" class="headerlink" title="被質疑的決定與現實的殘酷"></a>被質疑的決定與現實的殘酷</h3><p>抱著解決心中疑惑的渴望，我決定報名恆逸的CCNA課程。這是一個不小的決定，不僅僅是因為那高達六萬多的學費，更是因為身邊的質疑聲浪。</p>
+<hr>
+<h3 id="🤔-被質疑的決定與現實的殘酷"><a href="#🤔-被質疑的決定與現實的殘酷" class="headerlink" title="🤔 被質疑的決定與現實的殘酷"></a>🤔 被質疑的決定與現實的殘酷</h3><p>抱著解決心中疑惑的渴望，我決定報名恆逸的CCNA課程。這是一個不小的決定，不僅僅是因為那高達六萬多的學費，更是因為身邊的質疑聲浪。</p>
+<blockquote>
 <p>朋友和同事不解地問：「你是後-端-工-程-師耶，學這個做什麼？把時間拿去刷 LeetCode、研究新的框架不是更好嗎？」</p>
+</blockquote>
 <p>他們的質疑並非全無道理。如果你是一個只負責純粹演算法、數據結構，完全不用接觸伺服器、不用管部署流程的後端工程師，那麼專注在時間複雜度、空間複雜度，並熟練使用各種開發套件，或許真的足夠了。</p>
 <p>但現實是，有多少工作能切分得如此乾淨？身為後端，我們或多或少都會碰到：</p>
 <ul>
@@ -469,7 +473,8 @@
 <li>資料庫的連線問題</li>
 </ul>
 <p>這些環節，每一個都與「網路」緊密相連。當問題發生時，只會說「在我電腦上是好的」，是遠遠不夠的。</p>
-<h3 id="豁然開朗：串起知識的珍珠鍊"><a href="#豁然開朗：串起知識的珍珠鍊" class="headerlink" title="豁然開朗：串起知識的珍珠鍊"></a>豁然開朗：串起知識的珍珠鍊</h3><p>整個CCNA課程對我來說，與其說是學習一門全新的知識，更像是一個「串連」的過程。過去那些在工作中零星碰到、一知半解的名詞，如 IP、Subnet Mask、Gateway、DNS、Port… 終於在這堂課中被有系統地串成了一條完整的珍珠鍊。</p>
+<hr>
+<h3 id="✨-豁然開朗：串起知識的珍珠鍊"><a href="#✨-豁然開朗：串起知識的珍珠鍊" class="headerlink" title="✨ 豁然開朗：串起知識的珍珠鍊"></a>✨ 豁然開朗：串起知識的珍珠鍊</h3><p>整個CCNA課程對我來說，與其說是學習一門全新的知識，更像是一個「串連」的過程。過去那些在工作中零星碰到、一知半解的名詞，如 IP、Subnet Mask、Gateway、DNS、Port… 終於在這堂課中被有系統地串成了一條完整的珍珠鍊。</p>
 <p>我終於搞懂了：</p>
 <ul>
 <li>**網路七層 (OSI Model)**：讓我知道問題排查時，該從哪個層次開始思考。</li>
@@ -480,16 +485,23 @@
 <li><strong>Traceroute 的奧秘</strong>：以前只會用這個指令，現在終於知道它背後是利用ICMP與TTL來追蹤路徑。</li>
 </ul>
 <p>而最讓我驚豔的，是這門課也為我打開了資安的大門。</p>
-<h3 id="不只是網通，更是資安的基石"><a href="#不只是網通，更是資安的基石" class="headerlink" title="不只是網通，更是資安的基石"></a>不只是網通，更是資安的基石</h3><p>在公司內部的資安訓練中，講師總是告誡我們：「不要隨便連別人的Wi-Fi，也不要把自己的Wi-Fi給別人用」，並提到了「中間人攻擊 (Man-in-the-Middle)」。當時我只知道要照做，卻不知道「為什麼」。</p>
+<hr>
+<h3 id="🔒-不只是網通，更是資安的基石"><a href="#🔒-不只是網通，更是資安的基石" class="headerlink" title="🔒 不只是網通，更是資安的基石"></a>🔒 不只是網通，更是資安的基石</h3><p>在公司內部的資安訓練中，講師總是告誡我們：</p>
+<blockquote>
+<p>「不要隨便連別人的Wi-Fi，也不要把自己的Wi-Fi給別人用」，並提到了「中間人攻擊 (Man-in-the-Middle)」。</p>
+</blockquote>
+<p>當時我只知道要照做，卻不知道「為什麼」。</p>
 <p>上了課才知道，光是一個基礎到不行的「ARP (位址解析協定)」，就存在著能被輕易利用的弱點。攻擊者可以在同一個區域網路內，透過 ARP 欺騙，讓自己偽裝成Gateway，從而攔截、竊聽你所有的網路流量。這讓我瞬間理解了公共Wi-Fi的危險性，背後發涼。</p>
-<h3 id="給後端夥伴們的建議"><a href="#給後端夥伴們的建議" class="headerlink" title="給後端夥伴們的建議"></a>給後端夥伴們的建議</h3><p>常常有人覺得，學這些理論，但未來又不會真的去設定 Cisco 的路由器或交換機。但我想說的是，網路運作的原理是通用的。你在 CCNA 學到的概念，在 Linux 系統中也完全適用，只是實現的工具和指令不同而已。例如：</p>
+<hr>
+<h3 id="👨‍💻-給後端夥伴們的建議"><a href="#👨‍💻-給後端夥伴們的建議" class="headerlink" title="👨‍💻 給後端夥伴們的建議"></a>👨‍💻 給後端夥伴們的建議</h3><p>常常有人覺得，學這些理論，但未來又不會真的去設定 Cisco 的路由器或交換機。但我想說的是，網路運作的原理是通用的。你在 CCNA 學到的概念，在 Linux 系統中也完全適用，只是實現的工具和指令不同而已。例如：</p>
 <ul>
-<li>在 Cisco IOS 你用 <code>show ip route</code>，在 Linux 你用 <code>ip route</code> 或 <code>route -n</code>。</li>
-<li>Cisco 的 ACL 概念，與 Linux 的 <code>iptables</code> 或 <code>firewalld</code> 有異曲同工之妙。</li>
+<li><strong>路由表檢視</strong>：Cisco IOS 的 <code>show ip route</code> 就對應到 Linux 的 <code>ip route</code> 或 <code>route -n</code>。</li>
+<li><strong>防火牆規則</strong>：Cisco 的 ACL (Access Control List) 概念，與 Linux 的 <code>iptables</code> 或 <code>firewalld</code> 原理相通。</li>
 </ul>
 <p>我承認，因為我本身熟悉 Linux 操作，所以在課程中對很多指令和概念能更快上手。對於沒有 Linux 基礎的同學，可能會感到稍微吃力一些。但這也反過來證明了，身為一個現代後端工程師，Linux 和網路知識是相輔相成的。</p>
-<h3 id="結論"><a href="#結論" class="headerlink" title="結論"></a>結論</h3><p>所以，後端工程師到底需不需要學CCNA？</p>
-<p>我的答案是：<strong>絕對推薦。</strong></p>
+<hr>
+<h3 id="✅-結論"><a href="#✅-結論" class="headerlink" title="✅ 結論"></a>✅ 結論</h3><p>所以，後端工程師到底需不需要學CCNA？</p>
+<p>我的答案是：<strong>絕對推薦。</strong> 👍</p>
 <p>這筆投資換來的，不是讓你轉行當網管，而是讓你成為一個更全面、更具備問題解決能力的工程師。當下一次服務連不上、網路延遲變高、或是需要規劃一個新的系統架構時，你的腦中會有更清晰的藍圖，而不是只能模糊地猜測。</p>
 <p>這是一條能讓你從「只會寫Code的開發者」蛻變為「能駕馭系統的工程師」的必經之路。</p>
 
@@ -505,7 +517,7 @@
             <p>Author：<a href="https://miruorange.github.io/blog">Ken Hsu</a>
             <p>Link：<a href="https://miruorange.github.io/blog/2025/12/08/why-backend-engineers-should-learn-ccna/">https://miruorange.github.io/blog/2025/12/08/why-backend-engineers-should-learn-ccna/</a>
             <p>Publish date：<a href="https://miruorange.github.io/blog/2025/12/08/why-backend-engineers-should-learn-ccna/">December 8th 2025, 3:30:00 pm</a>
-            <p>Update date：<a href="https://miruorange.github.io/blog/2025/12/08/why-backend-engineers-should-learn-ccna/">December 8th 2025, 5:32:31 pm</a>
+            <p>Update date：<a href="https://miruorange.github.io/blog/2025/12/08/why-backend-engineers-should-learn-ccna/">December 8th 2025, 5:39:43 pm</a>
             <p>License：本文依 <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a> 授權</p>
         </div>
     <!-- paginator -->
@@ -565,7 +577,7 @@
                 <div class="toc-catalog">
                     <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
                 </div>
-                <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%97%85%E7%A8%8B%E7%9A%84%E8%B5%B7%E9%BB%9E%EF%BC%9A%E4%B8%80%E5%80%8B-Docker-%E7%B6%B2%E8%B7%AF%E8%A1%9D%E7%AA%81"><span class="toc-number">1.</span> <span class="toc-text">旅程的起點：一個 Docker 網路衝突</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A2%AB%E8%B3%AA%E7%96%91%E7%9A%84%E6%B1%BA%E5%AE%9A%E8%88%87%E7%8F%BE%E5%AF%A6%E7%9A%84%E6%AE%98%E9%85%B7"><span class="toc-number">2.</span> <span class="toc-text">被質疑的決定與現實的殘酷</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B1%81%E7%84%B6%E9%96%8B%E6%9C%97%EF%BC%9A%E4%B8%B2%E8%B5%B7%E7%9F%A5%E8%AD%98%E7%9A%84%E7%8F%8D%E7%8F%A0%E9%8D%8A"><span class="toc-number">3.</span> <span class="toc-text">豁然開朗：串起知識的珍珠鍊</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8D%E5%8F%AA%E6%98%AF%E7%B6%B2%E9%80%9A%EF%BC%8C%E6%9B%B4%E6%98%AF%E8%B3%87%E5%AE%89%E7%9A%84%E5%9F%BA%E7%9F%B3"><span class="toc-number">4.</span> <span class="toc-text">不只是網通，更是資安的基石</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B5%A6%E5%BE%8C%E7%AB%AF%E5%A4%A5%E4%BC%B4%E5%80%91%E7%9A%84%E5%BB%BA%E8%AD%B0"><span class="toc-number">5.</span> <span class="toc-text">給後端夥伴們的建議</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B5%90%E8%AB%96"><span class="toc-number">6.</span> <span class="toc-text">結論</span></a></li></ol>
+                <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%9A%80-%E6%97%85%E7%A8%8B%E7%9A%84%E8%B5%B7%E9%BB%9E%EF%BC%9A%E4%B8%80%E5%80%8B-Docker-%E7%B6%B2%E8%B7%AF%E8%A1%9D%E7%AA%81"><span class="toc-number">1.</span> <span class="toc-text">🚀 旅程的起點：一個 Docker 網路衝突</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%A4%94-%E8%A2%AB%E8%B3%AA%E7%96%91%E7%9A%84%E6%B1%BA%E5%AE%9A%E8%88%87%E7%8F%BE%E5%AF%A6%E7%9A%84%E6%AE%98%E9%85%B7"><span class="toc-number">2.</span> <span class="toc-text">🤔 被質疑的決定與現實的殘酷</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E2%9C%A8-%E8%B1%81%E7%84%B6%E9%96%8B%E6%9C%97%EF%BC%9A%E4%B8%B2%E8%B5%B7%E7%9F%A5%E8%AD%98%E7%9A%84%E7%8F%8D%E7%8F%A0%E9%8D%8A"><span class="toc-number">3.</span> <span class="toc-text">✨ 豁然開朗：串起知識的珍珠鍊</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%94%92-%E4%B8%8D%E5%8F%AA%E6%98%AF%E7%B6%B2%E9%80%9A%EF%BC%8C%E6%9B%B4%E6%98%AF%E8%B3%87%E5%AE%89%E7%9A%84%E5%9F%BA%E7%9F%B3"><span class="toc-number">4.</span> <span class="toc-text">🔒 不只是網通，更是資安的基石</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%91%A8%E2%80%8D%F0%9F%92%BB-%E7%B5%A6%E5%BE%8C%E7%AB%AF%E5%A4%A5%E4%BC%B4%E5%80%91%E7%9A%84%E5%BB%BA%E8%AD%B0"><span class="toc-number">5.</span> <span class="toc-text">👨‍💻 給後端夥伴們的建議</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E2%9C%85-%E7%B5%90%E8%AB%96"><span class="toc-number">6.</span> <span class="toc-text">✅ 結論</span></a></li></ol>
             </div>
         <!-- sidebar -->
         <div class="sidebar sidebar-hide">
