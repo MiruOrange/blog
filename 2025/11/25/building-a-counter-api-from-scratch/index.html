@@ -10,22 +10,29 @@
     <meta name="copyright" content="Ken Hsu">
         <meta name="keywords" content="python,full-stack,web,development,backend,frontend,database,server,client,network,security,algorithm,data structure,programming,software,engineering,computer,science,technology,learning,sharing,experience,knowledge,tutorial">
     <meta name="description" content="這是一篇關於技術學習的部落格文章，分享了撰寫技術筆記的過程。">
-    <meta name="description" content="先上結論如果你剛開始接觸 Linux，我推薦你從 Ubuntu 開始學習。為什麼？因為它簡單好用，資源又多，而且 Windows 的 WSL（Windows Subsystem for Linux）預設用的就是 Ubuntu，直接開箱即用，不用安裝虛擬機，對於新手來說非常友善。  就拿我自己來說，不管是平常寫 Side Project 還是在公司裡工作，大多用的也是 Ubuntu！重點是它免費又夠">
+    <meta name="description" content="最近完成了一個小小的 Side Project，為這個部落格打造了一個專屬的頁面計數器 API。回顧整個過程，我赫然發現，這段心路歷程的複雜與精彩程度，大概都能當作明年的鐵人賽主題了。 💡 起心動念：告別不穩定的免費服務 故事的開頭很單純。一直以來，我的部落格都是使用免費的第三方計數器服務。但天下沒有白吃的午餐，這個服務時好時壞，數據也常常在某次更新後就人間蒸發。身為一個有強迫症的工程師，看著數">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Linux征途·第二話：我要學哪個版本的Linux">
-<meta property="og:url" content="https://miruorange.github.io/blog/2024/11/16/Linux%E5%BE%81%E9%80%94%C2%B7%E7%AC%AC%E4%BA%8C%E8%A9%B1%EF%BC%9A%E6%88%91%E8%A6%81%E5%AD%B8%E5%93%AA%E5%80%8B%E7%89%88%E6%9C%AC%E7%9A%84Linux/index.html">
+<meta property="og:title" content="一個計數器API的誕生：看似簡單卻暗藏玄機的Side Project">
+<meta property="og:url" content="https://miruorange.github.io/blog/2025/11/25/building-a-counter-api-from-scratch/index.html">
 <meta property="og:site_name" content="朝向全端之路：從基礎到進階的技術探索 by Ken">
-<meta property="og:description" content="先上結論如果你剛開始接觸 Linux，我推薦你從 Ubuntu 開始學習。為什麼？因為它簡單好用，資源又多，而且 Windows 的 WSL（Windows Subsystem for Linux）預設用的就是 Ubuntu，直接開箱即用，不用安裝虛擬機，對於新手來說非常友善。  就拿我自己來說，不管是平常寫 Side Project 還是在公司裡工作，大多用的也是 Ubuntu！重點是它免費又夠">
+<meta property="og:description" content="最近完成了一個小小的 Side Project，為這個部落格打造了一個專屬的頁面計數器 API。回顧整個過程，我赫然發現，這段心路歷程的複雜與精彩程度，大概都能當作明年的鐵人賽主題了。 💡 起心動念：告別不穩定的免費服務 故事的開頭很單純。一直以來，我的部落格都是使用免費的第三方計數器服務。但天下沒有白吃的午餐，這個服務時好時壞，數據也常常在某次更新後就人間蒸發。身為一個有強迫症的工程師，看著數">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2024-11-16T02:34:26.000Z">
-<meta property="article:modified_time" content="2025-08-07T16:13:42.022Z">
+<meta property="article:published_time" content="2025-11-25T10:30:00.000Z">
+<meta property="article:modified_time" content="2025-12-01T01:51:24.041Z">
 <meta property="article:author" content="Ken Hsu">
-<meta property="article:tag" content="Linux">
+<meta property="article:tag" content="Side Project">
+<meta property="article:tag" content="API">
+<meta property="article:tag" content="DevOps">
+<meta property="article:tag" content="Flask">
+<meta property="article:tag" content="Docker">
+<meta property="article:tag" content="Nginx">
+<meta property="article:tag" content="Certbot">
+<meta property="article:tag" content="原子習慣">
 <meta name="twitter:card" content="summary">
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <link rel="icon" href="/blog/assets/favicon.ico">
-    <title>Linux征途·第二話：我要學哪個版本的Linux · 朝向全端之路：從基礎到進階的技術探索 by Ken</title>
+    <title>一個計數器API的誕生：看似簡單卻暗藏玄機的Side Project · 朝向全端之路：從基礎到進階的技術探索 by Ken</title>
     <!-- /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
 /* This file is meant as a standalone workflow for
 - testing support for link[rel=preload]
@@ -256,7 +263,7 @@
             <a href="/blog/">想像力就是我的超能力</a>
         </div>
         <div class="post-title header-element">
-            <a href="#" class="post-name">Linux征途·第二話：我要學哪個版本的Linux</a>
+            <a href="#" class="post-name">一個計數器API的誕生：看似簡單卻暗藏玄機的Side Project</a>
         </div>
     </div>
 </header>
@@ -283,7 +290,7 @@
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
-                Linux征途·第二話：我要學哪個版本的Linux
+                一個計數器API的誕生：看似簡單卻暗藏玄機的Side Project
             <!-- 404 -->
         </h1>
         <!-- 副标题 -->
@@ -295,14 +302,21 @@
             <div class="post-intros">
                 <!-- 文章页标签  -->
                     <div class="post-intro-tags" >
-        <a class="post-tag" href="javascript:void(0);" data-tags="Linux">Linux</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags="Side Project">Side Project</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags="API">API</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags="DevOps">DevOps</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags="Flask">Flask</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags="Docker">Docker</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags="Nginx">Nginx</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags="Certbot">Certbot</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags="原子習慣">原子習慣</a>
 </div>
 
                 <!-- 文章字数统计 -->
                 <div class="post-intro-meta">
                     <!-- 撰写日期 -->
                     <span class="iconfont-archer post-intro-calander">&#xe676;</span>
-                    <span class="post-intro-time">2024/11/16</span>
+                    <span class="post-intro-time">2025/11/25</span>
                     <!-- Custom View Counter -->
                     <span id="custom-view-counter-container" style="margin-left: 10px; display: none;">
                         <span class="iconfont-archer post-intro-busuanzi">&#xe602;</span>
@@ -448,91 +462,44 @@
             <div class="container container-unloaded">
                 <main class="main post-page">
     """    <article class="article-entry">
-        <h2 id="先上結論"><a href="#先上結論" class="headerlink" title="先上結論"></a><strong>先上結論</strong></h2><p>如果你剛開始接觸 Linux，我推薦你從 <strong>Ubuntu</strong> 開始學習。為什麼？因為它簡單好用，資源又多，而且 Windows 的 WSL（Windows Subsystem for Linux）預設用的就是 Ubuntu，直接開箱即用，不用安裝虛擬機，對於新手來說非常友善。</p>
-<blockquote>
-<p>就拿我自己來說，不管是平常寫 Side Project 還是在公司裡工作，大多用的也是 Ubuntu！重點是它免費又夠用啊！而且不同版本之間，基本指令其實都差不多，學了 Ubuntu 以後，你要切換到別的版本也很快上手，完全不用擔心「學了白學」這種事。</p>
+        <p>最近完成了一個小小的 Side Project，為這個部落格打造了一個專屬的頁面計數器 API。回顧整個過程，我赫然發現，這段心路歷程的複雜與精彩程度，大概都能當作明年的鐵人賽主題了。</p>
+<h3 id="💡-起心動念：告別不穩定的免費服務"><a href="#💡-起心動念：告別不穩定的免費服務" class="headerlink" title="💡 起心動念：告別不穩定的免費服務"></a>💡 起心動念：告別不穩定的免費服務</h3><blockquote>
+<p>故事的開頭很單純。一直以來，我的部落格都是使用免費的第三方計數器服務。但天下沒有白吃的午餐，這個服務時好時壞，數據也常常在某次更新後就人間蒸發。身為一個有強迫症的工程師，看著數字歸零或無法顯示，實在是難以忍受。</p>
+<p>於是，一個念頭油然而生：「乾脆自己架一個 API 來計數吧！」</p>
 </blockquote>
-<hr>
-<h2 id="什麼叫做-Linux-的核心-Kernel"><a href="#什麼叫做-Linux-的核心-Kernel" class="headerlink" title="什麼叫做 Linux 的核心 (Kernel)"></a><strong>什麼叫做 Linux 的核心 (Kernel)</strong></h2><p>要了解 Linux，先來搞清楚什麼是「核心」。</p>
-<p>電腦其實就像一堆硬體零件拼起來的機器，想讓它動起來，總得有個「翻譯官」幫我們把需求講給硬體聽。比如你敲鍵盤，電腦怎麼知道你按的是哪個鍵？這些事情全靠作業系統的核心處理，而 <strong>Linux 核心</strong> 就是這個翻譯官。</p>
-<p>打個比方，電腦就像一輛車，Linux 核心是它的「引擎」。有了引擎，車子才能跑起來，但如果沒有方向盤、車架和座椅呢？那這車也沒法開。所以，我們需要在核心之外，再配上一些工具和軟體，這些就是我們常說的「發行版本」。</p>
-<hr>
-<h2 id="什麼是-Linux-發行版本"><a href="#什麼是-Linux-發行版本" class="headerlink" title="什麼是 Linux 發行版本"></a><strong>什麼是 Linux 發行版本</strong></h2><p>簡單來說，Linux 發行版本就是把「核心」和其他實用工具包裝在一起的一個「套裝版」，用起來更方便，適合不同需求的使用者。</p>
-<p>就像車有不同的型號一樣，有的車適合賽車手，有的適合帶孩子上下學，有的專為運貨設計。同樣，Linux 的發行版本也有很多選擇，雖然它們的核心（引擎）一樣，但裡面的工具和設計方向可能很不一樣。下面我介紹幾個比較有名的版本：</p>
-<h3 id="Ubuntu"><a href="#Ubuntu" class="headerlink" title="Ubuntu"></a><strong>Ubuntu</strong></h3><ul>
-<li><strong>性質</strong>：免費軟體，由 Canonical 公司開發，社群也有參與維護。</li>
-<li><strong>優點</strong>：<ul>
-<li>免費而且容易上手，對初學者非常友好。</li>
-<li>網上有超多學習資源和社群可以幫你解答問題。</li>
-<li>更新速度快，可以試到不少最新的功能。</li>
-</ul>
-</li>
-<li><strong>缺點</strong>：<ul>
-<li>雖然有「LTS」長期支援版，但如果真的遇到很複雜的問題，可能還是得靠自己多查資料，因為不像商業產品那樣有專人技術支援。</li>
-</ul>
-</li>
-</ul>
-<blockquote>
-<p>適合誰：想試試 Linux 的新手、需要快速搭建開發環境的程式設計師。</p>
-</blockquote>
-<hr>
-<h3 id="Red-Hat-RHEL"><a href="#Red-Hat-RHEL" class="headerlink" title="Red Hat (RHEL)"></a><strong>Red Hat (RHEL)</strong></h3><ul>
-<li><strong>性質</strong>：商業版，由 Red Hat 公司開發，提供企業級支援。</li>
-<li><strong>優點</strong>：<ul>
-<li>非常穩定，很多公司用它來當伺服器系統。</li>
-<li>有專業的技術支援，安全性和可靠性都很高。</li>
-<li>它家的證照（比如 RHCE、RHCA）在 IT 界可是「黃金招牌」，很多大公司都認。</li>
-</ul>
-</li>
-<li><strong>缺點</strong>：<ul>
-<li>要花錢買授權，對於個人來說成本比較高。</li>
-</ul>
-</li>
-</ul>
-<blockquote>
-<p>適合誰：公司用戶，或者想深度學習企業級 Linux 的工程師。</p>
-</blockquote>
-<hr>
-<h3 id="其他發行版本簡介"><a href="#其他發行版本簡介" class="headerlink" title="其他發行版本簡介"></a><strong>其他發行版本簡介</strong></h3><ol>
-<li><p><strong>Debian</strong></p>
-<ul>
-<li>非常穩定的版本，也是 Ubuntu 的上游來源。適合追求穩定性、不需要太多新功能的人。</li>
-</ul>
-</li>
-<li><p><strong>Fedora</strong></p>
-<ul>
-<li>Red Hat 社群版，比較前沿，適合想要嘗試最新技術的開發者。</li>
-</ul>
-</li>
-<li><p><strong>Kali Linux</strong></p>
-<ul>
-<li>專門為資安和滲透測試設計，內建很多安全工具。</li>
-</ul>
-</li>
-<li><p><strong>openSUSE</strong></p>
-<ul>
-<li>分為 Leap（穩定版）和 Tumbleweed（滾動更新版），適合開發或伺服器管理。</li>
-</ul>
-</li>
-<li><p><strong>Alpine Linux</strong></p>
-<ul>
-<li>極簡、輕量級版本，非常適合資源受限的環境，比如容器化系統。</li>
-</ul>
-</li>
-</ol>
-<hr>
-<h2 id="為什麼推薦-Ubuntu？"><a href="#為什麼推薦-Ubuntu？" class="headerlink" title="為什麼推薦 Ubuntu？"></a><strong>為什麼推薦 Ubuntu？</strong></h2><p>對於新手來說，Ubuntu 真的是最友好的選擇，理由如下：</p>
+<p>這個想法聽起來很直接，但在我的部落格架構下卻有一個根本性的挑戰：我的網站是基於 GitHub Pages 的靜態頁面，這意味著我沒有任何可以執行後端程式的空間。要實現這個目標，等於是從零到一打造一個獨立的網路服務。</p>
+<h3 id="🗺️-盤點與規劃：從零到一的建置藍圖"><a href="#🗺️-盤點與規劃：從零到一的建置藍圖" class="headerlink" title="🗺️ 盤點與規劃：從零到一的建置藍圖"></a>🗺️ 盤點與規劃：從零到一的建置藍圖</h3><p>在下了這個「自幹」的決心後，我深吸一口氣，開始盤點所有需要完成的任務。不列不知道，一列嚇一跳，整個待辦清單遠比想像中來得長：</p>
 <ol>
-<li><strong>資源超多</strong>：不管是教學影片還是解答論壇，搜尋 Ubuntu 相關問題幾乎都能找到答案。</li>
-<li><strong>WSL 支援</strong>：Windows 提供的 WSL 預設就安裝 Ubuntu，免去一堆繁瑣的設定，直接上手。</li>
-<li><strong>穩定又現代</strong>：穩定性和新功能兼具，對於平時學習、開發都很適合。</li>
+<li>☁️ <strong>申請雲端主機</strong>：在 Oracle Cloud 上申請一台 Always Free 等級的 VM。</li>
+<li>🐳 <strong>環境容器化</strong>：在 VM 上安裝 Docker，讓未來的服務都能標準化、好管理。</li>
+<li>🌐 <strong>建立網路門戶</strong>：啟動一個 Nginx 服務，作為所有流量的入口。</li>
+<li>🏃 <strong>架設 GitLab Runner</strong>：在 VM 上安裝並註冊一個 GitLab Runner，為 CI&#x2F;CD 做準備。</li>
+<li>🚀 <strong>建置 CI&#x2F;CD Pipeline</strong>：撰寫 <code>.gitlab-ci.yml</code>，設定自動化測試、打包、並部署到伺服器，方便每次更新就可以直接部署。</li>
+<li>📦 <strong>準備數據倉庫</strong>：同樣用 Docker 啟動一個 PostgreSQL 資料庫服務。</li>
+<li>🏷️ <strong>擁有自己的門牌</strong>：購買一個專屬的網域名稱。</li>
+<li>🔥 <strong>打通防火牆</strong>：設定 Oracle Cloud 的網路安全群組 (Firewall)，開放 80 和 443 埠。</li>
+<li>➡️ <strong>建立網址指向</strong>：在 DNS 服務商那邊設定 A 紀錄，將我的網址指向 VM 的公開 IP。</li>
+<li>⚙️ <strong>配置反向代理</strong>：調整 Nginx 設定，增加 Certbot 驗證用的路由規則。</li>
+<li>🔒 <strong>取得安全憑證</strong>：撰寫 Shell Script，自動化 Certbot 容器的啟動與驗證，順利拿到免費的 SSL 憑證。</li>
+<li>🧪 <strong>開發 API 雛形</strong>：啟一個 Flask 服務，並在 VM 本地端測試確定能成功訪問。</li>
+<li>📈 <strong>設計計數功能</strong>：為 Flask 服務增加計數器的 Route，並用 Postman 徹底測試請求與回應。</li>
+<li>🗂️ <strong>建立資料表</strong>：在 PostgreSQL 資料庫上建立專門用來儲存計數資訊的 Table。</li>
+<li>🔄 <strong>串接資料庫</strong>：在 Flask 中增加存取資料庫的函式，並測試 CRUD 功能是否正常。</li>
+<li>✅ <strong>完成 API 邏輯</strong>：將計數器 API 的所有邏輯完成，並精心設計 Response 的 JSON 格式。</li>
+<li>💻 <strong>前端串接</strong>：回到部落格的程式碼，調整前端 JavaScript，非同步地呼叫我全新的 API。</li>
+<li>🎉 <strong>大功告成</strong>！</li>
 </ol>
-<blockquote>
-<p>重點是，Ubuntu 的學習門檻低，幾乎不會踩坑，讓你可以專注學習 Linux 的基礎操作。</p>
-</blockquote>
+<h3 id="📚-知識的廣度：一個都不能少"><a href="#📚-知識的廣度：一個都不能少" class="headerlink" title="📚 知識的廣度：一個都不能少"></a>📚 知識的廣度：一個都不能少</h3><p>這個看似簡單的計數器，背後卻牽涉了相當廣泛的知識領域。每一個環節都是一門專業，缺一不可：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">- 申請與管理 VM 的雲端基礎設施知識</span><br><span class="line">- Docker 的使用與容器化觀念</span><br><span class="line">- 雲端防火牆與網路安全規則的設定</span><br><span class="line">- 建立 SSH Tunnel 連線並管理雲端資料庫的技巧</span><br><span class="line">- 使用 Certbot 申請免費 SSL 憑證的流程</span><br><span class="line">- Nginx 的反向代理與路由設定</span><br><span class="line">- Flask 網站框架的開發與實踐</span><br><span class="line">- 前端 Code 的調整與 API 串接</span><br></pre></td></tr></table></figure>
+
+<p>完成這個小小的 API，竟然需要橫跨這麼多領域的技能。有時候我會開玩笑地想，這樣的分享會不會直接勸退一堆想當工程師的朋友呢？（笑）</p>
 <hr>
-<h2 id="結語"><a href="#結語" class="headerlink" title="結語"></a><strong>結語</strong></h2><p>學 Linux，就像開啟了一場全新的冒險。雖然一開始有點難，但只要選對了發行版本，學習曲線會變得很平緩。對於剛入門的人，我還是建議先從 <strong>Ubuntu</strong> 開始，熟悉之後你可以再試試像 RHEL 或 Kali 這樣的專業發行版。</p>
-<p>下一篇文章，我會帶你從 <strong>WSL 開始安裝 Ubuntu</strong>，一起實戰操作，讓你的 Linux 征途真正啟動！準備好動手了嗎？我們下一篇見！😊</p>
+<h3 id="🎯-總結：工程師不只寫-Code，更要學會規劃與執行"><a href="#🎯-總結：工程師不只寫-Code，更要學會規劃與執行" class="headerlink" title="🎯 總結：工程師不只寫 Code，更要學會規劃與執行"></a>🎯 總結：工程師不只寫 Code，更要學會規劃與執行</h3><blockquote>
+<p>這個專案最大的收穫，不僅僅是那個穩定運作的計數器，更是再次體悟到：「想當一個稱職的工程師，除了鑽研技術，更要學會規劃與執行計畫。」</p>
+</blockquote>
+<p>面對這份長長的待辦清單，如果想著要一次做完，恐怕永遠沒有開始的勇氣。這次我採用了<strong>「原子習慣」</strong>的精神，將任務切分成每天一點點、一點點的進度。我規定自己每天至少要完成一小步，哪怕只是「建立一個資料夾」這種微不足道的小事。</p>
+<p>透過身體力行，讓「持續推進專案」成為一種習慣。最終，這個看似龐大的工程，就在每天的累積下一步步完成了。</p>
+<p>希望這次的經驗分享，能帶給螢幕前的你一些啟發。</p>
 
     </article>
     <div class="a2a_kit a2a_kit_size_32 a2a_default_style">
@@ -544,23 +511,23 @@
     <!-- license -->"""
         <div class="license-wrapper">
             <p>Author：<a href="https://miruorange.github.io/blog">Ken Hsu</a>
-            <p>Link：<a href="https://miruorange.github.io/blog/2024/11/16/Linux%E5%BE%81%E9%80%94%C2%B7%E7%AC%AC%E4%BA%8C%E8%A9%B1%EF%BC%9A%E6%88%91%E8%A6%81%E5%AD%B8%E5%93%AA%E5%80%8B%E7%89%88%E6%9C%AC%E7%9A%84Linux/">https://miruorange.github.io/blog/2024/11/16/Linux%E5%BE%81%E9%80%94%C2%B7%E7%AC%AC%E4%BA%8C%E8%A9%B1%EF%BC%9A%E6%88%91%E8%A6%81%E5%AD%B8%E5%93%AA%E5%80%8B%E7%89%88%E6%9C%AC%E7%9A%84Linux/</a>
-            <p>Publish date：<a href="https://miruorange.github.io/blog/2024/11/16/Linux%E5%BE%81%E9%80%94%C2%B7%E7%AC%AC%E4%BA%8C%E8%A9%B1%EF%BC%9A%E6%88%91%E8%A6%81%E5%AD%B8%E5%93%AA%E5%80%8B%E7%89%88%E6%9C%AC%E7%9A%84Linux/">November 16th 2024, 10:34:26 am</a>
-            <p>Update date：<a href="https://miruorange.github.io/blog/2024/11/16/Linux%E5%BE%81%E9%80%94%C2%B7%E7%AC%AC%E4%BA%8C%E8%A9%B1%EF%BC%9A%E6%88%91%E8%A6%81%E5%AD%B8%E5%93%AA%E5%80%8B%E7%89%88%E6%9C%AC%E7%9A%84Linux/">August 8th 2025, 12:13:42 am</a>
+            <p>Link：<a href="https://miruorange.github.io/blog/2025/11/25/building-a-counter-api-from-scratch/">https://miruorange.github.io/blog/2025/11/25/building-a-counter-api-from-scratch/</a>
+            <p>Publish date：<a href="https://miruorange.github.io/blog/2025/11/25/building-a-counter-api-from-scratch/">November 25th 2025, 6:30:00 pm</a>
+            <p>Update date：<a href="https://miruorange.github.io/blog/2025/11/25/building-a-counter-api-from-scratch/">December 1st 2025, 9:51:24 am</a>
             <p>License：本文依 <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a> 授權</p>
         </div>
     <!-- paginator -->
     <ul class="post-paginator">
         <li class="next">
                 <div class="nextSlogan">Next Post</div>
-                <a href="/blog/2025/02/14/Linux%E5%BE%81%E9%80%94%C2%B7%E7%AC%AC%E4%B8%89%E8%A9%B1%EF%BC%9AWSL%E7%9A%84%E5%AE%89%E8%A3%9D/" title="Linux征途·第三話：WSL的安裝">
-                    <div class="nextTitle">Linux征途·第三話：WSL的安裝</div>
+                <a href="/blog/2025/12/08/why-backend-engineers-should-learn-ccna/" title="後端工程師的網通入坑之路：為什麼我推薦每個後端都該懂CCNA">
+                    <div class="nextTitle">後端工程師的網通入坑之路：為什麼我推薦每個後端都該懂CCNA</div>
                 </a>
         </li>
         <li class="previous">
                 <div class="prevSlogan">Previous Post</div>
-                <a href="/blog/2024/11/04/Linux%E5%BE%81%E9%80%94%C2%B7%E7%AC%AC%E4%B8%80%E8%A9%B1%EF%BC%9A%E7%82%BA%E4%BB%80%E9%BA%BC%E8%A6%81%E5%AD%B8Linux/" title="Linux征途·第一話：為什麼要學Linux">
-                    <div class="prevTitle">Linux征途·第一話：為什麼要學Linux</div>
+                <a href="/blog/2025/09/07/toastmaster-club-bbq-party/" title="Toastmaster社團烤肉趴：一場重拾熱情與連結的盛會">
+                    <div class="prevTitle">Toastmaster社團烤肉趴：一場重拾熱情與連結的盛會</div>
                 </a>
         </li>
     </ul>
@@ -610,7 +577,7 @@
                 <div class="toc-catalog">
                     <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
                 </div>
-                <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%88%E4%B8%8A%E7%B5%90%E8%AB%96"><span class="toc-number">1.</span> <span class="toc-text">先上結論</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E9%BA%BC%E5%8F%AB%E5%81%9A-Linux-%E7%9A%84%E6%A0%B8%E5%BF%83-Kernel"><span class="toc-number">2.</span> <span class="toc-text">什麼叫做 Linux 的核心 (Kernel)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E9%BA%BC%E6%98%AF-Linux-%E7%99%BC%E8%A1%8C%E7%89%88%E6%9C%AC"><span class="toc-number">3.</span> <span class="toc-text">什麼是 Linux 發行版本</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Ubuntu"><span class="toc-number">3.1.</span> <span class="toc-text">Ubuntu</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Red-Hat-RHEL"><span class="toc-number">3.2.</span> <span class="toc-text">Red Hat (RHEL)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B6%E4%BB%96%E7%99%BC%E8%A1%8C%E7%89%88%E6%9C%AC%E7%B0%A1%E4%BB%8B"><span class="toc-number">3.3.</span> <span class="toc-text">其他發行版本簡介</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%82%BA%E4%BB%80%E9%BA%BC%E6%8E%A8%E8%96%A6-Ubuntu%EF%BC%9F"><span class="toc-number">4.</span> <span class="toc-text">為什麼推薦 Ubuntu？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B5%90%E8%AA%9E"><span class="toc-number">5.</span> <span class="toc-text">結語</span></a></li></ol>
+                <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%92%A1-%E8%B5%B7%E5%BF%83%E5%8B%95%E5%BF%B5%EF%BC%9A%E5%91%8A%E5%88%A5%E4%B8%8D%E7%A9%A9%E5%AE%9A%E7%9A%84%E5%85%8D%E8%B2%BB%E6%9C%8D%E5%8B%99"><span class="toc-number">1.</span> <span class="toc-text">💡 起心動念：告別不穩定的免費服務</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%97%BA%EF%B8%8F-%E7%9B%A4%E9%BB%9E%E8%88%87%E8%A6%8F%E5%8A%83%EF%BC%9A%E5%BE%9E%E9%9B%B6%E5%88%B0%E4%B8%80%E7%9A%84%E5%BB%BA%E7%BD%AE%E8%97%8D%E5%9C%96"><span class="toc-number">2.</span> <span class="toc-text">🗺️ 盤點與規劃：從零到一的建置藍圖</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%93%9A-%E7%9F%A5%E8%AD%98%E7%9A%84%E5%BB%A3%E5%BA%A6%EF%BC%9A%E4%B8%80%E5%80%8B%E9%83%BD%E4%B8%8D%E8%83%BD%E5%B0%91"><span class="toc-number">3.</span> <span class="toc-text">📚 知識的廣度：一個都不能少</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%8E%AF-%E7%B8%BD%E7%B5%90%EF%BC%9A%E5%B7%A5%E7%A8%8B%E5%B8%AB%E4%B8%8D%E5%8F%AA%E5%AF%AB-Code%EF%BC%8C%E6%9B%B4%E8%A6%81%E5%AD%B8%E6%9C%83%E8%A6%8F%E5%8A%83%E8%88%87%E5%9F%B7%E8%A1%8C"><span class="toc-number">4.</span> <span class="toc-text">🎯 總結：工程師不只寫 Code，更要學會規劃與執行</span></a></li></ol>
             </div>
         <!-- sidebar -->
         <div class="sidebar sidebar-hide">
@@ -646,38 +613,38 @@
         </li>
         <li class="archive-post-item">
             <span class="archive-post-date">11/25</span>
-            <a class="archive-post-title" href="/blog/2025/11/25/%E4%B8%80%E5%80%8B%E8%A8%88%E6%95%B8%E5%99%A8API%E7%9A%84%E8%AA%95%E7%94%9F/">一個計數器API的誕生：看似簡單卻暗藏玄機的Side Project</a>
+            <a class="archive-post-title" href="/blog/2025/11/25/building-a-counter-api-from-scratch/">一個計數器API的誕生：看似簡單卻暗藏玄機的Side Project</a>
         </li>
         <li class="archive-post-item">
             <span class="archive-post-date">09/07</span>
-            <a class="archive-post-title" href="/blog/2025/09/07/Toastmaster%E7%A4%BE%E5%9C%98%E7%83%A4%E8%82%89%E8%B6%B4-%E9%87%8D%E6%8B%BE%E7%86%B1%E6%83%85%E8%88%87%E9%80%A3%E7%B5%90%E7%9A%84%E7%9B%9B%E6%9C%83/">Toastmaster社團烤肉趴：一場重拾熱情與連結的盛會</a>
+            <a class="archive-post-title" href="/blog/2025/09/07/toastmaster-club-bbq-party/">Toastmaster社團烤肉趴：一場重拾熱情與連結的盛會</a>
         </li>
         <li class="archive-post-item">
             <span class="archive-post-date">08/23</span>
-            <a class="archive-post-title" href="/blog/2025/08/23/Vibe-Coding-%E6%99%82%E4%BB%A3%E4%B8%8B%E7%9A%84%E9%96%8B%E7%99%BC%E8%80%85%E7%94%9F%E5%AD%98%E4%B9%8B%E9%81%93/">Vibe Coding 時代下的開發者生存之道</a>
+            <a class="archive-post-title" href="/blog/2025/08/23/developer-survival-guide-in-the-era-of-vibe-coding/">Vibe Coding 時代下的開發者生存之道</a>
         </li>
         <li class="archive-post-item">
             <span class="archive-post-date">08/07</span>
-            <a class="archive-post-title" href="/blog/2025/08/07/Toastmaster%E6%A1%8C%E9%81%8A%E6%97%A5%EF%BC%9A%E4%B8%80%E5%A0%B4%E5%85%85%E6%BB%BF%E6%AD%A1%E7%AC%91%E8%88%87%E7%AD%96%E7%95%A5%E7%9A%84%E7%B2%BE%E5%BD%A9%E7%94%9F%E6%B4%BB%E7%B4%80%E9%8C%84/">Toastmaster桌遊日：一場充滿歡笑與策略的精彩生活紀錄</a>
+            <a class="archive-post-title" href="/blog/2025/08/07/toastmaster-board-game-day/">Toastmaster桌遊日：一場充滿歡笑與策略的精彩生活紀錄</a>
         </li>
         <li class="archive-post-item">
             <span class="archive-post-date">02/14</span>
-            <a class="archive-post-title" href="/blog/2025/02/14/Linux%E5%BE%81%E9%80%94%C2%B7%E7%AC%AC%E4%B8%89%E8%A9%B1%EF%BC%9AWSL%E7%9A%84%E5%AE%89%E8%A3%9D/">Linux征途·第三話：WSL的安裝</a>
+            <a class="archive-post-title" href="/blog/2025/02/14/linux-journey-part3-installing-wsl/">Linux征途·第三話：WSL的安裝</a>
         </li>
                 </ul>
             <div class="archive-year"> 2024 </div>
             <ul class="year-list">
         <li class="archive-post-item">
             <span class="archive-post-date">11/16</span>
-            <a class="archive-post-title" href="/blog/2024/11/16/Linux%E5%BE%81%E9%80%94%C2%B7%E7%AC%AC%E4%BA%8C%E8%A9%B1%EF%BC%9A%E6%88%91%E8%A6%81%E5%AD%B8%E5%93%AA%E5%80%8B%E7%89%88%E6%9C%AC%E7%9A%84Linux/">Linux征途·第二話：我要學哪個版本的Linux</a>
+            <a class="archive-post-title" href="/blog/2024/11/16/linux-journey-part2-which-linux-distro-to-learn/">Linux征途·第二話：我要學哪個版本的Linux</a>
         </li>
         <li class="archive-post-item">
             <span class="archive-post-date">11/04</span>
-            <a class="archive-post-title" href="/blog/2024/11/04/Linux%E5%BE%81%E9%80%94%C2%B7%E7%AC%AC%E4%B8%80%E8%A9%B1%EF%BC%9A%E7%82%BA%E4%BB%80%E9%BA%BC%E8%A6%81%E5%AD%B8Linux/">Linux征途·第一話：為什麼要學Linux</a>
+            <a class="archive-post-title" href="/blog/2024/11/04/linux-journey-part1-why-learn-linux/">Linux征途·第一話：為什麼要學Linux</a>
         </li>
         <li class="archive-post-item">
             <span class="archive-post-date">10/27</span>
-            <a class="archive-post-title" href="/blog/2024/10/27/%E8%A8%98%E9%8C%84%E6%92%B0%E5%AF%AB%E6%8A%80%E8%A1%93Blog%E7%9A%84%E7%AC%AC%E4%B8%80%E5%A4%A9/">記錄撰寫技術Blog的第一天</a>
+            <a class="archive-post-title" href="/blog/2024/10/27/my-first-technical-blog-post/">記錄撰寫技術Blog的第一天</a>
         </li>
             </ul>
     </div>

@@ -10,24 +10,25 @@
     <meta name="copyright" content="Ken Hsu">
         <meta name="keywords" content="python,full-stack,web,development,backend,frontend,database,server,client,network,security,algorithm,data structure,programming,software,engineering,computer,science,technology,learning,sharing,experience,knowledge,tutorial">
     <meta name="description" content="這是一篇關於技術學習的部落格文章，分享了撰寫技術筆記的過程。">
-    <meta name="description" content="「那是一個最好的時代，也是一個最壞的時代。」  狄更斯在《雙城記》的開頭這樣寫道。我想，這句話完美地詮釋了當下我們程式開發人員所處的環境。AI 技術浪潮席捲而來，Vibe Coding (或稱 AI 輔助開發) 成為了我們手中最強大、也最具爭議性的工具。對於那些願意擁抱並持續學習 AI 工具的開發者來說，這無疑是一大福音；然而，對於安於現狀的人，「開發人員即將被取代」的焦慮也從未如此真實。 但我">
+    <meta name="description" content="第一個系列文部落格開張後，我一直在思索該寫什麼主題。各種想法在腦海中反覆浮現，卻始終無法確定。直到今天，主管向新進人員介紹我時，竟然用了 Infra 這個詞來形容我的職位。真是意外之喜，何德何能呀！的確我平時的工作除了後端的開發外, 也擔負著系統的維護的責任。最近為了解一些資安的需求, 剛好也在進一步鑽研Linux, 既然如此, 那就先寫篇Linux的系列文吧。  Infra 是 Infrastr">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Vibe Coding 時代下的開發者生存之道">
-<meta property="og:url" content="https://miruorange.github.io/blog/2025/08/23/Vibe-Coding-%E6%99%82%E4%BB%A3%E4%B8%8B%E7%9A%84%E9%96%8B%E7%99%BC%E8%80%85%E7%94%9F%E5%AD%98%E4%B9%8B%E9%81%93/index.html">
+<meta property="og:title" content="Linux征途·第一話：為什麼要學Linux">
+<meta property="og:url" content="https://miruorange.github.io/blog/2024/11/04/linux-journey-part1-why-learn-linux/index.html">
 <meta property="og:site_name" content="朝向全端之路：從基礎到進階的技術探索 by Ken">
-<meta property="og:description" content="「那是一個最好的時代，也是一個最壞的時代。」  狄更斯在《雙城記》的開頭這樣寫道。我想，這句話完美地詮釋了當下我們程式開發人員所處的環境。AI 技術浪潮席捲而來，Vibe Coding (或稱 AI 輔助開發) 成為了我們手中最強大、也最具爭議性的工具。對於那些願意擁抱並持續學習 AI 工具的開發者來說，這無疑是一大福音；然而，對於安於現狀的人，「開發人員即將被取代」的焦慮也從未如此真實。 但我">
+<meta property="og:description" content="第一個系列文部落格開張後，我一直在思索該寫什麼主題。各種想法在腦海中反覆浮現，卻始終無法確定。直到今天，主管向新進人員介紹我時，竟然用了 Infra 這個詞來形容我的職位。真是意外之喜，何德何能呀！的確我平時的工作除了後端的開發外, 也擔負著系統的維護的責任。最近為了解一些資安的需求, 剛好也在進一步鑽研Linux, 既然如此, 那就先寫篇Linux的系列文吧。  Infra 是 Infrastr">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2025-08-23T02:00:00.000Z">
-<meta property="article:modified_time" content="2025-08-23T04:56:30.800Z">
+<meta property="og:image" content="https://miruorange.github.io/blog/2024/11/04/Linux%E5%BE%81%E9%80%94%C2%B7%E7%AC%AC%E4%B8%80%E8%A9%B1%EF%BC%9A%E4%BB%80%E9%BA%BC%E6%98%AFLinux/%E7%88%AC%E8%9F%B2%E7%A8%8B%E5%BC%8F.png">
+<meta property="og:image" content="https://miruorange.github.io/blog/2024/11/04/Linux%E5%BE%81%E9%80%94%C2%B7%E7%AC%AC%E4%B8%80%E8%A9%B1%EF%BC%9A%E4%BB%80%E9%BA%BC%E6%98%AFLinux/%E6%94%BF%E5%BA%9C%E8%B3%87%E6%96%99%E9%96%8B%E6%94%BE%E5%B9%B3%E8%87%BA.png">
+<meta property="article:published_time" content="2024-11-04T14:52:32.000Z">
+<meta property="article:modified_time" content="2025-08-07T16:13:41.982Z">
 <meta property="article:author" content="Ken Hsu">
-<meta property="article:tag" content="AI">
-<meta property="article:tag" content="Vibe Coding">
-<meta property="article:tag" content="職涯規劃">
+<meta property="article:tag" content="Linux">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://miruorange.github.io/blog/2024/11/04/Linux%E5%BE%81%E9%80%94%C2%B7%E7%AC%AC%E4%B8%80%E8%A9%B1%EF%BC%9A%E4%BB%80%E9%BA%BC%E6%98%AFLinux/%E7%88%AC%E8%9F%B2%E7%A8%8B%E5%BC%8F.png">
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <link rel="icon" href="/blog/assets/favicon.ico">
-    <title>Vibe Coding 時代下的開發者生存之道 · 朝向全端之路：從基礎到進階的技術探索 by Ken</title>
+    <title>Linux征途·第一話：為什麼要學Linux · 朝向全端之路：從基礎到進階的技術探索 by Ken</title>
     <!-- /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
 /* This file is meant as a standalone workflow for
 - testing support for link[rel=preload]
@@ -258,7 +259,7 @@
             <a href="/blog/">想像力就是我的超能力</a>
         </div>
         <div class="post-title header-element">
-            <a href="#" class="post-name">Vibe Coding 時代下的開發者生存之道</a>
+            <a href="#" class="post-name">Linux征途·第一話：為什麼要學Linux</a>
         </div>
     </div>
 </header>
@@ -285,7 +286,7 @@
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
-                Vibe Coding 時代下的開發者生存之道
+                Linux征途·第一話：為什麼要學Linux
             <!-- 404 -->
         </h1>
         <!-- 副标题 -->
@@ -297,16 +298,14 @@
             <div class="post-intros">
                 <!-- 文章页标签  -->
                     <div class="post-intro-tags" >
-        <a class="post-tag" href="javascript:void(0);" data-tags="AI">AI</a>
-        <a class="post-tag" href="javascript:void(0);" data-tags="Vibe Coding">Vibe Coding</a>
-        <a class="post-tag" href="javascript:void(0);" data-tags="職涯規劃">職涯規劃</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags="Linux">Linux</a>
 </div>
 
                 <!-- 文章字数统计 -->
                 <div class="post-intro-meta">
                     <!-- 撰写日期 -->
                     <span class="iconfont-archer post-intro-calander">&#xe676;</span>
-                    <span class="post-intro-time">2025/08/23</span>
+                    <span class="post-intro-time">2024/11/04</span>
                     <!-- Custom View Counter -->
                     <span id="custom-view-counter-container" style="margin-left: 10px; display: none;">
                         <span class="iconfont-archer post-intro-busuanzi">&#xe602;</span>
@@ -452,60 +451,23 @@
             <div class="container container-unloaded">
                 <main class="main post-page">
     """    <article class="article-entry">
-        <blockquote>
-<p>「那是一個最好的時代，也是一個最壞的時代。」</p>
+        <h2 id="第一個系列文"><a href="#第一個系列文" class="headerlink" title="第一個系列文"></a>第一個系列文</h2><p>部落格開張後，我一直在思索該寫什麼主題。各種想法在腦海中反覆浮現，卻始終無法確定。直到今天，主管向新進人員介紹我時，竟然用了 <strong>Infra</strong> 這個詞來形容我的職位。真是意外之喜，何德何能呀！的確我平時的工作除了後端的開發外, 也擔負著系統的維護的責任。最近為了解一些資安的需求, 剛好也在進一步鑽研Linux, 既然如此, 那就先寫篇Linux的系列文吧。</p>
+<blockquote>
+<p><strong>Infra</strong> 是 <strong>Infrastructure</strong> 的縮寫，代表我負責公司或團隊的基礎設施層面工作。這包括系統管理、自動化和部署、監控和日誌管理、容器化，以及安全性等領域。</p>
 </blockquote>
-<p>狄更斯在《雙城記》的開頭這樣寫道。我想，這句話完美地詮釋了當下我們程式開發人員所處的環境。AI 技術浪潮席捲而來，Vibe Coding (或稱 AI 輔助開發) 成為了我們手中最強大、也最具爭議性的工具。對於那些願意擁抱並持續學習 AI 工具的開發者來說，這無疑是一大福音；然而，對於安於現狀的人，「開發人員即將被取代」的焦慮也從未如此真實。</p>
-<p>但我認為，真正會被取代的，從來都不是開發人員這個職位，而是那些「不願意掌握 AI 工具的人」。</p>
-<h2 id="一場來自-PM-部門的震撼教育"><a href="#一場來自-PM-部門的震撼教育" class="headerlink" title="一場來自 PM 部門的震撼教育"></a>一場來自 PM 部門的震撼教育</h2><p>最近，我參加了公司內部一場關於 Vibe Coding 的講座，而最讓我驚訝的是，主講的竟然是完全沒有程式背景的 PM 部門。</p>
-<p>他們分享了導入 AI 前後的開發流程變化，讓我感觸良多。</p>
-<h3 id="過去的開發流程"><a href="#過去的開發流程" class="headerlink" title="過去的開發流程"></a>過去的開發流程</h3><p>在過去，一個功能的誕生需要跨越多個部門，流程冗長而繁瑣：</p>
-<div class="mermaid-desktop">
-<pre class="mermaid">graph LR
-    A[PM 團隊撰寫需求] --> B[與開發 Team PM 溝通需求]
-    B --> C[UI/UX 設計團隊繪製介面]
-    C --> D[RD 研發團隊進行開發]
-    D --> E[Infra 團隊協助部署與維運]
-    E --> F[QC 團隊進行測試]</pre>
-</div>
-<div class="mermaid-mobile">
-<pre class="mermaid">graph TD
-    A[PM 團隊撰寫需求] --> B[與開發 Team PM 溝通需求]
-    B --> C[UI/UX 設計團隊繪製介面]
-    C --> D[RD 研發團隊進行開發]
-    D --> E[Infra 團隊協助部署與維運]
-    E --> F[QC 團隊進行測試]</pre>
-</div>
-
-<h3 id="導入-Vibe-Coding-後的流程"><a href="#導入-Vibe-Coding-後的流程" class="headerlink" title="導入 Vibe Coding 後的流程"></a>導入 Vibe Coding 後的流程</h3><p>而現在，PM 們利用 Vibe Coding 工具，整個流程被極大地簡化了：</p>
-<div class="mermaid-desktop">
-<pre class="mermaid">graph LR
-    A[PM 團隊撰寫需求] --> B[透過 Vibe Coding 直接生成應用]
-    B --> C[RD 團隊審查架構與資安問題]
-    C --> D[Infra 團隊協助部署與維運]</pre>
-</div>
-<div class="mermaid-mobile">
-<pre class="mermaid">graph TD
-    A[PM 團隊撰寫需求] --> B[透過 Vibe Coding 直接生成應用]
-    B --> C[RD 團隊審查架構與資安問題]
-    C --> D[Infra 團隊協助部署與維運]</pre>
-</div>
-
-<p>從上面的流程圖可以清楚看到，UI&#x2F;UX 設計師和前端開發者的部分工作，在許多情境下幾乎被完全跳過了。PM 們透過精準的 Prompt，就能直接產出一個功能完整的原型。這對前端和 UI&#x2F;UX 設計師來說，無疑是一個巨大的衝擊。</p>
-<h2 id="後端工程師的獨特價值"><a href="#後端工程師的獨特價值" class="headerlink" title="後端工程師的獨特價值"></a>後端工程師的獨特價值</h2><p>看到這樣的轉變，我不禁慶幸自己當初選擇了後端工程師這條路。身為一名後端，我不僅僅是「寫程式的人」。我的價值體現在：</p>
+<h2 id="初學者的困惑"><a href="#初學者的困惑" class="headerlink" title="初學者的困惑"></a>初學者的困惑</h2><p>我是一名轉職進入這個行業的人，因此對於剛踏入這個領域的新手心態非常了解，因為我曾經走過同樣的路。很多新手可能會有這樣的疑問：學完了基礎的編程知識後，接下來該怎麼辦？會寫迴圈、陣列、流程控制後，還能做什麼？我好像懂了什麼, 那下一步該學什麼？這種不確定感，我非常熟悉，因為我也曾經困惑過。</p>
+<h2 id="程式學習的目標：自動化"><a href="#程式學習的目標：自動化" class="headerlink" title="程式學習的目標：自動化"></a>程式學習的目標：自動化</h2><p>其實，學習程式的最終目的往往是自動化。自動化讓我們能夠隨時隨地自動獲取資訊，讓電腦來處理重複、繁瑣的工作，減少人力消耗。然而，如果每次都需要手動執行已寫好的程式，這未免顯得效率低下且過於繁瑣。這時候，你需要的是一台能夠24小時持續運行的機器，也就是我們所說的Server。</p>
+<h2 id="什麼是Server？"><a href="#什麼是Server？" class="headerlink" title="什麼是Server？"></a>什麼是Server？</h2><p>Server本質上就是一台可以執行程式的電腦主機。它可以是桌上型電腦、筆記型電腦，甚至像我一樣，使用樹莓派來搭建一台個人Server也完全可行。<br><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Ry_dR29oK0k&list=PLEKonaDKILV1hCGWCHhHlAHG2WvOYI2UC&index=2">點此觀看我如何在樹莓派上安裝Linux系統</a></p>
+<h2 id="Server的應用場景"><a href="#Server的應用場景" class="headerlink" title="Server的應用場景"></a>Server的應用場景</h2><p>當你擁有一台能夠連網的Server，再加上你所掌握的編程技術，你就能完成很多事情。對我來說，最有趣的應用之一就是在我的樹莓派上安裝爬蟲程式，定期抓取我需要的資訊並整理成報告，甚至自動發送郵件給自己。<br><img src="https://miruorange.github.io/blog/2024/11/04/Linux%E5%BE%81%E9%80%94%C2%B7%E7%AC%AC%E4%B8%80%E8%A9%B1%EF%BC%9A%E4%BB%80%E9%BA%BC%E6%98%AFLinux/%E7%88%AC%E8%9F%B2%E7%A8%8B%E5%BC%8F.png" alt="爬取PTT指定關鍵字的爬蟲程式"></p>
+<h2 id="超越爬蟲的可能性"><a href="#超越爬蟲的可能性" class="headerlink" title="超越爬蟲的可能性"></a>超越爬蟲的可能性</h2><p>除了爬蟲，還可以利用Server的排程功能來執行不同的程式，串接各種API，進而實現許多實用的功能。例如，自動收集天氣預報、空氣品質數據，或者搭建一個個人網站，無論是部落格、形象網站，還是電子商務平台，甚至是搭建一個AI的智能機器人, 皆可實現。<br><img src="https://miruorange.github.io/blog/2024/11/04/Linux%E5%BE%81%E9%80%94%C2%B7%E7%AC%AC%E4%B8%80%E8%A9%B1%EF%BC%9A%E4%BB%80%E9%BA%BC%E6%98%AFLinux/%E6%94%BF%E5%BA%9C%E8%B3%87%E6%96%99%E9%96%8B%E6%94%BE%E5%B9%B3%E8%87%BA.png" alt="政府資料開放平台-有滿滿的API可以串"></p>
+<h2 id="為什麼選擇Linux？"><a href="#為什麼選擇Linux？" class="headerlink" title="為什麼選擇Linux？"></a>為什麼選擇Linux？</h2><p>為什麼？因為它免費、高效、省電、多工。當你學會了編程，再掌握Linux的操作，就如同打通了任督二脈——唯有你想不到的，沒有你做不到的。因此，為什麼不開始學習Linux呢？</p>
+<h2 id="常見問題-FAQ"><a href="#常見問題-FAQ" class="headerlink" title="常見問題 (FAQ)"></a>常見問題 (FAQ)</h2><h3 id="Q1-Server只能建在Linux環境上嗎？"><a href="#Q1-Server只能建在Linux環境上嗎？" class="headerlink" title="Q1: Server只能建在Linux環境上嗎？"></a>Q1: Server只能建在Linux環境上嗎？</h3><p>不一定！事實上，只要是能運行排程任務的電腦，都可以作為 Server 使用。Server 的重點不在於操作系統，而是在於服務的目的性和穩定性。舉例來說，一個網站的 Server 就專注於提供網頁服務，因此我們不會在 Server 上安裝影音播放器、文字處理軟體（如 Word、Excel）等不必要的程式。這樣精簡的配置，不僅能降低硬體的負擔，還能讓 Server 更加省電、高效、穩定地運行。</p>
+<h3 id="Q2-Linux和windows及mac-os是不一樣的東西嗎？"><a href="#Q2-Linux和windows及mac-os是不一樣的東西嗎？" class="headerlink" title="Q2: Linux和windows及mac os是不一樣的東西嗎？"></a>Q2: Linux和windows及mac os是不一樣的東西嗎？</h3><p>是的，Linux、Windows 和 macOS 是三個不同的操作系統，各自有不同的設計哲學與用途。</p>
 <ul>
-<li><strong>系統架構設計</strong>：AI 或許能寫出單一功能的程式碼，但它無法從全局思考，設計出一個高可用、高擴展性的系統架構。</li>
-<li><strong>資料庫規劃</strong>：從 Schema 設計、索引優化到效能調校，這些都需要深入的領域知識與經驗。</li>
-<li><strong>基礎設施 (Infra) 與網路知識</strong>：我比一般的後端更了解伺服器、網路、部署流程，這讓我在系統上線的最後一哩路扮演了關鍵角色。</li>
-<li><strong>持續精進的 AI 技能</strong>：結合我原有的技術棧，我能利用 AI 更快地解決問題、搭建服務，甚至找出 AI 生成程式碼中的潛在風險。</li>
+<li>Linux 是一個開放原始碼的操作系統，常被用作 Server 系統。它以穩定性和靈活性著稱，並且提供了強大的命令行工具，使得在自動化和伺服器環境中非常高效。</li>
+<li>Windows 是微軟開發的操作系統，更常用於個人電腦和商務環境。它擁有豐富的圖形化介面和廣泛的軟體支援，適合辦公軟體和多媒體應用，但在 Server 領域上比較少見。</li>
+<li>macOS 是蘋果開發的操作系統，主要用於蘋果的筆記型電腦和桌上型電腦。macOS 基於 Unix，因此和 Linux 在底層設計上有相似之處。由於其穩定性和開發工具的便利性，macOS 深受開發者歡迎。</li>
 </ul>
-<p>這些跨領域的綜合能力，讓我成為一個難以被輕易「取代」的角色。</p>
-<h2 id="我們還需要學習程式語言嗎？"><a href="#我們還需要學習程式語言嗎？" class="headerlink" title="我們還需要學習程式語言嗎？"></a>我們還需要學習程式語言嗎？</h2><p>絕對需要！這是我最堅定的看法。</p>
-<p>AI 終究只是一個工具。如果它產出的程式碼你完全看不懂，你要如何判斷它寫得好不好？有沒有邏輯漏洞？會不會有效能問題？</p>
-<p>更可怕的是資安問題。如果你連如何保護敏感資訊 (例如 API Token、資料庫密碼) 的基本概念都沒有，在使用 Vibe Coding 的過程中，這些關鍵資訊可能已經在不知不覺中被洩漏給了 AI 模型。這就像是請一個你不完全信任的陌生人來幫你蓋房子，卻任由他隨意進出你的金庫，這是何等危險！</p>
-<h2 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h2><p>回到開頭那句話：「那是一個最好的時代，也是一個最壞的時代。」</p>
-<p>AI 帶來了前所未有的效率與可能性，這是最好的部分。但同時，它也無情地淘汰那些停止學習、無法適應變化的角色，這是最壞的部分。</p>
-<p>未來屬於那些懂得善用工具、並結合自身專業領域知識，創造出更大價值的人。你，跟上潮流了嗎？</p>
 
     </article>
     <div class="a2a_kit a2a_kit_size_32 a2a_default_style">
@@ -517,23 +479,23 @@
     <!-- license -->"""
         <div class="license-wrapper">
             <p>Author：<a href="https://miruorange.github.io/blog">Ken Hsu</a>
-            <p>Link：<a href="https://miruorange.github.io/blog/2025/08/23/Vibe-Coding-%E6%99%82%E4%BB%A3%E4%B8%8B%E7%9A%84%E9%96%8B%E7%99%BC%E8%80%85%E7%94%9F%E5%AD%98%E4%B9%8B%E9%81%93/">https://miruorange.github.io/blog/2025/08/23/Vibe-Coding-%E6%99%82%E4%BB%A3%E4%B8%8B%E7%9A%84%E9%96%8B%E7%99%BC%E8%80%85%E7%94%9F%E5%AD%98%E4%B9%8B%E9%81%93/</a>
-            <p>Publish date：<a href="https://miruorange.github.io/blog/2025/08/23/Vibe-Coding-%E6%99%82%E4%BB%A3%E4%B8%8B%E7%9A%84%E9%96%8B%E7%99%BC%E8%80%85%E7%94%9F%E5%AD%98%E4%B9%8B%E9%81%93/">August 23rd 2025, 10:00:00 am</a>
-            <p>Update date：<a href="https://miruorange.github.io/blog/2025/08/23/Vibe-Coding-%E6%99%82%E4%BB%A3%E4%B8%8B%E7%9A%84%E9%96%8B%E7%99%BC%E8%80%85%E7%94%9F%E5%AD%98%E4%B9%8B%E9%81%93/">August 23rd 2025, 12:56:30 pm</a>
+            <p>Link：<a href="https://miruorange.github.io/blog/2024/11/04/linux-journey-part1-why-learn-linux/">https://miruorange.github.io/blog/2024/11/04/linux-journey-part1-why-learn-linux/</a>
+            <p>Publish date：<a href="https://miruorange.github.io/blog/2024/11/04/linux-journey-part1-why-learn-linux/">November 4th 2024, 10:52:32 pm</a>
+            <p>Update date：<a href="https://miruorange.github.io/blog/2024/11/04/linux-journey-part1-why-learn-linux/">August 8th 2025, 12:13:41 am</a>
             <p>License：本文依 <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a> 授權</p>
         </div>
     <!-- paginator -->
     <ul class="post-paginator">
         <li class="next">
                 <div class="nextSlogan">Next Post</div>
-                <a href="/blog/2025/09/07/Toastmaster%E7%A4%BE%E5%9C%98%E7%83%A4%E8%82%89%E8%B6%B4-%E9%87%8D%E6%8B%BE%E7%86%B1%E6%83%85%E8%88%87%E9%80%A3%E7%B5%90%E7%9A%84%E7%9B%9B%E6%9C%83/" title="Toastmaster社團烤肉趴：一場重拾熱情與連結的盛會">
-                    <div class="nextTitle">Toastmaster社團烤肉趴：一場重拾熱情與連結的盛會</div>
+                <a href="/blog/2024/11/16/linux-journey-part2-which-linux-distro-to-learn/" title="Linux征途·第二話：我要學哪個版本的Linux">
+                    <div class="nextTitle">Linux征途·第二話：我要學哪個版本的Linux</div>
                 </a>
         </li>
         <li class="previous">
                 <div class="prevSlogan">Previous Post</div>
-                <a href="/blog/2025/08/07/Toastmaster%E6%A1%8C%E9%81%8A%E6%97%A5%EF%BC%9A%E4%B8%80%E5%A0%B4%E5%85%85%E6%BB%BF%E6%AD%A1%E7%AC%91%E8%88%87%E7%AD%96%E7%95%A5%E7%9A%84%E7%B2%BE%E5%BD%A9%E7%94%9F%E6%B4%BB%E7%B4%80%E9%8C%84/" title="Toastmaster桌遊日：一場充滿歡笑與策略的精彩生活紀錄">
-                    <div class="prevTitle">Toastmaster桌遊日：一場充滿歡笑與策略的精彩生活紀錄</div>
+                <a href="/blog/2024/10/27/my-first-technical-blog-post/" title="記錄撰寫技術Blog的第一天">
+                    <div class="prevTitle">記錄撰寫技術Blog的第一天</div>
                 </a>
         </li>
     </ul>
@@ -583,7 +545,7 @@
                 <div class="toc-catalog">
                     <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
                 </div>
-                <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E5%A0%B4%E4%BE%86%E8%87%AA-PM-%E9%83%A8%E9%96%80%E7%9A%84%E9%9C%87%E6%92%BC%E6%95%99%E8%82%B2"><span class="toc-number">1.</span> <span class="toc-text">一場來自 PM 部門的震撼教育</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%81%8E%E5%8E%BB%E7%9A%84%E9%96%8B%E7%99%BC%E6%B5%81%E7%A8%8B"><span class="toc-number">1.1.</span> <span class="toc-text">過去的開發流程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B0%8E%E5%85%A5-Vibe-Coding-%E5%BE%8C%E7%9A%84%E6%B5%81%E7%A8%8B"><span class="toc-number">1.2.</span> <span class="toc-text">導入 Vibe Coding 後的流程</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BE%8C%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%B8%AB%E7%9A%84%E7%8D%A8%E7%89%B9%E5%83%B9%E5%80%BC"><span class="toc-number">2.</span> <span class="toc-text">後端工程師的獨特價值</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%88%91%E5%80%91%E9%82%84%E9%9C%80%E8%A6%81%E5%AD%B8%E7%BF%92%E7%A8%8B%E5%BC%8F%E8%AA%9E%E8%A8%80%E5%97%8E%EF%BC%9F"><span class="toc-number">3.</span> <span class="toc-text">我們還需要學習程式語言嗎？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B5%90%E8%AA%9E"><span class="toc-number">4.</span> <span class="toc-text">結語</span></a></li></ol>
+                <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E5%80%8B%E7%B3%BB%E5%88%97%E6%96%87"><span class="toc-number">1.</span> <span class="toc-text">第一個系列文</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%9D%E5%AD%B8%E8%80%85%E7%9A%84%E5%9B%B0%E6%83%91"><span class="toc-number">2.</span> <span class="toc-text">初學者的困惑</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A8%8B%E5%BC%8F%E5%AD%B8%E7%BF%92%E7%9A%84%E7%9B%AE%E6%A8%99%EF%BC%9A%E8%87%AA%E5%8B%95%E5%8C%96"><span class="toc-number">3.</span> <span class="toc-text">程式學習的目標：自動化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E9%BA%BC%E6%98%AFServer%EF%BC%9F"><span class="toc-number">4.</span> <span class="toc-text">什麼是Server？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Server%E7%9A%84%E6%87%89%E7%94%A8%E5%A0%B4%E6%99%AF"><span class="toc-number">5.</span> <span class="toc-text">Server的應用場景</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B6%85%E8%B6%8A%E7%88%AC%E8%9F%B2%E7%9A%84%E5%8F%AF%E8%83%BD%E6%80%A7"><span class="toc-number">6.</span> <span class="toc-text">超越爬蟲的可能性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%82%BA%E4%BB%80%E9%BA%BC%E9%81%B8%E6%93%87Linux%EF%BC%9F"><span class="toc-number">7.</span> <span class="toc-text">為什麼選擇Linux？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E8%A6%8B%E5%95%8F%E9%A1%8C-FAQ"><span class="toc-number">8.</span> <span class="toc-text">常見問題 (FAQ)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Q1-Server%E5%8F%AA%E8%83%BD%E5%BB%BA%E5%9C%A8Linux%E7%92%B0%E5%A2%83%E4%B8%8A%E5%97%8E%EF%BC%9F"><span class="toc-number">8.1.</span> <span class="toc-text">Q1: Server只能建在Linux環境上嗎？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Q2-Linux%E5%92%8Cwindows%E5%8F%8Amac-os%E6%98%AF%E4%B8%8D%E4%B8%80%E6%A8%A3%E7%9A%84%E6%9D%B1%E8%A5%BF%E5%97%8E%EF%BC%9F"><span class="toc-number">8.2.</span> <span class="toc-text">Q2: Linux和windows及mac os是不一樣的東西嗎？</span></a></li></ol></li></ol>
             </div>
         <!-- sidebar -->
         <div class="sidebar sidebar-hide">
@@ -619,38 +581,38 @@
         </li>
         <li class="archive-post-item">
             <span class="archive-post-date">11/25</span>
-            <a class="archive-post-title" href="/blog/2025/11/25/%E4%B8%80%E5%80%8B%E8%A8%88%E6%95%B8%E5%99%A8API%E7%9A%84%E8%AA%95%E7%94%9F/">一個計數器API的誕生：看似簡單卻暗藏玄機的Side Project</a>
+            <a class="archive-post-title" href="/blog/2025/11/25/building-a-counter-api-from-scratch/">一個計數器API的誕生：看似簡單卻暗藏玄機的Side Project</a>
         </li>
         <li class="archive-post-item">
             <span class="archive-post-date">09/07</span>
-            <a class="archive-post-title" href="/blog/2025/09/07/Toastmaster%E7%A4%BE%E5%9C%98%E7%83%A4%E8%82%89%E8%B6%B4-%E9%87%8D%E6%8B%BE%E7%86%B1%E6%83%85%E8%88%87%E9%80%A3%E7%B5%90%E7%9A%84%E7%9B%9B%E6%9C%83/">Toastmaster社團烤肉趴：一場重拾熱情與連結的盛會</a>
+            <a class="archive-post-title" href="/blog/2025/09/07/toastmaster-club-bbq-party/">Toastmaster社團烤肉趴：一場重拾熱情與連結的盛會</a>
         </li>
         <li class="archive-post-item">
             <span class="archive-post-date">08/23</span>
-            <a class="archive-post-title" href="/blog/2025/08/23/Vibe-Coding-%E6%99%82%E4%BB%A3%E4%B8%8B%E7%9A%84%E9%96%8B%E7%99%BC%E8%80%85%E7%94%9F%E5%AD%98%E4%B9%8B%E9%81%93/">Vibe Coding 時代下的開發者生存之道</a>
+            <a class="archive-post-title" href="/blog/2025/08/23/developer-survival-guide-in-the-era-of-vibe-coding/">Vibe Coding 時代下的開發者生存之道</a>
         </li>
         <li class="archive-post-item">
             <span class="archive-post-date">08/07</span>
-            <a class="archive-post-title" href="/blog/2025/08/07/Toastmaster%E6%A1%8C%E9%81%8A%E6%97%A5%EF%BC%9A%E4%B8%80%E5%A0%B4%E5%85%85%E6%BB%BF%E6%AD%A1%E7%AC%91%E8%88%87%E7%AD%96%E7%95%A5%E7%9A%84%E7%B2%BE%E5%BD%A9%E7%94%9F%E6%B4%BB%E7%B4%80%E9%8C%84/">Toastmaster桌遊日：一場充滿歡笑與策略的精彩生活紀錄</a>
+            <a class="archive-post-title" href="/blog/2025/08/07/toastmaster-board-game-day/">Toastmaster桌遊日：一場充滿歡笑與策略的精彩生活紀錄</a>
         </li>
         <li class="archive-post-item">
             <span class="archive-post-date">02/14</span>
-            <a class="archive-post-title" href="/blog/2025/02/14/Linux%E5%BE%81%E9%80%94%C2%B7%E7%AC%AC%E4%B8%89%E8%A9%B1%EF%BC%9AWSL%E7%9A%84%E5%AE%89%E8%A3%9D/">Linux征途·第三話：WSL的安裝</a>
+            <a class="archive-post-title" href="/blog/2025/02/14/linux-journey-part3-installing-wsl/">Linux征途·第三話：WSL的安裝</a>
         </li>
                 </ul>
             <div class="archive-year"> 2024 </div>
             <ul class="year-list">
         <li class="archive-post-item">
             <span class="archive-post-date">11/16</span>
-            <a class="archive-post-title" href="/blog/2024/11/16/Linux%E5%BE%81%E9%80%94%C2%B7%E7%AC%AC%E4%BA%8C%E8%A9%B1%EF%BC%9A%E6%88%91%E8%A6%81%E5%AD%B8%E5%93%AA%E5%80%8B%E7%89%88%E6%9C%AC%E7%9A%84Linux/">Linux征途·第二話：我要學哪個版本的Linux</a>
+            <a class="archive-post-title" href="/blog/2024/11/16/linux-journey-part2-which-linux-distro-to-learn/">Linux征途·第二話：我要學哪個版本的Linux</a>
         </li>
         <li class="archive-post-item">
             <span class="archive-post-date">11/04</span>
-            <a class="archive-post-title" href="/blog/2024/11/04/Linux%E5%BE%81%E9%80%94%C2%B7%E7%AC%AC%E4%B8%80%E8%A9%B1%EF%BC%9A%E7%82%BA%E4%BB%80%E9%BA%BC%E8%A6%81%E5%AD%B8Linux/">Linux征途·第一話：為什麼要學Linux</a>
+            <a class="archive-post-title" href="/blog/2024/11/04/linux-journey-part1-why-learn-linux/">Linux征途·第一話：為什麼要學Linux</a>
         </li>
         <li class="archive-post-item">
             <span class="archive-post-date">10/27</span>
-            <a class="archive-post-title" href="/blog/2024/10/27/%E8%A8%98%E9%8C%84%E6%92%B0%E5%AF%AB%E6%8A%80%E8%A1%93Blog%E7%9A%84%E7%AC%AC%E4%B8%80%E5%A4%A9/">記錄撰寫技術Blog的第一天</a>
+            <a class="archive-post-title" href="/blog/2024/10/27/my-first-technical-blog-post/">記錄撰寫技術Blog的第一天</a>
         </li>
             </ul>
     </div>

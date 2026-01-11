@@ -10,35 +10,27 @@
     <meta name="copyright" content="Ken Hsu">
         <meta name="keywords" content="python,full-stack,web,development,backend,frontend,database,server,client,network,security,algorithm,data structure,programming,software,engineering,computer,science,technology,learning,sharing,experience,knowledge,tutorial">
     <meta name="description" content="這是一篇關於技術學習的部落格文章，分享了撰寫技術筆記的過程。">
-    <meta name="description" content="九月六日，一個秋高氣爽的好日子，我約了ToastMaster社團的朋友們，一行29人，來到奶奶家，舉辦了一場熱鬧非凡的烤肉派對。歷經一個月的籌備、現勘、協調到最終的執行，這整個過程，讓我彷彿又回到了那段穿著軍服，為了一個又一個任務而奔走的軍旅生涯。 意外的承擔，不變的軍人魂上次參加社團已是大學時代的往事。這次加入Toastmaster，本想著接個最單純的財務幹部，安靜地參與就好。但或許是刻在骨子裡">
+    <meta name="description" content="前言在前一篇文章，我們聊到了該學哪個版本的 Linux。如果你決定從 Ubuntu 開始，那麼最簡單的方式就是直接在 Windows 上安裝 WSL（Windows Subsystem for Linux）。 WSL 讓你不用安裝虛擬機或雙系統，就能直接在 Windows 裡跑 Linux，對於開發者和學習者來說超級方便。今天就來教你如何安裝 WSL，讓你的 Linux 之旅正式開始！  進入命令">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Toastmaster社團烤肉趴：一場重拾熱情與連結的盛會">
-<meta property="og:url" content="https://miruorange.github.io/blog/2025/09/07/Toastmaster%E7%A4%BE%E5%9C%98%E7%83%A4%E8%82%89%E8%B6%B4-%E9%87%8D%E6%8B%BE%E7%86%B1%E6%83%85%E8%88%87%E9%80%A3%E7%B5%90%E7%9A%84%E7%9B%9B%E6%9C%83/index.html">
+<meta property="og:title" content="Linux征途·第三話：WSL的安裝">
+<meta property="og:url" content="https://miruorange.github.io/blog/2025/02/14/linux-journey-part3-installing-wsl/index.html">
 <meta property="og:site_name" content="朝向全端之路：從基礎到進階的技術探索 by Ken">
-<meta property="og:description" content="九月六日，一個秋高氣爽的好日子，我約了ToastMaster社團的朋友們，一行29人，來到奶奶家，舉辦了一場熱鬧非凡的烤肉派對。歷經一個月的籌備、現勘、協調到最終的執行，這整個過程，讓我彷彿又回到了那段穿著軍服，為了一個又一個任務而奔走的軍旅生涯。 意外的承擔，不變的軍人魂上次參加社團已是大學時代的往事。這次加入Toastmaster，本想著接個最單純的財務幹部，安靜地參與就好。但或許是刻在骨子裡">
+<meta property="og:description" content="前言在前一篇文章，我們聊到了該學哪個版本的 Linux。如果你決定從 Ubuntu 開始，那麼最簡單的方式就是直接在 Windows 上安裝 WSL（Windows Subsystem for Linux）。 WSL 讓你不用安裝虛擬機或雙系統，就能直接在 Windows 裡跑 Linux，對於開發者和學習者來說超級方便。今天就來教你如何安裝 WSL，讓你的 Linux 之旅正式開始！  進入命令">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://miruorange.github.io/blog/2025/09/07/Toastmaster%E7%A4%BE%E5%9C%98%E7%83%A4%E8%82%89%E8%B6%B4-%E9%87%8D%E6%8B%BE%E7%86%B1%E6%83%85%E8%88%87%E9%80%A3%E7%B5%90%E7%9A%84%E7%9B%9B%E6%9C%83/%E7%83%A4%E8%82%89%E5%A0%B4%E6%99%AF.jpg">
-<meta property="og:image" content="https://miruorange.github.io/blog/2025/09/07/Toastmaster%E7%A4%BE%E5%9C%98%E7%83%A4%E8%82%89%E8%B6%B4-%E9%87%8D%E6%8B%BE%E7%86%B1%E6%83%85%E8%88%87%E9%80%A3%E7%B5%90%E7%9A%84%E7%9B%9B%E6%9C%83/%E6%8E%A5%E5%BE%85%E7%B5%84%E5%8D%94%E5%8A%A9%E6%8B%9B%E5%91%BC.jpg">
-<meta property="og:image" content="https://miruorange.github.io/blog/2025/09/07/Toastmaster%E7%A4%BE%E5%9C%98%E7%83%A4%E8%82%89%E8%B6%B4-%E9%87%8D%E6%8B%BE%E7%86%B1%E6%83%85%E8%88%87%E9%80%A3%E7%B5%90%E7%9A%84%E7%9B%9B%E6%9C%83/%E5%88%86%E5%B7%A5%E8%99%95%E7%90%86%E9%A3%9F%E6%9D%901.jpg">
-<meta property="og:image" content="https://miruorange.github.io/blog/2025/09/07/Toastmaster%E7%A4%BE%E5%9C%98%E7%83%A4%E8%82%89%E8%B6%B4-%E9%87%8D%E6%8B%BE%E7%86%B1%E6%83%85%E8%88%87%E9%80%A3%E7%B5%90%E7%9A%84%E7%9B%9B%E6%9C%83/%E5%88%86%E5%B7%A5%E8%99%95%E7%90%86%E9%A3%9F%E6%9D%902.jpg">
-<meta property="og:image" content="https://miruorange.github.io/blog/2025/09/07/Toastmaster%E7%A4%BE%E5%9C%98%E7%83%A4%E8%82%89%E8%B6%B4-%E9%87%8D%E6%8B%BE%E7%86%B1%E6%83%85%E8%88%87%E9%80%A3%E7%B5%90%E7%9A%84%E7%9B%9B%E6%9C%83/%E6%93%94%E4%BB%BB%E5%A4%A7%E5%BB%9A%E5%BF%AB%E9%80%9F%E5%87%BA%E9%A4%90%E9%A4%B5%E9%A3%BD%E5%A4%A7%E5%AE%B6.jpg">
-<meta property="og:image" content="https://miruorange.github.io/blog/2025/09/07/Toastmaster%E7%A4%BE%E5%9C%98%E7%83%A4%E8%82%89%E8%B6%B4-%E9%87%8D%E6%8B%BE%E7%86%B1%E6%83%85%E8%88%87%E9%80%A3%E7%B5%90%E7%9A%84%E7%9B%9B%E6%9C%83/%E5%A4%A7%E5%90%88%E7%85%A71.jpg">
-<meta property="og:image" content="https://miruorange.github.io/blog/2025/09/07/Toastmaster%E7%A4%BE%E5%9C%98%E7%83%A4%E8%82%89%E8%B6%B4-%E9%87%8D%E6%8B%BE%E7%86%B1%E6%83%85%E8%88%87%E9%80%A3%E7%B5%90%E7%9A%84%E7%9B%9B%E6%9C%83/%E5%A4%A7%E5%90%88%E7%85%A72.jpg">
-<meta property="og:image" content="https://miruorange.github.io/blog/2025/09/07/Toastmaster%E7%A4%BE%E5%9C%98%E7%83%A4%E8%82%89%E8%B6%B4-%E9%87%8D%E6%8B%BE%E7%86%B1%E6%83%85%E8%88%87%E9%80%A3%E7%B5%90%E7%9A%84%E7%9B%9B%E6%9C%83/%E8%88%87%E8%80%81%E5%A9%86%E5%90%88%E7%85%A7.jpg">
-<meta property="og:image" content="https://miruorange.github.io/blog/2025/09/07/Toastmaster%E7%A4%BE%E5%9C%98%E7%83%A4%E8%82%89%E8%B6%B4-%E9%87%8D%E6%8B%BE%E7%86%B1%E6%83%85%E8%88%87%E9%80%A3%E7%B5%90%E7%9A%84%E7%9B%9B%E6%9C%83/%E6%B4%BB%E5%8B%95%E5%BE%8C%E5%A4%A7%E5%AE%B6%E5%9C%A8line%E4%B8%8A%E7%9A%84%E5%9B%9E%E9%A5%8B.png">
-<meta property="article:published_time" content="2025-09-07T04:00:00.000Z">
-<meta property="article:modified_time" content="2025-12-01T03:10:40.999Z">
+<meta property="og:image" content="https://miruorange.github.io/blog/2025/02/14/Linux%E5%BE%81%E9%80%94%C2%B7%E7%AC%AC%E4%B8%89%E8%A9%B1%EF%BC%9AWSL%E7%9A%84%E5%AE%89%E8%A3%9D/enter_cmd.png">
+<meta property="og:image" content="https://miruorange.github.io/blog/2025/02/14/Linux%E5%BE%81%E9%80%94%C2%B7%E7%AC%AC%E4%B8%89%E8%A9%B1%EF%BC%9AWSL%E7%9A%84%E5%AE%89%E8%A3%9D/install_wsl.png">
+<meta property="og:image" content="https://miruorange.github.io/blog/2025/02/14/Linux%E5%BE%81%E9%80%94%C2%B7%E7%AC%AC%E4%B8%89%E8%A9%B1%EF%BC%9AWSL%E7%9A%84%E5%AE%89%E8%A3%9D/check_wsl_version.png">
+<meta property="og:image" content="https://miruorange.github.io/blog/2025/02/14/Linux%E5%BE%81%E9%80%94%C2%B7%E7%AC%AC%E4%B8%89%E8%A9%B1%EF%BC%9AWSL%E7%9A%84%E5%AE%89%E8%A3%9D/check_online_wsl_version.png">
+<meta property="article:published_time" content="2025-02-14T10:43:35.000Z">
+<meta property="article:modified_time" content="2025-11-20T14:06:57.138Z">
 <meta property="article:author" content="Ken Hsu">
-<meta property="article:tag" content="Toastmaster">
-<meta property="article:tag" content="生活紀錄">
-<meta property="article:tag" content="專案管理">
-<meta property="article:tag" content="領導力">
+<meta property="article:tag" content="Linux">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://miruorange.github.io/blog/2025/09/07/Toastmaster%E7%A4%BE%E5%9C%98%E7%83%A4%E8%82%89%E8%B6%B4-%E9%87%8D%E6%8B%BE%E7%86%B1%E6%83%85%E8%88%87%E9%80%A3%E7%B5%90%E7%9A%84%E7%9B%9B%E6%9C%83/%E7%83%A4%E8%82%89%E5%A0%B4%E6%99%AF.jpg">
+<meta name="twitter:image" content="https://miruorange.github.io/blog/2025/02/14/Linux%E5%BE%81%E9%80%94%C2%B7%E7%AC%AC%E4%B8%89%E8%A9%B1%EF%BC%9AWSL%E7%9A%84%E5%AE%89%E8%A3%9D/enter_cmd.png">
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <link rel="icon" href="/blog/assets/favicon.ico">
-    <title>Toastmaster社團烤肉趴：一場重拾熱情與連結的盛會 · 朝向全端之路：從基礎到進階的技術探索 by Ken</title>
+    <title>Linux征途·第三話：WSL的安裝 · 朝向全端之路：從基礎到進階的技術探索 by Ken</title>
     <!-- /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
 /* This file is meant as a standalone workflow for
 - testing support for link[rel=preload]
@@ -269,7 +261,7 @@
             <a href="/blog/">想像力就是我的超能力</a>
         </div>
         <div class="post-title header-element">
-            <a href="#" class="post-name">Toastmaster社團烤肉趴：一場重拾熱情與連結的盛會</a>
+            <a href="#" class="post-name">Linux征途·第三話：WSL的安裝</a>
         </div>
     </div>
 </header>
@@ -296,7 +288,7 @@
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
-                Toastmaster社團烤肉趴：一場重拾熱情與連結的盛會
+                Linux征途·第三話：WSL的安裝
             <!-- 404 -->
         </h1>
         <!-- 副标题 -->
@@ -308,17 +300,14 @@
             <div class="post-intros">
                 <!-- 文章页标签  -->
                     <div class="post-intro-tags" >
-        <a class="post-tag" href="javascript:void(0);" data-tags="Toastmaster">Toastmaster</a>
-        <a class="post-tag" href="javascript:void(0);" data-tags="生活紀錄">生活紀錄</a>
-        <a class="post-tag" href="javascript:void(0);" data-tags="專案管理">專案管理</a>
-        <a class="post-tag" href="javascript:void(0);" data-tags="領導力">領導力</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags="Linux">Linux</a>
 </div>
 
                 <!-- 文章字数统计 -->
                 <div class="post-intro-meta">
                     <!-- 撰写日期 -->
                     <span class="iconfont-archer post-intro-calander">&#xe676;</span>
-                    <span class="post-intro-time">2025/09/07</span>
+                    <span class="post-intro-time">2025/02/14</span>
                     <!-- Custom View Counter -->
                     <span id="custom-view-counter-container" style="margin-left: 10px; display: none;">
                         <span class="iconfont-archer post-intro-busuanzi">&#xe602;</span>
@@ -464,31 +453,67 @@
             <div class="container container-unloaded">
                 <main class="main post-page">
     """    <article class="article-entry">
-        <p>九月六日，一個秋高氣爽的好日子，我約了ToastMaster社團的朋友們，一行29人，來到奶奶家，舉辦了一場熱鬧非凡的烤肉派對。歷經一個月的籌備、現勘、協調到最終的執行，這整個過程，讓我彷彿又回到了那段穿著軍服，為了一個又一個任務而奔走的軍旅生涯。</p>
-<h3 id="意外的承擔，不變的軍人魂"><a href="#意外的承擔，不變的軍人魂" class="headerlink" title="意外的承擔，不變的軍人魂"></a>意外的承擔，不變的軍人魂</h3><p>上次參加社團已是大學時代的往事。這次加入Toastmaster，本想著接個最單純的財務幹部，安靜地參與就好。但或許是刻在骨子裡的軍人習慣使然，當President在會議中詢問九月份活動主辦人，眼神一次次飄向我時，我發現自己無法坐視不管，那種「支援友軍」的DNA瞬間啟動，我不自覺地舉起了手。</p>
-<p>我總跟別人說，我很討厭辦活動。或許是因為過去身為少校輔導長，任務的本質就是辦活動——懇親會、尾牙、節慶活動，一個接著一個，工作的壓力曾讓我感到厭煩。但這次，我找到了截然不同的感受。這是一場為夥伴們創造快樂的活動，當我看到大家臉上滿足的笑容，一切的辛勞都瞬間昇華為巨大的成就感與充實感。</p>
-<p><img src="https://miruorange.github.io/blog/2025/09/07/Toastmaster%E7%A4%BE%E5%9C%98%E7%83%A4%E8%82%89%E8%B6%B4-%E9%87%8D%E6%8B%BE%E7%86%B1%E6%83%85%E8%88%87%E9%80%A3%E7%B5%90%E7%9A%84%E7%9B%9B%E6%9C%83/%E7%83%A4%E8%82%89%E5%A0%B4%E6%99%AF.jpg" alt="活動場地：桃園奶奶家。"></p>
-<h3 id="一個工程師的辦活動SOP"><a href="#一個工程師的辦活動SOP" class="headerlink" title="一個工程師的辦活動SOP"></a>一個工程師的辦活動SOP</h3><p>為了讓活動盡善盡美，我也發揮了自己工程師的專長，將專案管理的思維導入籌備過程：</p>
-<ol>
-<li><strong>Markdown企劃書</strong>：我用Markdown格式撰寫企劃書，不僅排版清晰，更重要的是方便版控，讓所有規劃歷程一目了然。</li>
-<li><strong>AI高效協作</strong>：用Markdown撰寫企劃還有個很大的好處, 就是方便請AI幫忙發想點子、綜整資訊，讓我的想法更周全。</li>
-<li><strong>專屬活動網頁</strong>：專屬活動網頁(<a target="_blank" rel="noopener" href="https://toast.mirubattery.com/2025/09/bbq">https://toast.mirubattery.com/2025/09/bbq</a>)，整合所有活動資訊，方便大家隨時查閱。</li>
-</ol>
-<p>我真的很享受把程式技能應用在生活中的每一個角落，它讓事情變得更有效率，也充滿樂趣。</p>
-<h3 id="團隊合作，最美的風景"><a href="#團隊合作，最美的風景" class="headerlink" title="團隊合作，最美的風景"></a>團隊合作，最美的風景</h3><p>一場成功的活動，從來不是一個人的功勞。我最喜歡的，就是大家一起分工參與的感覺。從場地佈置、接待指引，到處理食材、升火烤肉，每個人都自動自發地找到自己的崗位，互相支援。</p>
-<p><img src="https://miruorange.github.io/blog/2025/09/07/Toastmaster%E7%A4%BE%E5%9C%98%E7%83%A4%E8%82%89%E8%B6%B4-%E9%87%8D%E6%8B%BE%E7%86%B1%E6%83%85%E8%88%87%E9%80%A3%E7%B5%90%E7%9A%84%E7%9B%9B%E6%9C%83/%E6%8E%A5%E5%BE%85%E7%B5%84%E5%8D%94%E5%8A%A9%E6%8B%9B%E5%91%BC.jpg" alt="專業的接待組，讓每位朋友賓至如歸。"></p>
-<p><img src="https://miruorange.github.io/blog/2025/09/07/Toastmaster%E7%A4%BE%E5%9C%98%E7%83%A4%E8%82%89%E8%B6%B4-%E9%87%8D%E6%8B%BE%E7%86%B1%E6%83%85%E8%88%87%E9%80%A3%E7%B5%90%E7%9A%84%E7%9B%9B%E6%9C%83/%E5%88%86%E5%B7%A5%E8%99%95%E7%90%86%E9%A3%9F%E6%9D%901.jpg" alt="團隊合作第一站：大家一起處理食材。"></p>
-<p><img src="https://miruorange.github.io/blog/2025/09/07/Toastmaster%E7%A4%BE%E5%9C%98%E7%83%A4%E8%82%89%E8%B6%B4-%E9%87%8D%E6%8B%BE%E7%86%B1%E6%83%85%E8%88%87%E9%80%A3%E7%B5%90%E7%9A%84%E7%9B%9B%E6%9C%83/%E5%88%86%E5%B7%A5%E8%99%95%E7%90%86%E9%A3%9F%E6%9D%902.jpg" alt="專注的神情，展現了我們對美食的堅持。"></p>
-<p>看著大家同心協力的身影，那是我心中最美的風景。我也忍不住手癢，擔任起大廚，希望能快速出餐餵飽這群可愛的夥伴。</p>
-<p><img src="https://miruorange.github.io/blog/2025/09/07/Toastmaster%E7%A4%BE%E5%9C%98%E7%83%A4%E8%82%89%E8%B6%B4-%E9%87%8D%E6%8B%BE%E7%86%B1%E6%83%85%E8%88%87%E9%80%A3%E7%B5%90%E7%9A%84%E7%9B%9B%E6%9C%83/%E6%93%94%E4%BB%BB%E5%A4%A7%E5%BB%9A%E5%BF%AB%E9%80%9F%E5%87%BA%E9%A4%90%E9%A4%B5%E9%A3%BD%E5%A4%A7%E5%AE%B6.jpg" alt="身為主辦人，當然要親自下海擔任大廚！"></p>
-<h3 id="寶貴的經驗，無價的資產"><a href="#寶貴的經驗，無價的資產" class="headerlink" title="寶貴的經驗，無價的資產"></a>寶貴的經驗，無價的資產</h3><p>過去的經驗告訴我，氣氛是活動的靈魂。為此，我動用人脈，特地向軍中的朋友商借了卡拉OK機，還在活動前一晚不遠千里跑到埔里去載運。雖然舟車勞頓，但看到大家在烤肉之餘還能高歌一曲，臉上洋溢的快樂，我就知道，這一切都值得了。</p>
-<p>活動尾聲，我久違地重拾了「值星官」的身份，分配起撤收工作。在大家高效率的合作下，我們只花了短短15分鐘，就將烤肉場地恢復原狀。那一刻，我深刻體會到，軍旅生涯的歷練，真的是千金難買的寶貴資產。</p>
-<p><img src="https://miruorange.github.io/blog/2025/09/07/Toastmaster%E7%A4%BE%E5%9C%98%E7%83%A4%E8%82%89%E8%B6%B4-%E9%87%8D%E6%8B%BE%E7%86%B1%E6%83%85%E8%88%87%E9%80%A3%E7%B5%90%E7%9A%84%E7%9B%9B%E6%9C%83/%E5%A4%A7%E5%90%88%E7%85%A71.jpg" alt="Toastmaster 夥伴們的大合照，成功！"></p>
-<p><img src="https://miruorange.github.io/blog/2025/09/07/Toastmaster%E7%A4%BE%E5%9C%98%E7%83%A4%E8%82%89%E8%B6%B4-%E9%87%8D%E6%8B%BE%E7%86%B1%E6%83%85%E8%88%87%E9%80%A3%E7%B5%90%E7%9A%84%E7%9B%9B%E6%9C%83/%E5%A4%A7%E5%90%88%E7%85%A72.jpg" alt="再來一張，記錄下這難忘的一天。"></p>
-<p><img src="https://miruorange.github.io/blog/2025/09/07/Toastmaster%E7%A4%BE%E5%9C%98%E7%83%A4%E8%82%89%E8%B6%B4-%E9%87%8D%E6%8B%BE%E7%86%B1%E6%83%85%E8%88%87%E9%80%A3%E7%B5%90%E7%9A%84%E7%9B%9B%E6%9C%83/%E8%88%87%E8%80%81%E5%A9%86%E5%90%88%E7%85%A7.jpg" alt="當然，也要跟最親愛的老婆合照留念。"></p>
-<p>這次的活動，不僅是一場單純的社團烤肉，更是一次自我價值的實現。它讓我重溫了團隊合作的熱情，也讓我再次證明，無論是過去的軍旅生涯，還是現在的工程師身份，那些累積的經驗與技能，都能在不同的舞台上，為身邊的人創造價值與快樂。</p>
-<p>看到活動後大家在群組上的熱烈回饋，我知道，這份感動，我們都收到了。</p>
-<p><img src="https://miruorange.github.io/blog/2025/09/07/Toastmaster%E7%A4%BE%E5%9C%98%E7%83%A4%E8%82%89%E8%B6%B4-%E9%87%8D%E6%8B%BE%E7%86%B1%E6%83%85%E8%88%87%E9%80%A3%E7%B5%90%E7%9A%84%E7%9B%9B%E6%9C%83/%E6%B4%BB%E5%8B%95%E5%BE%8C%E5%A4%A7%E5%AE%B6%E5%9C%A8line%E4%B8%8A%E7%9A%84%E5%9B%9E%E9%A5%8B.png" alt="活動後大家熱烈的回饋，是最大的肯定！"></p>
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a><strong>前言</strong></h2><p>在前一篇文章，我們聊到了該學哪個版本的 Linux。如果你決定從 <strong>Ubuntu</strong> 開始，那麼最簡單的方式就是直接在 Windows 上安裝 <strong>WSL（Windows Subsystem for Linux）</strong>。</p>
+<p>WSL 讓你不用安裝虛擬機或雙系統，就能直接在 Windows 裡跑 Linux，對於開發者和學習者來說超級方便。今天就來教你如何安裝 WSL，讓你的 Linux 之旅正式開始！</p>
+<hr>
+<h2 id="進入命令提示字元（cmd）"><a href="#進入命令提示字元（cmd）" class="headerlink" title="進入命令提示字元（cmd）"></a><strong>進入命令提示字元（cmd）</strong></h2><p>首先，請在畫面左下的搜尋框裡, 輸入 <code>cmd</code>，然後按 <strong>Enter</strong> 鍵開啟命令提示字元。<br><img src="https://miruorange.github.io/blog/2025/02/14/Linux%E5%BE%81%E9%80%94%C2%B7%E7%AC%AC%E4%B8%89%E8%A9%B1%EF%BC%9AWSL%E7%9A%84%E5%AE%89%E8%A3%9D/enter_cmd.png" alt="進入命令提示字元"></p>
+<blockquote>
+<p>你也可以使用 PowerShell，方法是一樣的。</p>
+</blockquote>
+<hr>
+<h2 id="安裝-WSL"><a href="#安裝-WSL" class="headerlink" title="安裝 WSL"></a><strong>安裝 WSL</strong></h2><p>直接輸入以下指令：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wsl --install</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://miruorange.github.io/blog/2025/02/14/Linux%E5%BE%81%E9%80%94%C2%B7%E7%AC%AC%E4%B8%89%E8%A9%B1%EF%BC%9AWSL%E7%9A%84%E5%AE%89%E8%A3%9D/install_wsl.png" alt="install_wsl"></p>
+<p>這個指令會自動安裝 WSL2 及預設的 Linux 發行版（通常是 Ubuntu）。</p>
+<blockquote>
+<p><strong>注意</strong>：</p>
+<ul>
+<li>如果你的 Windows 版本太舊（低於 Windows 10 版本 2004），可能需要手動啟用 WSL 功能。</li>
+</ul>
+</blockquote>
+<hr>
+<h2 id="確認-WSL-版本"><a href="#確認-WSL-版本" class="headerlink" title="確認 WSL 版本"></a><strong>確認 WSL 版本</strong></h2><p>安裝完成後，輸入以下指令查看 WSL 版本：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wsl --version</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://miruorange.github.io/blog/2025/02/14/Linux%E5%BE%81%E9%80%94%C2%B7%E7%AC%AC%E4%B8%89%E8%A9%B1%EF%BC%9AWSL%E7%9A%84%E5%AE%89%E8%A3%9D/check_wsl_version.png" alt="check_wsl_version"></p>
+<p>使用 WSL 2比WSL 1的效能來得更好，也支援完整的 Linux 核心。</p>
+<p>要檢查目前的 WSL 版本，可以輸入：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wsl -l -v</span><br></pre></td></tr></table></figure>
+
+<p>這會顯示你已安裝的 Linux 發行版及它們使用的 WSL 版本，例如：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">  NAME      STATE           VERSION</span><br><span class="line">* Ubuntu    Running        2</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="啟動-WSL"><a href="#啟動-WSL" class="headerlink" title="啟動 WSL"></a><strong>啟動 WSL</strong></h2><p>當 WSL 安裝完成後，直接輸入：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wsl</span><br></pre></td></tr></table></figure>
+
+<p>這將啟動預設的 Linux 發行版（通常是 Ubuntu）。</p>
+<blockquote>
+<p><strong>小技巧</strong>：如果你安裝了多個 Linux 版本，可以使用以下指令切換：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wsl -s &lt;發行版名稱&gt;</span><br></pre></td></tr></table></figure>
+
+<p>例如：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wsl -s Debian</span><br></pre></td></tr></table></figure>
+</blockquote>
+<hr>
+<h2 id="常見問題與解決方法"><a href="#常見問題與解決方法" class="headerlink" title="常見問題與解決方法"></a><strong>常見問題與解決方法</strong></h2><h3 id="1-如何安裝不同的-Linux-版本？"><a href="#1-如何安裝不同的-Linux-版本？" class="headerlink" title="1. 如何安裝不同的 Linux 版本？"></a>1. <strong>如何安裝不同的 Linux 版本？</strong></h3><p>如果你不想用 Ubuntu，可以用以下指令查看可用的發行版：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wsl --list --online</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://miruorange.github.io/blog/2025/02/14/Linux%E5%BE%81%E9%80%94%C2%B7%E7%AC%AC%E4%B8%89%E8%A9%B1%EF%BC%9AWSL%E7%9A%84%E5%AE%89%E8%A3%9D/check_online_wsl_version.png" alt="check_online_wsl_version"></p>
+<p>然後安裝你想要的版本，例如安裝 Debian：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wsl --install -d Debian</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-如何移除-WSL？"><a href="#3-如何移除-WSL？" class="headerlink" title="3. 如何移除 WSL？"></a>3. <strong>如何移除 WSL？</strong></h3><p>如果你想完全移除 WSL，可以執行：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wsl --unregister &lt;發行版名稱&gt;</span><br></pre></td></tr></table></figure>
+
+<p>例如移除 Ubuntu：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wsl --unregister Ubuntu</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="結語"><a href="#結語" class="headerlink" title="結語"></a><strong>結語</strong></h2><p>安裝 WSL 是開始學習 Linux 最簡單的方式，你不需要額外的硬體或安裝虛擬機，就能在 Windows 直接運行 Linux。</p>
+<p>下一篇文章，我們將帶你進一步熟悉 WSL 的基本操作，包括 <strong>檔案系統、套件管理、與 Windows 互動</strong> 等等，讓你的 Linux 之旅更進一步！🚀</p>
+<p>準備好了嗎？我們下一篇見！😊</p>
 
     </article>
     <div class="a2a_kit a2a_kit_size_32 a2a_default_style">
@@ -500,23 +525,23 @@
     <!-- license -->"""
         <div class="license-wrapper">
             <p>Author：<a href="https://miruorange.github.io/blog">Ken Hsu</a>
-            <p>Link：<a href="https://miruorange.github.io/blog/2025/09/07/Toastmaster%E7%A4%BE%E5%9C%98%E7%83%A4%E8%82%89%E8%B6%B4-%E9%87%8D%E6%8B%BE%E7%86%B1%E6%83%85%E8%88%87%E9%80%A3%E7%B5%90%E7%9A%84%E7%9B%9B%E6%9C%83/">https://miruorange.github.io/blog/2025/09/07/Toastmaster%E7%A4%BE%E5%9C%98%E7%83%A4%E8%82%89%E8%B6%B4-%E9%87%8D%E6%8B%BE%E7%86%B1%E6%83%85%E8%88%87%E9%80%A3%E7%B5%90%E7%9A%84%E7%9B%9B%E6%9C%83/</a>
-            <p>Publish date：<a href="https://miruorange.github.io/blog/2025/09/07/Toastmaster%E7%A4%BE%E5%9C%98%E7%83%A4%E8%82%89%E8%B6%B4-%E9%87%8D%E6%8B%BE%E7%86%B1%E6%83%85%E8%88%87%E9%80%A3%E7%B5%90%E7%9A%84%E7%9B%9B%E6%9C%83/">September 7th 2025, 12:00:00 pm</a>
-            <p>Update date：<a href="https://miruorange.github.io/blog/2025/09/07/Toastmaster%E7%A4%BE%E5%9C%98%E7%83%A4%E8%82%89%E8%B6%B4-%E9%87%8D%E6%8B%BE%E7%86%B1%E6%83%85%E8%88%87%E9%80%A3%E7%B5%90%E7%9A%84%E7%9B%9B%E6%9C%83/">December 1st 2025, 11:10:40 am</a>
+            <p>Link：<a href="https://miruorange.github.io/blog/2025/02/14/linux-journey-part3-installing-wsl/">https://miruorange.github.io/blog/2025/02/14/linux-journey-part3-installing-wsl/</a>
+            <p>Publish date：<a href="https://miruorange.github.io/blog/2025/02/14/linux-journey-part3-installing-wsl/">February 14th 2025, 6:43:35 pm</a>
+            <p>Update date：<a href="https://miruorange.github.io/blog/2025/02/14/linux-journey-part3-installing-wsl/">November 20th 2025, 10:06:57 pm</a>
             <p>License：本文依 <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a> 授權</p>
         </div>
     <!-- paginator -->
     <ul class="post-paginator">
         <li class="next">
                 <div class="nextSlogan">Next Post</div>
-                <a href="/blog/2025/11/25/%E4%B8%80%E5%80%8B%E8%A8%88%E6%95%B8%E5%99%A8API%E7%9A%84%E8%AA%95%E7%94%9F/" title="一個計數器API的誕生：看似簡單卻暗藏玄機的Side Project">
-                    <div class="nextTitle">一個計數器API的誕生：看似簡單卻暗藏玄機的Side Project</div>
+                <a href="/blog/2025/08/07/toastmaster-board-game-day/" title="Toastmaster桌遊日：一場充滿歡笑與策略的精彩生活紀錄">
+                    <div class="nextTitle">Toastmaster桌遊日：一場充滿歡笑與策略的精彩生活紀錄</div>
                 </a>
         </li>
         <li class="previous">
                 <div class="prevSlogan">Previous Post</div>
-                <a href="/blog/2025/08/23/Vibe-Coding-%E6%99%82%E4%BB%A3%E4%B8%8B%E7%9A%84%E9%96%8B%E7%99%BC%E8%80%85%E7%94%9F%E5%AD%98%E4%B9%8B%E9%81%93/" title="Vibe Coding 時代下的開發者生存之道">
-                    <div class="prevTitle">Vibe Coding 時代下的開發者生存之道</div>
+                <a href="/blog/2024/11/16/linux-journey-part2-which-linux-distro-to-learn/" title="Linux征途·第二話：我要學哪個版本的Linux">
+                    <div class="prevTitle">Linux征途·第二話：我要學哪個版本的Linux</div>
                 </a>
         </li>
     </ul>
@@ -566,7 +591,7 @@
                 <div class="toc-catalog">
                     <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
                 </div>
-                <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%84%8F%E5%A4%96%E7%9A%84%E6%89%BF%E6%93%94%EF%BC%8C%E4%B8%8D%E8%AE%8A%E7%9A%84%E8%BB%8D%E4%BA%BA%E9%AD%82"><span class="toc-number">1.</span> <span class="toc-text">意外的承擔，不變的軍人魂</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E5%80%8B%E5%B7%A5%E7%A8%8B%E5%B8%AB%E7%9A%84%E8%BE%A6%E6%B4%BB%E5%8B%95SOP"><span class="toc-number">2.</span> <span class="toc-text">一個工程師的辦活動SOP</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9C%98%E9%9A%8A%E5%90%88%E4%BD%9C%EF%BC%8C%E6%9C%80%E7%BE%8E%E7%9A%84%E9%A2%A8%E6%99%AF"><span class="toc-number">3.</span> <span class="toc-text">團隊合作，最美的風景</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%B6%E8%B2%B4%E7%9A%84%E7%B6%93%E9%A9%97%EF%BC%8C%E7%84%A1%E5%83%B9%E7%9A%84%E8%B3%87%E7%94%A2"><span class="toc-number">4.</span> <span class="toc-text">寶貴的經驗，無價的資產</span></a></li></ol>
+                <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%B2%E5%85%A5%E5%91%BD%E4%BB%A4%E6%8F%90%E7%A4%BA%E5%AD%97%E5%85%83%EF%BC%88cmd%EF%BC%89"><span class="toc-number">2.</span> <span class="toc-text">進入命令提示字元（cmd）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%9D-WSL"><span class="toc-number">3.</span> <span class="toc-text">安裝 WSL</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A2%BA%E8%AA%8D-WSL-%E7%89%88%E6%9C%AC"><span class="toc-number">4.</span> <span class="toc-text">確認 WSL 版本</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%95%9F%E5%8B%95-WSL"><span class="toc-number">5.</span> <span class="toc-text">啟動 WSL</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E8%A6%8B%E5%95%8F%E9%A1%8C%E8%88%87%E8%A7%A3%E6%B1%BA%E6%96%B9%E6%B3%95"><span class="toc-number">6.</span> <span class="toc-text">常見問題與解決方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9D%E4%B8%8D%E5%90%8C%E7%9A%84-Linux-%E7%89%88%E6%9C%AC%EF%BC%9F"><span class="toc-number">6.1.</span> <span class="toc-text">1. 如何安裝不同的 Linux 版本？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E5%A6%82%E4%BD%95%E7%A7%BB%E9%99%A4-WSL%EF%BC%9F"><span class="toc-number">6.2.</span> <span class="toc-text">3. 如何移除 WSL？</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B5%90%E8%AA%9E"><span class="toc-number">7.</span> <span class="toc-text">結語</span></a></li></ol>
             </div>
         <!-- sidebar -->
         <div class="sidebar sidebar-hide">
@@ -602,38 +627,38 @@
         </li>
         <li class="archive-post-item">
             <span class="archive-post-date">11/25</span>
-            <a class="archive-post-title" href="/blog/2025/11/25/%E4%B8%80%E5%80%8B%E8%A8%88%E6%95%B8%E5%99%A8API%E7%9A%84%E8%AA%95%E7%94%9F/">一個計數器API的誕生：看似簡單卻暗藏玄機的Side Project</a>
+            <a class="archive-post-title" href="/blog/2025/11/25/building-a-counter-api-from-scratch/">一個計數器API的誕生：看似簡單卻暗藏玄機的Side Project</a>
         </li>
         <li class="archive-post-item">
             <span class="archive-post-date">09/07</span>
-            <a class="archive-post-title" href="/blog/2025/09/07/Toastmaster%E7%A4%BE%E5%9C%98%E7%83%A4%E8%82%89%E8%B6%B4-%E9%87%8D%E6%8B%BE%E7%86%B1%E6%83%85%E8%88%87%E9%80%A3%E7%B5%90%E7%9A%84%E7%9B%9B%E6%9C%83/">Toastmaster社團烤肉趴：一場重拾熱情與連結的盛會</a>
+            <a class="archive-post-title" href="/blog/2025/09/07/toastmaster-club-bbq-party/">Toastmaster社團烤肉趴：一場重拾熱情與連結的盛會</a>
         </li>
         <li class="archive-post-item">
             <span class="archive-post-date">08/23</span>
-            <a class="archive-post-title" href="/blog/2025/08/23/Vibe-Coding-%E6%99%82%E4%BB%A3%E4%B8%8B%E7%9A%84%E9%96%8B%E7%99%BC%E8%80%85%E7%94%9F%E5%AD%98%E4%B9%8B%E9%81%93/">Vibe Coding 時代下的開發者生存之道</a>
+            <a class="archive-post-title" href="/blog/2025/08/23/developer-survival-guide-in-the-era-of-vibe-coding/">Vibe Coding 時代下的開發者生存之道</a>
         </li>
         <li class="archive-post-item">
             <span class="archive-post-date">08/07</span>
-            <a class="archive-post-title" href="/blog/2025/08/07/Toastmaster%E6%A1%8C%E9%81%8A%E6%97%A5%EF%BC%9A%E4%B8%80%E5%A0%B4%E5%85%85%E6%BB%BF%E6%AD%A1%E7%AC%91%E8%88%87%E7%AD%96%E7%95%A5%E7%9A%84%E7%B2%BE%E5%BD%A9%E7%94%9F%E6%B4%BB%E7%B4%80%E9%8C%84/">Toastmaster桌遊日：一場充滿歡笑與策略的精彩生活紀錄</a>
+            <a class="archive-post-title" href="/blog/2025/08/07/toastmaster-board-game-day/">Toastmaster桌遊日：一場充滿歡笑與策略的精彩生活紀錄</a>
         </li>
         <li class="archive-post-item">
             <span class="archive-post-date">02/14</span>
-            <a class="archive-post-title" href="/blog/2025/02/14/Linux%E5%BE%81%E9%80%94%C2%B7%E7%AC%AC%E4%B8%89%E8%A9%B1%EF%BC%9AWSL%E7%9A%84%E5%AE%89%E8%A3%9D/">Linux征途·第三話：WSL的安裝</a>
+            <a class="archive-post-title" href="/blog/2025/02/14/linux-journey-part3-installing-wsl/">Linux征途·第三話：WSL的安裝</a>
         </li>
                 </ul>
             <div class="archive-year"> 2024 </div>
             <ul class="year-list">
         <li class="archive-post-item">
             <span class="archive-post-date">11/16</span>
-            <a class="archive-post-title" href="/blog/2024/11/16/Linux%E5%BE%81%E9%80%94%C2%B7%E7%AC%AC%E4%BA%8C%E8%A9%B1%EF%BC%9A%E6%88%91%E8%A6%81%E5%AD%B8%E5%93%AA%E5%80%8B%E7%89%88%E6%9C%AC%E7%9A%84Linux/">Linux征途·第二話：我要學哪個版本的Linux</a>
+            <a class="archive-post-title" href="/blog/2024/11/16/linux-journey-part2-which-linux-distro-to-learn/">Linux征途·第二話：我要學哪個版本的Linux</a>
         </li>
         <li class="archive-post-item">
             <span class="archive-post-date">11/04</span>
-            <a class="archive-post-title" href="/blog/2024/11/04/Linux%E5%BE%81%E9%80%94%C2%B7%E7%AC%AC%E4%B8%80%E8%A9%B1%EF%BC%9A%E7%82%BA%E4%BB%80%E9%BA%BC%E8%A6%81%E5%AD%B8Linux/">Linux征途·第一話：為什麼要學Linux</a>
+            <a class="archive-post-title" href="/blog/2024/11/04/linux-journey-part1-why-learn-linux/">Linux征途·第一話：為什麼要學Linux</a>
         </li>
         <li class="archive-post-item">
             <span class="archive-post-date">10/27</span>
-            <a class="archive-post-title" href="/blog/2024/10/27/%E8%A8%98%E9%8C%84%E6%92%B0%E5%AF%AB%E6%8A%80%E8%A1%93Blog%E7%9A%84%E7%AC%AC%E4%B8%80%E5%A4%A9/">記錄撰寫技術Blog的第一天</a>
+            <a class="archive-post-title" href="/blog/2024/10/27/my-first-technical-blog-post/">記錄撰寫技術Blog的第一天</a>
         </li>
             </ul>
     </div>
