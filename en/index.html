@@ -1,0 +1,991 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!-- title -->
+<!-- keywords -->
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="author" content="Ken Hsu">
+    <meta name="renderer" content="webkit">
+    <meta name="copyright" content="Ken Hsu">
+        <meta name="keywords" content="python,full-stack,web,development,backend,frontend,database,server,client,network,security,algorithm,data structure,programming,software,engineering,computer,science,technology,learning,sharing,experience,knowledge,tutorial">
+    <meta name="description" content="Backend engineering notes on systems, infrastructure, AI, and career growth by Ken Hsu.">
+    <meta property="og:locale" content="en">
+    <meta property="og:site_name" content="From Backend to Full Stack by Ken">
+    <link rel="canonical" href="https://miruorange.github.io/blog/en/index.html">
+        <link rel="alternate" hreflang="zh-Hant" href="https://miruorange.github.io/blog/">
+        <link rel="alternate" hreflang="en" href="https://miruorange.github.io/blog/en/index.html">
+    <meta name="description" content="Backend engineering notes on systems, infrastructure, AI, and career growth by Ken Hsu.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="From Backend to Full Stack by Ken">
+<meta property="og:url" content="https://miruorange.github.io/blog/en/index.html">
+<meta property="og:site_name" content="From Backend to Full Stack by Ken">
+<meta property="og:description" content="Backend engineering notes on systems, infrastructure, AI, and career growth by Ken Hsu.">
+<meta property="og:locale" content="en_US">
+<meta property="article:author" content="Ken Hsu">
+<meta name="twitter:card" content="summary">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <link rel="icon" href="/blog/assets/favicon.ico">
+    <title>From Backend to Full Stack by Ken</title>
+    <!-- /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
+/* This file is meant as a standalone workflow for
+- testing support for link[rel=preload]
+- enabling async CSS loading in browsers that do not support rel=preload
+- applying rel preload css once loaded, whether supported or not.
+*/ -->
+<script>
+    (function (w) {
+        'use strict'
+        // rel=preload support test
+        if (!w.loadCSS) {
+            w.loadCSS = function () {}
+        }
+        // define on the loadCSS obj
+        var rp = (loadCSS.relpreload = {})
+        // rel=preload feature support test
+        // runs once and returns a function for compat purposes
+        rp.support = (function () {
+            var ret
+            try {
+                ret = w.document.createElement('link').relList.supports('preload')
+            } catch (e) {
+                ret = false
+            }
+            return function () {
+                return ret
+            }
+        })()
+
+        // if preload isn't supported, get an asynchronous load by using a non-matching media attribute
+        // then change that media back to its intended value on load
+        rp.bindMediaToggle = function (link) {
+            // remember existing media attr for ultimate state, or default to 'all'
+            var finalMedia = link.media || 'all'
+
+            function enableStylesheet() {
+                link.media = finalMedia
+            }
+
+            // bind load handlers to enable media
+            if (link.addEventListener) {
+                link.addEventListener('load', enableStylesheet)
+            } else if (link.attachEvent) {
+                link.attachEvent('onload', enableStylesheet)
+            }
+
+            // Set rel and non-applicable media type to start an async request
+            // note: timeout allows this to happen async to let rendering continue in IE
+            setTimeout(function () {
+                link.rel = 'stylesheet'
+                link.media = 'only x'
+            })
+            // also enable media after 3 seconds,
+            // which will catch very old browsers (android 2.x, old firefox) that don't support onload on link
+            setTimeout(enableStylesheet, 3000)
+        }
+
+        // loop through link elements in DOM
+        rp.poly = function () {
+            // double check this to prevent external calls from running
+            if (rp.support()) {
+                return
+            }
+            var links = w.document.getElementsByTagName('link')
+            for (var i = 0; i < links.length; i++) {
+                var link = links[i]
+                // qualify links to those with rel=preload and as=style attrs
+                if (
+                    link.rel === 'preload' &&
+                    link.getAttribute('as') === 'style' &&
+                    !link.getAttribute('data-loadcss')
+                ) {
+                    // prevent rerunning on link
+                    link.setAttribute('data-loadcss', true)
+                    // bind listeners to toggle media back
+                    rp.bindMediaToggle(link)
+                }
+            }
+        }
+
+        // if unsupported, run the polyfill
+        if (!rp.support()) {
+            // run once at least
+            rp.poly()
+
+            // rerun poly on an interval until onload
+            var run = w.setInterval(rp.poly, 500)
+            if (w.addEventListener) {
+                w.addEventListener('load', function () {
+                    rp.poly()
+                    w.clearInterval(run)
+                })
+            } else if (w.attachEvent) {
+                w.attachEvent('onload', function () {
+                    rp.poly()
+                    w.clearInterval(run)
+                })
+            }
+        }
+
+        // commonjs
+        if (typeof exports !== 'undefined') {
+            exports.loadCSS = loadCSS
+        } else {
+            w.loadCSS = loadCSS
+        }
+    })(typeof global !== 'undefined' ? global : this)
+</script>
+
+    <style type="text/css">
+    @font-face {
+        font-family: 'Oswald-Regular';
+        src: url("/blog/font/Oswald-Regular.ttf");
+    }
+
+    body {
+        margin: 0;
+    }
+
+    header,
+    footer,
+    .footer-fixed-btn,
+    .sidebar,
+    .container,
+    .site-intro-meta,
+    .toc-wrapper {
+        display: none;
+    }
+
+    .site-intro {
+        position: relative;
+        z-index: 3;
+        width: 100%;
+        /* height: 50vh; */
+        overflow: hidden;
+    }
+
+    .site-intro-placeholder {
+        position: absolute;
+        z-index: -2;
+        top: 0;
+        left: 0;
+        width: calc(100% + 300px);
+        height: 100%;
+        background: repeating-linear-gradient(
+            -45deg,
+            #444 0,
+            #444 80px,
+            #333 80px,
+            #333 160px
+        );
+        background-position: center center;
+        transform: translate3d(-226px, 0, 0);
+        animation: gradient-move 2.5s ease-out 0s infinite;
+    }
+
+    @keyframes gradient-move {
+        0% {
+            transform: translate3d(-226px, 0, 0);
+        }
+        100% {
+            transform: translate3d(0, 0, 0);
+        }
+    }
+</style>
+
+    <link id="stylesheet-fancybox" rel="preload" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.36/dist/fancybox/fancybox.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link id="stylesheet-base" rel="preload" href="/blog/css/style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link id="stylesheet-mobile" rel="preload" href="/blog/css/mobile.css" as="style" onload="this.onload=null;this.rel='stylesheet';this.media='screen and (max-width: 960px)'">
+    <link id="stylesheet-theme-dark" rel="preload" href="/blog/css/dark.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" as="script">
+    <link rel="preload" href="/blog/scripts/main.js" as="script">
+    <link rel="preload" href="/blog/font/Oswald-Regular.ttf" as="font" crossorigin>
+    <link rel="preload" href="https://at.alicdn.com/t/font_327081_1dta1rlogw17zaor.woff" as="font" crossorigin>
+    <!-- algolia -->
+    <!-- 百度统计  -->
+    <!-- 谷歌统计  -->
+    <!-- Google tag (gtag.js) -->
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+    <style>
+      .mermaid-mobile {
+        display: none;
+      }
+      @media screen and (max-width: 767px) {
+        .mermaid-desktop {
+          display: none;
+        }
+        .mermaid-mobile {
+          display: block;
+        }
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+    <script type="text/javascript">
+        if (typeof window.$ == undefined) {
+            console.warn('jquery load from jsdelivr failed, will load local script')
+            document.write('<script src="/blog/lib/jquery.min.js" />')
+        }
+    </script>
+        <body class="home-body">
+        <!-- header -->
+        <header class="header header-mobile index-header">
+    <!-- top read progress line -->
+    <div class="header-element">
+        <div class="read-progress"></div>
+    </div>
+    <!-- sidebar menu button -->
+    <div class="header-element">
+        <div class="header-sidebar-menu">
+            <div style="padding-left: 1px;">&#xe775;</div>
+        </div>
+    </div>
+    <!-- header actions -->
+    <div class="header-actions">
+        <!-- theme mode switch button -->
+        <span class="header-theme-btn header-element">
+            <i class="fas fa-adjust"></i>
+        </span>
+        <span class="header-element">
+            <a href="/blog/">中文</a>
+        </span>
+        <!-- back to home page text -->
+        <span class="home-link header-element">
+            <a href="/blog/en/">Building Beyond the Backend</a>
+        </span>
+    </div>
+    <!-- toggle banner -->
+    <div class="banner">
+        <div class="blog-title header-element">
+            <a href="/blog/en/">Building Beyond the Backend</a>
+        </div>
+        <div class="post-title header-element">
+            <a href="#" class="post-name"></a>
+        </div>
+    </div>
+</header>
+
+        <!-- fixed footer -->
+        <footer class="footer-fixed">
+    <!-- donate button -->
+
+    <!-- back to top button -->
+    <div class="footer-fixed-btn footer-fixed-btn--hidden back-top">
+        <div>&#xe639;</div>
+    </div>
+</footer>
+
+        <!-- wrapper -->
+        <div class="wrapper">
+            <div class="site-intro" style="">
+    <!-- 主页  -->
+    <!-- 文章页  -->
+    <div class="site-intro-placeholder"></div>
+    <div class="site-intro-img" style="background-image: url(/blog/intro/index-bg.jpg)"></div>
+    <div class="site-intro-meta">
+        <!-- 标题  -->
+        <h1 class="intro-title">
+            <!-- 主页  -->
+                Building Beyond the Backend
+            <!-- 文章页  -->
+        </h1>
+        <!-- 副标题 -->
+        <p class="intro-subtitle">
+            <!-- 主页副标题  -->
+                    Notes on backend, systems, AI, and growth
+            <!-- 文章页  -->
+        </p>
+        <!-- 文章页 meta -->
+    </div>
+</div>
+
+            <script>
+  // get user agent
+  function getBrowserVersions() {
+    var u = window.navigator.userAgent
+    return {
+      userAgent: u,
+      trident: u.indexOf('Trident') > -1, //IE内核
+      presto: u.indexOf('Presto') > -1, //opera内核
+      webKit: u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核
+      gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1, //火狐内核
+      mobile: !!u.match(/AppleWebKit.*Mobile.*/), //是否为移动终端
+      ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
+      android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或者uc浏览器
+      iPhone: u.indexOf('iPhone') > -1 || u.indexOf('Mac') > -1, //是否为iPhone或者安卓QQ浏览器
+      iPad: u.indexOf('iPad') > -1, //是否为iPad
+      webApp: u.indexOf('Safari') == -1, //是否为web应用程序，没有头部与底部
+      weixin: u.indexOf('MicroMessenger') == -1, //是否为微信浏览器
+      uc: u.indexOf('UCBrowser') > -1, //是否为android下的UC浏览器
+    }
+  }
+  var browser = {
+    versions: getBrowserVersions(),
+  }
+  console.log('userAgent: ' + browser.versions.userAgent)
+
+  // callback
+  function fontLoaded() {
+    console.log('font loaded')
+    if (document.getElementsByClassName('site-intro-meta')) {
+      document
+        .getElementsByClassName('intro-title')[0]
+        .classList.add('intro-fade-in')
+      document
+        .getElementsByClassName('intro-subtitle')[0]
+        .classList.add('intro-fade-in')
+      var postIntros = document.getElementsByClassName('post-intros')[0]
+      if (postIntros) {
+        postIntros.classList.add('post-fade-in')
+      }
+    }
+  }
+
+  // UC不支持跨域，所以直接显示
+  function asyncCb() {
+    if (browser.versions.uc) {
+      console.log('UCBrowser')
+      fontLoaded()
+    } else {
+      WebFont.load({
+        custom: {
+          families: ['Oswald-Regular'],
+        },
+        loading: function () {
+          // 所有字体开始加载
+          // console.log('font loading');
+        },
+        active: function () {
+          // 所有字体已渲染
+          fontLoaded()
+        },
+        inactive: function () {
+          // 字体预加载失败，无效字体或浏览器不支持加载
+          console.log('inactive: timeout')
+          fontLoaded()
+        },
+        timeout: 5000, // Set the timeout to two seconds
+      })
+    }
+  }
+
+  function asyncErr() {
+    console.warn('script load from CDN failed, will load local script')
+  }
+
+  // load webfont-loader async, and add callback function
+  function async(u, cb, err) {
+    var d = document,
+      t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0]
+    o.src = u
+    if (cb) {
+      o.addEventListener(
+        'load',
+        function (e) {
+          cb(null, e)
+        },
+        false
+      )
+    }
+    if (err) {
+      o.addEventListener(
+        'error',
+        function (e) {
+          err(null, e)
+        },
+        false
+      )
+    }
+    s.parentNode.insertBefore(o, s)
+  }
+
+  var asyncLoadWithFallBack = function (arr, success, reject) {
+    var currReject = function () {
+      reject()
+      arr.shift()
+      if (arr.length) async(arr[0], success, currReject)
+    }
+
+    async(arr[0], success, currReject)
+  }
+
+  asyncLoadWithFallBack(
+    [
+      'https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js',
+      'https://cdn.bootcss.com/webfont/1.6.28/webfontloader.js',
+      "/blog/lib/webfontloader.min.js",
+    ],
+    asyncCb,
+    asyncErr
+  )
+</script>
+
+            <img class="loading" src="/blog/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" alt="loading">
+            <div class="container container-unloaded">
+                <main class="main index-page">
+            
+        <article class="index-post">
+            <a class="abstract-title" href="/blog/en/2026/02/11/how-to-safely-play-with-moltbot/">
+                <span class="abstract-title-text">How to Experiment with OpenClaw Without Creating a Security Problem</span>
+            </a>
+            <div class="abstract-content">
+                
+When people talk about experimenting with powerful AI agents, they usually focus on the device: use a fresh laptop, do not store private files, and avoid real payment credentials. That advice is useful, but it misses a deeper layer.
+The real question is network design.
+If the test machine sits i...
+            </div>
+            <!-- read more -->
+            <div class="abstract-post-meta">
+                <!-- date -->
+                <div class="abstract-date" title="Last updated: 2026/03/12">
+                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2026/02/11</span>
+                </div>
+                <!-- tags -->
+                    <div class="abstract-tags" >
+        <a class="post-tag" href="javascript:void(0);" data-tags="AI">AI</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags="Security">Security</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags="Networking">Networking</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags="CCNA">CCNA</a>
+</div>
+
+            </div>
+        </article>
+        <div class="index-post-divider"></div>
+            
+        <article class="index-post">
+            <a class="abstract-title" href="/blog/en/2025/12/08/why-backend-engineers-should-learn-ccna/">
+                <span class="abstract-title-text">Why Backend Engineers Should Learn Networking Fundamentals</span>
+            </a>
+            <div class="abstract-content">
+                I do not think backend engineers need to become full-time network specialists. I do think we benefit a lot from learning networking fundamentals.
+My motivation became clear when I ran into a Docker network conflict during development. I could patch the symptom, but I could not confidently explain...
+            </div>
+            <!-- read more -->
+            <div class="abstract-post-meta">
+                <!-- date -->
+                <div class="abstract-date" title="Last updated: 2026/03/12">
+                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2025/12/08</span>
+                </div>
+                <!-- tags -->
+                    <div class="abstract-tags" >
+        <a class="post-tag" href="javascript:void(0);" data-tags="Career">Career</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags="Networking">Networking</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags="CCNA">CCNA</a>
+</div>
+
+            </div>
+        </article>
+        <div class="index-post-divider"></div>
+            
+        <article class="index-post">
+            <a class="abstract-title" href="/blog/en/2025/11/25/building-a-counter-api-from-scratch/">
+                <span class="abstract-title-text">Building a Counter API from Scratch</span>
+            </a>
+            <div class="abstract-content">
+                I wanted a page-view counter that I could actually trust. The free service I used before was unstable, and the numbers could disappear without warning. Replacing it sounded simple, but my blog runs on GitHub Pages, so there was no backend waiting for me.
+That constraint turned the task into a com...
+            </div>
+            <!-- read more -->
+            <div class="abstract-post-meta">
+                <!-- date -->
+                <div class="abstract-date" title="Last updated: 2026/03/12">
+                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2025/11/25</span>
+                </div>
+                <!-- tags -->
+                    <div class="abstract-tags" >
+        <a class="post-tag" href="javascript:void(0);" data-tags="Side Project">Side Project</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags="API">API</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags="DevOps">DevOps</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags="Flask">Flask</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags="Docker">Docker</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags="Nginx">Nginx</a>
+</div>
+
+            </div>
+        </article>
+        <div class="index-post-divider"></div>
+            
+        <article class="index-post">
+            <a class="abstract-title" href="/blog/en/2025/09/07/toastmaster-club-bbq-party/">
+                <span class="abstract-title-text">Running a Toastmasters BBQ Like an Engineer</span>
+            </a>
+            <div class="abstract-content">
+                I helped organize a 29-person BBQ event for my Toastmasters club, and the experience felt surprisingly similar to running an engineering project.
+There was scope to clarify, logistics to confirm, risks to control, and many small decisions that only looked easy after they were handled. The same ha...
+            </div>
+            <!-- read more -->
+            <div class="abstract-post-meta">
+                <!-- date -->
+                <div class="abstract-date" title="Last updated: 2026/03/12">
+                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2025/09/07</span>
+                </div>
+                <!-- tags -->
+                    <div class="abstract-tags" >
+        <a class="post-tag" href="javascript:void(0);" data-tags="Toastmasters">Toastmasters</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags="Life">Life</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags="Leadership">Leadership</a>
+</div>
+
+            </div>
+        </article>
+        <div class="index-post-divider"></div>
+            
+        <article class="index-post">
+            <a class="abstract-title" href="/blog/en/2025/08/23/developer-survival-guide-in-the-era-of-vibe-coding/">
+                <span class="abstract-title-text">How Developers Survive in the Age of Vibe Coding</span>
+            </a>
+            <div class="abstract-content">
+                AI-assisted development is not removing the need for engineers. It is raising the value of engineers who can review generated work, reason about tradeoffs, and turn rough outputs into reliable systems.
+I recently attended an internal talk where non-engineering teams demonstrated how AI tools comp...
+            </div>
+            <!-- read more -->
+            <div class="abstract-post-meta">
+                <!-- date -->
+                <div class="abstract-date" title="Last updated: 2026/03/12">
+                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2025/08/23</span>
+                </div>
+                <!-- tags -->
+                    <div class="abstract-tags" >
+        <a class="post-tag" href="javascript:void(0);" data-tags="AI">AI</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags="Vibe Coding">Vibe Coding</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags="Career">Career</a>
+</div>
+
+            </div>
+        </article>
+        <div class="index-post-divider"></div>
+            
+        <article class="index-post">
+            <a class="abstract-title" href="/blog/en/2025/08/07/toastmaster-board-game-day/">
+                <span class="abstract-title-text">Toastmasters Board Game Day</span>
+            </a>
+            <div class="abstract-content">
+                Toastmasters is usually associated with speeches and formal speaking practice, but one of our most memorable sessions came from a board game night.
+What made it valuable was not just the fun. It was the way people communicated under light pressure:
+
+persuading teammates
+reacting in real time
+nego...
+            </div>
+            <!-- read more -->
+            <div class="abstract-post-meta">
+                <!-- date -->
+                <div class="abstract-date" title="Last updated: 2026/03/12">
+                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2025/08/07</span>
+                </div>
+                <!-- tags -->
+                    <div class="abstract-tags" >
+        <a class="post-tag" href="javascript:void(0);" data-tags="Toastmasters">Toastmasters</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags="Life">Life</a>
+</div>
+
+            </div>
+        </article>
+        <div class="index-post-divider"></div>
+            
+        <article class="index-post">
+            <a class="abstract-title" href="/blog/en/2025/02/14/linux-journey-part3-installing-wsl/">
+                <span class="abstract-title-text">Linux Journey Part 3: Installing WSL</span>
+            </a>
+            <div class="abstract-content">
+                If you decide to start with Ubuntu on Windows, WSL is the most practical entry point.
+It gives you a Linux environment without the overhead of a full virtual machine or dual-boot setup. For learners and developers, that means you can start practicing commands, package management, and shell workfl...
+            </div>
+            <!-- read more -->
+            <div class="abstract-post-meta">
+                <!-- date -->
+                <div class="abstract-date" title="Last updated: 2026/03/12">
+                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2025/02/14</span>
+                </div>
+                <!-- tags -->
+                    <div class="abstract-tags" >
+        <a class="post-tag" href="javascript:void(0);" data-tags="Linux">Linux</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags="WSL">WSL</a>
+</div>
+
+            </div>
+        </article>
+        <div class="index-post-divider"></div>
+            
+        <article class="index-post">
+            <a class="abstract-title" href="/blog/en/2024/11/16/linux-journey-part2-which-linux-distro-to-learn/">
+                <span class="abstract-title-text">Linux Journey Part 2: Which Distro Should You Start With</span>
+            </a>
+            <div class="abstract-content">
+                If you are new to Linux, I recommend starting with Ubuntu.
+That is not because Ubuntu is the only good distribution. It is because a beginner benefits most from:
+
+easy installation
+strong documentation
+a large user community
+direct compatibility with WSL on Windows
+
+Learning Linux should start wi...
+            </div>
+            <!-- read more -->
+            <div class="abstract-post-meta">
+                <!-- date -->
+                <div class="abstract-date" title="Last updated: 2026/03/12">
+                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2024/11/16</span>
+                </div>
+                <!-- tags -->
+                    <div class="abstract-tags" >
+        <a class="post-tag" href="javascript:void(0);" data-tags="Linux">Linux</a>
+</div>
+
+            </div>
+        </article>
+        <div class="index-post-divider"></div>
+            
+        <article class="index-post">
+            <a class="abstract-title" href="/blog/en/2024/11/04/linux-journey-part1-why-learn-linux/">
+                <span class="abstract-title-text">Linux Journey Part 1: Why Learn Linux</span>
+            </a>
+            <div class="abstract-content">
+                For beginners, Linux can feel like a detour after learning programming basics. I see it the other way around: Linux is where code starts to operate in the real world.
+The reason I recommend Linux is not just because servers often run it. Linux teaches the environment around software:
+
+processes
+f...
+            </div>
+            <!-- read more -->
+            <div class="abstract-post-meta">
+                <!-- date -->
+                <div class="abstract-date" title="Last updated: 2026/03/12">
+                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2024/11/04</span>
+                </div>
+                <!-- tags -->
+                    <div class="abstract-tags" >
+        <a class="post-tag" href="javascript:void(0);" data-tags="Linux">Linux</a>
+</div>
+
+            </div>
+        </article>
+        <div class="index-post-divider"></div>
+            
+        <article class="index-post">
+            <a class="abstract-title" href="/blog/en/2024/10/27/my-first-technical-blog-post/">
+                <span class="abstract-title-text">Why I Started This Technical Blog</span>
+            </a>
+            <div class="abstract-content">
+                I started this blog for two reasons.
+First, I wanted a place to document what I learn while working as a backend engineer. Writing forces me to slow down, organize ideas, and turn vague understanding into something precise.
+Second, I wanted a public artifact that shows what I can build and how I ...
+            </div>
+            <!-- read more -->
+            <div class="abstract-post-meta">
+                <!-- date -->
+                <div class="abstract-date" title="Last updated: 2026/03/12">
+                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2024/10/27</span>
+                </div>
+                <!-- tags -->
+                    <div class="abstract-tags" >
+        <a class="post-tag" href="javascript:void(0);" data-tags="Personal">Personal</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags="Blogging">Blogging</a>
+</div>
+
+            </div>
+        </article>
+        <div class="index-post-divider"></div>
+    <!-- paginator  -->
+</main>
+
+                <!-- profile -->
+                    <div class="profile">
+    <img class="profile-avatar" alt="avatar" src="/blog/avatar/ken.jpg" >
+    <div class="profile-name">KEN</div>
+        <div class="profile-signature">
+            Senior Engineer at ASUS
+        </div>
+        <div class="profile-social">
+                            <a href="mailto:mafiahsu0.1@gmail.com" class="iconfont-archer email" title="email" ></a>
+                <a href="https://github.com/MiruOrange" class="iconfont-archer github" target="_blank" title="github"></a>
+                <a href="https://www.linkedin.com/in/ken-hsu-600611240/" class="iconfont-archer linkedin" target="_blank" title="linkedin"></a>
+                <a href="https://www.youtube.com/@%E6%8B%8D%E7%B9%A9%E6%94%BB%E5%9F%8E%E5%B8%AB" class="iconfont-archer youtube" target="_blank" title="youtube"></a>
+
+        </div>
+        <div class="profile-link-item">
+            <a href="/blog/en/about/" class="about-me">
+                About
+            </a>
+        </div>
+    <div class="profile-link-item">
+        <a href="/blog/" class="switch-language">
+            中文
+        </a>
+    </div>
+</div>
+
+            </div>
+            <footer class="footer footer-unloaded">
+    <!-- social  -->
+        <div class="social">
+                            <a href="mailto:mafiahsu0.1@gmail.com" class="iconfont-archer email" title="email" ></a>
+                <a href="https://github.com/MiruOrange" class="iconfont-archer github" target="_blank" title="github"></a>
+                <a href="https://www.linkedin.com/in/ken-hsu-600611240/" class="iconfont-archer linkedin" target="_blank" title="linkedin"></a>
+                <a href="https://www.youtube.com/@%E6%8B%8D%E7%B9%A9%E6%94%BB%E5%9F%8E%E5%B8%AB" class="iconfont-archer youtube" target="_blank" title="youtube"></a>
+
+        </div>
+    <!-- powered by Hexo  -->
+    <div class="copyright">
+        <span id="hexo-power">Powered by <a href="https://miruorange.github.io/blog/" target="_blank">KEN</a></span><span class="iconfont-archer power">&#xe635;</span>
+    </div>
+    <!-- website approve for Chinese user -->
+</footer>
+
+        </div>
+        <!-- toc -->
+        <!-- sidebar -->
+        <div class="sidebar sidebar-hide">
+    <ul class="sidebar-tabs sidebar-tabs-active-0">
+        <li class="sidebar-tab-archives"><span class="iconfont-archer">&#xe67d;</span><span class="tab-name">Archive</span></li>
+        <li class="sidebar-tab-tags"><span class="iconfont-archer">&#xe61b;</span><span class="tab-name">Tags</span></li>
+        <li class="sidebar-tab-categories"><span class="iconfont-archer">&#xe666;</span><span class="tab-name">Categories</span></li>
+    </ul>
+    <div class="sidebar-content sidebar-content-show-archive">
+        <div class="sidebar-panel-archives">
+    <div class="total-and-search">
+        <div class="total-archive">
+        Total : 10
+        </div>
+        <!-- search  -->
+    </div>
+    <div class="post-archive">
+            <div class="archive-year"> 2026 </div>
+            <ul class="year-list">
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/11</span>
+            <a class="archive-post-title" href="/blog/en/2026/02/11/how-to-safely-play-with-moltbot/">How to Experiment with OpenClaw Without Creating a Security Problem</a>
+        </li>
+                </ul>
+            <div class="archive-year"> 2025 </div>
+            <ul class="year-list">
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/08</span>
+            <a class="archive-post-title" href="/blog/en/2025/12/08/why-backend-engineers-should-learn-ccna/">Why Backend Engineers Should Learn Networking Fundamentals</a>
+        </li>
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/25</span>
+            <a class="archive-post-title" href="/blog/en/2025/11/25/building-a-counter-api-from-scratch/">Building a Counter API from Scratch</a>
+        </li>
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/07</span>
+            <a class="archive-post-title" href="/blog/en/2025/09/07/toastmaster-club-bbq-party/">Running a Toastmasters BBQ Like an Engineer</a>
+        </li>
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/23</span>
+            <a class="archive-post-title" href="/blog/en/2025/08/23/developer-survival-guide-in-the-era-of-vibe-coding/">How Developers Survive in the Age of Vibe Coding</a>
+        </li>
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/07</span>
+            <a class="archive-post-title" href="/blog/en/2025/08/07/toastmaster-board-game-day/">Toastmasters Board Game Day</a>
+        </li>
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/14</span>
+            <a class="archive-post-title" href="/blog/en/2025/02/14/linux-journey-part3-installing-wsl/">Linux Journey Part 3: Installing WSL</a>
+        </li>
+                </ul>
+            <div class="archive-year"> 2024 </div>
+            <ul class="year-list">
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/16</span>
+            <a class="archive-post-title" href="/blog/en/2024/11/16/linux-journey-part2-which-linux-distro-to-learn/">Linux Journey Part 2: Which Distro Should You Start With</a>
+        </li>
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/04</span>
+            <a class="archive-post-title" href="/blog/en/2024/11/04/linux-journey-part1-why-learn-linux/">Linux Journey Part 1: Why Learn Linux</a>
+        </li>
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/27</span>
+            <a class="archive-post-title" href="/blog/en/2024/10/27/my-first-technical-blog-post/">Why I Started This Technical Blog</a>
+        </li>
+            </ul>
+    </div>
+</div>
+
+        <div class="sidebar-panel-tags">
+    <div class="sidebar-tags-name">
+            <span class="sidebar-tag-name" data-tags="AI">
+                <span class="iconfont-archer">&#xe606;</span>
+                AI
+            </span>
+            <span class="sidebar-tag-name" data-tags="API">
+                <span class="iconfont-archer">&#xe606;</span>
+                API
+            </span>
+            <span class="sidebar-tag-name" data-tags="Blogging">
+                <span class="iconfont-archer">&#xe606;</span>
+                Blogging
+            </span>
+            <span class="sidebar-tag-name" data-tags="Career">
+                <span class="iconfont-archer">&#xe606;</span>
+                Career
+            </span>
+            <span class="sidebar-tag-name" data-tags="CCNA">
+                <span class="iconfont-archer">&#xe606;</span>
+                CCNA
+            </span>
+            <span class="sidebar-tag-name" data-tags="DevOps">
+                <span class="iconfont-archer">&#xe606;</span>
+                DevOps
+            </span>
+            <span class="sidebar-tag-name" data-tags="Docker">
+                <span class="iconfont-archer">&#xe606;</span>
+                Docker
+            </span>
+            <span class="sidebar-tag-name" data-tags="Flask">
+                <span class="iconfont-archer">&#xe606;</span>
+                Flask
+            </span>
+            <span class="sidebar-tag-name" data-tags="Leadership">
+                <span class="iconfont-archer">&#xe606;</span>
+                Leadership
+            </span>
+            <span class="sidebar-tag-name" data-tags="Life">
+                <span class="iconfont-archer">&#xe606;</span>
+                Life
+            </span>
+            <span class="sidebar-tag-name" data-tags="Linux">
+                <span class="iconfont-archer">&#xe606;</span>
+                Linux
+            </span>
+            <span class="sidebar-tag-name" data-tags="Networking">
+                <span class="iconfont-archer">&#xe606;</span>
+                Networking
+            </span>
+            <span class="sidebar-tag-name" data-tags="Nginx">
+                <span class="iconfont-archer">&#xe606;</span>
+                Nginx
+            </span>
+            <span class="sidebar-tag-name" data-tags="Personal">
+                <span class="iconfont-archer">&#xe606;</span>
+                Personal
+            </span>
+            <span class="sidebar-tag-name" data-tags="Security">
+                <span class="iconfont-archer">&#xe606;</span>
+                Security
+            </span>
+            <span class="sidebar-tag-name" data-tags="Side Project">
+                <span class="iconfont-archer">&#xe606;</span>
+                Side Project
+            </span>
+            <span class="sidebar-tag-name" data-tags="Toastmasters">
+                <span class="iconfont-archer">&#xe606;</span>
+                Toastmasters
+            </span>
+            <span class="sidebar-tag-name" data-tags="Vibe Coding">
+                <span class="iconfont-archer">&#xe606;</span>
+                Vibe Coding
+            </span>
+            <span class="sidebar-tag-name" data-tags="WSL">
+                <span class="iconfont-archer">&#xe606;</span>
+                WSL
+            </span>
+    </div>
+    <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
+    <div class="tag-load-fail" style="display: none; color: #ccc; font-size: 0.6rem;">
+        缺失模块，请参考主题文档进行安装配置：https://github.com/fi3ework/hexo-theme-archer#%E5%AE%89%E8%A3%85%E4%B8%BB%E9%A2%98
+    </div> 
+    <div class="sidebar-tags-list"></div>
+</div>
+
+        <div class="sidebar-panel-categories">
+    <div class="sidebar-categories-name">
+        <span class="sidebar-category-name" data-categories="Engineering Notes">
+            <span class="iconfont-archer">&#xe60a;</span>
+            Engineering Notes
+        </span>
+        <span class="sidebar-category-name" data-categories="Learning Notes">
+            <span class="iconfont-archer">&#xe60a;</span>
+            Learning Notes
+        </span>
+        <span class="sidebar-category-name" data-categories="Life Notes">
+            <span class="iconfont-archer">&#xe60a;</span>
+            Life Notes
+        </span>
+        <span class="sidebar-category-name" data-categories="Security Notes">
+            <span class="iconfont-archer">&#xe60a;</span>
+            Security Notes
+        </span>
+    </div>
+    <div class="iconfont-archer sidebar-categories-empty">&#xe678;</div>
+    <div class="sidebar-categories-list"></div>
+</div>
+
+    </div>
+</div>
+
+        <!-- site-meta -->
+        <script>
+    var siteMetaRoot = "/blog/"
+    if (siteMetaRoot === "undefined") {
+        siteMetaRoot = '/'
+    }
+    var siteMeta = {
+        url: "https://miruorange.github.io/blog",
+        root: siteMetaRoot,
+        author: "Ken Hsu"
+    }
+</script>
+
+        <!-- import experimental options here -->
+        <!-- Custom Font -->
+
+        <!-- main func -->
+        <script src="/blog/scripts/main.js"></script>
+        <!-- fancybox -->
+        <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.36/dist/fancybox/fancybox.umd.js" onload="window.Fancybox.bind('[data-fancybox]')" defer></script>
+        <!-- algolia -->
+        <!-- async load share.js -->
+        <script async src="https://static.addtoany.com/menu/page.js"></script>
+        <!-- mermaid -->
+        
+        <!-- Custom Page View Counter Script -->
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                // Only run on post pages
+                if (document.body.classList.contains('post-body')) {
+                    const container = document.getElementById('custom-view-counter-container');
+                    const viewsElement = document.getElementById('my-page-views');
+
+                    if (!viewsElement || !container) {
+                        return; 
+                    }
+
+                    const postUrl = window.location.href;
+
+                    fetch('https://blog.mirubattery.com/api/blog/v1/posts', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({
+                            url: postUrl,
+                            lang: 'en',
+                            translationKey: ''
+                        }),
+                    })
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Network response was not ok for view counter.');
+                        }
+                        return response.json();
+                    })
+                    .then(data => {
+                        if (data && data.views) {
+                            viewsElement.innerText = data.views;
+                            container.style.display = 'inline';
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error fetching post views:', error);
+                        // Do not show the counter if the API fails
+                    });
+                }
+            });
+        </script>
+    </body>
+</html>
