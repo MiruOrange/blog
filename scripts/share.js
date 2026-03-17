@@ -1,4 +1,4 @@
-(() => {
+;(() => {
   var t = {
       873: (t, r) => {
         var e,
@@ -13,12 +13,12 @@
                 w = [],
                 p = {},
                 m = function (t, r) {
-                  ((o = (function (t) {
+                  ;((o = (function (t) {
                     for (var r = new Array(t), e = 0; e < t; e += 1) {
-                      r[e] = new Array(t);
-                      for (var n = 0; n < t; n += 1) r[e][n] = null;
+                      r[e] = new Array(t)
+                      for (var n = 0; n < t; n += 1) r[e][n] = null
                     }
-                    return r;
+                    return r
                   })((i = 4 * e + 17))),
                     B(0, 0),
                     B(i - 7, 0),
@@ -28,7 +28,7 @@
                     b(t, r),
                     e >= 7 && C(t),
                     null == f && (f = L(e, n, w)),
-                    x(f, r));
+                    x(f, r))
                 },
                 B = function (t, r) {
                   for (var e = -1; e <= 7; e += 1)
@@ -39,13 +39,13 @@
                           (o[t + e][r + n] =
                             (0 <= e && e <= 6 && (0 == n || 6 == n)) ||
                             (0 <= n && n <= 6 && (0 == e || 6 == e)) ||
-                            (2 <= e && e <= 4 && 2 <= n && n <= 4));
+                            (2 <= e && e <= 4 && 2 <= n && n <= 4))
                 },
                 A = function () {
                   for (var t = 8; t < i - 8; t += 1)
-                    null == o[t][6] && (o[t][6] = t % 2 == 0);
+                    null == o[t][6] && (o[t][6] = t % 2 == 0)
                   for (var r = 8; r < i - 8; r += 1)
-                    null == o[6][r] && (o[6][r] = r % 2 == 0);
+                    null == o[6][r] && (o[6][r] = r % 2 == 0)
                 },
                 k = function () {
                   for (
@@ -55,7 +55,7 @@
                   )
                     for (var n = 0; n < t.length; n += 1) {
                       var i = t[r],
-                        a = t[n];
+                        a = t[n]
                       if (null == o[i][a])
                         for (var f = -2; f <= 2; f += 1)
                           for (var c = -2; c <= 2; c += 1)
@@ -64,17 +64,17 @@
                               2 == f ||
                               -2 == c ||
                               2 == c ||
-                              (0 == f && 0 == c);
+                              (0 == f && 0 == c)
                     }
                 },
                 C = function (t) {
                   for (var r = u.getBCHTypeNumber(e), n = 0; n < 18; n += 1) {
-                    var a = !t && 1 == ((r >> n) & 1);
-                    o[Math.floor(n / 3)][(n % 3) + i - 8 - 3] = a;
+                    var a = !t && 1 == ((r >> n) & 1)
+                    o[Math.floor(n / 3)][(n % 3) + i - 8 - 3] = a
                   }
                   for (n = 0; n < 18; n += 1)
                     ((a = !t && 1 == ((r >> n) & 1)),
-                      (o[(n % 3) + i - 8 - 3][Math.floor(n / 3)] = a));
+                      (o[(n % 3) + i - 8 - 3][Math.floor(n / 3)] = a))
                 },
                 b = function (t, r) {
                   for (
@@ -82,12 +82,12 @@
                     f < 15;
                     f += 1
                   ) {
-                    var c = !t && 1 == ((a >> f) & 1);
+                    var c = !t && 1 == ((a >> f) & 1)
                     f < 6
                       ? (o[f][8] = c)
                       : f < 8
                         ? (o[f + 1][8] = c)
-                        : (o[i - 15 + f][8] = c);
+                        : (o[i - 15 + f][8] = c)
                   }
                   for (f = 0; f < 15; f += 1)
                     ((c = !t && 1 == ((a >> f) & 1)),
@@ -95,8 +95,8 @@
                         ? (o[8][i - f - 1] = c)
                         : f < 9
                           ? (o[8][15 - f - 1 + 1] = c)
-                          : (o[8][15 - f - 1] = c));
-                  o[i - 8][8] = !t;
+                          : (o[8][15 - f - 1] = c))
+                  o[i - 8][8] = !t
                 },
                 x = function (t, r) {
                   for (
@@ -112,15 +112,15 @@
                     for (6 == g && (g -= 1); ; ) {
                       for (var s = 0; s < 2; s += 1)
                         if (null == o[n][g - s]) {
-                          var l = !1;
-                          (f < t.length && (l = 1 == ((t[f] >>> a) & 1)),
+                          var l = !1
+                          ;(f < t.length && (l = 1 == ((t[f] >>> a) & 1)),
                             c(n, g - s) && (l = !l),
                             (o[n][g - s] = l),
-                            -1 == (a -= 1) && ((f += 1), (a = 7)));
+                            -1 == (a -= 1) && ((f += 1), (a = 7)))
                         }
                       if ((n += e) < 0 || i <= n) {
-                        ((n -= e), (e = -e));
-                        break;
+                        ;((n -= e), (e = -e))
+                        break
                       }
                     }
                 },
@@ -130,27 +130,27 @@
                     i < e.length;
                     i += 1
                   ) {
-                    var a = e[i];
-                    (o.put(a.getMode(), 4),
+                    var a = e[i]
+                    ;(o.put(a.getMode(), 4),
                       o.put(a.getLength(), u.getLengthInBits(a.getMode(), t)),
-                      a.write(o));
+                      a.write(o))
                   }
-                  var f = 0;
-                  for (i = 0; i < n.length; i += 1) f += n[i].dataCount;
+                  var f = 0
+                  for (i = 0; i < n.length; i += 1) f += n[i].dataCount
                   if (o.getLengthInBits() > 8 * f)
                     throw (
-                      "code length overflow. (" +
+                      'code length overflow. (' +
                       o.getLengthInBits() +
-                      ">" +
+                      '>' +
                       8 * f +
-                      ")"
-                    );
+                      ')'
+                    )
                   for (
                     o.getLengthInBits() + 4 <= 8 * f && o.put(0, 4);
                     o.getLengthInBits() % 8 != 0;
 
                   )
-                    o.putBit(!1);
+                    o.putBit(!1)
                   for (
                     ;
                     !(
@@ -159,7 +159,7 @@
                     );
 
                   )
-                    o.put(17, 8);
+                    o.put(17, 8)
                   return (function (t, r) {
                     for (
                       var e = 0,
@@ -172,63 +172,63 @@
                       f += 1
                     ) {
                       var g = r[f].dataCount,
-                        s = r[f].totalCount - g;
-                      ((n = Math.max(n, g)),
+                        s = r[f].totalCount - g
+                      ;((n = Math.max(n, g)),
                         (o = Math.max(o, s)),
-                        (i[f] = new Array(g)));
+                        (i[f] = new Array(g)))
                       for (var l = 0; l < i[f].length; l += 1)
-                        i[f][l] = 255 & t.getBuffer()[l + e];
-                      e += g;
+                        i[f][l] = 255 & t.getBuffer()[l + e]
+                      e += g
                       var h = u.getErrorCorrectPolynomial(s),
-                        d = c(i[f], h.getLength() - 1).mod(h);
+                        d = c(i[f], h.getLength() - 1).mod(h)
                       for (
                         a[f] = new Array(h.getLength() - 1), l = 0;
                         l < a[f].length;
                         l += 1
                       ) {
-                        var v = l + d.getLength() - a[f].length;
-                        a[f][l] = v >= 0 ? d.getAt(v) : 0;
+                        var v = l + d.getLength() - a[f].length
+                        a[f][l] = v >= 0 ? d.getAt(v) : 0
                       }
                     }
-                    var w = 0;
-                    for (l = 0; l < r.length; l += 1) w += r[l].totalCount;
+                    var w = 0
+                    for (l = 0; l < r.length; l += 1) w += r[l].totalCount
                     var p = new Array(w),
-                      y = 0;
+                      y = 0
                     for (l = 0; l < n; l += 1)
                       for (f = 0; f < r.length; f += 1)
-                        l < i[f].length && ((p[y] = i[f][l]), (y += 1));
+                        l < i[f].length && ((p[y] = i[f][l]), (y += 1))
                     for (l = 0; l < o; l += 1)
                       for (f = 0; f < r.length; f += 1)
-                        l < a[f].length && ((p[y] = a[f][l]), (y += 1));
-                    return p;
-                  })(o, n);
-                };
-              ((p.addData = function (t, r) {
-                var e = null;
-                switch ((r = r || "Byte")) {
-                  case "Numeric":
-                    e = l(t);
-                    break;
-                  case "Alphanumeric":
-                    e = h(t);
-                    break;
-                  case "Byte":
-                    e = d(t);
-                    break;
-                  case "Kanji":
-                    e = v(t);
-                    break;
-                  default:
-                    throw "mode:" + r;
+                        l < a[f].length && ((p[y] = a[f][l]), (y += 1))
+                    return p
+                  })(o, n)
                 }
-                (w.push(e), (f = null));
+              ;((p.addData = function (t, r) {
+                var e = null
+                switch ((r = r || 'Byte')) {
+                  case 'Numeric':
+                    e = l(t)
+                    break
+                  case 'Alphanumeric':
+                    e = h(t)
+                    break
+                  case 'Byte':
+                    e = d(t)
+                    break
+                  case 'Kanji':
+                    e = v(t)
+                    break
+                  default:
+                    throw 'mode:' + r
+                }
+                ;(w.push(e), (f = null))
               }),
                 (p.isDark = function (t, r) {
-                  if (t < 0 || i <= t || r < 0 || i <= r) throw t + "," + r;
-                  return o[t][r];
+                  if (t < 0 || i <= t || r < 0 || i <= r) throw t + ',' + r
+                  return o[t][r]
                 }),
                 (p.getModuleCount = function () {
-                  return i;
+                  return i
                 }),
                 (p.make = function () {
                   if (e < 1) {
@@ -238,112 +238,112 @@
                         i < w.length;
                         i++
                       ) {
-                        var a = w[i];
-                        (o.put(a.getMode(), 4),
+                        var a = w[i]
+                        ;(o.put(a.getMode(), 4),
                           o.put(
                             a.getLength(),
                             u.getLengthInBits(a.getMode(), t),
                           ),
-                          a.write(o));
+                          a.write(o))
                       }
-                      var f = 0;
-                      for (i = 0; i < r.length; i++) f += r[i].dataCount;
-                      if (o.getLengthInBits() <= 8 * f) break;
+                      var f = 0
+                      for (i = 0; i < r.length; i++) f += r[i].dataCount
+                      if (o.getLengthInBits() <= 8 * f) break
                     }
-                    e = t;
+                    e = t
                   }
                   m(
                     !1,
                     (function () {
                       for (var t = 0, r = 0, e = 0; e < 8; e += 1) {
-                        m(!0, e);
-                        var n = u.getLostPoint(p);
-                        (0 == e || t > n) && ((t = n), (r = e));
+                        m(!0, e)
+                        var n = u.getLostPoint(p)
+                        ;(0 == e || t > n) && ((t = n), (r = e))
                       }
-                      return r;
+                      return r
                     })(),
-                  );
+                  )
                 }),
                 (p.createTableTag = function (t, r) {
-                  t = t || 2;
-                  var e = "";
-                  ((e += '<table style="'),
-                    (e += " border-width: 0px; border-style: none;"),
-                    (e += " border-collapse: collapse;"),
+                  t = t || 2
+                  var e = ''
+                  ;((e += '<table style="'),
+                    (e += ' border-width: 0px; border-style: none;'),
+                    (e += ' border-collapse: collapse;'),
                     (e +=
-                      " padding: 0px; margin: " +
+                      ' padding: 0px; margin: ' +
                       (r = void 0 === r ? 4 * t : r) +
-                      "px;"),
+                      'px;'),
                     (e += '">'),
-                    (e += "<tbody>"));
+                    (e += '<tbody>'))
                   for (var n = 0; n < p.getModuleCount(); n += 1) {
-                    e += "<tr>";
+                    e += '<tr>'
                     for (var o = 0; o < p.getModuleCount(); o += 1)
                       ((e += '<td style="'),
-                        (e += " border-width: 0px; border-style: none;"),
-                        (e += " border-collapse: collapse;"),
-                        (e += " padding: 0px; margin: 0px;"),
-                        (e += " width: " + t + "px;"),
-                        (e += " height: " + t + "px;"),
-                        (e += " background-color: "),
-                        (e += p.isDark(n, o) ? "#000000" : "#ffffff"),
-                        (e += ";"),
-                        (e += '"/>'));
-                    e += "</tr>";
+                        (e += ' border-width: 0px; border-style: none;'),
+                        (e += ' border-collapse: collapse;'),
+                        (e += ' padding: 0px; margin: 0px;'),
+                        (e += ' width: ' + t + 'px;'),
+                        (e += ' height: ' + t + 'px;'),
+                        (e += ' background-color: '),
+                        (e += p.isDark(n, o) ? '#000000' : '#ffffff'),
+                        (e += ';'),
+                        (e += '"/>'))
+                    e += '</tr>'
                   }
-                  return (e += "</tbody>") + "</table>";
+                  return (e += '</tbody>') + '</table>'
                 }),
                 (p.createSvgTag = function (t, r, e, n) {
-                  var o = {};
-                  ("object" == typeof arguments[0] &&
+                  var o = {}
+                  ;('object' == typeof arguments[0] &&
                     ((t = (o = arguments[0]).cellSize),
                     (r = o.margin),
                     (e = o.alt),
                     (n = o.title)),
                     (t = t || 2),
                     (r = void 0 === r ? 4 * t : r),
-                    ((e = "string" == typeof e ? { text: e } : e || {}).text =
+                    ((e = 'string' == typeof e ? { text: e } : e || {}).text =
                       e.text || null),
-                    (e.id = e.text ? e.id || "qrcode-description" : null),
-                    ((n = "string" == typeof n ? { text: n } : n || {}).text =
+                    (e.id = e.text ? e.id || 'qrcode-description' : null),
+                    ((n = 'string' == typeof n ? { text: n } : n || {}).text =
                       n.text || null),
-                    (n.id = n.text ? n.id || "qrcode-title" : null));
+                    (n.id = n.text ? n.id || 'qrcode-title' : null))
                   var i,
                     a,
                     u,
                     f,
                     c = p.getModuleCount() * t + 2 * r,
-                    g = "";
+                    g = ''
                   for (
-                    f = "l" + t + ",0 0," + t + " -" + t + ",0 0,-" + t + "z ",
+                    f = 'l' + t + ',0 0,' + t + ' -' + t + ',0 0,-' + t + 'z ',
                       g +=
                         '<svg version="1.1" xmlns="http://www.w3.org/2000/svg"',
                       g += o.scalable
-                        ? ""
+                        ? ''
                         : ' width="' + c + 'px" height="' + c + 'px"',
-                      g += ' viewBox="0 0 ' + c + " " + c + '" ',
+                      g += ' viewBox="0 0 ' + c + ' ' + c + '" ',
                       g += ' preserveAspectRatio="xMinYMin meet"',
                       g +=
                         n.text || e.text
                           ? ' role="img" aria-labelledby="' +
-                            M([n.id, e.id].join(" ").trim()) +
+                            M([n.id, e.id].join(' ').trim()) +
                             '"'
-                          : "",
-                      g += ">",
+                          : '',
+                      g += '>',
                       g += n.text
                         ? '<title id="' +
                           M(n.id) +
                           '">' +
                           M(n.text) +
-                          "</title>"
-                        : "",
+                          '</title>'
+                        : '',
                       g += e.text
                         ? '<description id="' +
                           M(e.id) +
                           '">' +
                           M(e.text) +
-                          "</description>"
-                        : "",
+                          '</description>'
+                        : '',
                       g +=
                         '<rect width="100%" height="100%" fill="white" cx="0" cy="0"/>',
                       g += '<path d="',
@@ -352,31 +352,31 @@
                     a += 1
                   )
                     for (u = a * t + r, i = 0; i < p.getModuleCount(); i += 1)
-                      p.isDark(a, i) && (g += "M" + (i * t + r) + "," + u + f);
+                      p.isDark(a, i) && (g += 'M' + (i * t + r) + ',' + u + f)
                   return (
-                    (g += '" stroke="transparent" fill="black"/>') + "</svg>"
-                  );
+                    (g += '" stroke="transparent" fill="black"/>') + '</svg>'
+                  )
                 }),
                 (p.createDataURL = function (t, r) {
-                  ((t = t || 2), (r = void 0 === r ? 4 * t : r));
+                  ;((t = t || 2), (r = void 0 === r ? 4 * t : r))
                   var e = p.getModuleCount() * t + 2 * r,
                     n = r,
-                    o = e - r;
+                    o = e - r
                   return y(e, e, function (r, e) {
                     if (n <= r && r < o && n <= e && e < o) {
                       var i = Math.floor((r - n) / t),
-                        a = Math.floor((e - n) / t);
-                      return p.isDark(a, i) ? 0 : 1;
+                        a = Math.floor((e - n) / t)
+                      return p.isDark(a, i) ? 0 : 1
                     }
-                    return 1;
-                  });
+                    return 1
+                  })
                 }),
                 (p.createImgTag = function (t, r, e) {
-                  ((t = t || 2), (r = void 0 === r ? 4 * t : r));
+                  ;((t = t || 2), (r = void 0 === r ? 4 * t : r))
                   var n = p.getModuleCount() * t + 2 * r,
-                    o = "";
+                    o = ''
                   return (
-                    (o += "<img"),
+                    (o += '<img'),
                     (o += ' src="'),
                     (o += p.createDataURL(t, r)),
                     (o += '"'),
@@ -387,36 +387,36 @@
                     (o += n),
                     (o += '"'),
                     e && ((o += ' alt="'), (o += M(e)), (o += '"')),
-                    o + "/>"
-                  );
-                }));
+                    o + '/>'
+                  )
+                }))
               var M = function (t) {
-                for (var r = "", e = 0; e < t.length; e += 1) {
-                  var n = t.charAt(e);
+                for (var r = '', e = 0; e < t.length; e += 1) {
+                  var n = t.charAt(e)
                   switch (n) {
-                    case "<":
-                      r += "&lt;";
-                      break;
-                    case ">":
-                      r += "&gt;";
-                      break;
-                    case "&":
-                      r += "&amp;";
-                      break;
+                    case '<':
+                      r += '&lt;'
+                      break
+                    case '>':
+                      r += '&gt;'
+                      break
+                    case '&':
+                      r += '&amp;'
+                      break
                     case '"':
-                      r += "&quot;";
-                      break;
+                      r += '&quot;'
+                      break
                     default:
-                      r += n;
+                      r += n
                   }
                 }
-                return r;
-              };
+                return r
+              }
               return (
                 (p.createASCII = function (t, r) {
                   if ((t = t || 1) < 2)
                     return (function (t) {
-                      t = void 0 === t ? 2 : t;
+                      t = void 0 === t ? 2 : t
                       var r,
                         e,
                         n,
@@ -425,9 +425,9 @@
                         a = 1 * p.getModuleCount() + 2 * t,
                         u = t,
                         f = a - t,
-                        c = { "██": "█", "█ ": "▀", " █": "▄", "  ": " " },
-                        g = { "██": "▀", "█ ": "▀", " █": " ", "  ": " " },
-                        s = "";
+                        c = { '██': '█', '█ ': '▀', ' █': '▄', '  ': ' ' },
+                        g = { '██': '▀', '█ ': '▀', ' █': ' ', '  ': ' ' },
+                        s = ''
                       for (r = 0; r < a; r += 2) {
                         for (
                           n = Math.floor((r - u) / 1),
@@ -436,29 +436,29 @@
                           e < a;
                           e += 1
                         )
-                          ((i = "█"),
+                          ((i = '█'),
                             u <= e &&
                               e < f &&
                               u <= r &&
                               r < f &&
                               p.isDark(n, Math.floor((e - u) / 1)) &&
-                              (i = " "),
+                              (i = ' '),
                             u <= e &&
                             e < f &&
                             u <= r + 1 &&
                             r + 1 < f &&
                             p.isDark(o, Math.floor((e - u) / 1))
-                              ? (i += " ")
-                              : (i += "█"),
-                            (s += t < 1 && r + 1 >= f ? g[i] : c[i]));
-                        s += "\n";
+                              ? (i += ' ')
+                              : (i += '█'),
+                            (s += t < 1 && r + 1 >= f ? g[i] : c[i]))
+                        s += '\n'
                       }
                       return a % 2 && t > 0
                         ? s.substring(0, s.length - a - 1) +
-                            Array(a + 1).join("▀")
-                        : s.substring(0, s.length - 1);
-                    })(r);
-                  ((t -= 1), (r = void 0 === r ? 2 * t : r));
+                            Array(a + 1).join('▀')
+                        : s.substring(0, s.length - 1)
+                    })(r)
+                  ;((t -= 1), (r = void 0 === r ? 2 * t : r))
                   var e,
                     n,
                     o,
@@ -466,13 +466,13 @@
                     a = p.getModuleCount() * t + 2 * r,
                     u = r,
                     f = a - r,
-                    c = Array(t + 1).join("██"),
-                    g = Array(t + 1).join("  "),
-                    s = "",
-                    l = "";
+                    c = Array(t + 1).join('██'),
+                    g = Array(t + 1).join('  '),
+                    s = '',
+                    l = ''
                   for (e = 0; e < a; e += 1) {
                     for (
-                      o = Math.floor((e - u) / t), l = "", n = 0;
+                      o = Math.floor((e - u) / t), l = '', n = 0;
                       n < a;
                       n += 1
                     )
@@ -483,28 +483,28 @@
                           e < f &&
                           p.isDark(o, Math.floor((n - u) / t)) &&
                           (i = 0),
-                        (l += i ? c : g));
-                    for (o = 0; o < t; o += 1) s += l + "\n";
+                        (l += i ? c : g))
+                    for (o = 0; o < t; o += 1) s += l + '\n'
                   }
-                  return s.substring(0, s.length - 1);
+                  return s.substring(0, s.length - 1)
                 }),
                 (p.renderTo2dContext = function (t, r) {
-                  r = r || 2;
+                  r = r || 2
                   for (var e = p.getModuleCount(), n = 0; n < e; n++)
                     for (var o = 0; o < e; o++)
-                      ((t.fillStyle = p.isDark(n, o) ? "black" : "white"),
-                        t.fillRect(n * r, o * r, r, r));
+                      ((t.fillStyle = p.isDark(n, o) ? 'black' : 'white'),
+                        t.fillRect(n * r, o * r, r, r))
                 }),
                 p
-              );
-            };
-            ((t.stringToBytes = (t.stringToBytesFuncs = {
+              )
+            }
+            ;((t.stringToBytes = (t.stringToBytesFuncs = {
               default: function (t) {
                 for (var r = [], e = 0; e < t.length; e += 1) {
-                  var n = t.charCodeAt(e);
-                  r.push(255 & n);
+                  var n = t.charCodeAt(e)
+                  r.push(255 & n)
                 }
-                return r;
+                return r
               },
             }).default),
               (t.createStringToBytes = function (t, r) {
@@ -512,41 +512,41 @@
                     for (
                       var e = p(t),
                         n = function () {
-                          var t = e.read();
-                          if (-1 == t) throw "eof";
-                          return t;
+                          var t = e.read()
+                          if (-1 == t) throw 'eof'
+                          return t
                         },
                         o = 0,
                         i = {};
                       ;
 
                     ) {
-                      var a = e.read();
-                      if (-1 == a) break;
+                      var a = e.read()
+                      if (-1 == a) break
                       var u = n(),
-                        f = (n() << 8) | n();
-                      ((i[String.fromCharCode((a << 8) | u)] = f), (o += 1));
+                        f = (n() << 8) | n()
+                      ;((i[String.fromCharCode((a << 8) | u)] = f), (o += 1))
                     }
-                    if (o != r) throw o + " != " + r;
-                    return i;
+                    if (o != r) throw o + ' != ' + r
+                    return i
                   })(),
-                  n = "?".charCodeAt(0);
+                  n = '?'.charCodeAt(0)
                 return function (t) {
                   for (var r = [], o = 0; o < t.length; o += 1) {
-                    var i = t.charCodeAt(o);
-                    if (i < 128) r.push(i);
+                    var i = t.charCodeAt(o)
+                    if (i < 128) r.push(i)
                     else {
-                      var a = e[t.charAt(o)];
-                      "number" == typeof a
+                      var a = e[t.charAt(o)]
+                      'number' == typeof a
                         ? (255 & a) == a
                           ? r.push(a)
                           : (r.push(a >>> 8), r.push(255 & a))
-                        : r.push(n);
+                        : r.push(n)
                     }
                   }
-                  return r;
-                };
-              }));
+                  return r
+                }
+              }))
             var r,
               e,
               n,
@@ -599,104 +599,104 @@
                 (e = 1335),
                 (n = 7973),
                 (i = function (t) {
-                  for (var r = 0; 0 != t; ) ((r += 1), (t >>>= 1));
-                  return r;
+                  for (var r = 0; 0 != t; ) ((r += 1), (t >>>= 1))
+                  return r
                 }),
                 ((o = {}).getBCHTypeInfo = function (t) {
                   for (var r = t << 10; i(r) - i(e) >= 0; )
-                    r ^= e << (i(r) - i(e));
-                  return 21522 ^ ((t << 10) | r);
+                    r ^= e << (i(r) - i(e))
+                  return 21522 ^ ((t << 10) | r)
                 }),
                 (o.getBCHTypeNumber = function (t) {
                   for (var r = t << 12; i(r) - i(n) >= 0; )
-                    r ^= n << (i(r) - i(n));
-                  return (t << 12) | r;
+                    r ^= n << (i(r) - i(n))
+                  return (t << 12) | r
                 }),
                 (o.getPatternPosition = function (t) {
-                  return r[t - 1];
+                  return r[t - 1]
                 }),
                 (o.getMaskFunction = function (t) {
                   switch (t) {
                     case 0:
                       return function (t, r) {
-                        return (t + r) % 2 == 0;
-                      };
+                        return (t + r) % 2 == 0
+                      }
                     case 1:
                       return function (t, r) {
-                        return t % 2 == 0;
-                      };
+                        return t % 2 == 0
+                      }
                     case 2:
                       return function (t, r) {
-                        return r % 3 == 0;
-                      };
+                        return r % 3 == 0
+                      }
                     case 3:
                       return function (t, r) {
-                        return (t + r) % 3 == 0;
-                      };
+                        return (t + r) % 3 == 0
+                      }
                     case 4:
                       return function (t, r) {
-                        return (Math.floor(t / 2) + Math.floor(r / 3)) % 2 == 0;
-                      };
+                        return (Math.floor(t / 2) + Math.floor(r / 3)) % 2 == 0
+                      }
                     case 5:
                       return function (t, r) {
-                        return ((t * r) % 2) + ((t * r) % 3) == 0;
-                      };
+                        return ((t * r) % 2) + ((t * r) % 3) == 0
+                      }
                     case 6:
                       return function (t, r) {
-                        return (((t * r) % 2) + ((t * r) % 3)) % 2 == 0;
-                      };
+                        return (((t * r) % 2) + ((t * r) % 3)) % 2 == 0
+                      }
                     case 7:
                       return function (t, r) {
-                        return (((t * r) % 3) + ((t + r) % 2)) % 2 == 0;
-                      };
+                        return (((t * r) % 3) + ((t + r) % 2)) % 2 == 0
+                      }
                     default:
-                      throw "bad maskPattern:" + t;
+                      throw 'bad maskPattern:' + t
                   }
                 }),
                 (o.getErrorCorrectPolynomial = function (t) {
                   for (var r = c([1], 0), e = 0; e < t; e += 1)
-                    r = r.multiply(c([1, f.gexp(e)], 0));
-                  return r;
+                    r = r.multiply(c([1, f.gexp(e)], 0))
+                  return r
                 }),
                 (o.getLengthInBits = function (t, r) {
                   if (1 <= r && r < 10)
                     switch (t) {
                       case 1:
-                        return 10;
+                        return 10
                       case 2:
-                        return 9;
+                        return 9
                       case 4:
                       case 8:
-                        return 8;
+                        return 8
                       default:
-                        throw "mode:" + t;
+                        throw 'mode:' + t
                     }
                   else if (r < 27)
                     switch (t) {
                       case 1:
-                        return 12;
+                        return 12
                       case 2:
-                        return 11;
+                        return 11
                       case 4:
-                        return 16;
+                        return 16
                       case 8:
-                        return 10;
+                        return 10
                       default:
-                        throw "mode:" + t;
+                        throw 'mode:' + t
                     }
                   else {
-                    if (!(r < 41)) throw "type:" + r;
+                    if (!(r < 41)) throw 'type:' + r
                     switch (t) {
                       case 1:
-                        return 14;
+                        return 14
                       case 2:
-                        return 13;
+                        return 13
                       case 4:
-                        return 16;
+                        return 16
                       case 8:
-                        return 12;
+                        return 12
                       default:
-                        throw "mode:" + t;
+                        throw 'mode:' + t
                     }
                   }
                 }),
@@ -713,17 +713,17 @@
                             o + f < 0 ||
                               r <= o + f ||
                               (0 == u && 0 == f) ||
-                              (a == t.isDark(n + u, o + f) && (i += 1));
-                      i > 5 && (e += 3 + i - 5);
+                              (a == t.isDark(n + u, o + f) && (i += 1))
+                      i > 5 && (e += 3 + i - 5)
                     }
                   for (n = 0; n < r - 1; n += 1)
                     for (o = 0; o < r - 1; o += 1) {
-                      var c = 0;
-                      (t.isDark(n, o) && (c += 1),
+                      var c = 0
+                      ;(t.isDark(n, o) && (c += 1),
                         t.isDark(n + 1, o) && (c += 1),
                         t.isDark(n, o + 1) && (c += 1),
                         t.isDark(n + 1, o + 1) && (c += 1),
-                        (0 != c && 4 != c) || (e += 3));
+                        (0 != c && 4 != c) || (e += 3))
                     }
                   for (n = 0; n < r; n += 1)
                     for (o = 0; o < r - 6; o += 1)
@@ -734,7 +734,7 @@
                         t.isDark(n, o + 4) &&
                         !t.isDark(n, o + 5) &&
                         t.isDark(n, o + 6) &&
-                        (e += 40);
+                        (e += 40)
                   for (o = 0; o < r; o += 1)
                     for (n = 0; n < r - 6; n += 1)
                       t.isDark(n, o) &&
@@ -744,11 +744,11 @@
                         t.isDark(n + 4, o) &&
                         !t.isDark(n + 5, o) &&
                         t.isDark(n + 6, o) &&
-                        (e += 40);
-                  var g = 0;
+                        (e += 40)
+                  var g = 0
                   for (o = 0; o < r; o += 1)
-                    for (n = 0; n < r; n += 1) t.isDark(n, o) && (g += 1);
-                  return e + (Math.abs((100 * g) / r / r - 50) / 5) * 10;
+                    for (n = 0; n < r; n += 1) t.isDark(n, o) && (g += 1)
+                  return e + (Math.abs((100 * g) / r / r - 50) / 5) * 10
                 }),
                 o),
               f = (function () {
@@ -757,40 +757,40 @@
                   e < 8;
                   e += 1
                 )
-                  t[e] = 1 << e;
+                  t[e] = 1 << e
                 for (e = 8; e < 256; e += 1)
-                  t[e] = t[e - 4] ^ t[e - 5] ^ t[e - 6] ^ t[e - 8];
-                for (e = 0; e < 255; e += 1) r[t[e]] = e;
+                  t[e] = t[e - 4] ^ t[e - 5] ^ t[e - 6] ^ t[e - 8]
+                for (e = 0; e < 255; e += 1) r[t[e]] = e
                 return {
                   glog: function (t) {
-                    if (t < 1) throw "glog(" + t + ")";
-                    return r[t];
+                    if (t < 1) throw 'glog(' + t + ')'
+                    return r[t]
                   },
                   gexp: function (r) {
-                    for (; r < 0; ) r += 255;
-                    for (; r >= 256; ) r -= 255;
-                    return t[r];
+                    for (; r < 0; ) r += 255
+                    for (; r >= 256; ) r -= 255
+                    return t[r]
                   },
-                };
-              })();
+                }
+              })()
             function c(t, r) {
-              if (void 0 === t.length) throw t.length + "/" + r;
+              if (void 0 === t.length) throw t.length + '/' + r
               var e = (function () {
-                  for (var e = 0; e < t.length && 0 == t[e]; ) e += 1;
+                  for (var e = 0; e < t.length && 0 == t[e]; ) e += 1
                   for (
                     var n = new Array(t.length - e + r), o = 0;
                     o < t.length - e;
                     o += 1
                   )
-                    n[o] = t[o + e];
-                  return n;
+                    n[o] = t[o + e]
+                  return n
                 })(),
                 n = {
                   getAt: function (t) {
-                    return e[t];
+                    return e[t]
                   },
                   getLength: function () {
-                    return e.length;
+                    return e.length
                   },
                   multiply: function (t) {
                     for (
@@ -802,11 +802,11 @@
                       for (var o = 0; o < t.getLength(); o += 1)
                         r[e + o] ^= f.gexp(
                           f.glog(n.getAt(e)) + f.glog(t.getAt(o)),
-                        );
-                    return c(r, 0);
+                        )
+                    return c(r, 0)
                   },
                   mod: function (t) {
-                    if (n.getLength() - t.getLength() < 0) return n;
+                    if (n.getLength() - t.getLength() < 0) return n
                     for (
                       var r = f.glog(n.getAt(0)) - f.glog(t.getAt(0)),
                         e = new Array(n.getLength()),
@@ -814,13 +814,13 @@
                       o < n.getLength();
                       o += 1
                     )
-                      e[o] = n.getAt(o);
+                      e[o] = n.getAt(o)
                     for (o = 0; o < t.getLength(); o += 1)
-                      e[o] ^= f.gexp(f.glog(t.getAt(o)) + r);
-                    return c(e, 0).mod(t);
+                      e[o] ^= f.gexp(f.glog(t.getAt(o)) + r)
+                    return c(e, 0).mod(t)
                   },
-                };
-              return n;
+                }
+              return n
             }
             var g = (function () {
                 var t = [
@@ -986,32 +986,32 @@
                     [20, 45, 15, 61, 46, 16],
                   ],
                   r = function (t, r) {
-                    var e = {};
-                    return ((e.totalCount = t), (e.dataCount = r), e);
+                    var e = {}
+                    return ((e.totalCount = t), (e.dataCount = r), e)
                   },
                   e = {
                     getRSBlocks: function (e, n) {
                       var o = (function (r, e) {
                         switch (e) {
                           case a.L:
-                            return t[4 * (r - 1) + 0];
+                            return t[4 * (r - 1) + 0]
                           case a.M:
-                            return t[4 * (r - 1) + 1];
+                            return t[4 * (r - 1) + 1]
                           case a.Q:
-                            return t[4 * (r - 1) + 2];
+                            return t[4 * (r - 1) + 2]
                           case a.H:
-                            return t[4 * (r - 1) + 3];
+                            return t[4 * (r - 1) + 3]
                           default:
-                            return;
+                            return
                         }
-                      })(e, n);
+                      })(e, n)
                       if (void 0 === o)
                         throw (
-                          "bad rs block @ typeNumber:" +
+                          'bad rs block @ typeNumber:' +
                           e +
-                          "/errorCorrectionLevel:" +
+                          '/errorCorrectionLevel:' +
                           n
-                        );
+                        )
                       for (var i = o.length / 3, u = [], f = 0; f < i; f += 1)
                         for (
                           var c = o[3 * f + 0],
@@ -1021,193 +1021,193 @@
                           l < c;
                           l += 1
                         )
-                          u.push(r(g, s));
-                      return u;
+                          u.push(r(g, s))
+                      return u
                     },
-                  };
-                return e;
+                  }
+                return e
               })(),
               s = function () {
                 var t = [],
                   r = 0,
                   e = {
                     getBuffer: function () {
-                      return t;
+                      return t
                     },
                     getAt: function (r) {
-                      var e = Math.floor(r / 8);
-                      return 1 == ((t[e] >>> (7 - (r % 8))) & 1);
+                      var e = Math.floor(r / 8)
+                      return 1 == ((t[e] >>> (7 - (r % 8))) & 1)
                     },
                     put: function (t, r) {
                       for (var n = 0; n < r; n += 1)
-                        e.putBit(1 == ((t >>> (r - n - 1)) & 1));
+                        e.putBit(1 == ((t >>> (r - n - 1)) & 1))
                     },
                     getLengthInBits: function () {
-                      return r;
+                      return r
                     },
                     putBit: function (e) {
-                      var n = Math.floor(r / 8);
-                      (t.length <= n && t.push(0),
+                      var n = Math.floor(r / 8)
+                      ;(t.length <= n && t.push(0),
                         e && (t[n] |= 128 >>> r % 8),
-                        (r += 1));
+                        (r += 1))
                     },
-                  };
-                return e;
+                  }
+                return e
               },
               l = function (t) {
                 var r = t,
                   e = {
                     getMode: function () {
-                      return 1;
+                      return 1
                     },
                     getLength: function (t) {
-                      return r.length;
+                      return r.length
                     },
                     write: function (t) {
                       for (var e = r, o = 0; o + 2 < e.length; )
-                        (t.put(n(e.substring(o, o + 3)), 10), (o += 3));
+                        (t.put(n(e.substring(o, o + 3)), 10), (o += 3))
                       o < e.length &&
                         (e.length - o == 1
                           ? t.put(n(e.substring(o, o + 1)), 4)
                           : e.length - o == 2 &&
-                            t.put(n(e.substring(o, o + 2)), 7));
+                            t.put(n(e.substring(o, o + 2)), 7))
                     },
                   },
                   n = function (t) {
                     for (var r = 0, e = 0; e < t.length; e += 1)
-                      r = 10 * r + o(t.charAt(e));
-                    return r;
+                      r = 10 * r + o(t.charAt(e))
+                    return r
                   },
                   o = function (t) {
-                    if ("0" <= t && t <= "9")
-                      return t.charCodeAt(0) - "0".charCodeAt(0);
-                    throw "illegal char :" + t;
-                  };
-                return e;
+                    if ('0' <= t && t <= '9')
+                      return t.charCodeAt(0) - '0'.charCodeAt(0)
+                    throw 'illegal char :' + t
+                  }
+                return e
               },
               h = function (t) {
                 var r = t,
                   e = {
                     getMode: function () {
-                      return 2;
+                      return 2
                     },
                     getLength: function (t) {
-                      return r.length;
+                      return r.length
                     },
                     write: function (t) {
                       for (var e = r, o = 0; o + 1 < e.length; )
                         (t.put(45 * n(e.charAt(o)) + n(e.charAt(o + 1)), 11),
-                          (o += 2));
-                      o < e.length && t.put(n(e.charAt(o)), 6);
+                          (o += 2))
+                      o < e.length && t.put(n(e.charAt(o)), 6)
                     },
                   },
                   n = function (t) {
-                    if ("0" <= t && t <= "9")
-                      return t.charCodeAt(0) - "0".charCodeAt(0);
-                    if ("A" <= t && t <= "Z")
-                      return t.charCodeAt(0) - "A".charCodeAt(0) + 10;
+                    if ('0' <= t && t <= '9')
+                      return t.charCodeAt(0) - '0'.charCodeAt(0)
+                    if ('A' <= t && t <= 'Z')
+                      return t.charCodeAt(0) - 'A'.charCodeAt(0) + 10
                     switch (t) {
-                      case " ":
-                        return 36;
-                      case "$":
-                        return 37;
-                      case "%":
-                        return 38;
-                      case "*":
-                        return 39;
-                      case "+":
-                        return 40;
-                      case "-":
-                        return 41;
-                      case ".":
-                        return 42;
-                      case "/":
-                        return 43;
-                      case ":":
-                        return 44;
+                      case ' ':
+                        return 36
+                      case '$':
+                        return 37
+                      case '%':
+                        return 38
+                      case '*':
+                        return 39
+                      case '+':
+                        return 40
+                      case '-':
+                        return 41
+                      case '.':
+                        return 42
+                      case '/':
+                        return 43
+                      case ':':
+                        return 44
                       default:
-                        throw "illegal char :" + t;
+                        throw 'illegal char :' + t
                     }
-                  };
-                return e;
+                  }
+                return e
               },
               d = function (r) {
-                var e = t.stringToBytes(r);
+                var e = t.stringToBytes(r)
                 return {
                   getMode: function () {
-                    return 4;
+                    return 4
                   },
                   getLength: function (t) {
-                    return e.length;
+                    return e.length
                   },
                   write: function (t) {
-                    for (var r = 0; r < e.length; r += 1) t.put(e[r], 8);
+                    for (var r = 0; r < e.length; r += 1) t.put(e[r], 8)
                   },
-                };
+                }
               },
               v = function (r) {
-                var e = t.stringToBytesFuncs.SJIS;
-                if (!e) throw "sjis not supported.";
+                var e = t.stringToBytesFuncs.SJIS
+                if (!e) throw 'sjis not supported.'
                 !(function () {
-                  var t = e("友");
+                  var t = e('友')
                   if (2 != t.length || 38726 != ((t[0] << 8) | t[1]))
-                    throw "sjis not supported.";
-                })();
+                    throw 'sjis not supported.'
+                })()
                 var n = e(r),
                   o = {
                     getMode: function () {
-                      return 8;
+                      return 8
                     },
                     getLength: function (t) {
-                      return ~~(n.length / 2);
+                      return ~~(n.length / 2)
                     },
                     write: function (t) {
                       for (var r = n, e = 0; e + 1 < r.length; ) {
-                        var o = ((255 & r[e]) << 8) | (255 & r[e + 1]);
-                        if (33088 <= o && o <= 40956) o -= 33088;
+                        var o = ((255 & r[e]) << 8) | (255 & r[e + 1])
+                        if (33088 <= o && o <= 40956) o -= 33088
                         else {
                           if (!(57408 <= o && o <= 60351))
-                            throw "illegal char at " + (e + 1) + "/" + o;
-                          o -= 49472;
+                            throw 'illegal char at ' + (e + 1) + '/' + o
+                          o -= 49472
                         }
-                        ((o = 192 * ((o >>> 8) & 255) + (255 & o)),
+                        ;((o = 192 * ((o >>> 8) & 255) + (255 & o)),
                           t.put(o, 13),
-                          (e += 2));
+                          (e += 2))
                       }
-                      if (e < r.length) throw "illegal char at " + (e + 1);
+                      if (e < r.length) throw 'illegal char at ' + (e + 1)
                     },
-                  };
-                return o;
+                  }
+                return o
               },
               w = function () {
                 var t = [],
                   r = {
                     writeByte: function (r) {
-                      t.push(255 & r);
+                      t.push(255 & r)
                     },
                     writeShort: function (t) {
-                      (r.writeByte(t), r.writeByte(t >>> 8));
+                      ;(r.writeByte(t), r.writeByte(t >>> 8))
                     },
                     writeBytes: function (t, e, n) {
-                      ((e = e || 0), (n = n || t.length));
-                      for (var o = 0; o < n; o += 1) r.writeByte(t[o + e]);
+                      ;((e = e || 0), (n = n || t.length))
+                      for (var o = 0; o < n; o += 1) r.writeByte(t[o + e])
                     },
                     writeString: function (t) {
                       for (var e = 0; e < t.length; e += 1)
-                        r.writeByte(t.charCodeAt(e));
+                        r.writeByte(t.charCodeAt(e))
                     },
                     toByteArray: function () {
-                      return t;
+                      return t
                     },
                     toString: function () {
-                      var r = "";
-                      r += "[";
+                      var r = ''
+                      r += '['
                       for (var e = 0; e < t.length; e += 1)
-                        (e > 0 && (r += ","), (r += t[e]));
-                      return r + "]";
+                        (e > 0 && (r += ','), (r += t[e]))
+                      return r + ']'
                     },
-                  };
-                return r;
+                  }
+                return r
               },
               p = function (t) {
                 var r = t,
@@ -1218,27 +1218,27 @@
                     read: function () {
                       for (; o < 8; ) {
                         if (e >= r.length) {
-                          if (0 == o) return -1;
-                          throw "unexpected end of file./" + o;
+                          if (0 == o) return -1
+                          throw 'unexpected end of file./' + o
                         }
-                        var t = r.charAt(e);
-                        if (((e += 1), "=" == t)) return ((o = 0), -1);
+                        var t = r.charAt(e)
+                        if (((e += 1), '=' == t)) return ((o = 0), -1)
                         t.match(/^\s$/) ||
-                          ((n = (n << 6) | a(t.charCodeAt(0))), (o += 6));
+                          ((n = (n << 6) | a(t.charCodeAt(0))), (o += 6))
                       }
-                      var i = (n >>> (o - 8)) & 255;
-                      return ((o -= 8), i);
+                      var i = (n >>> (o - 8)) & 255
+                      return ((o -= 8), i)
                     },
                   },
                   a = function (t) {
-                    if (65 <= t && t <= 90) return t - 65;
-                    if (97 <= t && t <= 122) return t - 97 + 26;
-                    if (48 <= t && t <= 57) return t - 48 + 52;
-                    if (43 == t) return 62;
-                    if (47 == t) return 63;
-                    throw "c:" + t;
-                  };
-                return i;
+                    if (65 <= t && t <= 90) return t - 65
+                    if (97 <= t && t <= 122) return t - 97 + 26
+                    if (48 <= t && t <= 57) return t - 48 + 52
+                    if (43 == t) return 62
+                    if (47 == t) return 63
+                    throw 'c:' + t
+                  }
+                return i
               },
               y = function (t, r, e) {
                 for (
@@ -1248,10 +1248,10 @@
                         o = new Array(t * r),
                         i = {
                           setPixel: function (t, r, n) {
-                            o[r * e + t] = n;
+                            o[r * e + t] = n
                           },
                           write: function (t) {
-                            (t.writeString("GIF87a"),
+                            ;(t.writeString('GIF87a'),
                               t.writeShort(e),
                               t.writeShort(n),
                               t.writeByte(128),
@@ -1263,22 +1263,22 @@
                               t.writeByte(255),
                               t.writeByte(255),
                               t.writeByte(255),
-                              t.writeString(","),
+                              t.writeString(','),
                               t.writeShort(0),
                               t.writeShort(0),
                               t.writeShort(e),
                               t.writeShort(n),
-                              t.writeByte(0));
-                            var r = a(2);
-                            t.writeByte(2);
+                              t.writeByte(0))
+                            var r = a(2)
+                            t.writeByte(2)
                             for (var o = 0; r.length - o > 255; )
                               (t.writeByte(255),
                                 t.writeBytes(r, o, 255),
-                                (o += 255));
-                            (t.writeByte(r.length - o),
+                                (o += 255))
+                            ;(t.writeByte(r.length - o),
                               t.writeBytes(r, o, r.length - o),
                               t.writeByte(0),
-                              t.writeString(";"));
+                              t.writeString(';'))
                           },
                         },
                         a = function (t) {
@@ -1291,9 +1291,9 @@
                             a < r;
                             a += 1
                           )
-                            i.add(String.fromCharCode(a));
-                          (i.add(String.fromCharCode(r)),
-                            i.add(String.fromCharCode(e)));
+                            i.add(String.fromCharCode(a))
+                          ;(i.add(String.fromCharCode(r)),
+                            i.add(String.fromCharCode(e)))
                           var f,
                             c,
                             g,
@@ -1304,90 +1304,90 @@
                               (g = 0),
                               {
                                 write: function (t, r) {
-                                  if (t >>> r != 0) throw "length over";
+                                  if (t >>> r != 0) throw 'length over'
                                   for (; c + r >= 8; )
                                     (f.writeByte(255 & ((t << c) | g)),
                                       (r -= 8 - c),
                                       (t >>>= 8 - c),
                                       (g = 0),
-                                      (c = 0));
-                                  ((g |= t << c), (c += r));
+                                      (c = 0))
+                                  ;((g |= t << c), (c += r))
                                 },
                                 flush: function () {
-                                  c > 0 && f.writeByte(g);
+                                  c > 0 && f.writeByte(g)
                                 },
-                              });
-                          l.write(r, n);
+                              })
+                          l.write(r, n)
                           var h = 0,
-                            d = String.fromCharCode(o[h]);
+                            d = String.fromCharCode(o[h])
                           for (h += 1; h < o.length; ) {
-                            var v = String.fromCharCode(o[h]);
-                            ((h += 1),
+                            var v = String.fromCharCode(o[h])
+                            ;((h += 1),
                               i.contains(d + v)
                                 ? (d += v)
                                 : (l.write(i.indexOf(d), n),
                                   i.size() < 4095 &&
                                     (i.size() == 1 << n && (n += 1),
                                     i.add(d + v)),
-                                  (d = v)));
+                                  (d = v)))
                           }
                           return (
                             l.write(i.indexOf(d), n),
                             l.write(e, n),
                             l.flush(),
                             s.toByteArray()
-                          );
+                          )
                         },
                         u = function () {
                           var t = {},
                             r = 0,
                             e = {
                               add: function (n) {
-                                if (e.contains(n)) throw "dup key:" + n;
-                                ((t[n] = r), (r += 1));
+                                if (e.contains(n)) throw 'dup key:' + n
+                                ;((t[n] = r), (r += 1))
                               },
                               size: function () {
-                                return r;
+                                return r
                               },
                               indexOf: function (r) {
-                                return t[r];
+                                return t[r]
                               },
                               contains: function (r) {
-                                return void 0 !== t[r];
+                                return void 0 !== t[r]
                               },
-                            };
-                          return e;
-                        };
-                      return i;
+                            }
+                          return e
+                        }
+                      return i
                     })(t, r),
                     o = 0;
                   o < r;
                   o += 1
                 )
-                  for (var i = 0; i < t; i += 1) n.setPixel(i, o, e(i, o));
-                var a = w();
-                n.write(a);
+                  for (var i = 0; i < t; i += 1) n.setPixel(i, o, e(i, o))
+                var a = w()
+                n.write(a)
                 for (
                   var u = (function () {
                       var t = 0,
                         r = 0,
                         e = 0,
-                        n = "",
+                        n = '',
                         o = {},
                         i = function (t) {
-                          n += String.fromCharCode(a(63 & t));
+                          n += String.fromCharCode(a(63 & t))
                         },
                         a = function (t) {
                           if (t < 0);
                           else {
-                            if (t < 26) return 65 + t;
-                            if (t < 52) return t - 26 + 97;
-                            if (t < 62) return t - 52 + 48;
-                            if (62 == t) return 43;
-                            if (63 == t) return 47;
+                            if (t < 26) return 65 + t
+                            if (t < 52) return t - 26 + 97
+                            if (t < 62) return t - 52 + 48
+                            if (62 == t) return 43
+                            if (63 == t) return 47
                           }
-                          throw "n:" + t;
-                        };
+                          throw 'n:' + t
+                        }
                       return (
                         (o.writeByte = function (n) {
                           for (
@@ -1395,7 +1395,7 @@
                             r >= 6;
 
                           )
-                            (i(t >>> (r - 6)), (r -= 6));
+                            (i(t >>> (r - 6)), (r -= 6))
                         }),
                         (o.flush = function () {
                           if (
@@ -1403,28 +1403,28 @@
                             e % 3 != 0)
                           )
                             for (var o = 3 - (e % 3), a = 0; a < o; a += 1)
-                              n += "=";
+                              n += '='
                         }),
                         (o.toString = function () {
-                          return n;
+                          return n
                         }),
                         o
-                      );
+                      )
                     })(),
                     f = a.toByteArray(),
                     c = 0;
                   c < f.length;
                   c += 1
                 )
-                  u.writeByte(f[c]);
-                return (u.flush(), "data:image/gif;base64," + u);
-              };
-            return t;
-          })();
-        ((o.stringToBytesFuncs["UTF-8"] = function (t) {
+                  u.writeByte(f[c])
+                return (u.flush(), 'data:image/gif;base64,' + u)
+              }
+            return t
+          })()
+        ;((o.stringToBytesFuncs['UTF-8'] = function (t) {
           return (function (t) {
             for (var r = [], e = 0; e < t.length; e++) {
-              var n = t.charCodeAt(e);
+              var n = t.charCodeAt(e)
               n < 128
                 ? r.push(n)
                 : n < 2048
@@ -1444,110 +1444,110 @@
                         128 | ((n >> 12) & 63),
                         128 | ((n >> 6) & 63),
                         128 | (63 & n),
-                      ));
+                      ))
             }
-            return r;
-          })(t);
+            return r
+          })(t)
         }),
           void 0 ===
             (n =
-              "function" ==
+              'function' ==
               typeof (e = function () {
-                return o;
+                return o
               })
                 ? e.apply(r, [])
-                : e) || (t.exports = n));
+                : e) || (t.exports = n))
       },
     },
-    r = {};
+    r = {}
   function e(n) {
-    var o = r[n];
-    if (void 0 !== o) return o.exports;
-    var i = (r[n] = { exports: {} });
-    return (t[n](i, i.exports, e), i.exports);
+    var o = r[n]
+    if (void 0 !== o) return o.exports
+    var i = (r[n] = { exports: {} })
+    return (t[n](i, i.exports, e), i.exports)
   }
-  ((e.n = (t) => {
-    var r = t && t.__esModule ? () => t.default : () => t;
-    return (e.d(r, { a: r }), r);
+  ;((e.n = (t) => {
+    var r = t && t.__esModule ? () => t.default : () => t
+    return (e.d(r, { a: r }), r)
   }),
     (e.d = (t, r) => {
       for (var n in r)
         e.o(r, n) &&
           !e.o(t, n) &&
-          Object.defineProperty(t, n, { enumerable: !0, get: r[n] });
+          Object.defineProperty(t, n, { enumerable: !0, get: r[n] })
     }),
     (e.o = (t, r) => Object.prototype.hasOwnProperty.call(t, r)),
     (() => {
-      "use strict";
+      'use strict'
       var t = e(873),
-        r = e.n(t);
+        r = e.n(t)
       function n(t, r) {
         const e = t
           .replace(/<%-sURL%>/g, encodeURIComponent(r.sURL))
           .replace(/<%-sTitle%>/g, r.sTitle)
           .replace(/<%-sDesc%>/g, r.sDesc)
           .replace(/<%-sAuthor%>/g, r.sAuthor)
-          .replace(/<%-sImg%>/g, encodeURIComponent(r.sImg));
-        window.open(e);
+          .replace(/<%-sImg%>/g, encodeURIComponent(r.sImg))
+        window.open(e)
       }
       !(function () {
         const t = window.location.href,
-          e = document.querySelector("title").innerHTML;
+          e = document.querySelector('title').innerHTML
         let o =
-          document.querySelector(".article-entry img") &&
-          document.querySelector(".article-entry img").getAttribute("src");
+          document.querySelector('.article-entry img') &&
+          document.querySelector('.article-entry img').getAttribute('src')
         o =
           window.location.protocol +
-          "//" +
+          '//' +
           window.location.hostname +
-          (window.location.port ? ":" + window.location.port : "") +
-          o;
+          (window.location.port ? ':' + window.location.port : '') +
+          o
         const i = {
             sURL: t,
             sTitle: e,
             sImg: o,
             sDesc:
-              document.querySelector(".article-entry") &&
+              document.querySelector('.article-entry') &&
               document
-                .querySelector(".article-entry")
-                .innerText.substring(0, 30) + "...",
+                .querySelector('.article-entry')
+                .innerText.substring(0, 30) + '...',
             sAuthor: window.siteMeta.author,
           },
-          a = document.querySelector(".share-list");
+          a = document.querySelector('.share-list')
         a &&
           ((function (t) {
-            const e = r()(0, "L");
-            (e.addData(t),
+            const e = r()(0, 'L')
+            ;(e.addData(t),
               e.make(),
-              (document.getElementsByClassName("share-qrcode")[0].innerHTML =
-                e.createImgTag()));
+              (document.getElementsByClassName('share-qrcode')[0].innerHTML =
+                e.createImgTag()))
           })(t),
-          a.addEventListener("click", function (t) {
-            t.target.getAttribute("data-type") &&
+          a.addEventListener('click', function (t) {
+            t.target.getAttribute('data-type') &&
               (function (t, r) {
-                "weibo" === t
+                'weibo' === t
                   ? n(
-                      "http://service.weibo.com/share/share.php?url=<%-sURL%>&title=<%-sTitle%>&pic=<%-sImg%>",
+                      'http://service.weibo.com/share/share.php?url=<%-sURL%>&title=<%-sTitle%>&pic=<%-sImg%>',
                       r,
                     )
-                  : "qzone" === t
+                  : 'qzone' === t
                     ? n(
-                        "http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=<%-sURL%>&title=<%-sTitle%>&pics=<%-sImg%>&summary=<%-sDesc%>",
+                        'http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=<%-sURL%>&title=<%-sTitle%>&pics=<%-sImg%>&summary=<%-sDesc%>',
                         r,
                       )
-                    : "facebook" === t
+                    : 'facebook' === t
                       ? n(
-                          "https://www.facebook.com/sharer/sharer.php?u=<%-sURL%>",
+                          'https://www.facebook.com/sharer/sharer.php?u=<%-sURL%>',
                           r,
                         )
-                      : "twitter" === t &&
+                      : 'twitter' === t &&
                         n(
-                          "https://twitter.com/intent/tweet?text=<%-sTitle%>&url=<%-sURL%>&via=<%-sAuthor%>",
+                          'https://twitter.com/intent/tweet?text=<%-sTitle%>&url=<%-sURL%>&via=<%-sAuthor%>',
                           r,
-                        );
-              })(t.target.getAttribute("data-type"), i);
-          }));
-      })();
-    })());
-})();
+                        )
+              })(t.target.getAttribute('data-type'), i)
+          }))
+      })()
+    })())
+})()
 //# sourceMappingURL=share.js.map

@@ -1,24 +1,24 @@
 :root {
   --base-font-family:
-    -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, "PingFang SC",
-    "Hiragino Sans GB", STHeiti, "Microsoft YaHei", "Microsoft JhengHei",
-    "Source Han Sans SC", "Noto Sans CJK SC", "Source Han Sans CN",
-    "Noto Sans SC", "Source Han Sans TC", "Noto Sans CJK TC",
-    "WenQuanYi Micro Hei", SimSun, sans-serif;
+    -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, 'PingFang SC',
+    'Hiragino Sans GB', STHeiti, 'Microsoft YaHei', 'Microsoft JhengHei',
+    'Source Han Sans SC', 'Noto Sans CJK SC', 'Source Han Sans CN',
+    'Noto Sans SC', 'Source Han Sans TC', 'Noto Sans CJK TC',
+    'WenQuanYi Micro Hei', SimSun, sans-serif;
 }
 @font-face {
-  font-family: "iconfont-archer";
-  src: url("//at.alicdn.com/t/font_327081_s1wbjxwfu9c.eot");
+  font-family: 'iconfont-archer';
+  src: url('//at.alicdn.com/t/font_327081_s1wbjxwfu9c.eot');
   src:
-    url("//at.alicdn.com/t/font_327081_s1wbjxwfu9c.eot?#iefix")
-      format("embedded-opentype"),
-    url("//at.alicdn.com/t/font_327081_s1wbjxwfu9c.woff") format("woff"),
-    url("//at.alicdn.com/t/font_327081_s1wbjxwfu9c.ttf") format("truetype"),
-    url("//at.alicdn.com/t/font_327081_s1wbjxwfu9c.svg#iconfont-archer")
-      format("svg");
+    url('//at.alicdn.com/t/font_327081_s1wbjxwfu9c.eot?#iefix')
+      format('embedded-opentype'),
+    url('//at.alicdn.com/t/font_327081_s1wbjxwfu9c.woff') format('woff'),
+    url('//at.alicdn.com/t/font_327081_s1wbjxwfu9c.ttf') format('truetype'),
+    url('//at.alicdn.com/t/font_327081_s1wbjxwfu9c.svg#iconfont-archer')
+      format('svg');
 }
 .iconfont-archer {
-  font-family: "iconfont-archer" !important;
+  font-family: 'iconfont-archer' !important;
   font-size: 1rem;
   font-style: normal;
   -webkit-font-smoothing: antialiased;
@@ -248,7 +248,7 @@ header .banner .post-title a {
   color: rgba(255, 255, 255, 0.38);
 }
 .abstract-post-meta .post-tag::after {
-  content: "";
+  content: '';
   position: absolute;
   left: calc((100% - 98%) / 2);
   bottom: -15%;

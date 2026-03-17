@@ -1,24 +1,24 @@
 :root {
   --base-font-family:
-    -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, "PingFang SC",
-    "Hiragino Sans GB", STHeiti, "Microsoft YaHei", "Microsoft JhengHei",
-    "Source Han Sans SC", "Noto Sans CJK SC", "Source Han Sans CN",
-    "Noto Sans SC", "Source Han Sans TC", "Noto Sans CJK TC",
-    "WenQuanYi Micro Hei", SimSun, sans-serif;
+    -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, 'PingFang SC',
+    'Hiragino Sans GB', STHeiti, 'Microsoft YaHei', 'Microsoft JhengHei',
+    'Source Han Sans SC', 'Noto Sans CJK SC', 'Source Han Sans CN',
+    'Noto Sans SC', 'Source Han Sans TC', 'Noto Sans CJK TC',
+    'WenQuanYi Micro Hei', SimSun, sans-serif;
 }
 @font-face {
-  font-family: "iconfont-archer";
-  src: url("//at.alicdn.com/t/font_327081_s1wbjxwfu9c.eot");
+  font-family: 'iconfont-archer';
+  src: url('//at.alicdn.com/t/font_327081_s1wbjxwfu9c.eot');
   src:
-    url("//at.alicdn.com/t/font_327081_s1wbjxwfu9c.eot?#iefix")
-      format("embedded-opentype"),
-    url("//at.alicdn.com/t/font_327081_s1wbjxwfu9c.woff") format("woff"),
-    url("//at.alicdn.com/t/font_327081_s1wbjxwfu9c.ttf") format("truetype"),
-    url("//at.alicdn.com/t/font_327081_s1wbjxwfu9c.svg#iconfont-archer")
-      format("svg");
+    url('//at.alicdn.com/t/font_327081_s1wbjxwfu9c.eot?#iefix')
+      format('embedded-opentype'),
+    url('//at.alicdn.com/t/font_327081_s1wbjxwfu9c.woff') format('woff'),
+    url('//at.alicdn.com/t/font_327081_s1wbjxwfu9c.ttf') format('truetype'),
+    url('//at.alicdn.com/t/font_327081_s1wbjxwfu9c.svg#iconfont-archer')
+      format('svg');
 }
 .iconfont-archer {
-  font-family: "iconfont-archer" !important;
+  font-family: 'iconfont-archer' !important;
   font-size: 1rem;
   font-style: normal;
   -webkit-font-smoothing: antialiased;
@@ -236,14 +236,14 @@ header.header-sidebar-active {
   top: 2px;
 }
 .footer .social .email::before {
-  content: "";
+  content: '';
 }
 .footer .social .email:hover::before {
   color: #0cb49d;
 }
 .footer .social .github::before {
   font-size: 1.6rem;
-  content: "";
+  content: '';
 }
 .footer .social .github:hover::before {
   color: #24292e;
@@ -253,7 +253,7 @@ header.header-sidebar-active {
 }
 .footer .social .wechat::before {
   font-size: 1.4rem;
-  content: "";
+  content: '';
 }
 .footer .social .wechat:hover::before {
   color: #42ae3c;
@@ -263,7 +263,7 @@ header.header-sidebar-active {
 }
 .footer .social .qq::before {
   font-size: 1.4rem;
-  content: "";
+  content: '';
 }
 .footer .social .qq:hover::before {
   color: #4f4e71;
@@ -273,14 +273,14 @@ header.header-sidebar-active {
 }
 .footer .social .telegram::before {
   font-size: 1.3rem;
-  content: "";
+  content: '';
 }
 .footer .social .telegram:hover::before {
   color: #36a1d3;
 }
 .footer .social .weibo::before {
   font-size: 1.6rem;
-  content: "";
+  content: '';
 }
 .footer .social .weibo:hover::before {
   color: #d52a2a;
@@ -290,7 +290,7 @@ header.header-sidebar-active {
 }
 .footer .social .zhihu::before {
   font-size: 1.35rem;
-  content: "";
+  content: '';
 }
 .footer .social .zhihu:hover::before {
   color: #0f88eb;
@@ -300,7 +300,7 @@ header.header-sidebar-active {
 }
 .footer .social .douban::before {
   font-size: 1.25rem;
-  content: "";
+  content: '';
 }
 .footer .social .douban:hover::before {
   color: #071;
@@ -310,7 +310,7 @@ header.header-sidebar-active {
 }
 .footer .social .facebook::before {
   font-size: 1.5rem;
-  content: "";
+  content: '';
 }
 .footer .social .facebook:hover::before {
   color: #3b5998;
@@ -319,7 +319,7 @@ header.header-sidebar-active {
   top: 1px;
 }
 .footer .social .twitter::before {
-  content: "";
+  content: '';
 }
 .footer .social .twitter:hover::before {
   color: #1da1f2;
@@ -328,7 +328,7 @@ header.header-sidebar-active {
   top: 2px;
 }
 .footer .social .instagram::before {
-  content: "";
+  content: '';
   font-size: 1.4rem;
 }
 .footer .social .instagram:hover::before {
@@ -339,7 +339,7 @@ header.header-sidebar-active {
 }
 .footer .social .stack-overflow::before {
   font-size: 1.15rem;
-  content: "";
+  content: '';
 }
 .footer .social .stack-overflow:hover::before {
   color: #f37f23;
@@ -349,7 +349,7 @@ header.header-sidebar-active {
 }
 .footer .social .segmentFault::before {
   font-size: 1.5rem;
-  content: "";
+  content: '';
 }
 .footer .social .segmentFault:hover::before {
   color: #f37f23;
@@ -359,14 +359,14 @@ header.header-sidebar-active {
 }
 .footer .social .juejin::before {
   font-size: 1.35rem;
-  content: "";
+  content: '';
 }
 .footer .social .juejin:hover::before {
   color: #f37f23;
 }
 .footer .social .v2ex::before {
   font-size: 1.1rem;
-  content: "";
+  content: '';
 }
 .footer .social .v2ex:hover::before {
   color: #171718;
@@ -376,7 +376,7 @@ header.header-sidebar-active {
 }
 .footer .social .bilibili::before {
   font-size: 1.75rem;
-  content: "";
+  content: '';
 }
 .footer .social .bilibili:hover::before {
   color: #2cb2f9;
@@ -386,7 +386,7 @@ header.header-sidebar-active {
 }
 .footer .social .linkedin::before {
   font-size: 1.25rem;
-  content: "";
+  content: '';
 }
 .footer .social .linkedin:hover::before {
   color: #0077b5;
@@ -396,7 +396,7 @@ header.header-sidebar-active {
 }
 .footer .social .steam::before {
   font-size: 1.25rem;
-  content: "";
+  content: '';
 }
 .footer .social .steam:hover::before {
   color: #010101;
@@ -406,14 +406,14 @@ header.header-sidebar-active {
 }
 .footer .social .others::before {
   font-size: 1.1rem;
-  content: "";
+  content: '';
 }
 .footer .social .others:hover::before {
   color: #8090b0;
 }
 .footer .social .rss::before {
   font-size: 1.05rem;
-  content: "";
+  content: '';
 }
 .footer .social .rss:hover::before {
   color: #e53935;
