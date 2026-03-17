@@ -1,0 +1,1057 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!-- title -->
+<!-- keywords -->
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="author" content="Ken Hsu">
+    <meta name="renderer" content="webkit">
+    <meta name="copyright" content="Ken Hsu">
+        <meta name="keywords" content="python,full-stack,web,development,backend,frontend,database,server,client,network,security,algorithm,data structure,programming,software,engineering,computer,science,technology,learning,sharing,experience,knowledge,tutorial">
+    <meta name="description" content="這是一篇關於技術學習的部落格文章，分享了撰寫技術筆記的過程。">
+    <meta name="description" content="這篇文章，我其實欠公司一位同仁很久了。 本來只是很單純地說：「好，我再找時間跟你解釋什麼是前端、什麼是後端、什麼又叫全端。」結果這個「找時間」，一找就是一個禮拜。身為工程師，欠技術債已經夠可怕了，連文章債都欠，實在有點不好意思。 所以今天就來把這篇補上，而且盡量用最白話、最好理解的方式來說明。這篇不是要寫成教科書，也不是要端出一堆艱澀名詞把大家嚇跑，而是希望讓沒有技術背景的人，看完也能大概知道：">
+<meta property="og:type" content="article">
+<meta property="og:title" content="欠同事一週的文章：什麼是前端、後端與全端？">
+<meta property="og:url" content="https://miruorange.github.io/blog/2026/03/16/frontend-backend-fullstack-explained/index.html">
+<meta property="og:site_name" content="朝向全端之路：從基礎到進階的技術探索 by Ken">
+<meta property="og:description" content="這篇文章，我其實欠公司一位同仁很久了。 本來只是很單純地說：「好，我再找時間跟你解釋什麼是前端、什麼是後端、什麼又叫全端。」結果這個「找時間」，一找就是一個禮拜。身為工程師，欠技術債已經夠可怕了，連文章債都欠，實在有點不好意思。 所以今天就來把這篇補上，而且盡量用最白話、最好理解的方式來說明。這篇不是要寫成教科書，也不是要端出一堆艱澀名詞把大家嚇跑，而是希望讓沒有技術背景的人，看完也能大概知道：">
+<meta property="og:locale">
+<meta property="og:image" content="https://miruorange.github.io/blog/2026/03/16/frontend-backend-fullstack-explained/frontend-role-scene.png">
+<meta property="og:image" content="https://miruorange.github.io/blog/2026/03/16/frontend-backend-fullstack-explained/browser-remembers-you.png">
+<meta property="og:image" content="https://miruorange.github.io/blog/2026/03/16/frontend-backend-fullstack-explained/backend-kitchen-scene.png">
+<meta property="og:image" content="https://miruorange.github.io/blog/2026/03/16/frontend-backend-fullstack-explained/fullstack-coordinator-scene.png">
+<meta property="og:image" content="https://miruorange.github.io/blog/2026/03/16/frontend-backend-fullstack-explained/infra-stage-crew-scene.png">
+<meta property="article:published_time" content="2026-03-16T13:45:00.000Z">
+<meta property="article:modified_time" content="2026-03-17T14:04:26.499Z">
+<meta property="article:author" content="Ken Hsu">
+<meta property="article:tag" content="API">
+<meta property="article:tag" content="前端">
+<meta property="article:tag" content="後端">
+<meta property="article:tag" content="全端">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://miruorange.github.io/blog/2026/03/16/frontend-backend-fullstack-explained/frontend-role-scene.png">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <link rel="icon" href="/blog/assets/favicon.ico">
+    <title>欠同事一週的文章：什麼是前端、後端與全端？ · 朝向全端之路：從基礎到進階的技術探索 by Ken</title>
+    <!-- /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
+/* This file is meant as a standalone workflow for
+- testing support for link[rel=preload]
+- enabling async CSS loading in browsers that do not support rel=preload
+- applying rel preload css once loaded, whether supported or not.
+*/ -->
+<script>
+    (function (w) {
+        'use strict'
+        // rel=preload support test
+        if (!w.loadCSS) {
+            w.loadCSS = function () {}
+        }
+        // define on the loadCSS obj
+        var rp = (loadCSS.relpreload = {})
+        // rel=preload feature support test
+        // runs once and returns a function for compat purposes
+        rp.support = (function () {
+            var ret
+            try {
+                ret = w.document.createElement('link').relList.supports('preload')
+            } catch (e) {
+                ret = false
+            }
+            return function () {
+                return ret
+            }
+        })()
+
+        // if preload isn't supported, get an asynchronous load by using a non-matching media attribute
+        // then change that media back to its intended value on load
+        rp.bindMediaToggle = function (link) {
+            // remember existing media attr for ultimate state, or default to 'all'
+            var finalMedia = link.media || 'all'
+
+            function enableStylesheet() {
+                link.media = finalMedia
+            }
+
+            // bind load handlers to enable media
+            if (link.addEventListener) {
+                link.addEventListener('load', enableStylesheet)
+            } else if (link.attachEvent) {
+                link.attachEvent('onload', enableStylesheet)
+            }
+
+            // Set rel and non-applicable media type to start an async request
+            // note: timeout allows this to happen async to let rendering continue in IE
+            setTimeout(function () {
+                link.rel = 'stylesheet'
+                link.media = 'only x'
+            })
+            // also enable media after 3 seconds,
+            // which will catch very old browsers (android 2.x, old firefox) that don't support onload on link
+            setTimeout(enableStylesheet, 3000)
+        }
+
+        // loop through link elements in DOM
+        rp.poly = function () {
+            // double check this to prevent external calls from running
+            if (rp.support()) {
+                return
+            }
+            var links = w.document.getElementsByTagName('link')
+            for (var i = 0; i < links.length; i++) {
+                var link = links[i]
+                // qualify links to those with rel=preload and as=style attrs
+                if (
+                    link.rel === 'preload' &&
+                    link.getAttribute('as') === 'style' &&
+                    !link.getAttribute('data-loadcss')
+                ) {
+                    // prevent rerunning on link
+                    link.setAttribute('data-loadcss', true)
+                    // bind listeners to toggle media back
+                    rp.bindMediaToggle(link)
+                }
+            }
+        }
+
+        // if unsupported, run the polyfill
+        if (!rp.support()) {
+            // run once at least
+            rp.poly()
+
+            // rerun poly on an interval until onload
+            var run = w.setInterval(rp.poly, 500)
+            if (w.addEventListener) {
+                w.addEventListener('load', function () {
+                    rp.poly()
+                    w.clearInterval(run)
+                })
+            } else if (w.attachEvent) {
+                w.attachEvent('onload', function () {
+                    rp.poly()
+                    w.clearInterval(run)
+                })
+            }
+        }
+
+        // commonjs
+        if (typeof exports !== 'undefined') {
+            exports.loadCSS = loadCSS
+        } else {
+            w.loadCSS = loadCSS
+        }
+    })(typeof global !== 'undefined' ? global : this)
+</script>
+
+    <style type="text/css">
+    @font-face {
+        font-family: 'Oswald-Regular';
+        src: url("/blog/font/Oswald-Regular.ttf");
+    }
+
+    body {
+        margin: 0;
+    }
+
+    header,
+    footer,
+    .footer-fixed-btn,
+    .sidebar,
+    .container,
+    .site-intro-meta,
+    .toc-wrapper {
+        display: none;
+    }
+
+    .site-intro {
+        position: relative;
+        z-index: 3;
+        width: 100%;
+        /* height: 50vh; */
+        overflow: hidden;
+    }
+
+    .site-intro-placeholder {
+        position: absolute;
+        z-index: -2;
+        top: 0;
+        left: 0;
+        width: calc(100% + 300px);
+        height: 100%;
+        background: repeating-linear-gradient(
+            -45deg,
+            #444 0,
+            #444 80px,
+            #333 80px,
+            #333 160px
+        );
+        background-position: center center;
+        transform: translate3d(-226px, 0, 0);
+        animation: gradient-move 2.5s ease-out 0s infinite;
+    }
+
+    @keyframes gradient-move {
+        0% {
+            transform: translate3d(-226px, 0, 0);
+        }
+        100% {
+            transform: translate3d(0, 0, 0);
+        }
+    }
+</style>
+
+    <link id="stylesheet-fancybox" rel="preload" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.36/dist/fancybox/fancybox.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link id="stylesheet-base" rel="preload" href="/blog/css/style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link id="stylesheet-mobile" rel="preload" href="/blog/css/mobile.css" as="style" onload="this.onload=null;this.rel='stylesheet';this.media='screen and (max-width: 960px)'">
+    <link id="stylesheet-theme-dark" rel="preload" href="/blog/css/dark.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" as="script">
+    <link rel="preload" href="/blog/scripts/main.js" as="script">
+    <link rel="preload" href="/blog/font/Oswald-Regular.ttf" as="font" crossorigin>
+    <link rel="preload" href="https://at.alicdn.com/t/font_327081_1dta1rlogw17zaor.woff" as="font" crossorigin>
+    <!-- algolia -->
+    <!-- 百度统计  -->
+    <!-- 谷歌统计  -->
+    <!-- Google tag (gtag.js) -->
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+    <style>
+      .mermaid-mobile {
+        display: none;
+      }
+      @media screen and (max-width: 767px) {
+        .mermaid-desktop {
+          display: none;
+        }
+        .mermaid-mobile {
+          display: block;
+        }
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+    <script type="text/javascript">
+        if (typeof window.$ == undefined) {
+            console.warn('jquery load from jsdelivr failed, will load local script')
+            document.write('<script src="/blog/lib/jquery.min.js" />')
+        }
+    </script>
+        <body class="post-body">
+        <!-- header -->
+        <header class="header header-mobile">
+    <!-- top read progress line -->
+    <div class="header-element">
+        <div class="read-progress"></div>
+    </div>
+    <!-- sidebar menu button -->
+    <div class="header-element">
+        <div class="header-sidebar-menu">
+            <div style="padding-left: 1px;">&#xe775;</div>
+        </div>
+    </div>
+    <!-- header actions -->
+    <div class="header-actions">
+        <!-- theme mode switch button -->
+        <span class="header-theme-btn header-element">
+            <i class="fas fa-adjust"></i>
+        </span>
+        <!-- back to home page text -->
+        <span class="home-link header-element">
+            <a href="/blog/">想像力就是我的超能力</a>
+        </span>
+    </div>
+    <!-- toggle banner -->
+    <div class="banner">
+        <div class="blog-title header-element">
+            <a href="/blog/">想像力就是我的超能力</a>
+        </div>
+        <div class="post-title header-element">
+            <a href="#" class="post-name">欠同事一週的文章：什麼是前端、後端與全端？</a>
+        </div>
+    </div>
+</header>
+
+        <!-- fixed footer -->
+        <footer class="footer-fixed">
+    <!-- donate button -->
+
+    <!-- back to top button -->
+    <div class="footer-fixed-btn footer-fixed-btn--hidden back-top">
+        <div>&#xe639;</div>
+    </div>
+</footer>
+
+        <!-- wrapper -->
+        <div class="wrapper">
+            <div class="site-intro" style="    height:50vh;
+">
+    <!-- 主页  -->
+    <!-- 404页  -->
+    <div class="site-intro-placeholder"></div>
+    <div class="site-intro-img" style="background-image: url(/blog/intro/post-bg.jpg)"></div>
+    <div class="site-intro-meta">
+        <!-- 标题  -->
+        <h1 class="intro-title">
+            <!-- 主页  -->
+                欠同事一週的文章：什麼是前端、後端與全端？
+            <!-- 404 -->
+        </h1>
+        <!-- 副标题 -->
+        <p class="intro-subtitle">
+            <!-- 主页副标题  -->
+            <!-- 404 -->
+        </p>
+        <!-- 文章页 meta -->
+            <div class="post-intros">
+                <!-- 文章页标签  -->
+                    <div class="post-intro-tags" >
+        <a class="post-tag" href="javascript:void(0);" data-tags="API">API</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags="前端">前端</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags="後端">後端</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags="全端">全端</a>
+</div>
+
+                <!-- 文章字数统计 -->
+                <div class="post-intro-meta">
+                    <!-- 撰写日期 -->
+                    <span class="iconfont-archer post-intro-calander">&#xe676;</span>
+                    <span class="post-intro-time">2026/03/16</span>
+                    <!-- Custom View Counter -->
+                    <span id="custom-view-counter-container" style="margin-left: 10px; display: none;">
+                        <span class="iconfont-archer post-intro-busuanzi">&#xe602;</span>
+                        <span id="my-page-views"></span> 次瀏覽
+                    </span>
+                    <!-- 文章分享 -->
+                    <span class="share-wrapper">
+                        <span class="iconfont-archer share-icon">&#xe71d;</span>
+                        <span class="share-text">Share</span>
+                        <ul class="share-list">
+                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
+    </div>
+</div>
+
+            <script>
+  // get user agent
+  function getBrowserVersions() {
+    var u = window.navigator.userAgent
+    return {
+      userAgent: u,
+      trident: u.indexOf('Trident') > -1, //IE内核
+      presto: u.indexOf('Presto') > -1, //opera内核
+      webKit: u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核
+      gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1, //火狐内核
+      mobile: !!u.match(/AppleWebKit.*Mobile.*/), //是否为移动终端
+      ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
+      android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或者uc浏览器
+      iPhone: u.indexOf('iPhone') > -1 || u.indexOf('Mac') > -1, //是否为iPhone或者安卓QQ浏览器
+      iPad: u.indexOf('iPad') > -1, //是否为iPad
+      webApp: u.indexOf('Safari') == -1, //是否为web应用程序，没有头部与底部
+      weixin: u.indexOf('MicroMessenger') == -1, //是否为微信浏览器
+      uc: u.indexOf('UCBrowser') > -1, //是否为android下的UC浏览器
+    }
+  }
+  var browser = {
+    versions: getBrowserVersions(),
+  }
+  console.log('userAgent: ' + browser.versions.userAgent)
+
+  // callback
+  function fontLoaded() {
+    console.log('font loaded')
+    if (document.getElementsByClassName('site-intro-meta')) {
+      document
+        .getElementsByClassName('intro-title')[0]
+        .classList.add('intro-fade-in')
+      document
+        .getElementsByClassName('intro-subtitle')[0]
+        .classList.add('intro-fade-in')
+      var postIntros = document.getElementsByClassName('post-intros')[0]
+      if (postIntros) {
+        postIntros.classList.add('post-fade-in')
+      }
+    }
+  }
+
+  // UC不支持跨域，所以直接显示
+  function asyncCb() {
+    if (browser.versions.uc) {
+      console.log('UCBrowser')
+      fontLoaded()
+    } else {
+      WebFont.load({
+        custom: {
+          families: ['Oswald-Regular'],
+        },
+        loading: function () {
+          // 所有字体开始加载
+          // console.log('font loading');
+        },
+        active: function () {
+          // 所有字体已渲染
+          fontLoaded()
+        },
+        inactive: function () {
+          // 字体预加载失败，无效字体或浏览器不支持加载
+          console.log('inactive: timeout')
+          fontLoaded()
+        },
+        timeout: 5000, // Set the timeout to two seconds
+      })
+    }
+  }
+
+  function asyncErr() {
+    console.warn('script load from CDN failed, will load local script')
+  }
+
+  // load webfont-loader async, and add callback function
+  function async(u, cb, err) {
+    var d = document,
+      t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0]
+    o.src = u
+    if (cb) {
+      o.addEventListener(
+        'load',
+        function (e) {
+          cb(null, e)
+        },
+        false
+      )
+    }
+    if (err) {
+      o.addEventListener(
+        'error',
+        function (e) {
+          err(null, e)
+        },
+        false
+      )
+    }
+    s.parentNode.insertBefore(o, s)
+  }
+
+  var asyncLoadWithFallBack = function (arr, success, reject) {
+    var currReject = function () {
+      reject()
+      arr.shift()
+      if (arr.length) async(arr[0], success, currReject)
+    }
+
+    async(arr[0], success, currReject)
+  }
+
+  asyncLoadWithFallBack(
+    [
+      'https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js',
+      'https://cdn.bootcss.com/webfont/1.6.28/webfontloader.js',
+      "/blog/lib/webfontloader.min.js",
+    ],
+    asyncCb,
+    asyncErr
+  )
+</script>
+
+            <img class="loading" src="/blog/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" alt="loading">
+            <div class="container container-unloaded">
+                <main class="main post-page">
+    """    <article class="article-entry">
+        <p>這篇文章，我其實欠公司一位同仁很久了。</p>
+<p>本來只是很單純地說：「好，我再找時間跟你解釋什麼是前端、什麼是後端、什麼又叫全端。」結果這個「找時間」，一找就是一個禮拜。身為工程師，欠技術債已經夠可怕了，連文章債都欠，實在有點不好意思。</p>
+<p>所以今天就來把這篇補上，而且盡量用最白話、最好理解的方式來說明。這篇不是要寫成教科書，也不是要端出一堆艱澀名詞把大家嚇跑，而是希望讓沒有技術背景的人，看完也能大概知道：</p>
+<ul>
+<li>前端是在做什麼</li>
+<li>後端是在做什麼</li>
+<li>全端又為什麼常常被講得很神</li>
+</ul>
+<hr>
+<h2 id="先講結論：你看到的，通常是前端；你看不到的，很多是後端"><a href="#先講結論：你看到的，通常是前端；你看不到的，很多是後端" class="headerlink" title="先講結論：你看到的，通常是前端；你看不到的，很多是後端"></a>先講結論：你看到的，通常是前端；你看不到的，很多是後端</h2><p>如果要用一句話先快速區分，我會這樣說：</p>
+<blockquote>
+<p><strong>跟畫面、瀏覽器、使用者操作直接有關的，多半是前端。</strong></p>
+<p><strong>藏在伺服器、資料庫、商業邏輯後面的，多半是後端。</strong></p>
+</blockquote>
+<p>這樣講當然不是百分之百精準，但對入門理解非常夠用了。</p>
+<p>很多人一聽到「前端」，直覺就是「喔，就是畫畫面的人」。這樣理解不能說錯，但其實只對了一半。因為前端除了處理「看得到的畫面」，也要處理很多「你看不到，但發生在瀏覽器裡的事情」。</p>
+<p>而後端呢，通常更神秘一點，因為它大多待在伺服器裡默默工作。你平常不會直接看到它，但網站能不能正常運作、資料對不對、登入有沒有成功，很多都是後端在撐場。</p>
+<hr>
+<h2 id="什麼是前端？"><a href="#什麼是前端？" class="headerlink" title="什麼是前端？"></a>什麼是前端？</h2><p>前端，簡單來說，就是<strong>直接面對使用者的那一端</strong>。</p>
+<p>只要是你打開網站後，在瀏覽器裡看到、點到、輸入到、互動到的東西，大多都屬於前端的範圍。像是：</p>
+<ul>
+<li>首頁長什麼樣子</li>
+<li>按鈕放哪裡</li>
+<li>表單怎麼輸入</li>
+<li>點擊之後畫面怎麼切換</li>
+<li>手機版畫面會不會跑版</li>
+<li>資料拿回來之後怎麼顯示在畫面上</li>
+</ul>
+<p>這些都很直觀，因為「看得到」。</p>
+<p>如果你把整個網站想成一間正在運作的店，前端有點像站在第一線接待客人的那個人。客人看到的第一印象、能不能順利互動、操作時會不會覺得舒服，很多都跟這個位置有關。</p>
+<p><img src="https://miruorange.github.io/blog/2026/03/16/frontend-backend-fullstack-explained/frontend-role-scene.png" alt="前端像是在第一線接待使用者的角色"></p>
+<p>但前端有趣的地方就在於，它不只管看得到的部分，也會處理很多瀏覽器裡「看不到」的事情。</p>
+<h3 id="例如：為什麼你登入一次，瀏覽器就像認得你了？"><a href="#例如：為什麼你登入一次，瀏覽器就像認得你了？" class="headerlink" title="例如：為什麼你登入一次，瀏覽器就像認得你了？"></a>例如：為什麼你登入一次，瀏覽器就像認得你了？</h3><p>你有沒有遇過這種情況？</p>
+<p>你進一個網站，按下登入，輸入帳號密碼，成功登入後就可以開始使用。然後你重新整理頁面，咦，還是登入狀態。甚至你把分頁關掉，過一段時間再回來，有時候網站還記得你。</p>
+<p>很多人會覺得這很神奇，好像瀏覽器突然有了記憶。</p>
+<p>其實這背後沒有魔法，只有工程師。</p>
+<p>通常流程會是這樣：</p>
+<ol>
+<li>你在前端畫面輸入帳號密碼。</li>
+<li>前端把這些資料送去後端。</li>
+<li>後端驗證帳號密碼是不是正確。</li>
+<li>如果正確，後端會回傳一個能代表「你已經登入」的資訊。</li>
+<li>前端再把這個資訊暫存在瀏覽器裡。</li>
+</ol>
+<p>這個暫存的位置，可能是 Cookie、Local Storage、Session Storage，或者其他瀏覽器端的機制。名字先不用急著背，入門先知道一件事就好：</p>
+<blockquote>
+<p><strong>瀏覽器之所以像是記得你，是因為前端把後端驗證後回傳的資訊，暫時存放在瀏覽器裡。</strong></p>
+</blockquote>
+<p>如果把這件事畫成一個小劇場，大概就像櫃台確認完你的身份之後，交給瀏覽器一張通行證，讓它下次看到你時知道：「喔，這位我認得。」</p>
+<p><img src="https://miruorange.github.io/blog/2026/03/16/frontend-backend-fullstack-explained/browser-remembers-you.png" alt="瀏覽器暫存登入資訊，就像幫你保管通行證"></p>
+<p>所以你看，前端不是只有畫面漂亮不漂亮而已，它還要負責管理很多使用者操作流程，以及瀏覽器內部的狀態。</p>
+<p>也就是說，前端工程師不是只會排版。很多時候他還得處理：</p>
+<ul>
+<li>登入狀態怎麼保存</li>
+<li>API 拿回來的資料怎麼整理</li>
+<li>按下按鈕後要不要跳提示</li>
+<li>資料還沒回來時要不要先顯示 loading</li>
+<li>權限不對時要不要擋畫面</li>
+</ul>
+<p>這些事情雖然使用者不一定會注意到，但只要沒處理好，網站馬上就會很有個性，而且通常是那種讓人火大的個性。</p>
+<hr>
+<h2 id="什麼是後端？"><a href="#什麼是後端？" class="headerlink" title="什麼是後端？"></a>什麼是後端？</h2><p>如果說前端是站在第一線，直接面對使用者，那後端就是在後方撐住整個系統的那一群。</p>
+<p>後端比較常見可以分成幾個部分：</p>
+<ul>
+<li>Server</li>
+<li>Database</li>
+<li>後端程式碼</li>
+</ul>
+<p>因為這些東西大多不直接展示給使用者看，所以對非工程背景的人來說，後端常常會有一種神秘感。明明看不到，但它又真的存在，而且出了問題時，整個網站就會像失去靈魂一樣。</p>
+<h3 id="後端可以想像成什麼？"><a href="#後端可以想像成什麼？" class="headerlink" title="後端可以想像成什麼？"></a>後端可以想像成什麼？</h3><p>你可以想像一下，你現在正在用的這台電腦，其實也可以拿來當一台後端 Server。</p>
+<p>假設今天你在這台電腦上：</p>
+<ul>
+<li>架了一個資料庫</li>
+<li>寫了一套 Web Server</li>
+<li>把後端程式跑起來</li>
+</ul>
+<p>那這台電腦就可以扮演後端的角色。</p>
+<p>前端只要知道這台機器提供哪些 API，就可以透過網路去跟它要資料、送資料、更新資料。</p>
+<p>例如：</p>
+<ul>
+<li>我要登入，請幫我驗證帳密</li>
+<li>我要看會員資料，請把資料給我</li>
+<li>我要查商品列表，請把商品資料吐給我</li>
+<li>我要送出訂單，請幫我寫進資料庫</li>
+</ul>
+<p>這些事情，通常就是後端在處理。</p>
+<h3 id="後端到底在忙什麼？"><a href="#後端到底在忙什麼？" class="headerlink" title="後端到底在忙什麼？"></a>後端到底在忙什麼？</h3><p>後端不是單純「把資料拿出來」而已，它常常還要做很多判斷與保護，例如：</p>
+<ul>
+<li>這個人有沒有登入</li>
+<li>這個人有沒有權限看這份資料</li>
+<li>傳進來的參數是不是合法</li>
+<li>資料要存到哪一張資料表</li>
+<li>如果資料衝突了該怎麼辦</li>
+<li>回傳給前端的格式要長什麼樣子</li>
+</ul>
+<p>也就是說，後端常常是在處理規則、邏輯、資料與安全性。</p>
+<p>如果把網站比喻成一家餐廳，前端像是外場，負責接待客人、送菜單、讓客人知道該怎麼點餐；後端就像內場廚房，負責真的把菜做出來、確認材料夠不夠、訂單有沒有問題。</p>
+<p>這也是我很喜歡拿來解釋後端的比喻，因為它不只是神秘地待在後面，而是真的有一群人在忙著把規則、資料和流程穩穩接住。</p>
+<p><img src="https://miruorange.github.io/blog/2026/03/16/frontend-backend-fullstack-explained/backend-kitchen-scene.png" alt="後端像是在內場撐住整個系統運作的廚房團隊"></p>
+<p>你在外面看到餐點順順地送上桌，背後通常都不是奇蹟，而是一整套流程在運作。</p>
+<hr>
+<h2 id="前端跟後端怎麼合作？"><a href="#前端跟後端怎麼合作？" class="headerlink" title="前端跟後端怎麼合作？"></a>前端跟後端怎麼合作？</h2><p>講到這裡，通常下一個問題就是：</p>
+<p>「那前端跟後端是怎麼溝通的？」</p>
+<p>答案就是：<strong>透過 API。</strong></p>
+<p>你可以先把 API 想成一個「雙方約定好的溝通窗口」。</p>
+<p>前端需要什麼資料，就去呼叫後端提供的 API。後端收到請求後，去做該做的事，再把結果回傳給前端。前端最後再把這些資料渲染到畫面上。</p>
+<p>所以一個很常見的流程就是：</p>
+<ol>
+<li>使用者在前端點了一個按鈕。</li>
+<li>前端呼叫後端 API。</li>
+<li>後端去查資料庫或做邏輯處理。</li>
+<li>後端把結果用固定格式回傳。</li>
+<li>前端收到後，把資料顯示在畫面上。</li>
+</ol>
+<p>例如你打開一個訂單頁面：</p>
+<ul>
+<li>前端說：「我要訂單列表。」</li>
+<li>後端說：「好，我去資料庫查一下。」</li>
+<li>查完後，後端把 JSON 資料回傳。</li>
+<li>前端收到後，把它排成表格讓你看。</li>
+</ul>
+<p>整個過程如果配合得好，使用者就會覺得網站很順。</p>
+<p>如果配合得不好，就會出現各種經典場面，例如：</p>
+<ul>
+<li>前端說要 <code>user_id</code>，後端回 <code>uid</code></li>
+<li>前端以為回傳的是陣列，結果後端回一個物件</li>
+<li>前端以為成功時會回 <code>code: 200</code>，結果後端回的是 <code>status: ok</code></li>
+</ul>
+<p>最後大家就會在會議室裡深情對望，然後開始說：「我以為你那邊會改。」</p>
+<p>所以，API 溝通真的不是「有串到就好」，而是前後端要先講好規格。</p>
+<hr>
+<h2 id="API-規格，真的是前後端先講好的"><a href="#API-規格，真的是前後端先講好的" class="headerlink" title="API 規格，真的是前後端先講好的"></a>API 規格，真的是前後端先講好的</h2><p>這件事我很想特別講一下，因為很多剛接觸的人會以為 API 好像是後端自己寫一寫，前端再想辦法猜。</p>
+<p>其實不是。</p>
+<p>正常的開發流程裡，前後端通常會先約定好很多事情，例如：</p>
+<ul>
+<li>要用什麼 HTTP 方法，例如 <code>GET</code>、<code>POST</code>、<code>PUT</code>、<code>DELETE</code></li>
+<li>請求要帶哪些參數</li>
+<li>參數名稱叫什麼</li>
+<li>回傳資料格式長什麼樣子</li>
+<li>成功時怎麼回</li>
+<li>失敗時怎麼回</li>
+<li>錯誤訊息要怎麼表示</li>
+</ul>
+<p>這些規則如果沒有先談好，開發過程就很容易變成大型猜謎現場。</p>
+<p>前端會猜：「你這個欄位是不是可能為空？」</p>
+<p>後端會猜：「你那邊應該知道這個欄位不是每次都會回吧？」</p>
+<p>猜到最後，專案進度就會像壞掉的跑步機，看起來很努力，實際上沒往前多少。</p>
+<p>所以前後端的合作，除了寫程式本身，<strong>溝通規格</strong>也是很重要的一部分。</p>
+<hr>
+<h2 id="那什麼是全端？"><a href="#那什麼是全端？" class="headerlink" title="那什麼是全端？"></a>那什麼是全端？</h2><p>講完前端與後端，全端就好理解很多了。</p>
+<p>全端工程師，簡單來說，就是<strong>前端跟後端都能處理的人</strong>。</p>
+<p>如果把場景再拉大一點，全端有點像那種不只會站前場，也敢走進後場，甚至能幫忙把兩邊節奏對起來的人。</p>
+<p><img src="https://miruorange.github.io/blog/2026/03/16/frontend-backend-fullstack-explained/fullstack-coordinator-scene.png" alt="全端像能同時看懂前場與後場的協調者"></p>
+<p>他可能可以：</p>
+<ul>
+<li>寫前端畫面</li>
+<li>串接 API</li>
+<li>寫後端邏輯</li>
+<li>設計資料庫</li>
+<li>處理部署與基本維運</li>
+</ul>
+<p>也就是從使用者打開網站，到資料真的被存進資料庫，中間整條鏈路他都大概看得懂，甚至都能動手做。</p>
+<h3 id="全端是不是等於什麼都要超強？"><a href="#全端是不是等於什麼都要超強？" class="headerlink" title="全端是不是等於什麼都要超強？"></a>全端是不是等於什麼都要超強？</h3><p>這裡也要幫全端平反一下。</p>
+<p>很多人聽到全端，會以為那是一種神級生物，前端、後端、資料庫、Server、CI&#x2F;CD、資安、UI&#x2F;UX 全部點滿，晚上還順便修一下公司印表機。</p>
+<p>現實通常不是這樣。</p>
+<p>比較務實的理解是：</p>
+<blockquote>
+<p><strong>全端不是每一科都一定要滿分，而是你對整體流程都有概念，也能跨區域解問題。</strong></p>
+</blockquote>
+<p>有些全端偏前端，有些全端偏後端，這都很正常。</p>
+<p>重點是，當一個功能要從畫面一路接到資料庫時，他不會只看自己那一小塊，而是能理解整體怎麼串起來。</p>
+<p>這也是為什麼很多公司喜歡找全端，因為溝通成本通常會低一些，推進事情也更快一些。</p>
+<p>當然，代價就是腦容量常常不夠用，昨天還在切版，今天就在查 SQL，明天可能又在看 Nginx 設定。某種程度上，全端工程師的日常，就是一種很有技術含量的精神分裂。</p>
+<hr>
+<h2 id="一個最簡單的例子：登入功能，到底誰在做什麼？"><a href="#一個最簡單的例子：登入功能，到底誰在做什麼？" class="headerlink" title="一個最簡單的例子：登入功能，到底誰在做什麼？"></a>一個最簡單的例子：登入功能，到底誰在做什麼？</h2><p>如果我們用「登入」這件事來拆開看，其實前端、後端、全端的分工會非常清楚。</p>
+<h3 id="前端負責的部分"><a href="#前端負責的部分" class="headerlink" title="前端負責的部分"></a>前端負責的部分</h3><ul>
+<li>做出登入頁面</li>
+<li>讓使用者可以輸入帳號密碼</li>
+<li>按下登入按鈕後把資料送出去</li>
+<li>收到後端回應後，決定要跳成功、失敗，還是顯示錯誤訊息</li>
+<li>把登入成功後的資訊暫存在瀏覽器</li>
+</ul>
+<h3 id="後端負責的部分"><a href="#後端負責的部分" class="headerlink" title="後端負責的部分"></a>後端負責的部分</h3><ul>
+<li>接收前端送來的帳號密碼</li>
+<li>驗證帳號密碼正不正確</li>
+<li>去資料庫查詢這個使用者</li>
+<li>判斷帳號狀態是否正常</li>
+<li>驗證成功後回傳登入憑證或相關資訊</li>
+</ul>
+<h3 id="全端會怎麼看這件事？"><a href="#全端會怎麼看這件事？" class="headerlink" title="全端會怎麼看這件事？"></a>全端會怎麼看這件事？</h3><p>全端通常會從頭到尾一起看：</p>
+<ul>
+<li>前端頁面怎麼設計比較順</li>
+<li>API 路由怎麼命名比較合理</li>
+<li>回傳格式怎麼定比較好串</li>
+<li>Token 要怎麼存比較安全</li>
+<li>資料表該怎麼設計比較不容易出問題</li>
+</ul>
+<p>所以全端的價值，很多時候不是「一個人做全部比較帥」，而是「一個人比較容易看懂整個系統怎麼運作」。</p>
+<hr>
+<h2 id="我自己的理解，總結成一句話"><a href="#我自己的理解，總結成一句話" class="headerlink" title="我自己的理解，總結成一句話"></a>我自己的理解，總結成一句話</h2><p>如果你今天只是想先快速抓住概念，我會這樣整理：</p>
+<ul>
+<li><strong>前端</strong>：凡是跟畫面、瀏覽器、使用者互動，以及瀏覽器端狀態管理有關的，多半都算前端。</li>
+<li><strong>後端</strong>：凡是跟 Server、資料庫、商業邏輯、驗證、資料處理有關的，多半都算後端。</li>
+<li><strong>全端</strong>：能把前端跟後端串起來，理解整條流程，並能跨兩邊處理問題的人。</li>
+</ul>
+<p>這個說法不是學術定義，但對大部分想入門的人來說，我覺得很夠用了。</p>
+<hr>
+<h2 id="結語：別再把工程師都叫做「會修電腦的」"><a href="#結語：別再把工程師都叫做「會修電腦的」" class="headerlink" title="結語：別再把工程師都叫做「會修電腦的」"></a>結語：別再把工程師都叫做「會修電腦的」</h2><p>寫到這裡，希望這位被我拖稿一週的同仁，看到這篇之後可以原諒我。</p>
+<p>也希望其他看到這篇文章的朋友，以後在聽到前端、後端、全端時，不會再覺得那是一堆很遠很硬的名詞。</p>
+<p>它其實沒有那麼玄。</p>
+<p>前端，就是讓你看得到、點得到、用得到。</p>
+<p>後端，就是讓這一切真的能運作，真的有資料，真的有邏輯。</p>
+<p>全端，就是兩邊都懂，負責把整台車從方向盤一路接到引擎。</p>
+<p>而如果再往上多看一層，還會碰到 <strong>Infra</strong>。</p>
+<p>所謂的 Infra，其實就是 <strong>Infrastructure</strong>，也就是系統運作的基礎設施。白話一點講，就是除了前端、後端程式本身之外，還要去處理「這整個系統到底要跑在哪裡、怎麼連、怎麼部署、怎麼撐住」這些事情。</p>
+<p>如果前端像舞台上的演員，後端像幕後實際把內容做出來的團隊，那 Infra 就更像是整個舞台後勤與總控室。觀眾不一定會看到他們，但燈光、線路、機器、節奏，只要哪裡出問題，整場演出就會立刻露餡。</p>
+<p><img src="https://miruorange.github.io/blog/2026/03/16/frontend-backend-fullstack-explained/infra-stage-crew-scene.png" alt="Infra 像是在舞台後方維持整個系統運轉的後勤團隊"></p>
+<p>例如：</p>
+<ul>
+<li>Server 要怎麼配置</li>
+<li>Database 要怎麼部署</li>
+<li>Nginx 或 Web Server 要怎麼設定</li>
+<li>Docker 要怎麼包服務</li>
+<li>網路怎麼通</li>
+<li>Port 怎麼開</li>
+<li>反向代理怎麼設計</li>
+<li>整體系統架構要怎麼規劃才比較穩</li>
+</ul>
+<p>這些東西，通常又會比單純的後端再多跨出去一點。因為它已經不只是寫商業邏輯，而是開始思考整個服務怎麼活下來、怎麼順順地跑、怎麼讓前後端可以穩定合作。</p>
+<p>坦白說，這也剛好是我自己一直在累積的能力。</p>
+<p>我雖然本業是後端出身，但我的技能其實不只是後端而已。我可以掌握前端與後端的整體串接，也能往上處理 Infra 相關的事情，包含 Server、部署、網路設計，甚至整個系統架構該怎麼規劃。</p>
+<p>所以如果要用一句比較不害羞，但又算貼切的說法來形容我自己，我會說：</p>
+<blockquote>
+<p><strong>我不是只會寫某一端的工程師，而是能從前端、後端一路看到 Infra 與系統架構的人。</strong></p>
+</blockquote>
+<p>畢竟現在很多問題，真的不是只會寫 API 或只會切版就能解決。你常常會遇到的情況是：程式明明寫好了，但部署不起來；服務明明有跑，但網路不通；功能明明正常，但整體架構一大就開始出現效能或維運問題。</p>
+<p>而能同時理解前端、後端、Infra、網路與系統架構的人，在這種時候就會特別有價值。因為他看到的不只是單一功能，而是整個系統如何從 0 到 1 被建立起來，並且穩定地活著。</p>
+<p>至於工程師是不是都會修電腦？</p>
+<p>嗯……這個問題就跟你問廚師會不會修瓦斯爐一樣，有些人會，但真的不是職稱上的必修科目。</p>
+
+    </article>
+    <div class="a2a_kit a2a_kit_size_32 a2a_default_style">
+    <a class="a2a_dd" target="_blank" rel="noopener" href="https://www.addtoany.com/share"></a>
+    <a class="a2a_button_facebook"></a>
+    <a class="a2a_button_twitter"></a>
+    <a class="a2a_button_email"></a>
+    </div>
+    <!-- license -->"""
+        <div class="license-wrapper">
+            <p>Author：<a href="https://miruorange.github.io/blog/about/">Ken Hsu</a>
+            <p>Link：<a href="https://miruorange.github.io/blog/2026/03/16/frontend-backend-fullstack-explained/">https://miruorange.github.io/blog/2026/03/16/frontend-backend-fullstack-explained/</a>
+            <p>Publish date：<a href="https://miruorange.github.io/blog/2026/03/16/frontend-backend-fullstack-explained/">March 16th 2026, 9:45:00 pm</a>
+            <p>Update date：<a href="https://miruorange.github.io/blog/2026/03/16/frontend-backend-fullstack-explained/">March 17th 2026, 10:04:26 pm</a>
+            <p>License：本文依 <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a> 授權</p>
+        </div>
+    <!-- paginator -->
+    <ul class="post-paginator">
+        <li class="next">
+        </li>
+        <li class="previous">
+                <div class="prevSlogan">Previous Post</div>
+                <a href="/blog/2026/02/11/how-to-safely-play-with-moltbot/" title="如何安全地玩轉 OpenClaw？別讓你的家庭網路變成資安破口！">
+                    <div class="prevTitle">如何安全地玩轉 OpenClaw？別讓你的家庭網路變成資安破口！</div>
+                </a>
+        </li>
+    </ul>
+    <!-- comment -->
+        <div class="post-comment">
+            <!-- 来必力 City 版安装代码 -->
+
+            
+            
+            
+            <!-- utteranc评论 -->
+
+            <!-- partial('_partial/comment/changyan') -->
+            <!--PC版-->
+
+            
+            
+            
+        </div>
+    <!-- timeliness note -->
+    <!-- idea from: https://hexo.fluid-dev.com/posts/hexo-injector/#%E6%96%87%E7%AB%A0%E6%97%B6%E6%95%88%E6%80%A7%E6%8F%90%E7%A4%BA -->
+    <!-- Mathjax -->
+</main>
+
+                <!-- profile -->
+            </div>
+            <footer class="footer footer-unloaded">
+    <!-- social  -->
+        <div class="social">
+                            <a href="mailto:mafiahsu0.1@gmail.com" class="iconfont-archer email" title="email" ></a>
+                <a href="https://github.com/MiruOrange" class="iconfont-archer github" target="_blank" title="github"></a>
+                <a href="https://www.linkedin.com/in/ken-hsu-600611240/" class="iconfont-archer linkedin" target="_blank" title="linkedin"></a>
+                <a href="https://www.youtube.com/@%E6%8B%8D%E7%B9%A9%E6%94%BB%E5%9F%8E%E5%B8%AB" class="iconfont-archer youtube" target="_blank" title="youtube"></a>
+
+        </div>
+    <!-- powered by Hexo  -->
+    <div class="copyright">
+        <span id="hexo-power">Powered by <a href="https://miruorange.github.io/blog/" target="_blank">KEN</a></span><span class="iconfont-archer power">&#xe635;</span>
+    </div>
+    <!-- website approve for Chinese user -->
+</footer>
+
+        </div>
+        <!-- toc -->
+            <div class="toc-wrapper toc-wrapper-loding" style=    top:50vh;
+>
+                <div class="toc-catalog">
+                    <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+                </div>
+                <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%88%E8%AC%9B%E7%B5%90%E8%AB%96%EF%BC%9A%E4%BD%A0%E7%9C%8B%E5%88%B0%E7%9A%84%EF%BC%8C%E9%80%9A%E5%B8%B8%E6%98%AF%E5%89%8D%E7%AB%AF%EF%BC%9B%E4%BD%A0%E7%9C%8B%E4%B8%8D%E5%88%B0%E7%9A%84%EF%BC%8C%E5%BE%88%E5%A4%9A%E6%98%AF%E5%BE%8C%E7%AB%AF"><span class="toc-number">1.</span> <span class="toc-text">先講結論：你看到的，通常是前端；你看不到的，很多是後端</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E9%BA%BC%E6%98%AF%E5%89%8D%E7%AB%AF%EF%BC%9F"><span class="toc-number">2.</span> <span class="toc-text">什麼是前端？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BE%8B%E5%A6%82%EF%BC%9A%E7%82%BA%E4%BB%80%E9%BA%BC%E4%BD%A0%E7%99%BB%E5%85%A5%E4%B8%80%E6%AC%A1%EF%BC%8C%E7%80%8F%E8%A6%BD%E5%99%A8%E5%B0%B1%E5%83%8F%E8%AA%8D%E5%BE%97%E4%BD%A0%E4%BA%86%EF%BC%9F"><span class="toc-number">2.1.</span> <span class="toc-text">例如：為什麼你登入一次，瀏覽器就像認得你了？</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E9%BA%BC%E6%98%AF%E5%BE%8C%E7%AB%AF%EF%BC%9F"><span class="toc-number">3.</span> <span class="toc-text">什麼是後端？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BE%8C%E7%AB%AF%E5%8F%AF%E4%BB%A5%E6%83%B3%E5%83%8F%E6%88%90%E4%BB%80%E9%BA%BC%EF%BC%9F"><span class="toc-number">3.1.</span> <span class="toc-text">後端可以想像成什麼？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BE%8C%E7%AB%AF%E5%88%B0%E5%BA%95%E5%9C%A8%E5%BF%99%E4%BB%80%E9%BA%BC%EF%BC%9F"><span class="toc-number">3.2.</span> <span class="toc-text">後端到底在忙什麼？</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E7%AB%AF%E8%B7%9F%E5%BE%8C%E7%AB%AF%E6%80%8E%E9%BA%BC%E5%90%88%E4%BD%9C%EF%BC%9F"><span class="toc-number">4.</span> <span class="toc-text">前端跟後端怎麼合作？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#API-%E8%A6%8F%E6%A0%BC%EF%BC%8C%E7%9C%9F%E7%9A%84%E6%98%AF%E5%89%8D%E5%BE%8C%E7%AB%AF%E5%85%88%E8%AC%9B%E5%A5%BD%E7%9A%84"><span class="toc-number">5.</span> <span class="toc-text">API 規格，真的是前後端先講好的</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%82%A3%E4%BB%80%E9%BA%BC%E6%98%AF%E5%85%A8%E7%AB%AF%EF%BC%9F"><span class="toc-number">6.</span> <span class="toc-text">那什麼是全端？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%A8%E7%AB%AF%E6%98%AF%E4%B8%8D%E6%98%AF%E7%AD%89%E6%96%BC%E4%BB%80%E9%BA%BC%E9%83%BD%E8%A6%81%E8%B6%85%E5%BC%B7%EF%BC%9F"><span class="toc-number">6.1.</span> <span class="toc-text">全端是不是等於什麼都要超強？</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E5%80%8B%E6%9C%80%E7%B0%A1%E5%96%AE%E7%9A%84%E4%BE%8B%E5%AD%90%EF%BC%9A%E7%99%BB%E5%85%A5%E5%8A%9F%E8%83%BD%EF%BC%8C%E5%88%B0%E5%BA%95%E8%AA%B0%E5%9C%A8%E5%81%9A%E4%BB%80%E9%BA%BC%EF%BC%9F"><span class="toc-number">7.</span> <span class="toc-text">一個最簡單的例子：登入功能，到底誰在做什麼？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%89%8D%E7%AB%AF%E8%B2%A0%E8%B2%AC%E7%9A%84%E9%83%A8%E5%88%86"><span class="toc-number">7.1.</span> <span class="toc-text">前端負責的部分</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BE%8C%E7%AB%AF%E8%B2%A0%E8%B2%AC%E7%9A%84%E9%83%A8%E5%88%86"><span class="toc-number">7.2.</span> <span class="toc-text">後端負責的部分</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%A8%E7%AB%AF%E6%9C%83%E6%80%8E%E9%BA%BC%E7%9C%8B%E9%80%99%E4%BB%B6%E4%BA%8B%EF%BC%9F"><span class="toc-number">7.3.</span> <span class="toc-text">全端會怎麼看這件事？</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%88%91%E8%87%AA%E5%B7%B1%E7%9A%84%E7%90%86%E8%A7%A3%EF%BC%8C%E7%B8%BD%E7%B5%90%E6%88%90%E4%B8%80%E5%8F%A5%E8%A9%B1"><span class="toc-number">8.</span> <span class="toc-text">我自己的理解，總結成一句話</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B5%90%E8%AA%9E%EF%BC%9A%E5%88%A5%E5%86%8D%E6%8A%8A%E5%B7%A5%E7%A8%8B%E5%B8%AB%E9%83%BD%E5%8F%AB%E5%81%9A%E3%80%8C%E6%9C%83%E4%BF%AE%E9%9B%BB%E8%85%A6%E7%9A%84%E3%80%8D"><span class="toc-number">9.</span> <span class="toc-text">結語：別再把工程師都叫做「會修電腦的」</span></a></li></ol>
+            </div>
+        <!-- sidebar -->
+        <div class="sidebar sidebar-hide">
+    <ul class="sidebar-tabs sidebar-tabs-active-0">
+        <li class="sidebar-tab-archives"><span class="iconfont-archer">&#xe67d;</span><span class="tab-name">Archive</span></li>
+        <li class="sidebar-tab-tags"><span class="iconfont-archer">&#xe61b;</span><span class="tab-name">Tag</span></li>
+        <li class="sidebar-tab-categories"><span class="iconfont-archer">&#xe666;</span><span class="tab-name">Cate</span></li>
+    </ul>
+    <div class="sidebar-content sidebar-content-show-archive">
+        <div class="sidebar-panel-archives">
+    <!-- 在 ejs 中将 archive 按照时间排序 -->
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    <div class="total-and-search">
+        <div class="total-archive">
+        Total : 11
+        </div>
+        <!-- search  -->
+    </div>
+    <div class="post-archive">
+            <div class="archive-year"> 2026 </div>
+            <ul class="year-list">
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/16</span>
+            <a class="archive-post-title" href="/blog/2026/03/16/frontend-backend-fullstack-explained/">欠同事一週的文章：什麼是前端、後端與全端？</a>
+        </li>
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/11</span>
+            <a class="archive-post-title" href="/blog/2026/02/11/how-to-safely-play-with-moltbot/">如何安全地玩轉 OpenClaw？別讓你的家庭網路變成資安破口！</a>
+        </li>
+                </ul>
+            <div class="archive-year"> 2025 </div>
+            <ul class="year-list">
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/08</span>
+            <a class="archive-post-title" href="/blog/2025/12/08/why-backend-engineers-should-learn-ccna/">後端工程師的網通入坑之路：為什麼我推薦每個後端都該懂CCNA</a>
+        </li>
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/25</span>
+            <a class="archive-post-title" href="/blog/2025/11/25/building-a-counter-api-from-scratch/">一個計數器API的誕生：看似簡單卻暗藏玄機的Side Project</a>
+        </li>
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/07</span>
+            <a class="archive-post-title" href="/blog/2025/09/07/toastmaster-club-bbq-party/">Toastmaster社團烤肉趴：一場重拾熱情與連結的盛會</a>
+        </li>
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/23</span>
+            <a class="archive-post-title" href="/blog/2025/08/23/developer-survival-guide-in-the-era-of-vibe-coding/">Vibe Coding 時代下的開發者生存之道</a>
+        </li>
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/07</span>
+            <a class="archive-post-title" href="/blog/2025/08/07/toastmaster-board-game-day/">Toastmaster桌遊日：一場充滿歡笑與策略的精彩生活紀錄</a>
+        </li>
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/14</span>
+            <a class="archive-post-title" href="/blog/2025/02/14/linux-journey-part3-installing-wsl/">Linux征途·第三話：WSL的安裝</a>
+        </li>
+                </ul>
+            <div class="archive-year"> 2024 </div>
+            <ul class="year-list">
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/16</span>
+            <a class="archive-post-title" href="/blog/2024/11/16/linux-journey-part2-which-linux-distro-to-learn/">Linux征途·第二話：我要學哪個版本的Linux</a>
+        </li>
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/04</span>
+            <a class="archive-post-title" href="/blog/2024/11/04/linux-journey-part1-why-learn-linux/">Linux征途·第一話：為什麼要學Linux</a>
+        </li>
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/27</span>
+            <a class="archive-post-title" href="/blog/2024/10/27/my-first-technical-blog-post/">記錄撰寫技術Blog的第一天</a>
+        </li>
+            </ul>
+    </div>
+</div>
+
+        <div class="sidebar-panel-tags">
+    <div class="sidebar-tags-name">
+            <span class="sidebar-tag-name" data-tags="Side Project">
+                <span class="iconfont-archer">&#xe606;</span>
+                Side Project
+            </span>
+            <span class="sidebar-tag-name" data-tags="API">
+                <span class="iconfont-archer">&#xe606;</span>
+                API
+            </span>
+            <span class="sidebar-tag-name" data-tags="DevOps">
+                <span class="iconfont-archer">&#xe606;</span>
+                DevOps
+            </span>
+            <span class="sidebar-tag-name" data-tags="Flask">
+                <span class="iconfont-archer">&#xe606;</span>
+                Flask
+            </span>
+            <span class="sidebar-tag-name" data-tags="Docker">
+                <span class="iconfont-archer">&#xe606;</span>
+                Docker
+            </span>
+            <span class="sidebar-tag-name" data-tags="Nginx">
+                <span class="iconfont-archer">&#xe606;</span>
+                Nginx
+            </span>
+            <span class="sidebar-tag-name" data-tags="Certbot">
+                <span class="iconfont-archer">&#xe606;</span>
+                Certbot
+            </span>
+            <span class="sidebar-tag-name" data-tags="原子習慣">
+                <span class="iconfont-archer">&#xe606;</span>
+                原子習慣
+            </span>
+            <span class="sidebar-tag-name" data-tags="AI">
+                <span class="iconfont-archer">&#xe606;</span>
+                AI
+            </span>
+            <span class="sidebar-tag-name" data-tags="Vibe Coding">
+                <span class="iconfont-archer">&#xe606;</span>
+                Vibe Coding
+            </span>
+            <span class="sidebar-tag-name" data-tags="職涯規劃">
+                <span class="iconfont-archer">&#xe606;</span>
+                職涯規劃
+            </span>
+            <span class="sidebar-tag-name" data-tags="前端">
+                <span class="iconfont-archer">&#xe606;</span>
+                前端
+            </span>
+            <span class="sidebar-tag-name" data-tags="後端">
+                <span class="iconfont-archer">&#xe606;</span>
+                後端
+            </span>
+            <span class="sidebar-tag-name" data-tags="全端">
+                <span class="iconfont-archer">&#xe606;</span>
+                全端
+            </span>
+            <span class="sidebar-tag-name" data-tags="OpenClaw">
+                <span class="iconfont-archer">&#xe606;</span>
+                OpenClaw
+            </span>
+            <span class="sidebar-tag-name" data-tags="資安">
+                <span class="iconfont-archer">&#xe606;</span>
+                資安
+            </span>
+            <span class="sidebar-tag-name" data-tags="網路架構">
+                <span class="iconfont-archer">&#xe606;</span>
+                網路架構
+            </span>
+            <span class="sidebar-tag-name" data-tags="CCNA">
+                <span class="iconfont-archer">&#xe606;</span>
+                CCNA
+            </span>
+            <span class="sidebar-tag-name" data-tags="Linux">
+                <span class="iconfont-archer">&#xe606;</span>
+                Linux
+            </span>
+            <span class="sidebar-tag-name" data-tags="Toastmaster">
+                <span class="iconfont-archer">&#xe606;</span>
+                Toastmaster
+            </span>
+            <span class="sidebar-tag-name" data-tags="生活紀錄">
+                <span class="iconfont-archer">&#xe606;</span>
+                生活紀錄
+            </span>
+            <span class="sidebar-tag-name" data-tags="個人介紹">
+                <span class="iconfont-archer">&#xe606;</span>
+                個人介紹
+            </span>
+            <span class="sidebar-tag-name" data-tags="專案管理">
+                <span class="iconfont-archer">&#xe606;</span>
+                專案管理
+            </span>
+            <span class="sidebar-tag-name" data-tags="領導力">
+                <span class="iconfont-archer">&#xe606;</span>
+                領導力
+            </span>
+            <span class="sidebar-tag-name" data-tags="Networking">
+                <span class="iconfont-archer">&#xe606;</span>
+                Networking
+            </span>
+    </div>
+    <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
+    <div class="tag-load-fail" style="display: none; color: #ccc; font-size: 0.6rem;">
+        缺失模块，请参考主题文档进行安装配置：https://github.com/fi3ework/hexo-theme-archer#%E5%AE%89%E8%A3%85%E4%B8%BB%E9%A2%98
+    </div> 
+    <div class="sidebar-tags-list"></div>
+</div>
+
+        <div class="sidebar-panel-categories">
+    <div class="sidebar-categories-name">
+        <span class="sidebar-category-name" data-categories="技術分享">
+            <span class="iconfont-archer">&#xe60a;</span>
+            技術分享
+        </span>
+        <span class="sidebar-category-name" data-categories="生活隨筆">
+            <span class="iconfont-archer">&#xe60a;</span>
+            生活隨筆
+        </span>
+    </div>
+    <div class="iconfont-archer sidebar-categories-empty">&#xe678;</div>
+    <div class="sidebar-categories-list"></div>
+</div>
+
+    </div>
+</div>
+
+        <!-- site-meta -->
+        <script>
+    var siteMetaRoot = "/blog/"
+    if (siteMetaRoot === "undefined") {
+        siteMetaRoot = '/'
+    }
+    var siteMeta = {
+        url: "https://miruorange.github.io/blog",
+        root: siteMetaRoot,
+        author: "Ken Hsu"
+    }
+</script>
+
+        <!-- import experimental options here -->
+        <!-- Custom Font -->
+
+        <!-- main func -->
+        <script src="/blog/scripts/main.js"></script>
+        <!-- fancybox -->
+        <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.36/dist/fancybox/fancybox.umd.js" onload="window.Fancybox.bind('[data-fancybox]')" defer></script>
+        <!-- algolia -->
+        <!-- async load share.js -->
+            <script src="/blog/scripts/share.js" async></script>
+        <script async src="https://static.addtoany.com/menu/page.js"></script>
+        <!-- mermaid -->
+            <script src='https://cdn.jsdelivr.net/npm/mermaid@8.11.0/dist/mermaid.min.js' onload="window.mermaid.initialize({theme: 'dark'})" async></script>
+        
+        <!-- Custom Page View Counter Script -->
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                // Only run on post pages
+                if (document.body.classList.contains('post-body')) {
+                    const container = document.getElementById('custom-view-counter-container');
+                    const viewsElement = document.getElementById('my-page-views');
+
+                    if (!viewsElement || !container) {
+                        return; 
+                    }
+
+                    const postUrl = window.location.href;
+
+                    fetch('https://blog.mirubattery.com/api/blog/v1/posts', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({ url: postUrl }),
+                    })
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Network response was not ok for view counter.');
+                        }
+                        return response.json();
+                    })
+                    .then(data => {
+                        if (data && data.views) {
+                            viewsElement.innerText = data.views;
+                            container.style.display = 'inline';
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error fetching post views:', error);
+                        // Do not show the counter if the API fails
+                    });
+                }
+            });
+        </script>
+    </body>
+</html>
