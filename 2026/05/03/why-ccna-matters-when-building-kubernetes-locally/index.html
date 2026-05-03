@@ -17,8 +17,12 @@
 <meta property="og:site_name" content="朝向全端之路：從基礎到進階的技術探索 by Ken">
 <meta property="og:description" content="最近，我花了一段時間在 Local 環境架 Kubernetes Cluster。 老實說，一開始我以為這件事的重點會是 Kubernetes 本身。像是怎麼安裝 kubeadm、怎麼讓 Pod 跑起來、怎麼部署 Service、怎麼用 kubectl 查看狀態。這些當然都重要，但真正動手做下去之後，我才發現：  Kubernetes 表面上是容器編排，底層其實到處都是網路。  而且不是那種「知道">
 <meta property="og:locale">
+<meta property="og:image" content="https://miruorange.github.io/blog/2026/05/03/why-ccna-matters-when-building-kubernetes-locally/local-kubernetes-cluster.png">
+<meta property="og:image" content="https://miruorange.github.io/blog/2026/05/03/why-ccna-matters-when-building-kubernetes-locally/vxlan-overlay-network.png">
+<meta property="og:image" content="https://miruorange.github.io/blog/2026/05/03/why-ccna-matters-when-building-kubernetes-locally/metallb-vip-arp.png">
+<meta property="og:image" content="https://miruorange.github.io/blog/2026/05/03/why-ccna-matters-when-building-kubernetes-locally/arp-to-bgp-routing.png">
 <meta property="article:published_time" content="2026-05-03T13:30:00.000Z">
-<meta property="article:modified_time" content="2026-05-03T09:58:29.955Z">
+<meta property="article:modified_time" content="2026-05-03T12:39:27.815Z">
 <meta property="article:author" content="Ken Hsu">
 <meta property="article:tag" content="CCNA">
 <meta property="article:tag" content="Networking">
@@ -26,6 +30,7 @@
 <meta property="article:tag" content="Infrastructure">
 <meta property="article:tag" content="Container">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://miruorange.github.io/blog/2026/05/03/why-ccna-matters-when-building-kubernetes-locally/local-kubernetes-cluster.png">
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <link rel="icon" href="/blog/assets/favicon.ico">
@@ -465,6 +470,7 @@
 <p>也因為這樣，我更深刻地感受到之前去學 CCNA 是一個很正確的決定。如果沒有那段基礎知識，這次在本地架 Kubernetes，我大概會一邊查資料，一邊陷入一種「每個字都看得懂，但整句話不知道在說什麼」的狀態。</p>
 <p>這種感覺，工程師應該都不陌生。文件打開，AI 也問了，答案也出來了，但你就是無法判斷它到底在講哪一層、哪一段流量、哪一個網段。</p>
 <p>那不是 AI 不夠強，而是自己的地基還不夠穩。</p>
+<p><img src="https://miruorange.github.io/blog/2026/05/03/why-ccna-matters-when-building-kubernetes-locally/local-kubernetes-cluster.png" alt="在 Local 環境架起 Kubernetes Cluster，就會開始碰到真正的網路問題"></p>
 <hr>
 <h2 id="Kubernetes-不是只會-kubectl-apply-就好"><a href="#Kubernetes-不是只會-kubectl-apply-就好" class="headerlink" title="Kubernetes 不是只會 kubectl apply 就好"></a>Kubernetes 不是只會 kubectl apply 就好</h2><p>如果只是使用雲端供應商提供的 Managed Kubernetes，例如 GKE、EKS、AKS，那很多底層問題其實已經被包起來了。</p>
 <p>你建立 Cluster，選幾個 Node，設定一下規格，雲端平台就會幫你處理很多麻煩事。這當然很方便，也很適合正式環境使用。畢竟公司要的是穩定服務，不是每個工程師都在半夜跟網路設定深情對望。</p>
@@ -495,6 +501,7 @@
 <p>一開始看到 VXLAN 這個名詞，很多人可能會覺得很硬。可是如果用 CCNA 的角度去看，它其實就變得比較有脈絡。VXLAN 可以把原本的封包再包一層，讓不同 Node 上的 Pod，好像在同一個虛擬網路裡溝通。</p>
 <p>你可以把它想成：原本 Pod 想寄一封信給另一個 Pod，但它們其實住在不同 Node 上。Flannel 會先把這封信放進另一個信封，外層信封寫的是 Node 之間可以看懂的地址。等信送到目標 Node 後，再把外層信封拆掉，交給真正的 Pod。</p>
 <p>這就是 overlay network 的概念。</p>
+<p><img src="https://miruorange.github.io/blog/2026/05/03/why-ccna-matters-when-building-kubernetes-locally/vxlan-overlay-network.png" alt="VXLAN 像是幫 Pod 的封包再包一層外套，讓不同 Node 之間也能溝通"></p>
 <p>表面上看起來是 Pod 跟 Pod 在溝通，但實際上中間經過了封裝、轉送、解封裝。這些東西如果完全沒有 L2、L3 的概念，真的會很難理解。</p>
 <p>所以我後來越看越覺得，Kubernetes 的網路不是突然冒出來的新世界。它其實是把很多傳統網路概念，用容器化的方式重新包裝了一次。</p>
 <p>你如果懂底層，看到 CNI 會覺得：「喔，原來它是在幫我處理這些路徑。」</p>
@@ -510,6 +517,7 @@
 <p>答案又回到了 CCNA 裡很基礎、但也很重要的 ARP。</p>
 <p>在 Layer 2 模式下，MetalLB 會讓某個 Node 對外宣告：「這個 VIP 在我這裡。」當外部設備要送封包到 VIP 時，會透過 ARP 詢問這個 IP 對應到哪個 MAC Address。接著對應的 Node 回應 ARP，流量就會被送到那台 Node。</p>
 <p>講白一點，VIP 不是魔法門。它能被找到，是因為底下有人回答了那個「誰是這個 IP？」的問題。</p>
+<p><img src="https://miruorange.github.io/blog/2026/05/03/why-ccna-matters-when-building-kubernetes-locally/metallb-vip-arp.png" alt="MetalLB 的 VIP 能被外部找到，背後其實是 Node 透過 ARP 回應流量入口"></p>
 <p>這也是為什麼 ARP 的限制很重要。ARP 只能在同一個 Layer 2 廣播域裡運作。如果你的 Cluster 節點跨了不同網段，單靠 ARP 就不夠了。</p>
 <p>這時候就會進入另一個世界：BGP。</p>
 <hr>
@@ -520,6 +528,7 @@
 <p>以前學 CCNA 時，BGP 對我來說比較像是大型網路、ISP、網際網路骨幹才會用到的東西。可是當 Kubernetes Cluster 開始牽涉跨網段、高可用入口、路由宣告時，這些概念突然就不再遙遠。</p>
 <p>你會開始理解，為什麼很多 Kubernetes 網路文件會談到 BGP，為什麼 CNI 有些方案會支援 BGP，為什麼 MetalLB 也有 BGP 模式。</p>
 <p>因為當你的系統不再只是單機，不再只是同網段的幾台機器，而是開始要跨網段、跨環境、跨資料中心時，路由就會變成系統設計的一部分。</p>
+<p><img src="https://miruorange.github.io/blog/2026/05/03/why-ccna-matters-when-building-kubernetes-locally/arp-to-bgp-routing.png" alt="同網段可以靠 ARP 找到入口，跨網段就需要路由協定把路徑宣告出去"></p>
 <p>這也是我覺得 CCNA 很有價值的地方。它不只是教你怎麼設定 Cisco 設備，而是讓你有能力理解封包在網路裡為什麼會走到那裡。</p>
 <hr>
 <h2 id="SNAT、DNAT：Kubernetes-Service-背後的交通指揮"><a href="#SNAT、DNAT：Kubernetes-Service-背後的交通指揮" class="headerlink" title="SNAT、DNAT：Kubernetes Service 背後的交通指揮"></a>SNAT、DNAT：Kubernetes Service 背後的交通指揮</h2><p>除了 CNI 和 LoadBalancer，Kubernetes 裡還有一個非常常見但容易被忽略的概念：NAT。</p>
@@ -569,7 +578,7 @@
             <p>Author：<a href="https://miruorange.github.io/blog/about/">Ken Hsu</a>
             <p>Link：<a href="https://miruorange.github.io/blog/2026/05/03/why-ccna-matters-when-building-kubernetes-locally/">https://miruorange.github.io/blog/2026/05/03/why-ccna-matters-when-building-kubernetes-locally/</a>
             <p>Publish date：<a href="https://miruorange.github.io/blog/2026/05/03/why-ccna-matters-when-building-kubernetes-locally/">May 3rd 2026, 9:30:00 pm</a>
-            <p>Update date：<a href="https://miruorange.github.io/blog/2026/05/03/why-ccna-matters-when-building-kubernetes-locally/">May 3rd 2026, 5:58:29 pm</a>
+            <p>Update date：<a href="https://miruorange.github.io/blog/2026/05/03/why-ccna-matters-when-building-kubernetes-locally/">May 3rd 2026, 8:39:27 pm</a>
             <p>License：本文依 <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a> 授權</p>
         </div>
     <!-- paginator -->
