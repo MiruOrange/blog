@@ -10,19 +10,19 @@
     <meta name="copyright" content="Ken Hsu">
         <meta name="keywords" content="python,full-stack,web,development,backend,frontend,database,server,client,network,security,algorithm,data structure,programming,software,engineering,computer,science,technology,learning,sharing,experience,knowledge,tutorial">
     <meta name="description" content="這是一篇關於技術學習的部落格文章，分享了撰寫技術筆記的過程。">
-    <meta name="description" content="前言在前一篇文章，我們聊到了該學哪個版本的 Linux。如果你決定從 Ubuntu 開始，那麼最簡單的方式就是直接在 Windows 上安裝 WSL（Windows Subsystem for Linux）。 WSL 讓你不用安裝虛擬機或雙系統，就能直接在 Windows 裡跑 Linux，對於開發者和學習者來說超級方便。今天就來教你如何安裝 WSL，讓你的 Linux 之旅正式開始！  進入命令">
+    <meta name="description" content="Preface前言In the previous article, we talked about which version of Linux to learn. If you decide to start with Ubuntu, the easiest way is to install WSL (Windows Subsystem for Linux) directly on Windo">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Linux征途·第三話：WSL的安裝">
+<meta property="og:title" content="Linux Journey Part 3: Installing WSL">
 <meta property="og:url" content="https://miruorange.github.io/blog/2025/02/14/linux-journey-part3-installing-wsl/index.html">
 <meta property="og:site_name" content="朝向全端之路：從基礎到進階的技術探索 by Ken">
-<meta property="og:description" content="前言在前一篇文章，我們聊到了該學哪個版本的 Linux。如果你決定從 Ubuntu 開始，那麼最簡單的方式就是直接在 Windows 上安裝 WSL（Windows Subsystem for Linux）。 WSL 讓你不用安裝虛擬機或雙系統，就能直接在 Windows 裡跑 Linux，對於開發者和學習者來說超級方便。今天就來教你如何安裝 WSL，讓你的 Linux 之旅正式開始！  進入命令">
+<meta property="og:description" content="Preface前言In the previous article, we talked about which version of Linux to learn. If you decide to start with Ubuntu, the easiest way is to install WSL (Windows Subsystem for Linux) directly on Windo">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://miruorange.github.io/blog/2025/02/14/Linux%E5%BE%81%E9%80%94%C2%B7%E7%AC%AC%E4%B8%89%E8%A9%B1%EF%BC%9AWSL%E7%9A%84%E5%AE%89%E8%A3%9D/enter_cmd.png">
 <meta property="og:image" content="https://miruorange.github.io/blog/2025/02/14/Linux%E5%BE%81%E9%80%94%C2%B7%E7%AC%AC%E4%B8%89%E8%A9%B1%EF%BC%9AWSL%E7%9A%84%E5%AE%89%E8%A3%9D/install_wsl.png">
 <meta property="og:image" content="https://miruorange.github.io/blog/2025/02/14/Linux%E5%BE%81%E9%80%94%C2%B7%E7%AC%AC%E4%B8%89%E8%A9%B1%EF%BC%9AWSL%E7%9A%84%E5%AE%89%E8%A3%9D/check_wsl_version.png">
 <meta property="og:image" content="https://miruorange.github.io/blog/2025/02/14/Linux%E5%BE%81%E9%80%94%C2%B7%E7%AC%AC%E4%B8%89%E8%A9%B1%EF%BC%9AWSL%E7%9A%84%E5%AE%89%E8%A3%9D/check_online_wsl_version.png">
 <meta property="article:published_time" content="2025-02-14T10:43:35.000Z">
-<meta property="article:modified_time" content="2026-03-17T13:43:08.631Z">
+<meta property="article:modified_time" content="2026-05-18T12:52:27.101Z">
 <meta property="article:author" content="Ken Hsu">
 <meta property="article:tag" content="Linux">
 <meta name="twitter:card" content="summary">
@@ -30,7 +30,7 @@
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <link rel="icon" href="/blog/assets/favicon.ico">
-    <title>Linux征途·第三話：WSL的安裝 · 朝向全端之路：從基礎到進階的技術探索 by Ken</title>
+    <title>Linux Journey Part 3: Installing WSL · 朝向全端之路：從基礎到進階的技術探索 by Ken</title>
     <!-- /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
 /* This file is meant as a standalone workflow for
 - testing support for link[rel=preload]
@@ -261,7 +261,7 @@
             <a href="/blog/">想像力就是我的超能力</a>
         </div>
         <div class="post-title header-element">
-            <a href="#" class="post-name">Linux征途·第三話：WSL的安裝</a>
+            <a href="#" class="post-name">Linux Journey Part 3: Installing WSL</a>
         </div>
     </div>
 </header>
@@ -288,7 +288,7 @@
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
-                Linux征途·第三話：WSL的安裝
+                Linux Journey Part 3: Installing WSL
             <!-- 404 -->
         </h1>
         <!-- 副标题 -->
@@ -453,19 +453,34 @@
             <div class="container container-unloaded">
                 <main class="main post-page">
     """    <article class="article-entry">
-        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a><strong>前言</strong></h2><p>在前一篇文章，我們聊到了該學哪個版本的 Linux。如果你決定從 <strong>Ubuntu</strong> 開始，那麼最簡單的方式就是直接在 Windows 上安裝 <strong>WSL（Windows Subsystem for Linux）</strong>。</p>
+        <h2 id="Preface"><a href="#Preface" class="headerlink" title="Preface"></a><strong>Preface</strong></h2><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a><strong>前言</strong></h2><p>In the previous article, we talked about which version of Linux to learn. If you decide to start with <strong>Ubuntu</strong>, the easiest way is to install <strong>WSL (Windows Subsystem for Linux)</strong> directly on Windows.</p>
+<p>在前一篇文章，我們聊到了該學哪個版本的 Linux。如果你決定從 <strong>Ubuntu</strong> 開始，那麼最簡單的方式就是直接在 Windows 上安裝 <strong>WSL（Windows Subsystem for Linux）</strong>。</p>
+<p>WSL lets you run Linux directly inside Windows without installing a virtual machine or setting up a dual-boot system. It is extremely convenient for developers and learners. Today, I will show you how to install WSL so your Linux journey can officially begin.</p>
 <p>WSL 讓你不用安裝虛擬機或雙系統，就能直接在 Windows 裡跑 Linux，對於開發者和學習者來說超級方便。今天就來教你如何安裝 WSL，讓你的 Linux 之旅正式開始！</p>
 <hr>
-<h2 id="進入命令提示字元（cmd）"><a href="#進入命令提示字元（cmd）" class="headerlink" title="進入命令提示字元（cmd）"></a><strong>進入命令提示字元（cmd）</strong></h2><p>首先，請在畫面左下的搜尋框裡, 輸入 <code>cmd</code>，然後按 <strong>Enter</strong> 鍵開啟命令提示字元。<br><img src="https://miruorange.github.io/blog/2025/02/14/Linux%E5%BE%81%E9%80%94%C2%B7%E7%AC%AC%E4%B8%89%E8%A9%B1%EF%BC%9AWSL%E7%9A%84%E5%AE%89%E8%A3%9D/enter_cmd.png" alt="進入命令提示字元"></p>
+<h2 id="Open-Command-Prompt-cmd"><a href="#Open-Command-Prompt-cmd" class="headerlink" title="Open Command Prompt (cmd)"></a><strong>Open Command Prompt (cmd)</strong></h2><h2 id="進入命令提示字元（cmd）"><a href="#進入命令提示字元（cmd）" class="headerlink" title="進入命令提示字元（cmd）"></a><strong>進入命令提示字元（cmd）</strong></h2><p>First, type <code>cmd</code> in the search box at the bottom-left corner of the screen, then press <strong>Enter</strong> to open Command Prompt.</p>
+<p>首先，請在畫面左下的搜尋框裡, 輸入 <code>cmd</code>，然後按 <strong>Enter</strong> 鍵開啟命令提示字元。</p>
+<p><img src="https://miruorange.github.io/blog/2025/02/14/Linux%E5%BE%81%E9%80%94%C2%B7%E7%AC%AC%E4%B8%89%E8%A9%B1%EF%BC%9AWSL%E7%9A%84%E5%AE%89%E8%A3%9D/enter_cmd.png" alt="Open Command Prompt"></p>
+<blockquote>
+<p>You can also use PowerShell. The method is the same.</p>
+</blockquote>
 <blockquote>
 <p>你也可以使用 PowerShell，方法是一樣的。</p>
 </blockquote>
 <hr>
-<h2 id="安裝-WSL"><a href="#安裝-WSL" class="headerlink" title="安裝 WSL"></a><strong>安裝 WSL</strong></h2><p>直接輸入以下指令：</p>
+<h2 id="Install-WSL"><a href="#Install-WSL" class="headerlink" title="Install WSL"></a><strong>Install WSL</strong></h2><h2 id="安裝-WSL"><a href="#安裝-WSL" class="headerlink" title="安裝 WSL"></a><strong>安裝 WSL</strong></h2><p>Enter the following command directly:</p>
+<p>直接輸入以下指令：</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wsl --install</span><br></pre></td></tr></table></figure>
 
-<p><img src="https://miruorange.github.io/blog/2025/02/14/Linux%E5%BE%81%E9%80%94%C2%B7%E7%AC%AC%E4%B8%89%E8%A9%B1%EF%BC%9AWSL%E7%9A%84%E5%AE%89%E8%A3%9D/install_wsl.png" alt="install_wsl"></p>
+<p><img src="https://miruorange.github.io/blog/2025/02/14/Linux%E5%BE%81%E9%80%94%C2%B7%E7%AC%AC%E4%B8%89%E8%A9%B1%EF%BC%9AWSL%E7%9A%84%E5%AE%89%E8%A3%9D/install_wsl.png" alt="Install WSL"></p>
+<p>This command automatically installs WSL2 and the default Linux distribution, which is usually Ubuntu.</p>
 <p>這個指令會自動安裝 WSL2 及預設的 Linux 發行版（通常是 Ubuntu）。</p>
+<blockquote>
+<p><strong>Note</strong>:</p>
+<ul>
+<li>If your Windows version is too old, such as older than Windows 10 version 2004, you may need to enable the WSL feature manually.</li>
+</ul>
+</blockquote>
 <blockquote>
 <p><strong>注意</strong>：</p>
 <ul>
@@ -473,22 +488,35 @@
 </ul>
 </blockquote>
 <hr>
-<h2 id="確認-WSL-版本"><a href="#確認-WSL-版本" class="headerlink" title="確認 WSL 版本"></a><strong>確認 WSL 版本</strong></h2><p>安裝完成後，輸入以下指令查看 WSL 版本：</p>
+<h2 id="Check-the-WSL-Version"><a href="#Check-the-WSL-Version" class="headerlink" title="Check the WSL Version"></a><strong>Check the WSL Version</strong></h2><h2 id="確認-WSL-版本"><a href="#確認-WSL-版本" class="headerlink" title="確認 WSL 版本"></a><strong>確認 WSL 版本</strong></h2><p>After installation, enter the following command to check the WSL version:</p>
+<p>安裝完成後，輸入以下指令查看 WSL 版本：</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wsl --version</span><br></pre></td></tr></table></figure>
 
-<p><img src="https://miruorange.github.io/blog/2025/02/14/Linux%E5%BE%81%E9%80%94%C2%B7%E7%AC%AC%E4%B8%89%E8%A9%B1%EF%BC%9AWSL%E7%9A%84%E5%AE%89%E8%A3%9D/check_wsl_version.png" alt="check_wsl_version"></p>
+<p><img src="https://miruorange.github.io/blog/2025/02/14/Linux%E5%BE%81%E9%80%94%C2%B7%E7%AC%AC%E4%B8%89%E8%A9%B1%EF%BC%9AWSL%E7%9A%84%E5%AE%89%E8%A3%9D/check_wsl_version.png" alt="Check the WSL version"></p>
+<p>Using WSL 2 gives better performance than WSL 1 and also supports the full Linux kernel.</p>
 <p>使用 WSL 2比WSL 1的效能來得更好，也支援完整的 Linux 核心。</p>
+<p>To check the current WSL version, enter:</p>
 <p>要檢查目前的 WSL 版本，可以輸入：</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wsl -l -v</span><br></pre></td></tr></table></figure>
 
+<p>This shows the Linux distributions you have installed and which WSL version they use. For example:</p>
 <p>這會顯示你已安裝的 Linux 發行版及它們使用的 WSL 版本，例如：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">  NAME      STATE           VERSION</span><br><span class="line">* Ubuntu    Running        2</span><br></pre></td></tr></table></figure>
 
 <hr>
-<h2 id="啟動-WSL"><a href="#啟動-WSL" class="headerlink" title="啟動 WSL"></a><strong>啟動 WSL</strong></h2><p>當 WSL 安裝完成後，直接輸入：</p>
+<h2 id="Start-WSL"><a href="#Start-WSL" class="headerlink" title="Start WSL"></a><strong>Start WSL</strong></h2><h2 id="啟動-WSL"><a href="#啟動-WSL" class="headerlink" title="啟動 WSL"></a><strong>啟動 WSL</strong></h2><p>After WSL is installed, simply enter:</p>
+<p>當 WSL 安裝完成後，直接輸入：</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wsl</span><br></pre></td></tr></table></figure>
 
+<p>This starts the default Linux distribution, which is usually Ubuntu.</p>
 <p>這將啟動預設的 Linux 發行版（通常是 Ubuntu）。</p>
+<blockquote>
+<p><strong>Tip</strong>: If you have installed multiple Linux distributions, you can switch with the following command:</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wsl -s &lt;distribution-name&gt;</span><br></pre></td></tr></table></figure>
+
+<p>For example:</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wsl -s Debian</span><br></pre></td></tr></table></figure>
+</blockquote>
 <blockquote>
 <p><strong>小技巧</strong>：如果你安裝了多個 Linux 版本，可以使用以下指令切換：</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wsl -s &lt;發行版名稱&gt;</span><br></pre></td></tr></table></figure>
@@ -497,22 +525,29 @@
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wsl -s Debian</span><br></pre></td></tr></table></figure>
 </blockquote>
 <hr>
-<h2 id="常見問題與解決方法"><a href="#常見問題與解決方法" class="headerlink" title="常見問題與解決方法"></a><strong>常見問題與解決方法</strong></h2><h3 id="1-如何安裝不同的-Linux-版本？"><a href="#1-如何安裝不同的-Linux-版本？" class="headerlink" title="1. 如何安裝不同的 Linux 版本？"></a>1. <strong>如何安裝不同的 Linux 版本？</strong></h3><p>如果你不想用 Ubuntu，可以用以下指令查看可用的發行版：</p>
+<h2 id="Common-Questions-and-Solutions"><a href="#Common-Questions-and-Solutions" class="headerlink" title="Common Questions and Solutions"></a><strong>Common Questions and Solutions</strong></h2><h2 id="常見問題與解決方法"><a href="#常見問題與解決方法" class="headerlink" title="常見問題與解決方法"></a><strong>常見問題與解決方法</strong></h2><h3 id="1-How-Do-I-Install-a-Different-Linux-Distribution"><a href="#1-How-Do-I-Install-a-Different-Linux-Distribution" class="headerlink" title="1. How Do I Install a Different Linux Distribution?"></a>1. <strong>How Do I Install a Different Linux Distribution?</strong></h3><h3 id="1-如何安裝不同的-Linux-版本？"><a href="#1-如何安裝不同的-Linux-版本？" class="headerlink" title="1. 如何安裝不同的 Linux 版本？"></a>1. <strong>如何安裝不同的 Linux 版本？</strong></h3><p>If you do not want to use Ubuntu, you can view the available distributions with this command:</p>
+<p>如果你不想用 Ubuntu，可以用以下指令查看可用的發行版：</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wsl --list --online</span><br></pre></td></tr></table></figure>
 
-<p><img src="https://miruorange.github.io/blog/2025/02/14/Linux%E5%BE%81%E9%80%94%C2%B7%E7%AC%AC%E4%B8%89%E8%A9%B1%EF%BC%9AWSL%E7%9A%84%E5%AE%89%E8%A3%9D/check_online_wsl_version.png" alt="check_online_wsl_version"></p>
+<p><img src="https://miruorange.github.io/blog/2025/02/14/Linux%E5%BE%81%E9%80%94%C2%B7%E7%AC%AC%E4%B8%89%E8%A9%B1%EF%BC%9AWSL%E7%9A%84%E5%AE%89%E8%A3%9D/check_online_wsl_version.png" alt="Check online WSL distributions"></p>
+<p>Then install the distribution you want. For example, to install Debian:</p>
 <p>然後安裝你想要的版本，例如安裝 Debian：</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wsl --install -d Debian</span><br></pre></td></tr></table></figure>
 
-<h3 id="3-如何移除-WSL？"><a href="#3-如何移除-WSL？" class="headerlink" title="3. 如何移除 WSL？"></a>3. <strong>如何移除 WSL？</strong></h3><p>如果你想完全移除 WSL，可以執行：</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wsl --unregister &lt;發行版名稱&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="3-How-Do-I-Remove-WSL"><a href="#3-How-Do-I-Remove-WSL" class="headerlink" title="3. How Do I Remove WSL?"></a>3. <strong>How Do I Remove WSL?</strong></h3><h3 id="3-如何移除-WSL？"><a href="#3-如何移除-WSL？" class="headerlink" title="3. 如何移除 WSL？"></a>3. <strong>如何移除 WSL？</strong></h3><p>If you want to completely remove a WSL distribution, run:</p>
+<p>如果你想完全移除 WSL，可以執行：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wsl --unregister &lt;distribution-name&gt;</span><br></pre></td></tr></table></figure>
 
+<p>For example, to remove Ubuntu:</p>
 <p>例如移除 Ubuntu：</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wsl --unregister Ubuntu</span><br></pre></td></tr></table></figure>
 
 <hr>
-<h2 id="結語"><a href="#結語" class="headerlink" title="結語"></a><strong>結語</strong></h2><p>安裝 WSL 是開始學習 Linux 最簡單的方式，你不需要額外的硬體或安裝虛擬機，就能在 Windows 直接運行 Linux。</p>
+<h2 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a><strong>Conclusion</strong></h2><h2 id="結語"><a href="#結語" class="headerlink" title="結語"></a><strong>結語</strong></h2><p>Installing WSL is the easiest way to start learning Linux. You do not need extra hardware or a virtual machine; you can run Linux directly on Windows.</p>
+<p>安裝 WSL 是開始學習 Linux 最簡單的方式，你不需要額外的硬體或安裝虛擬機，就能在 Windows 直接運行 Linux。</p>
+<p>In the next article, we will go further into basic WSL operations, including the <strong>file system, package management, and interaction with Windows</strong>, so your Linux journey can move one step further.</p>
 <p>下一篇文章，我們將帶你進一步熟悉 WSL 的基本操作，包括 <strong>檔案系統、套件管理、與 Windows 互動</strong> 等等，讓你的 Linux 之旅更進一步！🚀</p>
+<p>Ready? See you in the next article.</p>
 <p>準備好了嗎？我們下一篇見！😊</p>
 
     </article>
@@ -527,21 +562,21 @@
             <p>Author：<a href="https://miruorange.github.io/blog/about/">Ken Hsu</a>
             <p>Link：<a href="https://miruorange.github.io/blog/2025/02/14/linux-journey-part3-installing-wsl/">https://miruorange.github.io/blog/2025/02/14/linux-journey-part3-installing-wsl/</a>
             <p>Publish date：<a href="https://miruorange.github.io/blog/2025/02/14/linux-journey-part3-installing-wsl/">February 14th 2025, 6:43:35 pm</a>
-            <p>Update date：<a href="https://miruorange.github.io/blog/2025/02/14/linux-journey-part3-installing-wsl/">March 17th 2026, 9:43:08 pm</a>
+            <p>Update date：<a href="https://miruorange.github.io/blog/2025/02/14/linux-journey-part3-installing-wsl/">May 18th 2026, 8:52:27 pm</a>
             <p>License：本文依 <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a> 授權</p>
         </div>
     <!-- paginator -->
     <ul class="post-paginator">
         <li class="next">
                 <div class="nextSlogan">Next Post</div>
-                <a href="/blog/2025/08/07/toastmaster-board-game-day/" title="Toastmaster桌遊日：一場充滿歡笑與策略的精彩生活紀錄">
-                    <div class="nextTitle">Toastmaster桌遊日：一場充滿歡笑與策略的精彩生活紀錄</div>
+                <a href="/blog/2025/08/07/toastmaster-board-game-day/" title="Toastmasters Board Game Night: A Life Note Full of Laughter and Strategy">
+                    <div class="nextTitle">Toastmasters Board Game Night: A Life Note Full of Laughter and Strategy</div>
                 </a>
         </li>
         <li class="previous">
                 <div class="prevSlogan">Previous Post</div>
-                <a href="/blog/2024/11/16/linux-journey-part2-which-linux-distro-to-learn/" title="Linux征途·第二話：我要學哪個版本的Linux">
-                    <div class="prevTitle">Linux征途·第二話：我要學哪個版本的Linux</div>
+                <a href="/blog/2024/11/16/linux-journey-part2-which-linux-distro-to-learn/" title="Linux Journey Part 2: Which Linux Distribution Should I Learn?">
+                    <div class="prevTitle">Linux Journey Part 2: Which Linux Distribution Should I Learn?</div>
                 </a>
         </li>
     </ul>
@@ -591,7 +626,7 @@
                 <div class="toc-catalog">
                     <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
                 </div>
-                <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%B2%E5%85%A5%E5%91%BD%E4%BB%A4%E6%8F%90%E7%A4%BA%E5%AD%97%E5%85%83%EF%BC%88cmd%EF%BC%89"><span class="toc-number">2.</span> <span class="toc-text">進入命令提示字元（cmd）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%9D-WSL"><span class="toc-number">3.</span> <span class="toc-text">安裝 WSL</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A2%BA%E8%AA%8D-WSL-%E7%89%88%E6%9C%AC"><span class="toc-number">4.</span> <span class="toc-text">確認 WSL 版本</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%95%9F%E5%8B%95-WSL"><span class="toc-number">5.</span> <span class="toc-text">啟動 WSL</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E8%A6%8B%E5%95%8F%E9%A1%8C%E8%88%87%E8%A7%A3%E6%B1%BA%E6%96%B9%E6%B3%95"><span class="toc-number">6.</span> <span class="toc-text">常見問題與解決方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9D%E4%B8%8D%E5%90%8C%E7%9A%84-Linux-%E7%89%88%E6%9C%AC%EF%BC%9F"><span class="toc-number">6.1.</span> <span class="toc-text">1. 如何安裝不同的 Linux 版本？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E5%A6%82%E4%BD%95%E7%A7%BB%E9%99%A4-WSL%EF%BC%9F"><span class="toc-number">6.2.</span> <span class="toc-text">3. 如何移除 WSL？</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B5%90%E8%AA%9E"><span class="toc-number">7.</span> <span class="toc-text">結語</span></a></li></ol>
+                <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Preface"><span class="toc-number">1.</span> <span class="toc-text">Preface</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">2.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Open-Command-Prompt-cmd"><span class="toc-number">3.</span> <span class="toc-text">Open Command Prompt (cmd)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%B2%E5%85%A5%E5%91%BD%E4%BB%A4%E6%8F%90%E7%A4%BA%E5%AD%97%E5%85%83%EF%BC%88cmd%EF%BC%89"><span class="toc-number">4.</span> <span class="toc-text">進入命令提示字元（cmd）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Install-WSL"><span class="toc-number">5.</span> <span class="toc-text">Install WSL</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%9D-WSL"><span class="toc-number">6.</span> <span class="toc-text">安裝 WSL</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Check-the-WSL-Version"><span class="toc-number">7.</span> <span class="toc-text">Check the WSL Version</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A2%BA%E8%AA%8D-WSL-%E7%89%88%E6%9C%AC"><span class="toc-number">8.</span> <span class="toc-text">確認 WSL 版本</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Start-WSL"><span class="toc-number">9.</span> <span class="toc-text">Start WSL</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%95%9F%E5%8B%95-WSL"><span class="toc-number">10.</span> <span class="toc-text">啟動 WSL</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Common-Questions-and-Solutions"><span class="toc-number">11.</span> <span class="toc-text">Common Questions and Solutions</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E8%A6%8B%E5%95%8F%E9%A1%8C%E8%88%87%E8%A7%A3%E6%B1%BA%E6%96%B9%E6%B3%95"><span class="toc-number">12.</span> <span class="toc-text">常見問題與解決方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-How-Do-I-Install-a-Different-Linux-Distribution"><span class="toc-number">12.1.</span> <span class="toc-text">1. How Do I Install a Different Linux Distribution?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9D%E4%B8%8D%E5%90%8C%E7%9A%84-Linux-%E7%89%88%E6%9C%AC%EF%BC%9F"><span class="toc-number">12.2.</span> <span class="toc-text">1. 如何安裝不同的 Linux 版本？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-How-Do-I-Remove-WSL"><span class="toc-number">12.3.</span> <span class="toc-text">3. How Do I Remove WSL?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E5%A6%82%E4%BD%95%E7%A7%BB%E9%99%A4-WSL%EF%BC%9F"><span class="toc-number">12.4.</span> <span class="toc-text">3. 如何移除 WSL？</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Conclusion"><span class="toc-number">13.</span> <span class="toc-text">Conclusion</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B5%90%E8%AA%9E"><span class="toc-number">14.</span> <span class="toc-text">結語</span></a></li></ol>
             </div>
         <!-- sidebar -->
         <div class="sidebar sidebar-hide">
@@ -626,57 +661,57 @@
             <ul class="year-list">
         <li class="archive-post-item">
             <span class="archive-post-date">05/03</span>
-            <a class="archive-post-title" href="/blog/2026/05/03/why-ccna-matters-when-building-kubernetes-locally/">在本地架完 Kubernetes 後，我才真正懂 CCNA 為什麼重要</a>
+            <a class="archive-post-title" href="/blog/2026/05/03/why-ccna-matters-when-building-kubernetes-locally/">After Building Kubernetes Locally, I Finally Understood Why CCNA Matters</a>
         </li>
         <li class="archive-post-item">
             <span class="archive-post-date">03/16</span>
-            <a class="archive-post-title" href="/blog/2026/03/16/frontend-backend-fullstack-explained/">欠同事一週的文章：什麼是前端、後端與全端？</a>
+            <a class="archive-post-title" href="/blog/2026/03/16/frontend-backend-fullstack-explained/">The Article I Owed a Colleague for a Week: What Are Frontend, Backend, and Full-Stack?</a>
         </li>
         <li class="archive-post-item">
             <span class="archive-post-date">02/11</span>
-            <a class="archive-post-title" href="/blog/2026/02/11/how-to-safely-play-with-moltbot/">如何安全地玩轉 OpenClaw？別讓你的家庭網路變成資安破口！</a>
+            <a class="archive-post-title" href="/blog/2026/02/11/how-to-safely-play-with-moltbot/">How to Safely Experiment with OpenClaw: Do Not Turn Your Home Network into a Security Hole</a>
         </li>
                 </ul>
             <div class="archive-year"> 2025 </div>
             <ul class="year-list">
         <li class="archive-post-item">
             <span class="archive-post-date">12/08</span>
-            <a class="archive-post-title" href="/blog/2025/12/08/why-backend-engineers-should-learn-ccna/">後端工程師的網通入坑之路：為什麼我推薦每個後端都該懂CCNA</a>
+            <a class="archive-post-title" href="/blog/2025/12/08/why-backend-engineers-should-learn-ccna/">Why I Recommend Every Backend Engineer Learn What CCNA Is About</a>
         </li>
         <li class="archive-post-item">
             <span class="archive-post-date">11/25</span>
-            <a class="archive-post-title" href="/blog/2025/11/25/building-a-counter-api-from-scratch/">一個計數器API的誕生：看似簡單卻暗藏玄機的Side Project</a>
+            <a class="archive-post-title" href="/blog/2025/11/25/building-a-counter-api-from-scratch/">Building a Counter API from Scratch: A Simple Side Project with Hidden Complexity</a>
         </li>
         <li class="archive-post-item">
             <span class="archive-post-date">09/07</span>
-            <a class="archive-post-title" href="/blog/2025/09/07/toastmaster-club-bbq-party/">Toastmaster社團烤肉趴：一場重拾熱情與連結的盛會</a>
+            <a class="archive-post-title" href="/blog/2025/09/07/toastmaster-club-bbq-party/">Toastmasters Club BBQ Party: Rediscovering Passion and Connection</a>
         </li>
         <li class="archive-post-item">
             <span class="archive-post-date">08/23</span>
-            <a class="archive-post-title" href="/blog/2025/08/23/developer-survival-guide-in-the-era-of-vibe-coding/">Vibe Coding 時代下的開發者生存之道</a>
+            <a class="archive-post-title" href="/blog/2025/08/23/developer-survival-guide-in-the-era-of-vibe-coding/">A Developer's Survival Guide in the Era of Vibe Coding</a>
         </li>
         <li class="archive-post-item">
             <span class="archive-post-date">08/07</span>
-            <a class="archive-post-title" href="/blog/2025/08/07/toastmaster-board-game-day/">Toastmaster桌遊日：一場充滿歡笑與策略的精彩生活紀錄</a>
+            <a class="archive-post-title" href="/blog/2025/08/07/toastmaster-board-game-day/">Toastmasters Board Game Night: A Life Note Full of Laughter and Strategy</a>
         </li>
         <li class="archive-post-item">
             <span class="archive-post-date">02/14</span>
-            <a class="archive-post-title" href="/blog/2025/02/14/linux-journey-part3-installing-wsl/">Linux征途·第三話：WSL的安裝</a>
+            <a class="archive-post-title" href="/blog/2025/02/14/linux-journey-part3-installing-wsl/">Linux Journey Part 3: Installing WSL</a>
         </li>
                 </ul>
             <div class="archive-year"> 2024 </div>
             <ul class="year-list">
         <li class="archive-post-item">
             <span class="archive-post-date">11/16</span>
-            <a class="archive-post-title" href="/blog/2024/11/16/linux-journey-part2-which-linux-distro-to-learn/">Linux征途·第二話：我要學哪個版本的Linux</a>
+            <a class="archive-post-title" href="/blog/2024/11/16/linux-journey-part2-which-linux-distro-to-learn/">Linux Journey Part 2: Which Linux Distribution Should I Learn?</a>
         </li>
         <li class="archive-post-item">
             <span class="archive-post-date">11/04</span>
-            <a class="archive-post-title" href="/blog/2024/11/04/linux-journey-part1-why-learn-linux/">Linux征途·第一話：為什麼要學Linux</a>
+            <a class="archive-post-title" href="/blog/2024/11/04/linux-journey-part1-why-learn-linux/">Linux Journey Part 1: Why Learn Linux?</a>
         </li>
         <li class="archive-post-item">
             <span class="archive-post-date">10/27</span>
-            <a class="archive-post-title" href="/blog/2024/10/27/my-first-technical-blog-post/">記錄撰寫技術Blog的第一天</a>
+            <a class="archive-post-title" href="/blog/2024/10/27/my-first-technical-blog-post/">My First Day Writing a Technical Blog</a>
         </li>
             </ul>
     </div>

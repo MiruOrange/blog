@@ -10,17 +10,17 @@
     <meta name="copyright" content="Ken Hsu">
         <meta name="keywords" content="python,full-stack,web,development,backend,frontend,database,server,client,network,security,algorithm,data structure,programming,software,engineering,computer,science,technology,learning,sharing,experience,knowledge,tutorial">
     <meta name="description" content="這是一篇關於技術學習的部落格文章，分享了撰寫技術筆記的過程。">
-    <meta name="description" content="第一個系列文部落格開張後，我一直在思索該寫什麼主題。各種想法在腦海中反覆浮現，卻始終無法確定。直到今天，主管向新進人員介紹我時，竟然用了 Infra 這個詞來形容我的職位。真是意外之喜，何德何能呀！的確我平時的工作除了後端的開發外, 也擔負著系統的維護的責任。最近為了解一些資安的需求, 剛好也在進一步鑽研Linux, 既然如此, 那就先寫篇Linux的系列文吧。  Infra 是 Infrastr">
+    <meta name="description" content="The First Series第一個系列文After launching this blog, I kept thinking about what topic I should write about. Different ideas kept coming up, but I could not quite decide. Then today, when my manager introd">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Linux征途·第一話：為什麼要學Linux">
+<meta property="og:title" content="Linux Journey Part 1: Why Learn Linux?">
 <meta property="og:url" content="https://miruorange.github.io/blog/2024/11/04/linux-journey-part1-why-learn-linux/index.html">
 <meta property="og:site_name" content="朝向全端之路：從基礎到進階的技術探索 by Ken">
-<meta property="og:description" content="第一個系列文部落格開張後，我一直在思索該寫什麼主題。各種想法在腦海中反覆浮現，卻始終無法確定。直到今天，主管向新進人員介紹我時，竟然用了 Infra 這個詞來形容我的職位。真是意外之喜，何德何能呀！的確我平時的工作除了後端的開發外, 也擔負著系統的維護的責任。最近為了解一些資安的需求, 剛好也在進一步鑽研Linux, 既然如此, 那就先寫篇Linux的系列文吧。  Infra 是 Infrastr">
+<meta property="og:description" content="The First Series第一個系列文After launching this blog, I kept thinking about what topic I should write about. Different ideas kept coming up, but I could not quite decide. Then today, when my manager introd">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://miruorange.github.io/blog/2024/11/04/Linux%E5%BE%81%E9%80%94%C2%B7%E7%AC%AC%E4%B8%80%E8%A9%B1%EF%BC%9A%E4%BB%80%E9%BA%BC%E6%98%AFLinux/%E7%88%AC%E8%9F%B2%E7%A8%8B%E5%BC%8F.png">
 <meta property="og:image" content="https://miruorange.github.io/blog/2024/11/04/Linux%E5%BE%81%E9%80%94%C2%B7%E7%AC%AC%E4%B8%80%E8%A9%B1%EF%BC%9A%E4%BB%80%E9%BA%BC%E6%98%AFLinux/%E6%94%BF%E5%BA%9C%E8%B3%87%E6%96%99%E9%96%8B%E6%94%BE%E5%B9%B3%E8%87%BA.png">
 <meta property="article:published_time" content="2024-11-04T14:52:32.000Z">
-<meta property="article:modified_time" content="2026-03-17T13:43:08.631Z">
+<meta property="article:modified_time" content="2026-05-18T12:50:56.349Z">
 <meta property="article:author" content="Ken Hsu">
 <meta property="article:tag" content="Linux">
 <meta name="twitter:card" content="summary">
@@ -28,7 +28,7 @@
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <link rel="icon" href="/blog/assets/favicon.ico">
-    <title>Linux征途·第一話：為什麼要學Linux · 朝向全端之路：從基礎到進階的技術探索 by Ken</title>
+    <title>Linux Journey Part 1: Why Learn Linux? · 朝向全端之路：從基礎到進階的技術探索 by Ken</title>
     <!-- /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
 /* This file is meant as a standalone workflow for
 - testing support for link[rel=preload]
@@ -259,7 +259,7 @@
             <a href="/blog/">想像力就是我的超能力</a>
         </div>
         <div class="post-title header-element">
-            <a href="#" class="post-name">Linux征途·第一話：為什麼要學Linux</a>
+            <a href="#" class="post-name">Linux Journey Part 1: Why Learn Linux?</a>
         </div>
     </div>
 </header>
@@ -286,7 +286,7 @@
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
-                Linux征途·第一話：為什麼要學Linux
+                Linux Journey Part 1: Why Learn Linux?
             <!-- 404 -->
         </h1>
         <!-- 副标题 -->
@@ -451,22 +451,47 @@
             <div class="container container-unloaded">
                 <main class="main post-page">
     """    <article class="article-entry">
-        <h2 id="第一個系列文"><a href="#第一個系列文" class="headerlink" title="第一個系列文"></a>第一個系列文</h2><p>部落格開張後，我一直在思索該寫什麼主題。各種想法在腦海中反覆浮現，卻始終無法確定。直到今天，主管向新進人員介紹我時，竟然用了 <strong>Infra</strong> 這個詞來形容我的職位。真是意外之喜，何德何能呀！的確我平時的工作除了後端的開發外, 也擔負著系統的維護的責任。最近為了解一些資安的需求, 剛好也在進一步鑽研Linux, 既然如此, 那就先寫篇Linux的系列文吧。</p>
+        <h2 id="The-First-Series"><a href="#The-First-Series" class="headerlink" title="The First Series"></a>The First Series</h2><h2 id="第一個系列文"><a href="#第一個系列文" class="headerlink" title="第一個系列文"></a>第一個系列文</h2><p>After launching this blog, I kept thinking about what topic I should write about. Different ideas kept coming up, but I could not quite decide. Then today, when my manager introduced me to a new colleague, he unexpectedly used the word <strong>Infra</strong> to describe my role. What a pleasant surprise. I am hardly sure I deserve it, but it is true that besides backend development, my daily work also includes system maintenance. Recently, because of some security requirements, I have also been studying Linux more deeply. Since that is the case, I might as well start with a Linux series.</p>
+<p>部落格開張後，我一直在思索該寫什麼主題。各種想法在腦海中反覆浮現，卻始終無法確定。直到今天，主管向新進人員介紹我時，竟然用了 <strong>Infra</strong> 這個詞來形容我的職位。真是意外之喜，何德何能呀！的確我平時的工作除了後端的開發外, 也擔負著系統的維護的責任。最近為了解一些資安的需求, 剛好也在進一步鑽研Linux, 既然如此, 那就先寫篇Linux的系列文吧。</p>
+<blockquote>
+<p><strong>Infra</strong> is short for <strong>Infrastructure</strong>, meaning I am responsible for the infrastructure layer of a company or team. This includes system administration, automation and deployment, monitoring and log management, containerization, security, and related areas.</p>
+</blockquote>
 <blockquote>
 <p><strong>Infra</strong> 是 <strong>Infrastructure</strong> 的縮寫，代表我負責公司或團隊的基礎設施層面工作。這包括系統管理、自動化和部署、監控和日誌管理、容器化，以及安全性等領域。</p>
 </blockquote>
-<h2 id="初學者的困惑"><a href="#初學者的困惑" class="headerlink" title="初學者的困惑"></a>初學者的困惑</h2><p>我是一名轉職進入這個行業的人，因此對於剛踏入這個領域的新手心態非常了解，因為我曾經走過同樣的路。很多新手可能會有這樣的疑問：學完了基礎的編程知識後，接下來該怎麼辦？會寫迴圈、陣列、流程控制後，還能做什麼？我好像懂了什麼, 那下一步該學什麼？這種不確定感，我非常熟悉，因為我也曾經困惑過。</p>
-<h2 id="程式學習的目標：自動化"><a href="#程式學習的目標：自動化" class="headerlink" title="程式學習的目標：自動化"></a>程式學習的目標：自動化</h2><p>其實，學習程式的最終目的往往是自動化。自動化讓我們能夠隨時隨地自動獲取資訊，讓電腦來處理重複、繁瑣的工作，減少人力消耗。然而，如果每次都需要手動執行已寫好的程式，這未免顯得效率低下且過於繁瑣。這時候，你需要的是一台能夠24小時持續運行的機器，也就是我們所說的Server。</p>
-<h2 id="什麼是Server？"><a href="#什麼是Server？" class="headerlink" title="什麼是Server？"></a>什麼是Server？</h2><p>Server本質上就是一台可以執行程式的電腦主機。它可以是桌上型電腦、筆記型電腦，甚至像我一樣，使用樹莓派來搭建一台個人Server也完全可行。<br><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Ry_dR29oK0k&list=PLEKonaDKILV1hCGWCHhHlAHG2WvOYI2UC&index=2">點此觀看我如何在樹莓派上安裝Linux系統</a></p>
-<h2 id="Server的應用場景"><a href="#Server的應用場景" class="headerlink" title="Server的應用場景"></a>Server的應用場景</h2><p>當你擁有一台能夠連網的Server，再加上你所掌握的編程技術，你就能完成很多事情。對我來說，最有趣的應用之一就是在我的樹莓派上安裝爬蟲程式，定期抓取我需要的資訊並整理成報告，甚至自動發送郵件給自己。<br><img src="https://miruorange.github.io/blog/2024/11/04/Linux%E5%BE%81%E9%80%94%C2%B7%E7%AC%AC%E4%B8%80%E8%A9%B1%EF%BC%9A%E4%BB%80%E9%BA%BC%E6%98%AFLinux/%E7%88%AC%E8%9F%B2%E7%A8%8B%E5%BC%8F.png" alt="爬取PTT指定關鍵字的爬蟲程式"></p>
-<h2 id="超越爬蟲的可能性"><a href="#超越爬蟲的可能性" class="headerlink" title="超越爬蟲的可能性"></a>超越爬蟲的可能性</h2><p>除了爬蟲，還可以利用Server的排程功能來執行不同的程式，串接各種API，進而實現許多實用的功能。例如，自動收集天氣預報、空氣品質數據，或者搭建一個個人網站，無論是部落格、形象網站，還是電子商務平台，甚至是搭建一個AI的智能機器人, 皆可實現。<br><img src="https://miruorange.github.io/blog/2024/11/04/Linux%E5%BE%81%E9%80%94%C2%B7%E7%AC%AC%E4%B8%80%E8%A9%B1%EF%BC%9A%E4%BB%80%E9%BA%BC%E6%98%AFLinux/%E6%94%BF%E5%BA%9C%E8%B3%87%E6%96%99%E9%96%8B%E6%94%BE%E5%B9%B3%E8%87%BA.png" alt="政府資料開放平台-有滿滿的API可以串"></p>
-<h2 id="為什麼選擇Linux？"><a href="#為什麼選擇Linux？" class="headerlink" title="為什麼選擇Linux？"></a>為什麼選擇Linux？</h2><p>為什麼？因為它免費、高效、省電、多工。當你學會了編程，再掌握Linux的操作，就如同打通了任督二脈——唯有你想不到的，沒有你做不到的。因此，為什麼不開始學習Linux呢？</p>
-<h2 id="常見問題-FAQ"><a href="#常見問題-FAQ" class="headerlink" title="常見問題 (FAQ)"></a>常見問題 (FAQ)</h2><h3 id="Q1-Server只能建在Linux環境上嗎？"><a href="#Q1-Server只能建在Linux環境上嗎？" class="headerlink" title="Q1: Server只能建在Linux環境上嗎？"></a>Q1: Server只能建在Linux環境上嗎？</h3><p>不一定！事實上，只要是能運行排程任務的電腦，都可以作為 Server 使用。Server 的重點不在於操作系統，而是在於服務的目的性和穩定性。舉例來說，一個網站的 Server 就專注於提供網頁服務，因此我們不會在 Server 上安裝影音播放器、文字處理軟體（如 Word、Excel）等不必要的程式。這樣精簡的配置，不僅能降低硬體的負擔，還能讓 Server 更加省電、高效、穩定地運行。</p>
-<h3 id="Q2-Linux和windows及mac-os是不一樣的東西嗎？"><a href="#Q2-Linux和windows及mac-os是不一樣的東西嗎？" class="headerlink" title="Q2: Linux和windows及mac os是不一樣的東西嗎？"></a>Q2: Linux和windows及mac os是不一樣的東西嗎？</h3><p>是的，Linux、Windows 和 macOS 是三個不同的操作系統，各自有不同的設計哲學與用途。</p>
+<h2 id="A-Beginner’s-Confusion"><a href="#A-Beginner’s-Confusion" class="headerlink" title="A Beginner’s Confusion"></a>A Beginner’s Confusion</h2><h2 id="初學者的困惑"><a href="#初學者的困惑" class="headerlink" title="初學者的困惑"></a>初學者的困惑</h2><p>I changed careers to enter this industry, so I understand the mindset of beginners very well because I have walked the same path. Many beginners may wonder: after learning the basics of programming, what should I do next? After learning loops, arrays, and control flow, what else can I build? I seem to understand something, but what should I learn next? I know that feeling of uncertainty very well because I was once confused in exactly the same way.</p>
+<p>我是一名轉職進入這個行業的人，因此對於剛踏入這個領域的新手心態非常了解，因為我曾經走過同樣的路。很多新手可能會有這樣的疑問：學完了基礎的編程知識後，接下來該怎麼辦？會寫迴圈、陣列、流程控制後，還能做什麼？我好像懂了什麼, 那下一步該學什麼？這種不確定感，我非常熟悉，因為我也曾經困惑過。</p>
+<h2 id="The-Goal-of-Learning-Programming-Automation"><a href="#The-Goal-of-Learning-Programming-Automation" class="headerlink" title="The Goal of Learning Programming: Automation"></a>The Goal of Learning Programming: Automation</h2><h2 id="程式學習的目標：自動化"><a href="#程式學習的目標：自動化" class="headerlink" title="程式學習的目標：自動化"></a>程式學習的目標：自動化</h2><p>In fact, the ultimate purpose of learning programming is often automation. Automation allows us to automatically collect information anytime and anywhere, letting computers handle repetitive and tedious work while reducing human effort. However, if every program still has to be executed manually, that feels inefficient and unnecessarily troublesome. At that point, what you need is a machine that can run 24 hours a day, which is what we call a Server.</p>
+<p>其實，學習程式的最終目的往往是自動化。自動化讓我們能夠隨時隨地自動獲取資訊，讓電腦來處理重複、繁瑣的工作，減少人力消耗。然而，如果每次都需要手動執行已寫好的程式，這未免顯得效率低下且過於繁瑣。這時候，你需要的是一台能夠24小時持續運行的機器，也就是我們所說的Server。</p>
+<h2 id="What-Is-a-Server"><a href="#What-Is-a-Server" class="headerlink" title="What Is a Server?"></a>What Is a Server?</h2><h2 id="什麼是Server？"><a href="#什麼是Server？" class="headerlink" title="什麼是Server？"></a>什麼是Server？</h2><p>At its core, a Server is simply a computer that can run programs. It can be a desktop computer, a laptop, or even, like in my case, a Raspberry Pi used to build a personal Server.</p>
+<p>Server本質上就是一台可以執行程式的電腦主機。它可以是桌上型電腦、筆記型電腦，甚至像我一樣，使用樹莓派來搭建一台個人Server也完全可行。</p>
+<p><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Ry_dR29oK0k&list=PLEKonaDKILV1hCGWCHhHlAHG2WvOYI2UC&index=2">Click here to watch how I installed a Linux system on a Raspberry Pi</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Ry_dR29oK0k&list=PLEKonaDKILV1hCGWCHhHlAHG2WvOYI2UC&index=2">點此觀看我如何在樹莓派上安裝Linux系統</a></p>
+<h2 id="Use-Cases-for-a-Server"><a href="#Use-Cases-for-a-Server" class="headerlink" title="Use Cases for a Server"></a>Use Cases for a Server</h2><h2 id="Server的應用場景"><a href="#Server的應用場景" class="headerlink" title="Server的應用場景"></a>Server的應用場景</h2><p>When you have a network-connected Server plus the programming skills you have learned, you can accomplish many things. For me, one of the most interesting uses is installing a web crawler on my Raspberry Pi, periodically collecting the information I need, organizing it into reports, and even sending emails to myself automatically.</p>
+<p>當你擁有一台能夠連網的Server，再加上你所掌握的編程技術，你就能完成很多事情。對我來說，最有趣的應用之一就是在我的樹莓派上安裝爬蟲程式，定期抓取我需要的資訊並整理成報告，甚至自動發送郵件給自己。</p>
+<p><img src="https://miruorange.github.io/blog/2024/11/04/Linux%E5%BE%81%E9%80%94%C2%B7%E7%AC%AC%E4%B8%80%E8%A9%B1%EF%BC%9A%E4%BB%80%E9%BA%BC%E6%98%AFLinux/%E7%88%AC%E8%9F%B2%E7%A8%8B%E5%BC%8F.png" alt="A web crawler for collecting PTT posts with specific keywords"></p>
+<h2 id="Possibilities-Beyond-Web-Crawlers"><a href="#Possibilities-Beyond-Web-Crawlers" class="headerlink" title="Possibilities Beyond Web Crawlers"></a>Possibilities Beyond Web Crawlers</h2><h2 id="超越爬蟲的可能性"><a href="#超越爬蟲的可能性" class="headerlink" title="超越爬蟲的可能性"></a>超越爬蟲的可能性</h2><p>Beyond web crawlers, you can also use a Server’s scheduling features to run different programs and connect to various APIs, enabling many practical functions. For example, you can automatically collect weather forecasts or air quality data, build a personal website such as a blog, portfolio site, or e-commerce platform, or even build an AI chatbot.</p>
+<p>除了爬蟲，還可以利用Server的排程功能來執行不同的程式，串接各種API，進而實現許多實用的功能。例如，自動收集天氣預報、空氣品質數據，或者搭建一個個人網站，無論是部落格、形象網站，還是電子商務平台，甚至是搭建一個AI的智能機器人, 皆可實現。</p>
+<p><img src="https://miruorange.github.io/blog/2024/11/04/Linux%E5%BE%81%E9%80%94%C2%B7%E7%AC%AC%E4%B8%80%E8%A9%B1%EF%BC%9A%E4%BB%80%E9%BA%BC%E6%98%AFLinux/%E6%94%BF%E5%BA%9C%E8%B3%87%E6%96%99%E9%96%8B%E6%94%BE%E5%B9%B3%E8%87%BA.png" alt="The government open data platform provides many APIs to integrate with"></p>
+<h2 id="Why-Choose-Linux"><a href="#Why-Choose-Linux" class="headerlink" title="Why Choose Linux?"></a>Why Choose Linux?</h2><h2 id="為什麼選擇Linux？"><a href="#為什麼選擇Linux？" class="headerlink" title="為什麼選擇Linux？"></a>為什麼選擇Linux？</h2><p>Why? Because it is free, efficient, power-saving, and good at multitasking. Once you learn programming and then master Linux operations, it feels like unlocking a new level of ability. The only limit becomes what you can imagine. So why not start learning Linux?</p>
+<p>為什麼？因為它免費、高效、省電、多工。當你學會了編程，再掌握Linux的操作，就如同打通了任督二脈——唯有你想不到的，沒有你做不到的。因此，為什麼不開始學習Linux呢？</p>
+<h2 id="Frequently-Asked-Questions-FAQ"><a href="#Frequently-Asked-Questions-FAQ" class="headerlink" title="Frequently Asked Questions (FAQ)"></a>Frequently Asked Questions (FAQ)</h2><h2 id="常見問題-FAQ"><a href="#常見問題-FAQ" class="headerlink" title="常見問題 (FAQ)"></a>常見問題 (FAQ)</h2><h3 id="Q1-Can-a-Server-Only-Be-Built-on-Linux"><a href="#Q1-Can-a-Server-Only-Be-Built-on-Linux" class="headerlink" title="Q1: Can a Server Only Be Built on Linux?"></a>Q1: Can a Server Only Be Built on Linux?</h3><h3 id="Q1-Server只能建在Linux環境上嗎？"><a href="#Q1-Server只能建在Linux環境上嗎？" class="headerlink" title="Q1: Server只能建在Linux環境上嗎？"></a>Q1: Server只能建在Linux環境上嗎？</h3><p>Not necessarily. In fact, any computer that can run scheduled tasks can be used as a Server. The key point of a Server is not the operating system, but the purpose and stability of the service. For example, a website Server focuses on serving web pages, so we do not install unnecessary software such as media players or office tools like Word and Excel on it. This lean setup reduces hardware load and helps the Server run more efficiently, stably, and with lower power consumption.</p>
+<p>不一定！事實上，只要是能運行排程任務的電腦，都可以作為 Server 使用。Server 的重點不在於操作系統，而是在於服務的目的性和穩定性。舉例來說，一個網站的 Server 就專注於提供網頁服務，因此我們不會在 Server 上安裝影音播放器、文字處理軟體（如 Word、Excel）等不必要的程式。這樣精簡的配置，不僅能降低硬體的負擔，還能讓 Server 更加省電、高效、穩定地運行。</p>
+<h3 id="Q2-Are-Linux-Windows-and-macOS-Different-Things"><a href="#Q2-Are-Linux-Windows-and-macOS-Different-Things" class="headerlink" title="Q2: Are Linux, Windows, and macOS Different Things?"></a>Q2: Are Linux, Windows, and macOS Different Things?</h3><h3 id="Q2-Linux和windows及mac-os是不一樣的東西嗎？"><a href="#Q2-Linux和windows及mac-os是不一樣的東西嗎？" class="headerlink" title="Q2: Linux和windows及mac os是不一樣的東西嗎？"></a>Q2: Linux和windows及mac os是不一樣的東西嗎？</h3><p>Yes. Linux, Windows, and macOS are three different operating systems, each with different design philosophies and use cases.</p>
+<p>是的，Linux、Windows 和 macOS 是三個不同的操作系統，各自有不同的設計哲學與用途。</p>
 <ul>
-<li>Linux 是一個開放原始碼的操作系統，常被用作 Server 系統。它以穩定性和靈活性著稱，並且提供了強大的命令行工具，使得在自動化和伺服器環境中非常高效。</li>
-<li>Windows 是微軟開發的操作系統，更常用於個人電腦和商務環境。它擁有豐富的圖形化介面和廣泛的軟體支援，適合辦公軟體和多媒體應用，但在 Server 領域上比較少見。</li>
-<li>macOS 是蘋果開發的操作系統，主要用於蘋果的筆記型電腦和桌上型電腦。macOS 基於 Unix，因此和 Linux 在底層設計上有相似之處。由於其穩定性和開發工具的便利性，macOS 深受開發者歡迎。</li>
+<li><p>Linux is an open-source operating system commonly used as a Server system. It is known for stability and flexibility, and it provides powerful command-line tools that make it highly efficient for automation and server environments.</p>
+</li>
+<li><p>Windows is an operating system developed by Microsoft and is more commonly used for personal computers and business environments. It has a rich graphical interface and broad software support, making it suitable for office software and multimedia applications, though it is less common in the Server field.</p>
+</li>
+<li><p>macOS is an operating system developed by Apple, mainly used on Apple’s laptops and desktops. macOS is based on Unix, so it shares some underlying design similarities with Linux. Because of its stability and convenient developer tools, macOS is popular among developers.</p>
+</li>
+<li><p>Linux 是一個開放原始碼的操作系統，常被用作 Server 系統。它以穩定性和靈活性著稱，並且提供了強大的命令行工具，使得在自動化和伺服器環境中非常高效。</p>
+</li>
+<li><p>Windows 是微軟開發的操作系統，更常用於個人電腦和商務環境。它擁有豐富的圖形化介面和廣泛的軟體支援，適合辦公軟體和多媒體應用，但在 Server 領域上比較少見。</p>
+</li>
+<li><p>macOS 是蘋果開發的操作系統，主要用於蘋果的筆記型電腦和桌上型電腦。macOS 基於 Unix，因此和 Linux 在底層設計上有相似之處。由於其穩定性和開發工具的便利性，macOS 深受開發者歡迎。</p>
+</li>
 </ul>
 
     </article>
@@ -481,21 +506,21 @@
             <p>Author：<a href="https://miruorange.github.io/blog/about/">Ken Hsu</a>
             <p>Link：<a href="https://miruorange.github.io/blog/2024/11/04/linux-journey-part1-why-learn-linux/">https://miruorange.github.io/blog/2024/11/04/linux-journey-part1-why-learn-linux/</a>
             <p>Publish date：<a href="https://miruorange.github.io/blog/2024/11/04/linux-journey-part1-why-learn-linux/">November 4th 2024, 10:52:32 pm</a>
-            <p>Update date：<a href="https://miruorange.github.io/blog/2024/11/04/linux-journey-part1-why-learn-linux/">March 17th 2026, 9:43:08 pm</a>
+            <p>Update date：<a href="https://miruorange.github.io/blog/2024/11/04/linux-journey-part1-why-learn-linux/">May 18th 2026, 8:50:56 pm</a>
             <p>License：本文依 <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a> 授權</p>
         </div>
     <!-- paginator -->
     <ul class="post-paginator">
         <li class="next">
                 <div class="nextSlogan">Next Post</div>
-                <a href="/blog/2024/11/16/linux-journey-part2-which-linux-distro-to-learn/" title="Linux征途·第二話：我要學哪個版本的Linux">
-                    <div class="nextTitle">Linux征途·第二話：我要學哪個版本的Linux</div>
+                <a href="/blog/2024/11/16/linux-journey-part2-which-linux-distro-to-learn/" title="Linux Journey Part 2: Which Linux Distribution Should I Learn?">
+                    <div class="nextTitle">Linux Journey Part 2: Which Linux Distribution Should I Learn?</div>
                 </a>
         </li>
         <li class="previous">
                 <div class="prevSlogan">Previous Post</div>
-                <a href="/blog/2024/10/27/my-first-technical-blog-post/" title="記錄撰寫技術Blog的第一天">
-                    <div class="prevTitle">記錄撰寫技術Blog的第一天</div>
+                <a href="/blog/2024/10/27/my-first-technical-blog-post/" title="My First Day Writing a Technical Blog">
+                    <div class="prevTitle">My First Day Writing a Technical Blog</div>
                 </a>
         </li>
     </ul>
@@ -545,7 +570,7 @@
                 <div class="toc-catalog">
                     <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
                 </div>
-                <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E5%80%8B%E7%B3%BB%E5%88%97%E6%96%87"><span class="toc-number">1.</span> <span class="toc-text">第一個系列文</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%9D%E5%AD%B8%E8%80%85%E7%9A%84%E5%9B%B0%E6%83%91"><span class="toc-number">2.</span> <span class="toc-text">初學者的困惑</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A8%8B%E5%BC%8F%E5%AD%B8%E7%BF%92%E7%9A%84%E7%9B%AE%E6%A8%99%EF%BC%9A%E8%87%AA%E5%8B%95%E5%8C%96"><span class="toc-number">3.</span> <span class="toc-text">程式學習的目標：自動化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E9%BA%BC%E6%98%AFServer%EF%BC%9F"><span class="toc-number">4.</span> <span class="toc-text">什麼是Server？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Server%E7%9A%84%E6%87%89%E7%94%A8%E5%A0%B4%E6%99%AF"><span class="toc-number">5.</span> <span class="toc-text">Server的應用場景</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B6%85%E8%B6%8A%E7%88%AC%E8%9F%B2%E7%9A%84%E5%8F%AF%E8%83%BD%E6%80%A7"><span class="toc-number">6.</span> <span class="toc-text">超越爬蟲的可能性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%82%BA%E4%BB%80%E9%BA%BC%E9%81%B8%E6%93%87Linux%EF%BC%9F"><span class="toc-number">7.</span> <span class="toc-text">為什麼選擇Linux？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E8%A6%8B%E5%95%8F%E9%A1%8C-FAQ"><span class="toc-number">8.</span> <span class="toc-text">常見問題 (FAQ)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Q1-Server%E5%8F%AA%E8%83%BD%E5%BB%BA%E5%9C%A8Linux%E7%92%B0%E5%A2%83%E4%B8%8A%E5%97%8E%EF%BC%9F"><span class="toc-number">8.1.</span> <span class="toc-text">Q1: Server只能建在Linux環境上嗎？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Q2-Linux%E5%92%8Cwindows%E5%8F%8Amac-os%E6%98%AF%E4%B8%8D%E4%B8%80%E6%A8%A3%E7%9A%84%E6%9D%B1%E8%A5%BF%E5%97%8E%EF%BC%9F"><span class="toc-number">8.2.</span> <span class="toc-text">Q2: Linux和windows及mac os是不一樣的東西嗎？</span></a></li></ol></li></ol>
+                <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#The-First-Series"><span class="toc-number">1.</span> <span class="toc-text">The First Series</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E5%80%8B%E7%B3%BB%E5%88%97%E6%96%87"><span class="toc-number">2.</span> <span class="toc-text">第一個系列文</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#A-Beginner%E2%80%99s-Confusion"><span class="toc-number">3.</span> <span class="toc-text">A Beginner’s Confusion</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%9D%E5%AD%B8%E8%80%85%E7%9A%84%E5%9B%B0%E6%83%91"><span class="toc-number">4.</span> <span class="toc-text">初學者的困惑</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#The-Goal-of-Learning-Programming-Automation"><span class="toc-number">5.</span> <span class="toc-text">The Goal of Learning Programming: Automation</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A8%8B%E5%BC%8F%E5%AD%B8%E7%BF%92%E7%9A%84%E7%9B%AE%E6%A8%99%EF%BC%9A%E8%87%AA%E5%8B%95%E5%8C%96"><span class="toc-number">6.</span> <span class="toc-text">程式學習的目標：自動化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#What-Is-a-Server"><span class="toc-number">7.</span> <span class="toc-text">What Is a Server?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E9%BA%BC%E6%98%AFServer%EF%BC%9F"><span class="toc-number">8.</span> <span class="toc-text">什麼是Server？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Use-Cases-for-a-Server"><span class="toc-number">9.</span> <span class="toc-text">Use Cases for a Server</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Server%E7%9A%84%E6%87%89%E7%94%A8%E5%A0%B4%E6%99%AF"><span class="toc-number">10.</span> <span class="toc-text">Server的應用場景</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Possibilities-Beyond-Web-Crawlers"><span class="toc-number">11.</span> <span class="toc-text">Possibilities Beyond Web Crawlers</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B6%85%E8%B6%8A%E7%88%AC%E8%9F%B2%E7%9A%84%E5%8F%AF%E8%83%BD%E6%80%A7"><span class="toc-number">12.</span> <span class="toc-text">超越爬蟲的可能性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Why-Choose-Linux"><span class="toc-number">13.</span> <span class="toc-text">Why Choose Linux?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%82%BA%E4%BB%80%E9%BA%BC%E9%81%B8%E6%93%87Linux%EF%BC%9F"><span class="toc-number">14.</span> <span class="toc-text">為什麼選擇Linux？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Frequently-Asked-Questions-FAQ"><span class="toc-number">15.</span> <span class="toc-text">Frequently Asked Questions (FAQ)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E8%A6%8B%E5%95%8F%E9%A1%8C-FAQ"><span class="toc-number">16.</span> <span class="toc-text">常見問題 (FAQ)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Q1-Can-a-Server-Only-Be-Built-on-Linux"><span class="toc-number">16.1.</span> <span class="toc-text">Q1: Can a Server Only Be Built on Linux?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Q1-Server%E5%8F%AA%E8%83%BD%E5%BB%BA%E5%9C%A8Linux%E7%92%B0%E5%A2%83%E4%B8%8A%E5%97%8E%EF%BC%9F"><span class="toc-number">16.2.</span> <span class="toc-text">Q1: Server只能建在Linux環境上嗎？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Q2-Are-Linux-Windows-and-macOS-Different-Things"><span class="toc-number">16.3.</span> <span class="toc-text">Q2: Are Linux, Windows, and macOS Different Things?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Q2-Linux%E5%92%8Cwindows%E5%8F%8Amac-os%E6%98%AF%E4%B8%8D%E4%B8%80%E6%A8%A3%E7%9A%84%E6%9D%B1%E8%A5%BF%E5%97%8E%EF%BC%9F"><span class="toc-number">16.4.</span> <span class="toc-text">Q2: Linux和windows及mac os是不一樣的東西嗎？</span></a></li></ol></li></ol>
             </div>
         <!-- sidebar -->
         <div class="sidebar sidebar-hide">
@@ -580,57 +605,57 @@
             <ul class="year-list">
         <li class="archive-post-item">
             <span class="archive-post-date">05/03</span>
-            <a class="archive-post-title" href="/blog/2026/05/03/why-ccna-matters-when-building-kubernetes-locally/">在本地架完 Kubernetes 後，我才真正懂 CCNA 為什麼重要</a>
+            <a class="archive-post-title" href="/blog/2026/05/03/why-ccna-matters-when-building-kubernetes-locally/">After Building Kubernetes Locally, I Finally Understood Why CCNA Matters</a>
         </li>
         <li class="archive-post-item">
             <span class="archive-post-date">03/16</span>
-            <a class="archive-post-title" href="/blog/2026/03/16/frontend-backend-fullstack-explained/">欠同事一週的文章：什麼是前端、後端與全端？</a>
+            <a class="archive-post-title" href="/blog/2026/03/16/frontend-backend-fullstack-explained/">The Article I Owed a Colleague for a Week: What Are Frontend, Backend, and Full-Stack?</a>
         </li>
         <li class="archive-post-item">
             <span class="archive-post-date">02/11</span>
-            <a class="archive-post-title" href="/blog/2026/02/11/how-to-safely-play-with-moltbot/">如何安全地玩轉 OpenClaw？別讓你的家庭網路變成資安破口！</a>
+            <a class="archive-post-title" href="/blog/2026/02/11/how-to-safely-play-with-moltbot/">How to Safely Experiment with OpenClaw: Do Not Turn Your Home Network into a Security Hole</a>
         </li>
                 </ul>
             <div class="archive-year"> 2025 </div>
             <ul class="year-list">
         <li class="archive-post-item">
             <span class="archive-post-date">12/08</span>
-            <a class="archive-post-title" href="/blog/2025/12/08/why-backend-engineers-should-learn-ccna/">後端工程師的網通入坑之路：為什麼我推薦每個後端都該懂CCNA</a>
+            <a class="archive-post-title" href="/blog/2025/12/08/why-backend-engineers-should-learn-ccna/">Why I Recommend Every Backend Engineer Learn What CCNA Is About</a>
         </li>
         <li class="archive-post-item">
             <span class="archive-post-date">11/25</span>
-            <a class="archive-post-title" href="/blog/2025/11/25/building-a-counter-api-from-scratch/">一個計數器API的誕生：看似簡單卻暗藏玄機的Side Project</a>
+            <a class="archive-post-title" href="/blog/2025/11/25/building-a-counter-api-from-scratch/">Building a Counter API from Scratch: A Simple Side Project with Hidden Complexity</a>
         </li>
         <li class="archive-post-item">
             <span class="archive-post-date">09/07</span>
-            <a class="archive-post-title" href="/blog/2025/09/07/toastmaster-club-bbq-party/">Toastmaster社團烤肉趴：一場重拾熱情與連結的盛會</a>
+            <a class="archive-post-title" href="/blog/2025/09/07/toastmaster-club-bbq-party/">Toastmasters Club BBQ Party: Rediscovering Passion and Connection</a>
         </li>
         <li class="archive-post-item">
             <span class="archive-post-date">08/23</span>
-            <a class="archive-post-title" href="/blog/2025/08/23/developer-survival-guide-in-the-era-of-vibe-coding/">Vibe Coding 時代下的開發者生存之道</a>
+            <a class="archive-post-title" href="/blog/2025/08/23/developer-survival-guide-in-the-era-of-vibe-coding/">A Developer's Survival Guide in the Era of Vibe Coding</a>
         </li>
         <li class="archive-post-item">
             <span class="archive-post-date">08/07</span>
-            <a class="archive-post-title" href="/blog/2025/08/07/toastmaster-board-game-day/">Toastmaster桌遊日：一場充滿歡笑與策略的精彩生活紀錄</a>
+            <a class="archive-post-title" href="/blog/2025/08/07/toastmaster-board-game-day/">Toastmasters Board Game Night: A Life Note Full of Laughter and Strategy</a>
         </li>
         <li class="archive-post-item">
             <span class="archive-post-date">02/14</span>
-            <a class="archive-post-title" href="/blog/2025/02/14/linux-journey-part3-installing-wsl/">Linux征途·第三話：WSL的安裝</a>
+            <a class="archive-post-title" href="/blog/2025/02/14/linux-journey-part3-installing-wsl/">Linux Journey Part 3: Installing WSL</a>
         </li>
                 </ul>
             <div class="archive-year"> 2024 </div>
             <ul class="year-list">
         <li class="archive-post-item">
             <span class="archive-post-date">11/16</span>
-            <a class="archive-post-title" href="/blog/2024/11/16/linux-journey-part2-which-linux-distro-to-learn/">Linux征途·第二話：我要學哪個版本的Linux</a>
+            <a class="archive-post-title" href="/blog/2024/11/16/linux-journey-part2-which-linux-distro-to-learn/">Linux Journey Part 2: Which Linux Distribution Should I Learn?</a>
         </li>
         <li class="archive-post-item">
             <span class="archive-post-date">11/04</span>
-            <a class="archive-post-title" href="/blog/2024/11/04/linux-journey-part1-why-learn-linux/">Linux征途·第一話：為什麼要學Linux</a>
+            <a class="archive-post-title" href="/blog/2024/11/04/linux-journey-part1-why-learn-linux/">Linux Journey Part 1: Why Learn Linux?</a>
         </li>
         <li class="archive-post-item">
             <span class="archive-post-date">10/27</span>
-            <a class="archive-post-title" href="/blog/2024/10/27/my-first-technical-blog-post/">記錄撰寫技術Blog的第一天</a>
+            <a class="archive-post-title" href="/blog/2024/10/27/my-first-technical-blog-post/">My First Day Writing a Technical Blog</a>
         </li>
             </ul>
     </div>
