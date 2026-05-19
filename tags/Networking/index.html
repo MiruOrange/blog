@@ -418,8 +418,13 @@
                 <span class="abstract-title-text">After Building Kubernetes Locally, I Finally Understood Why CCNA Matters</span>
             </a>
             <div class="abstract-content">
-                Recently, I spent some time building a Kubernetes Cluster in a local environment.
-To be honest, at first I thought the main focus would be Kubernetes itself: how to install kubeadm, how to get Pods running, how to deploy Services, and how to check status with kubectl. Those things are certainly i...
+                最近，我花了一段時間在 Local 環境架 Kubernetes Cluster。
+老實說，一開始我以為這件事的重點會是 Kubernetes 本身。像是怎麼安裝 kubeadm、怎麼讓 Pod 跑起來、怎麼部署 Service、怎麼用 kubectl 查看狀態。這些當然都重要，但真正動手做下去之後，我才發現：
+
+Kubernetes 表面上是容器編排，底層其實到處都是網路。
+
+而且不是那種「知道 IP 是什麼」就可以輕鬆帶過的網路，而是會一直碰到 Subnet、Gateway、Routing、ARP、VXLAN、SNAT、DNAT、BGP 這些概念的網路。
+也因為這樣，我更深刻地感受到...
             </div>
             <!-- read more -->
             <div class="abstract-post-meta">
@@ -445,7 +450,11 @@ To be honest, at first I thought the main focus would be Kubernetes itself: how 
                 <span class="abstract-title-text">Why I Recommend Every Backend Engineer Learn What CCNA Is About</span>
             </a>
             <div class="abstract-content">
-                Recently, I finally completed a goal that had been on my mind for a long time: I took a CCNA certification course. When I told engineer friends and colleagues around me about this decision, quite a few of them looked confused. “You are a backend engineer. Why would you study that? We are not tryi...
+                最近，我終於完成了一個放在心上許久的目標——去上了CCNA認證課程。當我跟身邊的工程師朋友、同事提到這個決定時，不少人露出了疑惑的表情：「一個後端工程師，為什麼要去學那個？我們又不是要當網管。」
+這篇文章，我想分享我的心路歷程，以及為什麼我現在會斬釘截鐵地說：「如果你是個有企圖心的後端工程師，你真的該去了解CCNA在談些什麼。」
+
+🚀 旅程的起點：一個 Docker 網路衝突這一切的開端，源自於工作上一個看似單純卻又棘手的問題。當時，我正在本地開發環境中運行一個 Docker 容器，卻發現它內部的網段(CIDR)正好與公司內網的某個重要服務發生了衝突，導致我無法從容器中存取該服務。
+為...
             </div>
             <!-- read more -->
             <div class="abstract-post-meta">

@@ -10,12 +10,12 @@
     <meta name="copyright" content="Ken Hsu">
         <meta name="keywords" content="python,full-stack,web,development,backend,frontend,database,server,client,network,security,algorithm,data structure,programming,software,engineering,computer,science,technology,learning,sharing,experience,knowledge,tutorial">
     <meta name="description" content="這是一篇關於技術學習的部落格文章，分享了撰寫技術筆記的過程。">
-    <meta name="description" content="This is an article I had owed a colleague at work for quite a while. At first, it was just a simple promise: “Sure, I will find some time to explain what frontend is, what backend is, and what full-st">
+    <meta name="description" content="這篇文章，我其實欠公司一位同仁很久了。 本來只是很單純地說：「好，我再找時間跟你解釋什麼是前端、什麼是後端、什麼又叫全端。」結果這個「找時間」，一找就是一個禮拜。身為工程師，欠技術債已經夠可怕了，連文章債都欠，實在有點不好意思。 所以今天就來把這篇補上，而且盡量用最白話、最好理解的方式來說明。這篇不是要寫成教科書，也不是要端出一堆艱澀名詞把大家嚇跑，而是希望讓沒有技術背景的人，看完也能大概知道：">
 <meta property="og:type" content="article">
 <meta property="og:title" content="The Article I Owed a Colleague for a Week: What Are Frontend, Backend, and Full-Stack?">
 <meta property="og:url" content="https://miruorange.github.io/blog/2026/03/16/frontend-backend-fullstack-explained/index.html">
 <meta property="og:site_name" content="朝向全端之路：從基礎到進階的技術探索 by Ken">
-<meta property="og:description" content="This is an article I had owed a colleague at work for quite a while. At first, it was just a simple promise: “Sure, I will find some time to explain what frontend is, what backend is, and what full-st">
+<meta property="og:description" content="這篇文章，我其實欠公司一位同仁很久了。 本來只是很單純地說：「好，我再找時間跟你解釋什麼是前端、什麼是後端、什麼又叫全端。」結果這個「找時間」，一找就是一個禮拜。身為工程師，欠技術債已經夠可怕了，連文章債都欠，實在有點不好意思。 所以今天就來把這篇補上，而且盡量用最白話、最好理解的方式來說明。這篇不是要寫成教科書，也不是要端出一堆艱澀名詞把大家嚇跑，而是希望讓沒有技術背景的人，看完也能大概知道：">
 <meta property="og:locale">
 <meta property="og:image" content="https://miruorange.github.io/blog/2026/03/16/frontend-backend-fullstack-explained/frontend-role-scene.png">
 <meta property="og:image" content="https://miruorange.github.io/blog/2026/03/16/frontend-backend-fullstack-explained/browser-remembers-you.png">
@@ -28,7 +28,7 @@
 <meta property="og:image" content="https://miruorange.github.io/blog/2026/03/16/frontend-backend-fullstack-explained/fullstack-coordinator-scene.png">
 <meta property="og:image" content="https://miruorange.github.io/blog/2026/03/16/frontend-backend-fullstack-explained/infra-stage-crew-scene.png">
 <meta property="article:published_time" content="2026-03-16T13:45:00.000Z">
-<meta property="article:modified_time" content="2026-05-19T13:13:13.663Z">
+<meta property="article:modified_time" content="2026-05-19T14:25:53.110Z">
 <meta property="article:author" content="Ken Hsu">
 <meta property="article:tag" content="API">
 <meta property="article:tag" content="前端">
@@ -465,250 +465,7 @@
             <div class="container container-unloaded">
                 <main class="main post-page">
     """    <article class="article-entry">
-        <p>This is an article I had owed a colleague at work for quite a while.</p>
-<p>At first, it was just a simple promise: “Sure, I will find some time to explain what frontend is, what backend is, and what full-stack means.” But that “find some time” turned into a whole week. As an engineer, technical debt is already scary enough. Owing article debt too feels a little embarrassing.</p>
-<p>So today, I am finally making up for it. I will explain it in the plainest and easiest-to-understand way I can. This article is not meant to be a textbook, nor is it meant to throw difficult terms at people and scare them away. I simply hope that even readers without a technical background can finish it and roughly understand:</p>
-<ul>
-<li>What frontend does</li>
-<li>What backend does</li>
-<li>Why full-stack is often made to sound so impressive</li>
-</ul>
-<hr>
-<h2 id="The-Quick-Answer-What-You-See-Is-Usually-Frontend-Much-of-What-You-Do-Not-See-Is-Backend"><a href="#The-Quick-Answer-What-You-See-Is-Usually-Frontend-Much-of-What-You-Do-Not-See-Is-Backend" class="headerlink" title="The Quick Answer: What You See Is Usually Frontend; Much of What You Do Not See Is Backend"></a>The Quick Answer: What You See Is Usually Frontend; Much of What You Do Not See Is Backend</h2><p>If I had to quickly separate them in one sentence, I would say this:</p>
-<blockquote>
-<p><strong>Anything directly related to the screen, browser, and user interaction is usually frontend.</strong></p>
-<p><strong>Anything hidden behind servers, databases, and business logic is usually backend.</strong></p>
-</blockquote>
-<p>This is not 100% precise, of course, but it is more than enough for an introductory understanding.</p>
-<p>When many people hear “frontend,” their instinct is: “Oh, the person who makes the screen.” That is not wrong, but it is only half right. Frontend handles the visible interface, but it also handles many things you do not see that happen inside the browser.</p>
-<p>Backend is usually more mysterious because it mostly works silently on servers. You do not normally see it directly, but whether a website works properly, whether data is correct, and whether login succeeds are often supported by the backend.</p>
-<hr>
-<h2 id="What-Is-Frontend"><a href="#What-Is-Frontend" class="headerlink" title="What Is Frontend?"></a>What Is Frontend?</h2><p>Simply put, frontend is <strong>the side that directly faces the user</strong>.</p>
-<p>Anything you see, click, type into, or interact with in the browser after opening a website usually belongs to frontend. For example:</p>
-<ul>
-<li>What the homepage looks like</li>
-<li>Where buttons are placed</li>
-<li>How forms are entered</li>
-<li>How the screen changes after a click</li>
-<li>Whether the mobile layout breaks</li>
-<li>How returned data is displayed on the page</li>
-</ul>
-<p>These things are intuitive because you can see them.</p>
-<p>If you imagine a website as a running store, frontend is like the person standing at the front line greeting customers. The customer’s first impression, whether they can interact smoothly, and whether the experience feels comfortable are all related to this role.</p>
-<p><img src="https://miruorange.github.io/blog/2026/03/16/frontend-backend-fullstack-explained/frontend-role-scene.png" alt="Frontend is like the role that greets users at the front line"></p>
-<p>But the interesting thing about frontend is that it does not only manage what you can see. It also handles many invisible things inside the browser.</p>
-<h3 id="For-Example-Why-Does-the-Browser-Seem-to-Recognize-You-After-You-Log-In-Once"><a href="#For-Example-Why-Does-the-Browser-Seem-to-Recognize-You-After-You-Log-In-Once" class="headerlink" title="For Example: Why Does the Browser Seem to Recognize You After You Log In Once?"></a>For Example: Why Does the Browser Seem to Recognize You After You Log In Once?</h3><p>Have you ever experienced this?</p>
-<p>You enter a website, click login, type your account and password, and successfully sign in. Then you refresh the page, and you are still logged in. Sometimes you even close the tab, come back later, and the website still remembers you.</p>
-<p>Many people feel this is magical, as if the browser suddenly gained memory.</p>
-<p>There is no magic behind it. Only engineers.</p>
-<p>The usual flow is:</p>
-<ol>
-<li>You type your account and password on the frontend page.</li>
-<li>The frontend sends that data to the backend.</li>
-<li>The backend verifies whether the account and password are correct.</li>
-<li>If they are correct, the backend returns information representing that “you are logged in.”</li>
-<li>The frontend temporarily stores that information in the browser.</li>
-</ol>
-<p>That temporary storage location may be Cookie, Local Storage, Session Storage, or another browser-side mechanism. You do not need to memorize the names yet. For beginners, just remember one thing:</p>
-<blockquote>
-<p><strong>The browser seems to remember you because the frontend temporarily stores the information returned by the backend after verification inside the browser.</strong></p>
-</blockquote>
-<p>If we turn this into a small scene, it is like the front desk confirming your identity and then handing the browser a pass, so next time it sees you, it knows: “Oh, I recognize this person.”</p>
-<p><img src="https://miruorange.github.io/blog/2026/03/16/frontend-backend-fullstack-explained/browser-remembers-you.png" alt="The browser stores login information like keeping a pass for you"></p>
-<p>So frontend is not only about whether the page looks pretty. It also manages many user workflows and browser-side states.</p>
-<p>In other words, frontend engineers do more than layout. Many times, they also handle:</p>
-<ul>
-<li>How login state is stored</li>
-<li>How API data is organized after it comes back</li>
-<li>Whether to show a prompt after a button is clicked</li>
-<li>Whether to show loading before data returns</li>
-<li>Whether to block a screen when permissions are wrong</li>
-</ul>
-<p>Users may not always notice these things, but if they are handled badly, the website immediately develops a personality, usually the kind that makes people angry.</p>
-<hr>
-<h2 id="What-Is-Backend"><a href="#What-Is-Backend" class="headerlink" title="What Is Backend?"></a>What Is Backend?</h2><p>If frontend stands at the front line facing users, backend is the group behind the scenes that supports the whole system.</p>
-<p>Backend commonly includes several parts:</p>
-<ul>
-<li>Server</li>
-<li>Database</li>
-<li>Backend code</li>
-</ul>
-<p>Because these things are mostly not shown directly to users, backend often feels mysterious to people without an engineering background. You cannot see it clearly, but it definitely exists. When it breaks, the whole website can feel like it has lost its soul.</p>
-<h3 id="What-Can-Backend-Be-Compared-To"><a href="#What-Can-Backend-Be-Compared-To" class="headerlink" title="What Can Backend Be Compared To?"></a>What Can Backend Be Compared To?</h3><p>You can imagine that the computer you are using right now could also become a backend Server.</p>
-<p>Suppose that on this computer, you:</p>
-<ul>
-<li>Set up a database</li>
-<li>Write a Web Server</li>
-<li>Run the backend program</li>
-</ul>
-<p>Then this computer can play the backend role.</p>
-<p>As long as the frontend knows which APIs this machine provides, it can request data, send data, and update data through the network.</p>
-<p>For example:</p>
-<ul>
-<li>I want to log in. Please verify my account and password.</li>
-<li>I want to view member information. Please give me the data.</li>
-<li>I want to search the product list. Please return product data.</li>
-<li>I want to submit an order. Please write it into the database.</li>
-</ul>
-<p>These are usually handled by the backend.</p>
-<h3 id="What-Is-Backend-Busy-With"><a href="#What-Is-Backend-Busy-With" class="headerlink" title="What Is Backend Busy With?"></a>What Is Backend Busy With?</h3><p>Backend is not just “taking data out.” It often makes many judgments and protections, such as:</p>
-<ul>
-<li>Is this person logged in?</li>
-<li>Does this person have permission to view this data?</li>
-<li>Are the incoming parameters valid?</li>
-<li>Which database table should the data be stored in?</li>
-<li>What should happen if data conflicts?</li>
-<li>What should the response format look like for the frontend?</li>
-</ul>
-<p>In other words, backend often handles rules, logic, data, and security.</p>
-<p>If a website is a restaurant, frontend is the dining area staff who greets customers, provides menus, and helps them know how to order. Backend is the kitchen team that actually cooks the food, checks whether ingredients are enough, and makes sure orders are correct.</p>
-<p>This is one of my favorite metaphors for backend because it is not just mysteriously hiding in the back. It is a group of people keeping rules, data, and processes steady.</p>
-<p><img src="https://miruorange.github.io/blog/2026/03/16/frontend-backend-fullstack-explained/backend-kitchen-scene.png" alt="Backend is like the kitchen team that supports the whole system behind the scenes"></p>
-<p>When you see dishes smoothly arrive at the table, it is usually not a miracle. It is an entire workflow operating behind the scenes.</p>
-<hr>
-<h2 id="How-Do-Frontend-and-Backend-Work-Together"><a href="#How-Do-Frontend-and-Backend-Work-Together" class="headerlink" title="How Do Frontend and Backend Work Together?"></a>How Do Frontend and Backend Work Together?</h2><p>At this point, the next question is usually: “How do frontend and backend communicate?”</p>
-<p>The answer is: <strong>through APIs.</strong></p>
-<p>You can think of an API as a communication window agreed upon by both sides.</p>
-<p>When frontend needs data, it calls an API provided by the backend. The backend receives the request, does what it needs to do, and returns the result to the frontend. The frontend then renders that data on the screen.</p>
-<p>A common flow looks like this:</p>
-<ol>
-<li>The user clicks a button on the frontend.</li>
-<li>The frontend calls a backend API.</li>
-<li>The backend queries the database or processes logic.</li>
-<li>The backend returns the result in a fixed format.</li>
-<li>The frontend receives the data and displays it on the page.</li>
-</ol>
-<p>For example, when you open an order page:</p>
-<ul>
-<li>Frontend says: “I need the order list.”</li>
-<li>Backend says: “Okay, I will query the database.”</li>
-<li>After querying, backend returns JSON data.</li>
-<li>Frontend receives it and displays it as a table.</li>
-</ul>
-<p>If this coordination works well, users feel the website is smooth.</p>
-<p>If it does not work well, classic scenes appear:</p>
-<ul>
-<li>Frontend asks for <code>user_id</code>, but backend returns <code>uid</code></li>
-<li>Frontend expects an array, but backend returns an object</li>
-<li>Frontend expects success to return <code>code: 200</code>, but backend returns <code>status: ok</code></li>
-</ul>
-<p>Then everyone ends up staring at each other in the meeting room and saying, “I thought your side would change it.”</p>
-<p>So API communication is not just about “it connects.” Frontend and backend must agree on the specification first.</p>
-<hr>
-<h2 id="API-Specifications-Are-Really-Agreed-on-by-Frontend-and-Backend-First"><a href="#API-Specifications-Are-Really-Agreed-on-by-Frontend-and-Backend-First" class="headerlink" title="API Specifications Are Really Agreed on by Frontend and Backend First"></a>API Specifications Are Really Agreed on by Frontend and Backend First</h2><p>I especially want to mention this because many beginners think APIs are something backend writes by itself and frontend later guesses.</p>
-<p>That is not how it should work.</p>
-<p>In a normal development process, frontend and backend usually agree on many things first, such as:</p>
-<ul>
-<li>Which HTTP method to use, such as <code>GET</code>, <code>POST</code>, <code>PUT</code>, or <code>DELETE</code></li>
-<li>Which parameters the request should carry</li>
-<li>What the parameter names are</li>
-<li>What the response data format looks like</li>
-<li>What success responses look like</li>
-<li>What failure responses look like</li>
-<li>How error messages are represented</li>
-</ul>
-<p>If these rules are not discussed first, development easily becomes a large guessing game.</p>
-<p>Frontend guesses: “Can this field be null?”</p>
-<p>Backend guesses: “Your side should know this field does not always return, right?”</p>
-<p>After enough guessing, project progress becomes like a broken treadmill: it looks busy, but it does not move forward much.</p>
-<p>So frontend-backend collaboration is not only about writing code. <strong>Communicating specifications</strong> is also an important part.</p>
-<hr>
-<h2 id="So-What-Is-Full-Stack"><a href="#So-What-Is-Full-Stack" class="headerlink" title="So What Is Full-Stack?"></a>So What Is Full-Stack?</h2><p>After understanding frontend and backend, full-stack becomes much easier to understand.</p>
-<p>Simply put, a full-stack engineer is <strong>someone who can handle both frontend and backend</strong>.</p>
-<p>If we widen the scene a little, full-stack is like someone who can stand in the front of the restaurant, dare to walk into the kitchen, and even help both sides coordinate their rhythm.</p>
-<p><img src="https://miruorange.github.io/blog/2026/03/16/frontend-backend-fullstack-explained/fullstack-coordinator-scene.png" alt="Full-stack is like a coordinator who understands both the front and back of the house"></p>
-<p>They may be able to:</p>
-<ul>
-<li>Build frontend pages</li>
-<li>Integrate APIs</li>
-<li>Write backend logic</li>
-<li>Design databases</li>
-<li>Handle deployment and basic operations</li>
-</ul>
-<p>That means they roughly understand the whole chain from the user opening the website to the data actually being stored in the database, and may even be able to implement each part.</p>
-<h3 id="Does-Full-Stack-Mean-Being-Extremely-Strong-at-Everything"><a href="#Does-Full-Stack-Mean-Being-Extremely-Strong-at-Everything" class="headerlink" title="Does Full-Stack Mean Being Extremely Strong at Everything?"></a>Does Full-Stack Mean Being Extremely Strong at Everything?</h3><p>I also want to be fair to full-stack engineers here.</p>
-<p>Many people hear full-stack and imagine a mythical person who maxes out frontend, backend, database, Server, CI&#x2F;CD, security, UI&#x2F;UX, and also fixes the office printer at night.</p>
-<p>Reality is usually not like that.</p>
-<p>A more practical understanding is:</p>
-<blockquote>
-<p><strong>Full-stack does not mean scoring 100 in every subject. It means you understand the overall flow and can solve problems across boundaries.</strong></p>
-</blockquote>
-<p>Some full-stack engineers lean frontend. Some lean backend. Both are normal.</p>
-<p>The key is that when a feature needs to connect from the screen all the way to the database, they do not only look at their own small piece. They understand how the whole thing connects.</p>
-<p>This is also why many companies like hiring full-stack engineers: communication cost is often lower, and things can move faster.</p>
-<p>Of course, the cost is that brain capacity often feels insufficient. Yesterday you were adjusting layout, today you are checking SQL, and tomorrow you may be reading Nginx config. In a way, a full-stack engineer’s daily life is a technically sophisticated kind of split attention.</p>
-<hr>
-<h2 id="A-Simple-Example-Who-Does-What-in-a-Login-Feature"><a href="#A-Simple-Example-Who-Does-What-in-a-Login-Feature" class="headerlink" title="A Simple Example: Who Does What in a Login Feature?"></a>A Simple Example: Who Does What in a Login Feature?</h2><p>If we use login as the example, the division between frontend, backend, and full-stack becomes very clear.</p>
-<h3 id="Frontend-Responsibilities"><a href="#Frontend-Responsibilities" class="headerlink" title="Frontend Responsibilities"></a>Frontend Responsibilities</h3><ul>
-<li>Create the login page</li>
-<li>Let the user enter account and password</li>
-<li>Send the data after the login button is clicked</li>
-<li>After receiving the backend response, decide whether to show success, failure, or an error message</li>
-<li>Temporarily store login information in the browser after success</li>
-</ul>
-<h3 id="Backend-Responsibilities"><a href="#Backend-Responsibilities" class="headerlink" title="Backend Responsibilities"></a>Backend Responsibilities</h3><ul>
-<li>Receive the account and password sent from frontend</li>
-<li>Verify whether the account and password are correct</li>
-<li>Query the user from the database</li>
-<li>Determine whether the account status is normal</li>
-<li>Return login credentials or related information after successful verification</li>
-</ul>
-<h3 id="How-Would-Full-Stack-Look-at-It"><a href="#How-Would-Full-Stack-Look-at-It" class="headerlink" title="How Would Full-Stack Look at It?"></a>How Would Full-Stack Look at It?</h3><p>A full-stack engineer usually looks at the whole flow:</p>
-<ul>
-<li>How to design the frontend page smoothly</li>
-<li>How to name the API routes reasonably</li>
-<li>How to define the response format for easier integration</li>
-<li>How to store the token more safely</li>
-<li>How to design the table so it is less likely to cause problems</li>
-</ul>
-<p>So the value of full-stack is often not “one person doing everything looks cool,” but “one person can more easily understand how the whole system works.”</p>
-<hr>
-<h2 id="My-Own-Understanding-in-One-Sentence"><a href="#My-Own-Understanding-in-One-Sentence" class="headerlink" title="My Own Understanding in One Sentence"></a>My Own Understanding in One Sentence</h2><p>If you just want to quickly grasp the concept, I would summarize it like this:</p>
-<ul>
-<li><strong>Frontend</strong>: Anything related to the screen, browser, user interaction, and browser-side state management is mostly frontend.</li>
-<li><strong>Backend</strong>: Anything related to Server, database, business logic, verification, and data processing is mostly backend.</li>
-<li><strong>Full-stack</strong>: Someone who can connect frontend and backend, understand the whole flow, and solve problems across both sides.</li>
-</ul>
-<p>This is not an academic definition, but for most beginners, I think it is enough.</p>
-<hr>
-<h2 id="Conclusion-Please-Stop-Calling-Every-Engineer-“Someone-Who-Fixes-Computers”"><a href="#Conclusion-Please-Stop-Calling-Every-Engineer-“Someone-Who-Fixes-Computers”" class="headerlink" title="Conclusion: Please Stop Calling Every Engineer “Someone Who Fixes Computers”"></a>Conclusion: Please Stop Calling Every Engineer “Someone Who Fixes Computers”</h2><p>Now that I have written this much, I hope the colleague who waited a week for this article can forgive me.</p>
-<p>I also hope that other readers will no longer feel that frontend, backend, and full-stack are distant, hard technical terms.</p>
-<p>They are not that mysterious.</p>
-<p>Frontend is what lets you see, click, and use things.</p>
-<p>Backend is what makes all of that truly work, with real data and real logic.</p>
-<p>Full-stack means understanding both sides and connecting the whole car from the steering wheel to the engine.</p>
-<p>If we look one layer higher, we also encounter <strong>Infra</strong>.</p>
-<p>Infra means <strong>Infrastructure</strong>, the foundation that lets systems run. In plain language, aside from frontend and backend code, it deals with where the whole system runs, how it connects, how it is deployed, and how it stays stable.</p>
-<p>If frontend is like actors on stage and backend is like the team that actually creates the content behind the scenes, Infra is more like the stage crew and control room. The audience may not see them, but if lighting, cables, machines, or timing fail, the entire performance is exposed.</p>
-<p><img src="https://miruorange.github.io/blog/2026/03/16/frontend-backend-fullstack-explained/infra-stage-crew-scene.png" alt="Infra is like the backstage crew that keeps the whole system running"></p>
-<p>For example:</p>
-<ul>
-<li>How should Servers be configured?</li>
-<li>How should Databases be deployed?</li>
-<li>How should Nginx or a Web Server be configured?</li>
-<li>How should services be packaged with Docker?</li>
-<li>How should the network connect?</li>
-<li>Which Ports should be opened?</li>
-<li>How should reverse proxy be designed?</li>
-<li>How should the overall system architecture be planned for stability?</li>
-</ul>
-<p>These topics usually extend beyond pure backend because they are no longer just about writing business logic. They require thinking about how the whole service survives, runs smoothly, and lets frontend and backend collaborate reliably.</p>
-<p>Honestly, this is also exactly the area I have always been interested in and continue to build experience in.</p>
-<p>Although I started from backend, the things I do are not limited to backend. From frontend integration and backend design to deployment, networking, and Infra, I am interested in all of them and keep improving these skills through real practice.</p>
-<p>This blog itself is a practical example. If I were only writing articles, things would not have gone this far. But once I wanted to make it a real public website that could keep running, I had to touch frontend, backend, and even some Infra work. The presentation of this site required frontend adjustments, and I also built my own API for page counting. These are not things that can be done by understanding only one technical area.</p>
-<p>So if I had to describe myself in one sentence, I would say:</p>
-<blockquote>
-<p><strong>I am not someone who only looks at one technical layer. I am used to looking from frontend and backend all the way to Infra and the overall system.</strong></p>
-</blockquote>
-<p>After all, many problems today cannot be solved by only knowing how to write APIs or only knowing how to build layouts. Very often, the code is written but cannot be deployed; the service is running but the network is unreachable; the feature works, but the architecture starts causing performance or maintenance problems once it grows.</p>
-<p>In those moments, people who understand frontend, backend, Infra, networking, and system architecture become especially valuable. They do not see only a single feature. They see how the whole system is built from zero to one, how it is deployed, how it connects, how it runs reliably, and how it truly stays alive.</p>
-<p>Especially in the AI era, I increasingly feel that the people who can truly use AI well are often not those who only know how to write prompts, but those who understand the whole system architecture. In the end, what you face is never just the model itself. It includes frontend interaction, backend integration, data flow, service deployment, permission control, cost calculation, and stable system operation.</p>
-<p>In that sense, the more we enter the AI era, the more valuable “understanding the whole architecture” becomes. You are not just building a function. You need to put it into the real world so it can be used, maintained, and kept alive over time.</p>
-<p>If you are interested in the process of building a service from zero to one and making it real, you can also read my earlier article: <a href="https://miruorange.github.io/blog/2025/11/25/building-a-counter-api-from-scratch/">Building a Counter API from Scratch: A Simple Side Project with Hidden Complexity</a>. That article shares how I built an API all the way from cloud VM, Docker, Nginx, DNS, SSL, and database setup.</p>
-<p>As for whether engineers all know how to fix computers?</p>
-<p>Well, that question is a bit like asking whether a chef can repair a gas stove. Some can, but it is really not a required part of the job title.</p>
-<hr>
-<h2 id="中文版"><a href="#中文版" class="headerlink" title="中文版"></a>中文版</h2><p>這篇文章，我其實欠公司一位同仁很久了。</p>
+        <p>這篇文章，我其實欠公司一位同仁很久了。</p>
 <p>本來只是很單純地說：「好，我再找時間跟你解釋什麼是前端、什麼是後端、什麼又叫全端。」結果這個「找時間」，一找就是一個禮拜。身為工程師，欠技術債已經夠可怕了，連文章債都欠，實在有點不好意思。</p>
 <p>所以今天就來把這篇補上，而且盡量用最白話、最好理解的方式來說明。這篇不是要寫成教科書，也不是要端出一堆艱澀名詞把大家嚇跑，而是希望讓沒有技術背景的人，看完也能大概知道：</p>
 <ul>
@@ -951,6 +708,250 @@
 <p>如果你對這種「從 0 到 1 把一個服務真正做出來」的過程有興趣，也可以再看看我之前寫的另一篇文章：<a href="https://miruorange.github.io/blog/2025/11/25/building-a-counter-api-from-scratch/">一個計數器API的誕生：看似簡單卻暗藏玄機的 Side Project</a>。那篇就是在分享，我怎麼從雲端主機、Docker、Nginx、DNS、SSL、資料庫，一路把一個 API 真的建起來。</p>
 <p>至於工程師是不是都會修電腦？</p>
 <p>嗯……這個問題就跟你問廚師會不會修瓦斯爐一樣，有些人會，但真的不是職稱上的必修科目。</p>
+<hr>
+<h2 id="English-Version"><a href="#English-Version" class="headerlink" title="English Version"></a>English Version</h2><p>This is an article I had owed a colleague at work for quite a while.</p>
+<p>At first, it was just a simple promise: “Sure, I will find some time to explain what frontend is, what backend is, and what full-stack means.” But that “find some time” turned into a whole week. As an engineer, technical debt is already scary enough. Owing article debt too feels a little embarrassing.</p>
+<p>So today, I am finally making up for it. I will explain it in the plainest and easiest-to-understand way I can. This article is not meant to be a textbook, nor is it meant to throw difficult terms at people and scare them away. I simply hope that even readers without a technical background can finish it and roughly understand:</p>
+<ul>
+<li>What frontend does</li>
+<li>What backend does</li>
+<li>Why full-stack is often made to sound so impressive</li>
+</ul>
+<hr>
+<h2 id="The-Quick-Answer-What-You-See-Is-Usually-Frontend-Much-of-What-You-Do-Not-See-Is-Backend"><a href="#The-Quick-Answer-What-You-See-Is-Usually-Frontend-Much-of-What-You-Do-Not-See-Is-Backend" class="headerlink" title="The Quick Answer: What You See Is Usually Frontend; Much of What You Do Not See Is Backend"></a>The Quick Answer: What You See Is Usually Frontend; Much of What You Do Not See Is Backend</h2><p>If I had to quickly separate them in one sentence, I would say this:</p>
+<blockquote>
+<p><strong>Anything directly related to the screen, browser, and user interaction is usually frontend.</strong></p>
+<p><strong>Anything hidden behind servers, databases, and business logic is usually backend.</strong></p>
+</blockquote>
+<p>This is not 100% precise, of course, but it is more than enough for an introductory understanding.</p>
+<p>When many people hear “frontend,” their instinct is: “Oh, the person who makes the screen.” That is not wrong, but it is only half right. Frontend handles the visible interface, but it also handles many things you do not see that happen inside the browser.</p>
+<p>Backend is usually more mysterious because it mostly works silently on servers. You do not normally see it directly, but whether a website works properly, whether data is correct, and whether login succeeds are often supported by the backend.</p>
+<hr>
+<h2 id="What-Is-Frontend"><a href="#What-Is-Frontend" class="headerlink" title="What Is Frontend?"></a>What Is Frontend?</h2><p>Simply put, frontend is <strong>the side that directly faces the user</strong>.</p>
+<p>Anything you see, click, type into, or interact with in the browser after opening a website usually belongs to frontend. For example:</p>
+<ul>
+<li>What the homepage looks like</li>
+<li>Where buttons are placed</li>
+<li>How forms are entered</li>
+<li>How the screen changes after a click</li>
+<li>Whether the mobile layout breaks</li>
+<li>How returned data is displayed on the page</li>
+</ul>
+<p>These things are intuitive because you can see them.</p>
+<p>If you imagine a website as a running store, frontend is like the person standing at the front line greeting customers. The customer’s first impression, whether they can interact smoothly, and whether the experience feels comfortable are all related to this role.</p>
+<p><img src="https://miruorange.github.io/blog/2026/03/16/frontend-backend-fullstack-explained/frontend-role-scene.png" alt="Frontend is like the role that greets users at the front line"></p>
+<p>But the interesting thing about frontend is that it does not only manage what you can see. It also handles many invisible things inside the browser.</p>
+<h3 id="For-Example-Why-Does-the-Browser-Seem-to-Recognize-You-After-You-Log-In-Once"><a href="#For-Example-Why-Does-the-Browser-Seem-to-Recognize-You-After-You-Log-In-Once" class="headerlink" title="For Example: Why Does the Browser Seem to Recognize You After You Log In Once?"></a>For Example: Why Does the Browser Seem to Recognize You After You Log In Once?</h3><p>Have you ever experienced this?</p>
+<p>You enter a website, click login, type your account and password, and successfully sign in. Then you refresh the page, and you are still logged in. Sometimes you even close the tab, come back later, and the website still remembers you.</p>
+<p>Many people feel this is magical, as if the browser suddenly gained memory.</p>
+<p>There is no magic behind it. Only engineers.</p>
+<p>The usual flow is:</p>
+<ol>
+<li>You type your account and password on the frontend page.</li>
+<li>The frontend sends that data to the backend.</li>
+<li>The backend verifies whether the account and password are correct.</li>
+<li>If they are correct, the backend returns information representing that “you are logged in.”</li>
+<li>The frontend temporarily stores that information in the browser.</li>
+</ol>
+<p>That temporary storage location may be Cookie, Local Storage, Session Storage, or another browser-side mechanism. You do not need to memorize the names yet. For beginners, just remember one thing:</p>
+<blockquote>
+<p><strong>The browser seems to remember you because the frontend temporarily stores the information returned by the backend after verification inside the browser.</strong></p>
+</blockquote>
+<p>If we turn this into a small scene, it is like the front desk confirming your identity and then handing the browser a pass, so next time it sees you, it knows: “Oh, I recognize this person.”</p>
+<p><img src="https://miruorange.github.io/blog/2026/03/16/frontend-backend-fullstack-explained/browser-remembers-you.png" alt="The browser stores login information like keeping a pass for you"></p>
+<p>So frontend is not only about whether the page looks pretty. It also manages many user workflows and browser-side states.</p>
+<p>In other words, frontend engineers do more than layout. Many times, they also handle:</p>
+<ul>
+<li>How login state is stored</li>
+<li>How API data is organized after it comes back</li>
+<li>Whether to show a prompt after a button is clicked</li>
+<li>Whether to show loading before data returns</li>
+<li>Whether to block a screen when permissions are wrong</li>
+</ul>
+<p>Users may not always notice these things, but if they are handled badly, the website immediately develops a personality, usually the kind that makes people angry.</p>
+<hr>
+<h2 id="What-Is-Backend"><a href="#What-Is-Backend" class="headerlink" title="What Is Backend?"></a>What Is Backend?</h2><p>If frontend stands at the front line facing users, backend is the group behind the scenes that supports the whole system.</p>
+<p>Backend commonly includes several parts:</p>
+<ul>
+<li>Server</li>
+<li>Database</li>
+<li>Backend code</li>
+</ul>
+<p>Because these things are mostly not shown directly to users, backend often feels mysterious to people without an engineering background. You cannot see it clearly, but it definitely exists. When it breaks, the whole website can feel like it has lost its soul.</p>
+<h3 id="What-Can-Backend-Be-Compared-To"><a href="#What-Can-Backend-Be-Compared-To" class="headerlink" title="What Can Backend Be Compared To?"></a>What Can Backend Be Compared To?</h3><p>You can imagine that the computer you are using right now could also become a backend Server.</p>
+<p>Suppose that on this computer, you:</p>
+<ul>
+<li>Set up a database</li>
+<li>Write a Web Server</li>
+<li>Run the backend program</li>
+</ul>
+<p>Then this computer can play the backend role.</p>
+<p>As long as the frontend knows which APIs this machine provides, it can request data, send data, and update data through the network.</p>
+<p>For example:</p>
+<ul>
+<li>I want to log in. Please verify my account and password.</li>
+<li>I want to view member information. Please give me the data.</li>
+<li>I want to search the product list. Please return product data.</li>
+<li>I want to submit an order. Please write it into the database.</li>
+</ul>
+<p>These are usually handled by the backend.</p>
+<h3 id="What-Is-Backend-Busy-With"><a href="#What-Is-Backend-Busy-With" class="headerlink" title="What Is Backend Busy With?"></a>What Is Backend Busy With?</h3><p>Backend is not just “taking data out.” It often makes many judgments and protections, such as:</p>
+<ul>
+<li>Is this person logged in?</li>
+<li>Does this person have permission to view this data?</li>
+<li>Are the incoming parameters valid?</li>
+<li>Which database table should the data be stored in?</li>
+<li>What should happen if data conflicts?</li>
+<li>What should the response format look like for the frontend?</li>
+</ul>
+<p>In other words, backend often handles rules, logic, data, and security.</p>
+<p>If a website is a restaurant, frontend is the dining area staff who greets customers, provides menus, and helps them know how to order. Backend is the kitchen team that actually cooks the food, checks whether ingredients are enough, and makes sure orders are correct.</p>
+<p>This is one of my favorite metaphors for backend because it is not just mysteriously hiding in the back. It is a group of people keeping rules, data, and processes steady.</p>
+<p><img src="https://miruorange.github.io/blog/2026/03/16/frontend-backend-fullstack-explained/backend-kitchen-scene.png" alt="Backend is like the kitchen team that supports the whole system behind the scenes"></p>
+<p>When you see dishes smoothly arrive at the table, it is usually not a miracle. It is an entire workflow operating behind the scenes.</p>
+<hr>
+<h2 id="How-Do-Frontend-and-Backend-Work-Together"><a href="#How-Do-Frontend-and-Backend-Work-Together" class="headerlink" title="How Do Frontend and Backend Work Together?"></a>How Do Frontend and Backend Work Together?</h2><p>At this point, the next question is usually: “How do frontend and backend communicate?”</p>
+<p>The answer is: <strong>through APIs.</strong></p>
+<p>You can think of an API as a communication window agreed upon by both sides.</p>
+<p>When frontend needs data, it calls an API provided by the backend. The backend receives the request, does what it needs to do, and returns the result to the frontend. The frontend then renders that data on the screen.</p>
+<p>A common flow looks like this:</p>
+<ol>
+<li>The user clicks a button on the frontend.</li>
+<li>The frontend calls a backend API.</li>
+<li>The backend queries the database or processes logic.</li>
+<li>The backend returns the result in a fixed format.</li>
+<li>The frontend receives the data and displays it on the page.</li>
+</ol>
+<p>For example, when you open an order page:</p>
+<ul>
+<li>Frontend says: “I need the order list.”</li>
+<li>Backend says: “Okay, I will query the database.”</li>
+<li>After querying, backend returns JSON data.</li>
+<li>Frontend receives it and displays it as a table.</li>
+</ul>
+<p>If this coordination works well, users feel the website is smooth.</p>
+<p>If it does not work well, classic scenes appear:</p>
+<ul>
+<li>Frontend asks for <code>user_id</code>, but backend returns <code>uid</code></li>
+<li>Frontend expects an array, but backend returns an object</li>
+<li>Frontend expects success to return <code>code: 200</code>, but backend returns <code>status: ok</code></li>
+</ul>
+<p>Then everyone ends up staring at each other in the meeting room and saying, “I thought your side would change it.”</p>
+<p>So API communication is not just about “it connects.” Frontend and backend must agree on the specification first.</p>
+<hr>
+<h2 id="API-Specifications-Are-Really-Agreed-on-by-Frontend-and-Backend-First"><a href="#API-Specifications-Are-Really-Agreed-on-by-Frontend-and-Backend-First" class="headerlink" title="API Specifications Are Really Agreed on by Frontend and Backend First"></a>API Specifications Are Really Agreed on by Frontend and Backend First</h2><p>I especially want to mention this because many beginners think APIs are something backend writes by itself and frontend later guesses.</p>
+<p>That is not how it should work.</p>
+<p>In a normal development process, frontend and backend usually agree on many things first, such as:</p>
+<ul>
+<li>Which HTTP method to use, such as <code>GET</code>, <code>POST</code>, <code>PUT</code>, or <code>DELETE</code></li>
+<li>Which parameters the request should carry</li>
+<li>What the parameter names are</li>
+<li>What the response data format looks like</li>
+<li>What success responses look like</li>
+<li>What failure responses look like</li>
+<li>How error messages are represented</li>
+</ul>
+<p>If these rules are not discussed first, development easily becomes a large guessing game.</p>
+<p>Frontend guesses: “Can this field be null?”</p>
+<p>Backend guesses: “Your side should know this field does not always return, right?”</p>
+<p>After enough guessing, project progress becomes like a broken treadmill: it looks busy, but it does not move forward much.</p>
+<p>So frontend-backend collaboration is not only about writing code. <strong>Communicating specifications</strong> is also an important part.</p>
+<hr>
+<h2 id="So-What-Is-Full-Stack"><a href="#So-What-Is-Full-Stack" class="headerlink" title="So What Is Full-Stack?"></a>So What Is Full-Stack?</h2><p>After understanding frontend and backend, full-stack becomes much easier to understand.</p>
+<p>Simply put, a full-stack engineer is <strong>someone who can handle both frontend and backend</strong>.</p>
+<p>If we widen the scene a little, full-stack is like someone who can stand in the front of the restaurant, dare to walk into the kitchen, and even help both sides coordinate their rhythm.</p>
+<p><img src="https://miruorange.github.io/blog/2026/03/16/frontend-backend-fullstack-explained/fullstack-coordinator-scene.png" alt="Full-stack is like a coordinator who understands both the front and back of the house"></p>
+<p>They may be able to:</p>
+<ul>
+<li>Build frontend pages</li>
+<li>Integrate APIs</li>
+<li>Write backend logic</li>
+<li>Design databases</li>
+<li>Handle deployment and basic operations</li>
+</ul>
+<p>That means they roughly understand the whole chain from the user opening the website to the data actually being stored in the database, and may even be able to implement each part.</p>
+<h3 id="Does-Full-Stack-Mean-Being-Extremely-Strong-at-Everything"><a href="#Does-Full-Stack-Mean-Being-Extremely-Strong-at-Everything" class="headerlink" title="Does Full-Stack Mean Being Extremely Strong at Everything?"></a>Does Full-Stack Mean Being Extremely Strong at Everything?</h3><p>I also want to be fair to full-stack engineers here.</p>
+<p>Many people hear full-stack and imagine a mythical person who maxes out frontend, backend, database, Server, CI&#x2F;CD, security, UI&#x2F;UX, and also fixes the office printer at night.</p>
+<p>Reality is usually not like that.</p>
+<p>A more practical understanding is:</p>
+<blockquote>
+<p><strong>Full-stack does not mean scoring 100 in every subject. It means you understand the overall flow and can solve problems across boundaries.</strong></p>
+</blockquote>
+<p>Some full-stack engineers lean frontend. Some lean backend. Both are normal.</p>
+<p>The key is that when a feature needs to connect from the screen all the way to the database, they do not only look at their own small piece. They understand how the whole thing connects.</p>
+<p>This is also why many companies like hiring full-stack engineers: communication cost is often lower, and things can move faster.</p>
+<p>Of course, the cost is that brain capacity often feels insufficient. Yesterday you were adjusting layout, today you are checking SQL, and tomorrow you may be reading Nginx config. In a way, a full-stack engineer’s daily life is a technically sophisticated kind of split attention.</p>
+<hr>
+<h2 id="A-Simple-Example-Who-Does-What-in-a-Login-Feature"><a href="#A-Simple-Example-Who-Does-What-in-a-Login-Feature" class="headerlink" title="A Simple Example: Who Does What in a Login Feature?"></a>A Simple Example: Who Does What in a Login Feature?</h2><p>If we use login as the example, the division between frontend, backend, and full-stack becomes very clear.</p>
+<h3 id="Frontend-Responsibilities"><a href="#Frontend-Responsibilities" class="headerlink" title="Frontend Responsibilities"></a>Frontend Responsibilities</h3><ul>
+<li>Create the login page</li>
+<li>Let the user enter account and password</li>
+<li>Send the data after the login button is clicked</li>
+<li>After receiving the backend response, decide whether to show success, failure, or an error message</li>
+<li>Temporarily store login information in the browser after success</li>
+</ul>
+<h3 id="Backend-Responsibilities"><a href="#Backend-Responsibilities" class="headerlink" title="Backend Responsibilities"></a>Backend Responsibilities</h3><ul>
+<li>Receive the account and password sent from frontend</li>
+<li>Verify whether the account and password are correct</li>
+<li>Query the user from the database</li>
+<li>Determine whether the account status is normal</li>
+<li>Return login credentials or related information after successful verification</li>
+</ul>
+<h3 id="How-Would-Full-Stack-Look-at-It"><a href="#How-Would-Full-Stack-Look-at-It" class="headerlink" title="How Would Full-Stack Look at It?"></a>How Would Full-Stack Look at It?</h3><p>A full-stack engineer usually looks at the whole flow:</p>
+<ul>
+<li>How to design the frontend page smoothly</li>
+<li>How to name the API routes reasonably</li>
+<li>How to define the response format for easier integration</li>
+<li>How to store the token more safely</li>
+<li>How to design the table so it is less likely to cause problems</li>
+</ul>
+<p>So the value of full-stack is often not “one person doing everything looks cool,” but “one person can more easily understand how the whole system works.”</p>
+<hr>
+<h2 id="My-Own-Understanding-in-One-Sentence"><a href="#My-Own-Understanding-in-One-Sentence" class="headerlink" title="My Own Understanding in One Sentence"></a>My Own Understanding in One Sentence</h2><p>If you just want to quickly grasp the concept, I would summarize it like this:</p>
+<ul>
+<li><strong>Frontend</strong>: Anything related to the screen, browser, user interaction, and browser-side state management is mostly frontend.</li>
+<li><strong>Backend</strong>: Anything related to Server, database, business logic, verification, and data processing is mostly backend.</li>
+<li><strong>Full-stack</strong>: Someone who can connect frontend and backend, understand the whole flow, and solve problems across both sides.</li>
+</ul>
+<p>This is not an academic definition, but for most beginners, I think it is enough.</p>
+<hr>
+<h2 id="Conclusion-Please-Stop-Calling-Every-Engineer-“Someone-Who-Fixes-Computers”"><a href="#Conclusion-Please-Stop-Calling-Every-Engineer-“Someone-Who-Fixes-Computers”" class="headerlink" title="Conclusion: Please Stop Calling Every Engineer “Someone Who Fixes Computers”"></a>Conclusion: Please Stop Calling Every Engineer “Someone Who Fixes Computers”</h2><p>Now that I have written this much, I hope the colleague who waited a week for this article can forgive me.</p>
+<p>I also hope that other readers will no longer feel that frontend, backend, and full-stack are distant, hard technical terms.</p>
+<p>They are not that mysterious.</p>
+<p>Frontend is what lets you see, click, and use things.</p>
+<p>Backend is what makes all of that truly work, with real data and real logic.</p>
+<p>Full-stack means understanding both sides and connecting the whole car from the steering wheel to the engine.</p>
+<p>If we look one layer higher, we also encounter <strong>Infra</strong>.</p>
+<p>Infra means <strong>Infrastructure</strong>, the foundation that lets systems run. In plain language, aside from frontend and backend code, it deals with where the whole system runs, how it connects, how it is deployed, and how it stays stable.</p>
+<p>If frontend is like actors on stage and backend is like the team that actually creates the content behind the scenes, Infra is more like the stage crew and control room. The audience may not see them, but if lighting, cables, machines, or timing fail, the entire performance is exposed.</p>
+<p><img src="https://miruorange.github.io/blog/2026/03/16/frontend-backend-fullstack-explained/infra-stage-crew-scene.png" alt="Infra is like the backstage crew that keeps the whole system running"></p>
+<p>For example:</p>
+<ul>
+<li>How should Servers be configured?</li>
+<li>How should Databases be deployed?</li>
+<li>How should Nginx or a Web Server be configured?</li>
+<li>How should services be packaged with Docker?</li>
+<li>How should the network connect?</li>
+<li>Which Ports should be opened?</li>
+<li>How should reverse proxy be designed?</li>
+<li>How should the overall system architecture be planned for stability?</li>
+</ul>
+<p>These topics usually extend beyond pure backend because they are no longer just about writing business logic. They require thinking about how the whole service survives, runs smoothly, and lets frontend and backend collaborate reliably.</p>
+<p>Honestly, this is also exactly the area I have always been interested in and continue to build experience in.</p>
+<p>Although I started from backend, the things I do are not limited to backend. From frontend integration and backend design to deployment, networking, and Infra, I am interested in all of them and keep improving these skills through real practice.</p>
+<p>This blog itself is a practical example. If I were only writing articles, things would not have gone this far. But once I wanted to make it a real public website that could keep running, I had to touch frontend, backend, and even some Infra work. The presentation of this site required frontend adjustments, and I also built my own API for page counting. These are not things that can be done by understanding only one technical area.</p>
+<p>So if I had to describe myself in one sentence, I would say:</p>
+<blockquote>
+<p><strong>I am not someone who only looks at one technical layer. I am used to looking from frontend and backend all the way to Infra and the overall system.</strong></p>
+</blockquote>
+<p>After all, many problems today cannot be solved by only knowing how to write APIs or only knowing how to build layouts. Very often, the code is written but cannot be deployed; the service is running but the network is unreachable; the feature works, but the architecture starts causing performance or maintenance problems once it grows.</p>
+<p>In those moments, people who understand frontend, backend, Infra, networking, and system architecture become especially valuable. They do not see only a single feature. They see how the whole system is built from zero to one, how it is deployed, how it connects, how it runs reliably, and how it truly stays alive.</p>
+<p>Especially in the AI era, I increasingly feel that the people who can truly use AI well are often not those who only know how to write prompts, but those who understand the whole system architecture. In the end, what you face is never just the model itself. It includes frontend interaction, backend integration, data flow, service deployment, permission control, cost calculation, and stable system operation.</p>
+<p>In that sense, the more we enter the AI era, the more valuable “understanding the whole architecture” becomes. You are not just building a function. You need to put it into the real world so it can be used, maintained, and kept alive over time.</p>
+<p>If you are interested in the process of building a service from zero to one and making it real, you can also read my earlier article: <a href="https://miruorange.github.io/blog/2025/11/25/building-a-counter-api-from-scratch/">Building a Counter API from Scratch: A Simple Side Project with Hidden Complexity</a>. That article shares how I built an API all the way from cloud VM, Docker, Nginx, DNS, SSL, and database setup.</p>
+<p>As for whether engineers all know how to fix computers?</p>
+<p>Well, that question is a bit like asking whether a chef can repair a gas stove. Some can, but it is really not a required part of the job title.</p>
+<hr>
 
     </article>
     <div class="a2a_kit a2a_kit_size_32 a2a_default_style">
@@ -964,7 +965,7 @@
             <p>Author：<a href="https://miruorange.github.io/blog/about/">Ken Hsu</a>
             <p>Link：<a href="https://miruorange.github.io/blog/2026/03/16/frontend-backend-fullstack-explained/">https://miruorange.github.io/blog/2026/03/16/frontend-backend-fullstack-explained/</a>
             <p>Publish date：<a href="https://miruorange.github.io/blog/2026/03/16/frontend-backend-fullstack-explained/">March 16th 2026, 9:45:00 pm</a>
-            <p>Update date：<a href="https://miruorange.github.io/blog/2026/03/16/frontend-backend-fullstack-explained/">May 19th 2026, 9:13:13 pm</a>
+            <p>Update date：<a href="https://miruorange.github.io/blog/2026/03/16/frontend-backend-fullstack-explained/">May 19th 2026, 10:25:53 pm</a>
             <p>License：本文依 <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a> 授權</p>
         </div>
     <!-- paginator -->
@@ -1028,7 +1029,7 @@
                 <div class="toc-catalog">
                     <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
                 </div>
-                <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#The-Quick-Answer-What-You-See-Is-Usually-Frontend-Much-of-What-You-Do-Not-See-Is-Backend"><span class="toc-number">1.</span> <span class="toc-text">The Quick Answer: What You See Is Usually Frontend; Much of What You Do Not See Is Backend</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#What-Is-Frontend"><span class="toc-number">2.</span> <span class="toc-text">What Is Frontend?</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#For-Example-Why-Does-the-Browser-Seem-to-Recognize-You-After-You-Log-In-Once"><span class="toc-number">2.1.</span> <span class="toc-text">For Example: Why Does the Browser Seem to Recognize You After You Log In Once?</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#What-Is-Backend"><span class="toc-number">3.</span> <span class="toc-text">What Is Backend?</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#What-Can-Backend-Be-Compared-To"><span class="toc-number">3.1.</span> <span class="toc-text">What Can Backend Be Compared To?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#What-Is-Backend-Busy-With"><span class="toc-number">3.2.</span> <span class="toc-text">What Is Backend Busy With?</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#How-Do-Frontend-and-Backend-Work-Together"><span class="toc-number">4.</span> <span class="toc-text">How Do Frontend and Backend Work Together?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#API-Specifications-Are-Really-Agreed-on-by-Frontend-and-Backend-First"><span class="toc-number">5.</span> <span class="toc-text">API Specifications Are Really Agreed on by Frontend and Backend First</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#So-What-Is-Full-Stack"><span class="toc-number">6.</span> <span class="toc-text">So What Is Full-Stack?</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Does-Full-Stack-Mean-Being-Extremely-Strong-at-Everything"><span class="toc-number">6.1.</span> <span class="toc-text">Does Full-Stack Mean Being Extremely Strong at Everything?</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#A-Simple-Example-Who-Does-What-in-a-Login-Feature"><span class="toc-number">7.</span> <span class="toc-text">A Simple Example: Who Does What in a Login Feature?</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Frontend-Responsibilities"><span class="toc-number">7.1.</span> <span class="toc-text">Frontend Responsibilities</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Backend-Responsibilities"><span class="toc-number">7.2.</span> <span class="toc-text">Backend Responsibilities</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#How-Would-Full-Stack-Look-at-It"><span class="toc-number">7.3.</span> <span class="toc-text">How Would Full-Stack Look at It?</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#My-Own-Understanding-in-One-Sentence"><span class="toc-number">8.</span> <span class="toc-text">My Own Understanding in One Sentence</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Conclusion-Please-Stop-Calling-Every-Engineer-%E2%80%9CSomeone-Who-Fixes-Computers%E2%80%9D"><span class="toc-number">9.</span> <span class="toc-text">Conclusion: Please Stop Calling Every Engineer “Someone Who Fixes Computers”</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%AD%E6%96%87%E7%89%88"><span class="toc-number">10.</span> <span class="toc-text">中文版</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%88%E8%AC%9B%E7%B5%90%E8%AB%96%EF%BC%9A%E4%BD%A0%E7%9C%8B%E5%88%B0%E7%9A%84%EF%BC%8C%E9%80%9A%E5%B8%B8%E6%98%AF%E5%89%8D%E7%AB%AF%EF%BC%9B%E4%BD%A0%E7%9C%8B%E4%B8%8D%E5%88%B0%E7%9A%84%EF%BC%8C%E5%BE%88%E5%A4%9A%E6%98%AF%E5%BE%8C%E7%AB%AF"><span class="toc-number">11.</span> <span class="toc-text">先講結論：你看到的，通常是前端；你看不到的，很多是後端</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E9%BA%BC%E6%98%AF%E5%89%8D%E7%AB%AF%EF%BC%9F"><span class="toc-number">12.</span> <span class="toc-text">什麼是前端？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BE%8B%E5%A6%82%EF%BC%9A%E7%82%BA%E4%BB%80%E9%BA%BC%E4%BD%A0%E7%99%BB%E5%85%A5%E4%B8%80%E6%AC%A1%EF%BC%8C%E7%80%8F%E8%A6%BD%E5%99%A8%E5%B0%B1%E5%83%8F%E8%AA%8D%E5%BE%97%E4%BD%A0%E4%BA%86%EF%BC%9F"><span class="toc-number">12.1.</span> <span class="toc-text">例如：為什麼你登入一次，瀏覽器就像認得你了？</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E9%BA%BC%E6%98%AF%E5%BE%8C%E7%AB%AF%EF%BC%9F"><span class="toc-number">13.</span> <span class="toc-text">什麼是後端？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BE%8C%E7%AB%AF%E5%8F%AF%E4%BB%A5%E6%83%B3%E5%83%8F%E6%88%90%E4%BB%80%E9%BA%BC%EF%BC%9F"><span class="toc-number">13.1.</span> <span class="toc-text">後端可以想像成什麼？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BE%8C%E7%AB%AF%E5%88%B0%E5%BA%95%E5%9C%A8%E5%BF%99%E4%BB%80%E9%BA%BC%EF%BC%9F"><span class="toc-number">13.2.</span> <span class="toc-text">後端到底在忙什麼？</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E7%AB%AF%E8%B7%9F%E5%BE%8C%E7%AB%AF%E6%80%8E%E9%BA%BC%E5%90%88%E4%BD%9C%EF%BC%9F"><span class="toc-number">14.</span> <span class="toc-text">前端跟後端怎麼合作？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#API-%E8%A6%8F%E6%A0%BC%EF%BC%8C%E7%9C%9F%E7%9A%84%E6%98%AF%E5%89%8D%E5%BE%8C%E7%AB%AF%E5%85%88%E8%AC%9B%E5%A5%BD%E7%9A%84"><span class="toc-number">15.</span> <span class="toc-text">API 規格，真的是前後端先講好的</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%82%A3%E4%BB%80%E9%BA%BC%E6%98%AF%E5%85%A8%E7%AB%AF%EF%BC%9F"><span class="toc-number">16.</span> <span class="toc-text">那什麼是全端？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%A8%E7%AB%AF%E6%98%AF%E4%B8%8D%E6%98%AF%E7%AD%89%E6%96%BC%E4%BB%80%E9%BA%BC%E9%83%BD%E8%A6%81%E8%B6%85%E5%BC%B7%EF%BC%9F"><span class="toc-number">16.1.</span> <span class="toc-text">全端是不是等於什麼都要超強？</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E5%80%8B%E6%9C%80%E7%B0%A1%E5%96%AE%E7%9A%84%E4%BE%8B%E5%AD%90%EF%BC%9A%E7%99%BB%E5%85%A5%E5%8A%9F%E8%83%BD%EF%BC%8C%E5%88%B0%E5%BA%95%E8%AA%B0%E5%9C%A8%E5%81%9A%E4%BB%80%E9%BA%BC%EF%BC%9F"><span class="toc-number">17.</span> <span class="toc-text">一個最簡單的例子：登入功能，到底誰在做什麼？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%89%8D%E7%AB%AF%E8%B2%A0%E8%B2%AC%E7%9A%84%E9%83%A8%E5%88%86"><span class="toc-number">17.1.</span> <span class="toc-text">前端負責的部分</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BE%8C%E7%AB%AF%E8%B2%A0%E8%B2%AC%E7%9A%84%E9%83%A8%E5%88%86"><span class="toc-number">17.2.</span> <span class="toc-text">後端負責的部分</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%A8%E7%AB%AF%E6%9C%83%E6%80%8E%E9%BA%BC%E7%9C%8B%E9%80%99%E4%BB%B6%E4%BA%8B%EF%BC%9F"><span class="toc-number">17.3.</span> <span class="toc-text">全端會怎麼看這件事？</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%88%91%E8%87%AA%E5%B7%B1%E7%9A%84%E7%90%86%E8%A7%A3%EF%BC%8C%E7%B8%BD%E7%B5%90%E6%88%90%E4%B8%80%E5%8F%A5%E8%A9%B1"><span class="toc-number">18.</span> <span class="toc-text">我自己的理解，總結成一句話</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B5%90%E8%AA%9E%EF%BC%9A%E5%88%A5%E5%86%8D%E6%8A%8A%E5%B7%A5%E7%A8%8B%E5%B8%AB%E9%83%BD%E5%8F%AB%E5%81%9A%E3%80%8C%E6%9C%83%E4%BF%AE%E9%9B%BB%E8%85%A6%E7%9A%84%E3%80%8D"><span class="toc-number">19.</span> <span class="toc-text">結語：別再把工程師都叫做「會修電腦的」</span></a></li></ol>
+                <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%88%E8%AC%9B%E7%B5%90%E8%AB%96%EF%BC%9A%E4%BD%A0%E7%9C%8B%E5%88%B0%E7%9A%84%EF%BC%8C%E9%80%9A%E5%B8%B8%E6%98%AF%E5%89%8D%E7%AB%AF%EF%BC%9B%E4%BD%A0%E7%9C%8B%E4%B8%8D%E5%88%B0%E7%9A%84%EF%BC%8C%E5%BE%88%E5%A4%9A%E6%98%AF%E5%BE%8C%E7%AB%AF"><span class="toc-number">1.</span> <span class="toc-text">先講結論：你看到的，通常是前端；你看不到的，很多是後端</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E9%BA%BC%E6%98%AF%E5%89%8D%E7%AB%AF%EF%BC%9F"><span class="toc-number">2.</span> <span class="toc-text">什麼是前端？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BE%8B%E5%A6%82%EF%BC%9A%E7%82%BA%E4%BB%80%E9%BA%BC%E4%BD%A0%E7%99%BB%E5%85%A5%E4%B8%80%E6%AC%A1%EF%BC%8C%E7%80%8F%E8%A6%BD%E5%99%A8%E5%B0%B1%E5%83%8F%E8%AA%8D%E5%BE%97%E4%BD%A0%E4%BA%86%EF%BC%9F"><span class="toc-number">2.1.</span> <span class="toc-text">例如：為什麼你登入一次，瀏覽器就像認得你了？</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E9%BA%BC%E6%98%AF%E5%BE%8C%E7%AB%AF%EF%BC%9F"><span class="toc-number">3.</span> <span class="toc-text">什麼是後端？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BE%8C%E7%AB%AF%E5%8F%AF%E4%BB%A5%E6%83%B3%E5%83%8F%E6%88%90%E4%BB%80%E9%BA%BC%EF%BC%9F"><span class="toc-number">3.1.</span> <span class="toc-text">後端可以想像成什麼？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BE%8C%E7%AB%AF%E5%88%B0%E5%BA%95%E5%9C%A8%E5%BF%99%E4%BB%80%E9%BA%BC%EF%BC%9F"><span class="toc-number">3.2.</span> <span class="toc-text">後端到底在忙什麼？</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E7%AB%AF%E8%B7%9F%E5%BE%8C%E7%AB%AF%E6%80%8E%E9%BA%BC%E5%90%88%E4%BD%9C%EF%BC%9F"><span class="toc-number">4.</span> <span class="toc-text">前端跟後端怎麼合作？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#API-%E8%A6%8F%E6%A0%BC%EF%BC%8C%E7%9C%9F%E7%9A%84%E6%98%AF%E5%89%8D%E5%BE%8C%E7%AB%AF%E5%85%88%E8%AC%9B%E5%A5%BD%E7%9A%84"><span class="toc-number">5.</span> <span class="toc-text">API 規格，真的是前後端先講好的</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%82%A3%E4%BB%80%E9%BA%BC%E6%98%AF%E5%85%A8%E7%AB%AF%EF%BC%9F"><span class="toc-number">6.</span> <span class="toc-text">那什麼是全端？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%A8%E7%AB%AF%E6%98%AF%E4%B8%8D%E6%98%AF%E7%AD%89%E6%96%BC%E4%BB%80%E9%BA%BC%E9%83%BD%E8%A6%81%E8%B6%85%E5%BC%B7%EF%BC%9F"><span class="toc-number">6.1.</span> <span class="toc-text">全端是不是等於什麼都要超強？</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E5%80%8B%E6%9C%80%E7%B0%A1%E5%96%AE%E7%9A%84%E4%BE%8B%E5%AD%90%EF%BC%9A%E7%99%BB%E5%85%A5%E5%8A%9F%E8%83%BD%EF%BC%8C%E5%88%B0%E5%BA%95%E8%AA%B0%E5%9C%A8%E5%81%9A%E4%BB%80%E9%BA%BC%EF%BC%9F"><span class="toc-number">7.</span> <span class="toc-text">一個最簡單的例子：登入功能，到底誰在做什麼？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%89%8D%E7%AB%AF%E8%B2%A0%E8%B2%AC%E7%9A%84%E9%83%A8%E5%88%86"><span class="toc-number">7.1.</span> <span class="toc-text">前端負責的部分</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BE%8C%E7%AB%AF%E8%B2%A0%E8%B2%AC%E7%9A%84%E9%83%A8%E5%88%86"><span class="toc-number">7.2.</span> <span class="toc-text">後端負責的部分</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%A8%E7%AB%AF%E6%9C%83%E6%80%8E%E9%BA%BC%E7%9C%8B%E9%80%99%E4%BB%B6%E4%BA%8B%EF%BC%9F"><span class="toc-number">7.3.</span> <span class="toc-text">全端會怎麼看這件事？</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%88%91%E8%87%AA%E5%B7%B1%E7%9A%84%E7%90%86%E8%A7%A3%EF%BC%8C%E7%B8%BD%E7%B5%90%E6%88%90%E4%B8%80%E5%8F%A5%E8%A9%B1"><span class="toc-number">8.</span> <span class="toc-text">我自己的理解，總結成一句話</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B5%90%E8%AA%9E%EF%BC%9A%E5%88%A5%E5%86%8D%E6%8A%8A%E5%B7%A5%E7%A8%8B%E5%B8%AB%E9%83%BD%E5%8F%AB%E5%81%9A%E3%80%8C%E6%9C%83%E4%BF%AE%E9%9B%BB%E8%85%A6%E7%9A%84%E3%80%8D"><span class="toc-number">9.</span> <span class="toc-text">結語：別再把工程師都叫做「會修電腦的」</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#English-Version"><span class="toc-number">10.</span> <span class="toc-text">English Version</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#The-Quick-Answer-What-You-See-Is-Usually-Frontend-Much-of-What-You-Do-Not-See-Is-Backend"><span class="toc-number">11.</span> <span class="toc-text">The Quick Answer: What You See Is Usually Frontend; Much of What You Do Not See Is Backend</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#What-Is-Frontend"><span class="toc-number">12.</span> <span class="toc-text">What Is Frontend?</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#For-Example-Why-Does-the-Browser-Seem-to-Recognize-You-After-You-Log-In-Once"><span class="toc-number">12.1.</span> <span class="toc-text">For Example: Why Does the Browser Seem to Recognize You After You Log In Once?</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#What-Is-Backend"><span class="toc-number">13.</span> <span class="toc-text">What Is Backend?</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#What-Can-Backend-Be-Compared-To"><span class="toc-number">13.1.</span> <span class="toc-text">What Can Backend Be Compared To?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#What-Is-Backend-Busy-With"><span class="toc-number">13.2.</span> <span class="toc-text">What Is Backend Busy With?</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#How-Do-Frontend-and-Backend-Work-Together"><span class="toc-number">14.</span> <span class="toc-text">How Do Frontend and Backend Work Together?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#API-Specifications-Are-Really-Agreed-on-by-Frontend-and-Backend-First"><span class="toc-number">15.</span> <span class="toc-text">API Specifications Are Really Agreed on by Frontend and Backend First</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#So-What-Is-Full-Stack"><span class="toc-number">16.</span> <span class="toc-text">So What Is Full-Stack?</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Does-Full-Stack-Mean-Being-Extremely-Strong-at-Everything"><span class="toc-number">16.1.</span> <span class="toc-text">Does Full-Stack Mean Being Extremely Strong at Everything?</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#A-Simple-Example-Who-Does-What-in-a-Login-Feature"><span class="toc-number">17.</span> <span class="toc-text">A Simple Example: Who Does What in a Login Feature?</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Frontend-Responsibilities"><span class="toc-number">17.1.</span> <span class="toc-text">Frontend Responsibilities</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Backend-Responsibilities"><span class="toc-number">17.2.</span> <span class="toc-text">Backend Responsibilities</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#How-Would-Full-Stack-Look-at-It"><span class="toc-number">17.3.</span> <span class="toc-text">How Would Full-Stack Look at It?</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#My-Own-Understanding-in-One-Sentence"><span class="toc-number">18.</span> <span class="toc-text">My Own Understanding in One Sentence</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Conclusion-Please-Stop-Calling-Every-Engineer-%E2%80%9CSomeone-Who-Fixes-Computers%E2%80%9D"><span class="toc-number">19.</span> <span class="toc-text">Conclusion: Please Stop Calling Every Engineer “Someone Who Fixes Computers”</span></a></li></ol>
             </div>
         <!-- sidebar -->
         <div class="sidebar sidebar-hide">
