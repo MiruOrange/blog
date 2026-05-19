@@ -10,19 +10,23 @@
     <meta name="copyright" content="Ken Hsu">
         <meta name="keywords" content="python,full-stack,web,development,backend,frontend,database,server,client,network,security,algorithm,data structure,programming,software,engineering,computer,science,technology,learning,sharing,experience,knowledge,tutorial">
     <meta name="description" content="這是一篇關於技術學習的部落格文章，分享了撰寫技術筆記的過程。">
-    <meta name="description" content="Recently, I spent some time building a Kubernetes Cluster in a local environment. 最近，我花了一段時間在 Local 環境架 Kubernetes Cluster。 To be honest, at first I thought the main focus would be Kubernetes itself:">
+    <meta name="description" content="Recently, I spent some time building a Kubernetes Cluster in a local environment. To be honest, at first I thought the main focus would be Kubernetes itself: how to install kubeadm, how to get Pods ru">
 <meta property="og:type" content="article">
 <meta property="og:title" content="After Building Kubernetes Locally, I Finally Understood Why CCNA Matters">
 <meta property="og:url" content="https://miruorange.github.io/blog/2026/05/03/why-ccna-matters-when-building-kubernetes-locally/index.html">
 <meta property="og:site_name" content="朝向全端之路：從基礎到進階的技術探索 by Ken">
-<meta property="og:description" content="Recently, I spent some time building a Kubernetes Cluster in a local environment. 最近，我花了一段時間在 Local 環境架 Kubernetes Cluster。 To be honest, at first I thought the main focus would be Kubernetes itself:">
+<meta property="og:description" content="Recently, I spent some time building a Kubernetes Cluster in a local environment. To be honest, at first I thought the main focus would be Kubernetes itself: how to install kubeadm, how to get Pods ru">
 <meta property="og:locale">
 <meta property="og:image" content="https://miruorange.github.io/blog/2026/05/03/why-ccna-matters-when-building-kubernetes-locally/local-kubernetes-cluster.png">
 <meta property="og:image" content="https://miruorange.github.io/blog/2026/05/03/why-ccna-matters-when-building-kubernetes-locally/vxlan-overlay-network.png">
 <meta property="og:image" content="https://miruorange.github.io/blog/2026/05/03/why-ccna-matters-when-building-kubernetes-locally/metallb-vip-arp.png">
 <meta property="og:image" content="https://miruorange.github.io/blog/2026/05/03/why-ccna-matters-when-building-kubernetes-locally/arp-to-bgp-routing.png">
+<meta property="og:image" content="https://miruorange.github.io/blog/2026/05/03/why-ccna-matters-when-building-kubernetes-locally/local-kubernetes-cluster.png">
+<meta property="og:image" content="https://miruorange.github.io/blog/2026/05/03/why-ccna-matters-when-building-kubernetes-locally/vxlan-overlay-network.png">
+<meta property="og:image" content="https://miruorange.github.io/blog/2026/05/03/why-ccna-matters-when-building-kubernetes-locally/metallb-vip-arp.png">
+<meta property="og:image" content="https://miruorange.github.io/blog/2026/05/03/why-ccna-matters-when-building-kubernetes-locally/arp-to-bgp-routing.png">
 <meta property="article:published_time" content="2026-05-03T13:30:00.000Z">
-<meta property="article:modified_time" content="2026-05-18T12:58:47.921Z">
+<meta property="article:modified_time" content="2026-05-19T13:13:13.671Z">
 <meta property="article:author" content="Ken Hsu">
 <meta property="article:tag" content="CCNA">
 <meta property="article:tag" content="Networking">
@@ -462,211 +466,212 @@
                 <main class="main post-page">
     """    <article class="article-entry">
         <p>Recently, I spent some time building a Kubernetes Cluster in a local environment.</p>
-<p>最近，我花了一段時間在 Local 環境架 Kubernetes Cluster。</p>
 <p>To be honest, at first I thought the main focus would be Kubernetes itself: how to install kubeadm, how to get Pods running, how to deploy Services, and how to check status with <code>kubectl</code>. Those things are certainly important, but once I actually started building it, I realized something:</p>
-<p>老實說，一開始我以為這件事的重點會是 Kubernetes 本身。像是怎麼安裝 kubeadm、怎麼讓 Pod 跑起來、怎麼部署 Service、怎麼用 <code>kubectl</code> 查看狀態。這些當然都重要，但真正動手做下去之後，我才發現：</p>
 <blockquote>
 <p><strong>On the surface, Kubernetes is container orchestration. Underneath, it is full of networking.</strong></p>
 </blockquote>
-<blockquote>
-<p><strong>Kubernetes 表面上是容器編排，底層其實到處都是網路。</strong></p>
-</blockquote>
 <p>And it is not the kind of networking where simply knowing what an IP address is will get you through. You constantly run into Subnet, Gateway, Routing, ARP, VXLAN, SNAT, DNAT, and BGP.</p>
-<p>而且不是那種「知道 IP 是什麼」就可以輕鬆帶過的網路，而是會一直碰到 Subnet、Gateway、Routing、ARP、VXLAN、SNAT、DNAT、BGP 這些概念的網路。</p>
 <p>Because of that, I felt even more strongly that learning CCNA earlier was the right decision. Without that foundation, building Kubernetes locally this time would probably have left me reading documentation while falling into that familiar state of “I recognize every word, but I do not understand what the sentence means.”</p>
-<p>也因為這樣，我更深刻地感受到之前去學 CCNA 是一個很正確的決定。如果沒有那段基礎知識，這次在本地架 Kubernetes，我大概會一邊查資料，一邊陷入一種「每個字都看得懂，但整句話不知道在說什麼」的狀態。</p>
 <p>Most engineers probably know that feeling. You open the docs, ask AI, get an answer, but still cannot tell which layer it is talking about, which flow segment is involved, or which network range is relevant.</p>
-<p>這種感覺，工程師應該都不陌生。文件打開，AI 也問了，答案也出來了，但你就是無法判斷它到底在講哪一層、哪一段流量、哪一個網段。</p>
 <p>That is not because AI is not strong enough. It is because your own foundation is not stable enough yet.</p>
-<p>那不是 AI 不夠強，而是自己的地基還不夠穩。</p>
 <p><img src="https://miruorange.github.io/blog/2026/05/03/why-ccna-matters-when-building-kubernetes-locally/local-kubernetes-cluster.png" alt="Building a Kubernetes Cluster locally exposes you to real networking problems"></p>
 <hr>
-<h2 id="Kubernetes-Is-Not-Just-About-Running-kubectl-apply"><a href="#Kubernetes-Is-Not-Just-About-Running-kubectl-apply" class="headerlink" title="Kubernetes Is Not Just About Running kubectl apply"></a>Kubernetes Is Not Just About Running kubectl apply</h2><h2 id="Kubernetes-不是只會-kubectl-apply-就好"><a href="#Kubernetes-不是只會-kubectl-apply-就好" class="headerlink" title="Kubernetes 不是只會 kubectl apply 就好"></a>Kubernetes 不是只會 kubectl apply 就好</h2><p>If you only use Managed Kubernetes from cloud providers such as GKE, EKS, or AKS, many low-level problems are already wrapped for you.</p>
-<p>如果只是使用雲端供應商提供的 Managed Kubernetes，例如 GKE、EKS、AKS，那很多底層問題其實已經被包起來了。</p>
+<h2 id="Kubernetes-Is-Not-Just-About-Running-kubectl-apply"><a href="#Kubernetes-Is-Not-Just-About-Running-kubectl-apply" class="headerlink" title="Kubernetes Is Not Just About Running kubectl apply"></a>Kubernetes Is Not Just About Running kubectl apply</h2><p>If you only use Managed Kubernetes from cloud providers such as GKE, EKS, or AKS, many low-level problems are already wrapped for you.</p>
 <p>You create a Cluster, choose a few Nodes, configure the specs, and the cloud platform handles many troublesome details for you. This is convenient and very suitable for production environments. After all, companies want stable services, not every engineer staring lovingly at network settings in the middle of the night.</p>
-<p>你建立 Cluster，選幾個 Node，設定一下規格，雲端平台就會幫你處理很多麻煩事。這當然很方便，也很適合正式環境使用。畢竟公司要的是穩定服務，不是每個工程師都在半夜跟網路設定深情對望。</p>
 <p>But if you really want to understand how Kubernetes works underneath, building a local Cluster yourself is a direct and powerful lesson.</p>
-<p>但如果你真的想知道 Kubernetes 底下到底怎麼運作，本地自架 Cluster 會是一個很直接的震撼教育。</p>
 <p>Once you are not simply clicking buttons and letting a cloud platform handle everything, but instead preparing machines, planning network ranges, installing a CNI, and dealing with ingress traffic yourself, you quickly discover:</p>
-<p>因為一旦你不是按幾個按鈕讓雲端平台幫你處理，而是自己準備機器、自己規劃網段、自己安裝 CNI、自己處理入口流量，你會突然發現：</p>
 <ul>
-<li><p>Whether Nodes can communicate with each other is a networking problem.</p>
-</li>
-<li><p>Whether Pods can communicate with each other is a networking problem.</p>
-</li>
-<li><p>Whether a Service can forward traffic is also a networking problem.</p>
-</li>
-<li><p>Whether external traffic can enter is still a networking problem.</p>
-</li>
-<li><p>Node 之間能不能互通，是網路問題。</p>
-</li>
-<li><p>Pod 之間能不能互通，是網路問題。</p>
-</li>
-<li><p>Service 能不能轉發，也是網路問題。</p>
-</li>
-<li><p>外部流量能不能進來，還是網路問題。</p>
-</li>
+<li>Whether Nodes can communicate with each other is a networking problem.</li>
+<li>Whether Pods can communicate with each other is a networking problem.</li>
+<li>Whether a Service can forward traffic is also a networking problem.</li>
+<li>Whether external traffic can enter is still a networking problem.</li>
 </ul>
 <p>Kubernetes is powerful, but it is not magic. It packages many low-level capabilities into abstractions that are easier to manage. When those abstractions break, you still have to go back down and see how packets actually travel.</p>
-<p>Kubernetes 很強，但它不是魔法。它只是把很多底層能力包裝成比較好管理的抽象層。而當抽象層出問題時，你最後還是要回到底層去看封包到底怎麼走。</p>
 <p>This was one of my biggest takeaways: using Kubernetes and understanding Kubernetes are not the same thing.</p>
-<p>這也是我這次最大的收穫之一：會使用 Kubernetes 跟理解 Kubernetes，是兩件不太一樣的事。</p>
 <hr>
-<h2 id="The-First-Question-Should-Nodes-Be-in-the-Same-Subnet-or-Across-Subnets"><a href="#The-First-Question-Should-Nodes-Be-in-the-Same-Subnet-or-Across-Subnets" class="headerlink" title="The First Question: Should Nodes Be in the Same Subnet or Across Subnets?"></a>The First Question: Should Nodes Be in the Same Subnet or Across Subnets?</h2><h2 id="第一個問題：Node-要同網段還是跨網段？"><a href="#第一個問題：Node-要同網段還是跨網段？" class="headerlink" title="第一個問題：Node 要同網段還是跨網段？"></a>第一個問題：Node 要同網段還是跨網段？</h2><p>When building a Cluster, the first practical question is whether the servers should be placed in the same subnet or across different subnets.</p>
-<p>在架 Cluster 的時候，第一個很實際的問題就是：這些 Server 要放在同一個網段，還是跨網段？</p>
+<h2 id="The-First-Question-Should-Nodes-Be-in-the-Same-Subnet-or-Across-Subnets"><a href="#The-First-Question-Should-Nodes-Be-in-the-Same-Subnet-or-Across-Subnets" class="headerlink" title="The First Question: Should Nodes Be in the Same Subnet or Across Subnets?"></a>The First Question: Should Nodes Be in the Same Subnet or Across Subnets?</h2><p>When building a Cluster, the first practical question is whether the servers should be placed in the same subnet or across different subnets.</p>
 <p>If you only follow a tutorial, you might think “as long as they can ping each other, it is fine.” In reality, this decision affects many things later.</p>
-<p>如果只是照教學做，可能會覺得「能 ping 到就好」。但實際上，這個決定會影響後面很多東西。</p>
 <p>Being in the same subnet usually means they are in the same Layer 2 broadcast domain, so they can use ARP to find each other’s MAC Address. You can think of ARP as a very everyday way of asking for directions:</p>
-<p>同一個網段代表它們通常在同一個 Layer 2 廣播域裡，彼此可以透過 ARP 找到對方的 MAC Address。你可以先把 ARP 想成一種很生活化的問路方式：</p>
 <blockquote>
 <p>“Who has this IP? If it is you, please tell me your MAC Address.”</p>
 </blockquote>
-<blockquote>
-<p>「誰是這個 IP？如果是你，請把你的 MAC Address 告訴我。」</p>
-</blockquote>
 <p>This works naturally within the same subnet because everyone is in the same area. You call out, and someone answers. But across subnets, you cannot do that. Packets must be handed to the Gateway, and Routing decides the next hop.</p>
-<p>這件事在同網段很自然，因為大家在同一個區域裡，喊一聲就有人回。但如果跨網段，就不能這樣喊了。封包必須交給 Gateway，再透過 Routing 決定下一跳要往哪裡走。</p>
 <p>At that moment, the Subnet, Gateway, and Routing Table concepts from CCNA suddenly become practical. They are no longer exam topics. They become tools you actually use to judge Cluster network design.</p>
-<p>這時候，CCNA 裡學到的 Subnet、Gateway、Routing Table 就突然變得很實用。它不再是考試題目，而是你真的要拿來判斷 Cluster 網路設計的工具。</p>
 <p>In the past, seeing IP planning may have felt like something for network administrators or the Infra team. But when you build Kubernetes yourself, you realize that if the network ranges are not clear from the beginning, every later error message starts to look like superstition.</p>
-<p>以前看到 IP 規劃，可能只覺得那是網管或 Infra 團隊的事情。但當你自己要把 Kubernetes 架起來時，你會發現如果一開始網段規劃不清楚，後面每個錯誤訊息都會長得很像玄學。</p>
 <p>Pods failing to start, Nodes becoming NotReady, Services being unreachable, or DNS resolution behaving strangely may look like Kubernetes problems on the surface, but underneath, the real issue may simply be that your route never reaches the right place.</p>
-<p>Pod 起不來、Node NotReady、Service 打不到、DNS 解析怪怪的，表面看起來是 Kubernetes 問題，但背後可能只是你的路由根本沒走到正確的位置。</p>
 <hr>
-<h2 id="Flannel’s-VXLAN-Is-Basically-Putting-a-Jacket-Around-Packets"><a href="#Flannel’s-VXLAN-Is-Basically-Putting-a-Jacket-Around-Packets" class="headerlink" title="Flannel’s VXLAN Is Basically Putting a Jacket Around Packets"></a>Flannel’s VXLAN Is Basically Putting a Jacket Around Packets</h2><h2 id="Flannel-的-VXLAN，其實就是在幫封包包一層外套"><a href="#Flannel-的-VXLAN，其實就是在幫封包包一層外套" class="headerlink" title="Flannel 的 VXLAN，其實就是在幫封包包一層外套"></a>Flannel 的 VXLAN，其實就是在幫封包包一層外套</h2><p>Kubernetes has an important component called CNI, Container Network Interface. Simply put, it is responsible for handling Pod networking.</p>
-<p>Kubernetes 裡有一個很重要的角色叫 CNI，Container Network Interface。簡單說，它負責處理 Pod 的網路。</p>
+<h2 id="Flannel’s-VXLAN-Is-Basically-Putting-a-Jacket-Around-Packets"><a href="#Flannel’s-VXLAN-Is-Basically-Putting-a-Jacket-Around-Packets" class="headerlink" title="Flannel’s VXLAN Is Basically Putting a Jacket Around Packets"></a>Flannel’s VXLAN Is Basically Putting a Jacket Around Packets</h2><p>Kubernetes has an important component called CNI, Container Network Interface. Simply put, it is responsible for handling Pod networking.</p>
 <p>This time I worked with Flannel, and one common mode in Flannel is VXLAN.</p>
-<p>這次我接觸到 Flannel，而 Flannel 常見的一種模式就是 VXLAN。</p>
 <p>At first, VXLAN may sound intimidating. But if you look at it from a CCNA perspective, it becomes easier to understand. VXLAN wraps the original packet in another layer, allowing Pods on different Nodes to communicate as if they were in the same virtual network.</p>
-<p>一開始看到 VXLAN 這個名詞，很多人可能會覺得很硬。可是如果用 CCNA 的角度去看，它其實就變得比較有脈絡。VXLAN 可以把原本的封包再包一層，讓不同 Node 上的 Pod，好像在同一個虛擬網路裡溝通。</p>
 <p>You can imagine it this way: a Pod wants to send a letter to another Pod, but they actually live on different Nodes. Flannel first puts that letter into another envelope, and the outer envelope contains an address that Nodes can understand. When the letter reaches the target Node, the outer envelope is removed and the real message is delivered to the Pod.</p>
-<p>你可以把它想成：原本 Pod 想寄一封信給另一個 Pod，但它們其實住在不同 Node 上。Flannel 會先把這封信放進另一個信封，外層信封寫的是 Node 之間可以看懂的地址。等信送到目標 Node 後，再把外層信封拆掉，交給真正的 Pod。</p>
 <p>That is the concept of an overlay network.</p>
-<p>這就是 overlay network 的概念。</p>
 <p><img src="https://miruorange.github.io/blog/2026/05/03/why-ccna-matters-when-building-kubernetes-locally/vxlan-overlay-network.png" alt="VXLAN wraps Pod packets so Pods on different Nodes can communicate"></p>
 <p>On the surface, it looks like Pod-to-Pod communication. In reality, encapsulation, forwarding, and decapsulation happen in the middle. Without any Layer 2 or Layer 3 concept, this is really hard to understand.</p>
-<p>表面上看起來是 Pod 跟 Pod 在溝通，但實際上中間經過了封裝、轉送、解封裝。這些東西如果完全沒有 L2、L3 的概念，真的會很難理解。</p>
 <p>So the more I studied it, the more I felt that Kubernetes networking is not a brand-new world that appeared out of nowhere. It is really many traditional networking concepts repackaged through containerization.</p>
-<p>所以我後來越看越覺得，Kubernetes 的網路不是突然冒出來的新世界。它其實是把很多傳統網路概念，用容器化的方式重新包裝了一次。</p>
 <p>If you understand the lower layers, seeing CNI makes you think: “Oh, so it is handling these paths for me.”</p>
-<p>你如果懂底層，看到 CNI 會覺得：「喔，原來它是在幫我處理這些路徑。」</p>
 <p>If you do not understand the lower layers, seeing CNI only makes you think: “Why is there yet another thing?”</p>
-<p>你如果不懂底層，看到 CNI 只會覺得：「為什麼又多一個東西？」</p>
 <hr>
-<h2 id="MetalLB’s-VIP-How-Can-a-Nonexistent-IP-Receive-Packets"><a href="#MetalLB’s-VIP-How-Can-a-Nonexistent-IP-Receive-Packets" class="headerlink" title="MetalLB’s VIP: How Can a Nonexistent IP Receive Packets?"></a>MetalLB’s VIP: How Can a Nonexistent IP Receive Packets?</h2><h2 id="MetalLB-的-VIP：那個不存在的-IP-為什麼收得到封包？"><a href="#MetalLB-的-VIP：那個不存在的-IP-為什麼收得到封包？" class="headerlink" title="MetalLB 的 VIP：那個不存在的 IP 為什麼收得到封包？"></a>MetalLB 的 VIP：那個不存在的 IP 為什麼收得到封包？</h2><p>When building Kubernetes locally, another classic problem appears: how does external traffic enter the Cluster?</p>
-<p>本地架 Kubernetes 還會遇到另一個很經典的問題：外部流量要怎麼進到 Cluster？</p>
+<h2 id="MetalLB’s-VIP-How-Can-a-Nonexistent-IP-Receive-Packets"><a href="#MetalLB’s-VIP-How-Can-a-Nonexistent-IP-Receive-Packets" class="headerlink" title="MetalLB’s VIP: How Can a Nonexistent IP Receive Packets?"></a>MetalLB’s VIP: How Can a Nonexistent IP Receive Packets?</h2><p>When building Kubernetes locally, another classic problem appears: how does external traffic enter the Cluster?</p>
 <p>In the cloud, when you create a <code>LoadBalancer</code> Service, the cloud platform usually creates a Load Balancer for you. In a Local environment, there is no cloud platform to create one, so one common solution is MetalLB.</p>
-<p>在雲端環境裡，你建立一個 <code>LoadBalancer</code> Service，雲端平台通常會幫你生出一個 Load Balancer。但在 Local 環境裡，沒有雲端平台幫你變出這個東西，所以常見做法之一就是使用 MetalLB。</p>
 <p>MetalLB is interesting because it can provide a Virtual IP, or VIP, so external traffic can enter the Cluster through that IP.</p>
-<p>MetalLB 很有趣，它可以提供一個 Virtual IP，也就是 VIP，讓外部流量透過這個 IP 進到 Cluster。</p>
 <p>But when I first tried to understand this, one question came to mind:</p>
-<p>但第一次理解這件事時，我腦中浮出一個問題：</p>
 <blockquote>
 <p>This IP is clearly not bound to one fixed physical machine, so how does the packet find the correct Node?</p>
 </blockquote>
+<p>The answer goes back to a basic but important CCNA topic: ARP.</p>
+<p>In Layer 2 mode, MetalLB makes one Node announce to the outside world: “This VIP is here with me.” When an external device wants to send packets to the VIP, it uses ARP to ask which MAC Address corresponds to that IP. The selected Node then answers the ARP request, and traffic is sent to that Node.</p>
+<p>Put simply, a VIP is not a magic door. It can be found because someone underneath answers the question, “Who has this IP?”</p>
+<p><img src="https://miruorange.github.io/blog/2026/05/03/why-ccna-matters-when-building-kubernetes-locally/metallb-vip-arp.png" alt="MetalLB&#39;s VIP is reachable because a Node answers ARP for the traffic entry point"></p>
+<p>This is also why ARP’s limitation matters. ARP only works within the same Layer 2 broadcast domain. If your Cluster Nodes are across different subnets, ARP alone is not enough.</p>
+<p>At that point, you enter another world: BGP.</p>
+<hr>
+<h2 id="From-ARP-to-BGP-Across-Subnets-Shouting-Is-Not-Enough"><a href="#From-ARP-to-BGP-Across-Subnets-Shouting-Is-Not-Enough" class="headerlink" title="From ARP to BGP: Across Subnets, Shouting Is Not Enough"></a>From ARP to BGP: Across Subnets, Shouting Is Not Enough</h2><p>If all Cluster Nodes are in the same subnet, MetalLB’s Layer 2 mode is easy to understand. Everyone is in the same area, ARP asks a question, someone answers, and the packet knows where to go.</p>
+<p>But across subnets, the situation changes.</p>
+<p>Cross-subnet communication is not shouting in the same room. It requires routers to forward traffic hop by hop. What you need is no longer ARP, but a way to tell routing devices: “This VIP or route should go toward this Node.”</p>
+<p>BGP is the dynamic routing protocol that appears in this kind of scenario.</p>
+<p>When I studied CCNA before, BGP felt like something used by large networks, ISPs, and the Internet backbone. But when a Kubernetes Cluster starts involving cross-subnet design, highly available ingress, and route advertisement, those concepts suddenly stop feeling distant.</p>
+<p>You begin to understand why many Kubernetes networking documents talk about BGP, why some CNI solutions support BGP, and why MetalLB also has a BGP mode.</p>
+<p>Because once your system is no longer a single machine or a few machines in the same subnet, and instead starts crossing subnets, environments, or data centers, routing becomes part of system design.</p>
+<p><img src="https://miruorange.github.io/blog/2026/05/03/why-ccna-matters-when-building-kubernetes-locally/arp-to-bgp-routing.png" alt="ARP can find an entry point within the same subnet, while cross-subnet traffic needs routing protocols to advertise paths"></p>
+<p>This is one reason I think CCNA is valuable. It is not only about configuring Cisco devices. It gives you the ability to understand why packets travel where they do inside a network.</p>
+<hr>
+<h2 id="SNAT-and-DNAT-Traffic-Control-Behind-Kubernetes-Services"><a href="#SNAT-and-DNAT-Traffic-Control-Behind-Kubernetes-Services" class="headerlink" title="SNAT and DNAT: Traffic Control Behind Kubernetes Services"></a>SNAT and DNAT: Traffic Control Behind Kubernetes Services</h2><p>Besides CNI and LoadBalancer, Kubernetes also contains a very common but easily overlooked concept: NAT.</p>
+<p>In everyday backend development, we may hear more about APIs, databases, queues, and caches. But in the container and Kubernetes world, SNAT and DNAT appear constantly.</p>
+<p>DNAT can be understood simply as this: the packet was originally aimed at a Service IP, but the system changes the destination to the real Pod IP.</p>
+<p>SNAT can be understood as this: when a packet goes out, the source IP is rewritten so the return traffic knows how to come back.</p>
+<p>These things sound low-level, but they support the daily operation of Kubernetes. When you access a Service and traffic is finally routed to a Pod, or when a Pod connects to the external network and the packets go out and return correctly, NAT, iptables, or related data-plane mechanisms are involved behind the scenes.</p>
+<p>If you do not understand NAT at all, it is easy to stop at vague conclusions like “the Service is broken,” “the Pod is broken,” or “Kubernetes is hard.”</p>
+<p>But if you understand SNAT and DNAT, you can at least start asking more precise questions:</p>
+<ul>
+<li>Was the packet’s source IP rewritten?</li>
+<li>Was the destination IP translated to the correct Pod?</li>
+<li>Did the return traffic use the same path?</li>
+<li>Are the forwarding rules on the Node working correctly?</li>
+</ul>
+<p>Being able to ask more precise questions usually means you are much closer to the answer.</p>
+<hr>
+<h2 id="Building-Kubernetes-Locally-Showed-Me-My-Low-Level-Capabilities"><a href="#Building-Kubernetes-Locally-Showed-Me-My-Low-Level-Capabilities" class="headerlink" title="Building Kubernetes Locally Showed Me My Low-Level Capabilities"></a>Building Kubernetes Locally Showed Me My Low-Level Capabilities</h2><p>In a Kubernetes-related book, I saw the author recommend that beginners start with a cloud Kubernetes service because building it locally is not simple. Unless you are truly familiar with the underlying environment, it is easy to spend a lot of time stuck on installation, networking, and environment issues.</p>
+<p>When I saw that paragraph, I smiled knowingly.</p>
+<p>Because I completely understand why the author gave that advice. Managed Kubernetes can indeed remove a lot of pain and help you enter the application deployment stage faster.</p>
+<p>But this time, I deliberately chose to build it in a Local environment. Not because I enjoy making myself suffer, but because I wanted to know how it really works underneath.</p>
+<p>When you build the Cluster yourself and handle Nodes, CNI, Services, MetalLB, VIPs, network planning, and packet forwarding problems, you gain a grounded understanding. It is not the feeling of “I think I understand” after reading docs. It is the understanding that comes from actually hitting problems, tracing paths, changing settings, and finally making it run.</p>
+<p>This matters a lot to me.</p>
+<p>Because I write this blog not only to record learning, but also to let my future self, and perhaps future interviewers, see that I am not someone who only writes code at the application layer. I am also willing to go deeper and understand how systems are supported from below.</p>
+<p>Independently building and troubleshooting a Kubernetes Cluster in a Local environment is not just a flashy skill description to me. It is a learning journey I actually walked through.</p>
+<hr>
+<h2 id="Conclusion-CCNA-Is-Not-Only-for-Network-Administrators-It-Is-a-Foundation-for-Modern-Engineers"><a href="#Conclusion-CCNA-Is-Not-Only-for-Network-Administrators-It-Is-a-Foundation-for-Modern-Engineers" class="headerlink" title="Conclusion: CCNA Is Not Only for Network Administrators. It Is a Foundation for Modern Engineers."></a>Conclusion: CCNA Is Not Only for Network Administrators. It Is a Foundation for Modern Engineers.</h2><p>Looking back, I previously wrote an article about why I recommend backend engineers understand CCNA. At that time, I mainly looked at it from the perspective of Docker, backend deployment, Linux, and security.</p>
+<p>Building Kubernetes locally this time made me even more certain of that idea.</p>
+<p>CCNA is not something only network administrators need to understand. For modern backend engineers, Infra engineers, DevOps engineers, and anyone who truly wants to understand how systems operate, networking is an unavoidable foundation.</p>
+<p>Kubernetes simply magnifies this fact.</p>
+<p>When you start dealing with a Cluster, you discover that packets flow behind every layer of abstraction. Pods do not communicate out of thin air. Services do not forward traffic out of thin air. VIPs do not exist out of thin air. LoadBalancers do not magically send traffic to the right place.</p>
+<p>They are all supported by networking principles.</p>
+<p>So if you ask me whether you need to understand CCNA before learning Kubernetes, my answer is: you do not necessarily need to get certified first, but you really should understand those concepts.</p>
+<p>Because once you have that foundation, when you look at Kubernetes, you will see more than YAML and commands. You will see how a complete system connects compute, networking, and services.</p>
+<p>This is also the direction I want to keep moving toward: not merely writing features, but becoming an engineer who understands the whole system and can handle real-world environment problems.</p>
+<hr>
+<h2 id="中文版"><a href="#中文版" class="headerlink" title="中文版"></a>中文版</h2><p>最近，我花了一段時間在 Local 環境架 Kubernetes Cluster。</p>
+<p>老實說，一開始我以為這件事的重點會是 Kubernetes 本身。像是怎麼安裝 kubeadm、怎麼讓 Pod 跑起來、怎麼部署 Service、怎麼用 <code>kubectl</code> 查看狀態。這些當然都重要，但真正動手做下去之後，我才發現：</p>
+<blockquote>
+<p><strong>Kubernetes 表面上是容器編排，底層其實到處都是網路。</strong></p>
+</blockquote>
+<p>而且不是那種「知道 IP 是什麼」就可以輕鬆帶過的網路，而是會一直碰到 Subnet、Gateway、Routing、ARP、VXLAN、SNAT、DNAT、BGP 這些概念的網路。</p>
+<p>也因為這樣，我更深刻地感受到之前去學 CCNA 是一個很正確的決定。如果沒有那段基礎知識，這次在本地架 Kubernetes，我大概會一邊查資料，一邊陷入一種「每個字都看得懂，但整句話不知道在說什麼」的狀態。</p>
+<p>這種感覺，工程師應該都不陌生。文件打開，AI 也問了，答案也出來了，但你就是無法判斷它到底在講哪一層、哪一段流量、哪一個網段。</p>
+<p>那不是 AI 不夠強，而是自己的地基還不夠穩。</p>
+<p><img src="https://miruorange.github.io/blog/2026/05/03/why-ccna-matters-when-building-kubernetes-locally/local-kubernetes-cluster.png" alt="Building a Kubernetes Cluster locally exposes you to real networking problems"></p>
+<hr>
+<h2 id="Kubernetes-不是只會-kubectl-apply-就好"><a href="#Kubernetes-不是只會-kubectl-apply-就好" class="headerlink" title="Kubernetes 不是只會 kubectl apply 就好"></a>Kubernetes 不是只會 kubectl apply 就好</h2><p>如果只是使用雲端供應商提供的 Managed Kubernetes，例如 GKE、EKS、AKS，那很多底層問題其實已經被包起來了。</p>
+<p>你建立 Cluster，選幾個 Node，設定一下規格，雲端平台就會幫你處理很多麻煩事。這當然很方便，也很適合正式環境使用。畢竟公司要的是穩定服務，不是每個工程師都在半夜跟網路設定深情對望。</p>
+<p>但如果你真的想知道 Kubernetes 底下到底怎麼運作，本地自架 Cluster 會是一個很直接的震撼教育。</p>
+<p>因為一旦你不是按幾個按鈕讓雲端平台幫你處理，而是自己準備機器、自己規劃網段、自己安裝 CNI、自己處理入口流量，你會突然發現：</p>
+<ul>
+<li>Node 之間能不能互通，是網路問題。</li>
+<li>Pod 之間能不能互通，是網路問題。</li>
+<li>Service 能不能轉發，也是網路問題。</li>
+<li>外部流量能不能進來，還是網路問題。</li>
+</ul>
+<p>Kubernetes 很強，但它不是魔法。它只是把很多底層能力包裝成比較好管理的抽象層。而當抽象層出問題時，你最後還是要回到底層去看封包到底怎麼走。</p>
+<p>這也是我這次最大的收穫之一：會使用 Kubernetes 跟理解 Kubernetes，是兩件不太一樣的事。</p>
+<hr>
+<h2 id="第一個問題：Node-要同網段還是跨網段？"><a href="#第一個問題：Node-要同網段還是跨網段？" class="headerlink" title="第一個問題：Node 要同網段還是跨網段？"></a>第一個問題：Node 要同網段還是跨網段？</h2><p>在架 Cluster 的時候，第一個很實際的問題就是：這些 Server 要放在同一個網段，還是跨網段？</p>
+<p>如果只是照教學做，可能會覺得「能 ping 到就好」。但實際上，這個決定會影響後面很多東西。</p>
+<p>同一個網段代表它們通常在同一個 Layer 2 廣播域裡，彼此可以透過 ARP 找到對方的 MAC Address。你可以先把 ARP 想成一種很生活化的問路方式：</p>
+<blockquote>
+<p>「誰是這個 IP？如果是你，請把你的 MAC Address 告訴我。」</p>
+</blockquote>
+<p>這件事在同網段很自然，因為大家在同一個區域裡，喊一聲就有人回。但如果跨網段，就不能這樣喊了。封包必須交給 Gateway，再透過 Routing 決定下一跳要往哪裡走。</p>
+<p>這時候，CCNA 裡學到的 Subnet、Gateway、Routing Table 就突然變得很實用。它不再是考試題目，而是你真的要拿來判斷 Cluster 網路設計的工具。</p>
+<p>以前看到 IP 規劃，可能只覺得那是網管或 Infra 團隊的事情。但當你自己要把 Kubernetes 架起來時，你會發現如果一開始網段規劃不清楚，後面每個錯誤訊息都會長得很像玄學。</p>
+<p>Pod 起不來、Node NotReady、Service 打不到、DNS 解析怪怪的，表面看起來是 Kubernetes 問題，但背後可能只是你的路由根本沒走到正確的位置。</p>
+<hr>
+<h2 id="Flannel-的-VXLAN，其實就是在幫封包包一層外套"><a href="#Flannel-的-VXLAN，其實就是在幫封包包一層外套" class="headerlink" title="Flannel 的 VXLAN，其實就是在幫封包包一層外套"></a>Flannel 的 VXLAN，其實就是在幫封包包一層外套</h2><p>Kubernetes 裡有一個很重要的角色叫 CNI，Container Network Interface。簡單說，它負責處理 Pod 的網路。</p>
+<p>這次我接觸到 Flannel，而 Flannel 常見的一種模式就是 VXLAN。</p>
+<p>一開始看到 VXLAN 這個名詞，很多人可能會覺得很硬。可是如果用 CCNA 的角度去看，它其實就變得比較有脈絡。VXLAN 可以把原本的封包再包一層，讓不同 Node 上的 Pod，好像在同一個虛擬網路裡溝通。</p>
+<p>你可以把它想成：原本 Pod 想寄一封信給另一個 Pod，但它們其實住在不同 Node 上。Flannel 會先把這封信放進另一個信封，外層信封寫的是 Node 之間可以看懂的地址。等信送到目標 Node 後，再把外層信封拆掉，交給真正的 Pod。</p>
+<p>這就是 overlay network 的概念。</p>
+<p><img src="https://miruorange.github.io/blog/2026/05/03/why-ccna-matters-when-building-kubernetes-locally/vxlan-overlay-network.png" alt="VXLAN wraps Pod packets so Pods on different Nodes can communicate"></p>
+<p>表面上看起來是 Pod 跟 Pod 在溝通，但實際上中間經過了封裝、轉送、解封裝。這些東西如果完全沒有 L2、L3 的概念，真的會很難理解。</p>
+<p>所以我後來越看越覺得，Kubernetes 的網路不是突然冒出來的新世界。它其實是把很多傳統網路概念，用容器化的方式重新包裝了一次。</p>
+<p>你如果懂底層，看到 CNI 會覺得：「喔，原來它是在幫我處理這些路徑。」</p>
+<p>你如果不懂底層，看到 CNI 只會覺得：「為什麼又多一個東西？」</p>
+<hr>
+<h2 id="MetalLB-的-VIP：那個不存在的-IP-為什麼收得到封包？"><a href="#MetalLB-的-VIP：那個不存在的-IP-為什麼收得到封包？" class="headerlink" title="MetalLB 的 VIP：那個不存在的 IP 為什麼收得到封包？"></a>MetalLB 的 VIP：那個不存在的 IP 為什麼收得到封包？</h2><p>本地架 Kubernetes 還會遇到另一個很經典的問題：外部流量要怎麼進到 Cluster？</p>
+<p>在雲端環境裡，你建立一個 <code>LoadBalancer</code> Service，雲端平台通常會幫你生出一個 Load Balancer。但在 Local 環境裡，沒有雲端平台幫你變出這個東西，所以常見做法之一就是使用 MetalLB。</p>
+<p>MetalLB 很有趣，它可以提供一個 Virtual IP，也就是 VIP，讓外部流量透過這個 IP 進到 Cluster。</p>
+<p>但第一次理解這件事時，我腦中浮出一個問題：</p>
 <blockquote>
 <p>這個 IP 明明沒有真的綁在某一台固定機器上，那封包到底是怎麼找到正確 Node 的？</p>
 </blockquote>
-<p>The answer goes back to a basic but important CCNA topic: ARP.</p>
 <p>答案又回到了 CCNA 裡很基礎、但也很重要的 ARP。</p>
-<p>In Layer 2 mode, MetalLB makes one Node announce to the outside world: “This VIP is here with me.” When an external device wants to send packets to the VIP, it uses ARP to ask which MAC Address corresponds to that IP. The selected Node then answers the ARP request, and traffic is sent to that Node.</p>
 <p>在 Layer 2 模式下，MetalLB 會讓某個 Node 對外宣告：「這個 VIP 在我這裡。」當外部設備要送封包到 VIP 時，會透過 ARP 詢問這個 IP 對應到哪個 MAC Address。接著對應的 Node 回應 ARP，流量就會被送到那台 Node。</p>
-<p>Put simply, a VIP is not a magic door. It can be found because someone underneath answers the question, “Who has this IP?”</p>
 <p>講白一點，VIP 不是魔法門。它能被找到，是因為底下有人回答了那個「誰是這個 IP？」的問題。</p>
 <p><img src="https://miruorange.github.io/blog/2026/05/03/why-ccna-matters-when-building-kubernetes-locally/metallb-vip-arp.png" alt="MetalLB&#39;s VIP is reachable because a Node answers ARP for the traffic entry point"></p>
-<p>This is also why ARP’s limitation matters. ARP only works within the same Layer 2 broadcast domain. If your Cluster Nodes are across different subnets, ARP alone is not enough.</p>
 <p>這也是為什麼 ARP 的限制很重要。ARP 只能在同一個 Layer 2 廣播域裡運作。如果你的 Cluster 節點跨了不同網段，單靠 ARP 就不夠了。</p>
-<p>At that point, you enter another world: BGP.</p>
 <p>這時候就會進入另一個世界：BGP。</p>
 <hr>
-<h2 id="From-ARP-to-BGP-Across-Subnets-Shouting-Is-Not-Enough"><a href="#From-ARP-to-BGP-Across-Subnets-Shouting-Is-Not-Enough" class="headerlink" title="From ARP to BGP: Across Subnets, Shouting Is Not Enough"></a>From ARP to BGP: Across Subnets, Shouting Is Not Enough</h2><h2 id="從-ARP-到-BGP：跨網段就不能只靠喊話"><a href="#從-ARP-到-BGP：跨網段就不能只靠喊話" class="headerlink" title="從 ARP 到 BGP：跨網段就不能只靠喊話"></a>從 ARP 到 BGP：跨網段就不能只靠喊話</h2><p>If all Cluster Nodes are in the same subnet, MetalLB’s Layer 2 mode is easy to understand. Everyone is in the same area, ARP asks a question, someone answers, and the packet knows where to go.</p>
-<p>如果 Cluster 都在同一個網段，MetalLB 的 Layer 2 模式很好理解。大家在同一個區域裡，ARP 問一聲，有人回答，封包就知道要送到哪裡。</p>
-<p>But across subnets, the situation changes.</p>
+<h2 id="從-ARP-到-BGP：跨網段就不能只靠喊話"><a href="#從-ARP-到-BGP：跨網段就不能只靠喊話" class="headerlink" title="從 ARP 到 BGP：跨網段就不能只靠喊話"></a>從 ARP 到 BGP：跨網段就不能只靠喊話</h2><p>如果 Cluster 都在同一個網段，MetalLB 的 Layer 2 模式很好理解。大家在同一個區域裡，ARP 問一聲，有人回答，封包就知道要送到哪裡。</p>
 <p>但跨網段時，情況就不一樣了。</p>
-<p>Cross-subnet communication is not shouting in the same room. It requires routers to forward traffic hop by hop. What you need is no longer ARP, but a way to tell routing devices: “This VIP or route should go toward this Node.”</p>
 <p>跨網段不是在同一個房間裡喊話，而是要透過路由器一站一站轉送。這時候你需要的就不是 ARP，而是讓路由設備知道：「這個 VIP 或這段路由，應該往哪個 Node 走。」</p>
-<p>BGP is the dynamic routing protocol that appears in this kind of scenario.</p>
 <p>BGP 就是在這種情境下會出現的動態路由協定。</p>
-<p>When I studied CCNA before, BGP felt like something used by large networks, ISPs, and the Internet backbone. But when a Kubernetes Cluster starts involving cross-subnet design, highly available ingress, and route advertisement, those concepts suddenly stop feeling distant.</p>
 <p>以前學 CCNA 時，BGP 對我來說比較像是大型網路、ISP、網際網路骨幹才會用到的東西。可是當 Kubernetes Cluster 開始牽涉跨網段、高可用入口、路由宣告時，這些概念突然就不再遙遠。</p>
-<p>You begin to understand why many Kubernetes networking documents talk about BGP, why some CNI solutions support BGP, and why MetalLB also has a BGP mode.</p>
 <p>你會開始理解，為什麼很多 Kubernetes 網路文件會談到 BGP，為什麼 CNI 有些方案會支援 BGP，為什麼 MetalLB 也有 BGP 模式。</p>
-<p>Because once your system is no longer a single machine or a few machines in the same subnet, and instead starts crossing subnets, environments, or data centers, routing becomes part of system design.</p>
 <p>因為當你的系統不再只是單機，不再只是同網段的幾台機器，而是開始要跨網段、跨環境、跨資料中心時，路由就會變成系統設計的一部分。</p>
 <p><img src="https://miruorange.github.io/blog/2026/05/03/why-ccna-matters-when-building-kubernetes-locally/arp-to-bgp-routing.png" alt="ARP can find an entry point within the same subnet, while cross-subnet traffic needs routing protocols to advertise paths"></p>
-<p>This is one reason I think CCNA is valuable. It is not only about configuring Cisco devices. It gives you the ability to understand why packets travel where they do inside a network.</p>
 <p>這也是我覺得 CCNA 很有價值的地方。它不只是教你怎麼設定 Cisco 設備，而是讓你有能力理解封包在網路裡為什麼會走到那裡。</p>
 <hr>
-<h2 id="SNAT-and-DNAT-Traffic-Control-Behind-Kubernetes-Services"><a href="#SNAT-and-DNAT-Traffic-Control-Behind-Kubernetes-Services" class="headerlink" title="SNAT and DNAT: Traffic Control Behind Kubernetes Services"></a>SNAT and DNAT: Traffic Control Behind Kubernetes Services</h2><h2 id="SNAT、DNAT：Kubernetes-Service-背後的交通指揮"><a href="#SNAT、DNAT：Kubernetes-Service-背後的交通指揮" class="headerlink" title="SNAT、DNAT：Kubernetes Service 背後的交通指揮"></a>SNAT、DNAT：Kubernetes Service 背後的交通指揮</h2><p>Besides CNI and LoadBalancer, Kubernetes also contains a very common but easily overlooked concept: NAT.</p>
-<p>除了 CNI 和 LoadBalancer，Kubernetes 裡還有一個非常常見但容易被忽略的概念：NAT。</p>
-<p>In everyday backend development, we may hear more about APIs, databases, queues, and caches. But in the container and Kubernetes world, SNAT and DNAT appear constantly.</p>
+<h2 id="SNAT、DNAT：Kubernetes-Service-背後的交通指揮"><a href="#SNAT、DNAT：Kubernetes-Service-背後的交通指揮" class="headerlink" title="SNAT、DNAT：Kubernetes Service 背後的交通指揮"></a>SNAT、DNAT：Kubernetes Service 背後的交通指揮</h2><p>除了 CNI 和 LoadBalancer，Kubernetes 裡還有一個非常常見但容易被忽略的概念：NAT。</p>
 <p>在一般後端開發裡，我們可能比較常聽到 API、資料庫、Queue、Cache。可是到了容器和 Kubernetes 世界，SNAT、DNAT 會一直出現。</p>
-<p>DNAT can be understood simply as this: the packet was originally aimed at a Service IP, but the system changes the destination to the real Pod IP.</p>
 <p>DNAT 可以簡單理解成：原本封包是要打到某個 Service IP，但系統把目的地改成真正的 Pod IP。</p>
-<p>SNAT can be understood as this: when a packet goes out, the source IP is rewritten so the return traffic knows how to come back.</p>
 <p>SNAT 則可以理解成：封包出去時，來源 IP 被改寫，讓回程流量知道要怎麼回來。</p>
-<p>These things sound low-level, but they support the daily operation of Kubernetes. When you access a Service and traffic is finally routed to a Pod, or when a Pod connects to the external network and the packets go out and return correctly, NAT, iptables, or related data-plane mechanisms are involved behind the scenes.</p>
 <p>這些事情聽起來很底層，但它們其實就在支撐 Kubernetes 的日常運作。當你打到一個 Service，流量最後被導到某個 Pod；當 Pod 要連出去外部網路，封包可以正常出去再回來，背後都跟 NAT、iptables 或相關資料平面機制有關。</p>
-<p>If you do not understand NAT at all, it is easy to stop at vague conclusions like “the Service is broken,” “the Pod is broken,” or “Kubernetes is hard.”</p>
 <p>如果完全不懂 NAT，遇到連線問題時，很容易只停在「Service 壞了」、「Pod 壞了」、「Kubernetes 好難」。</p>
-<p>But if you understand SNAT and DNAT, you can at least start asking more precise questions:</p>
 <p>但如果你懂 SNAT、DNAT，你至少會開始問比較精準的問題：</p>
 <ul>
-<li><p>Was the packet’s source IP rewritten?</p>
-</li>
-<li><p>Was the destination IP translated to the correct Pod?</p>
-</li>
-<li><p>Did the return traffic use the same path?</p>
-</li>
-<li><p>Are the forwarding rules on the Node working correctly?</p>
-</li>
-<li><p>封包的來源 IP 有沒有被改寫？</p>
-</li>
-<li><p>目的地 IP 是不是被轉到正確的 Pod？</p>
-</li>
-<li><p>回程流量有沒有走同一條路？</p>
-</li>
-<li><p>Node 上的轉送規則是否正常？</p>
-</li>
+<li>封包的來源 IP 有沒有被改寫？</li>
+<li>目的地 IP 是不是被轉到正確的 Pod？</li>
+<li>回程流量有沒有走同一條路？</li>
+<li>Node 上的轉送規則是否正常？</li>
 </ul>
-<p>Being able to ask more precise questions usually means you are much closer to the answer.</p>
 <p>能問出比較精準的問題，通常就代表你離答案近很多。</p>
 <hr>
-<h2 id="Building-Kubernetes-Locally-Showed-Me-My-Low-Level-Capabilities"><a href="#Building-Kubernetes-Locally-Showed-Me-My-Low-Level-Capabilities" class="headerlink" title="Building Kubernetes Locally Showed Me My Low-Level Capabilities"></a>Building Kubernetes Locally Showed Me My Low-Level Capabilities</h2><h2 id="本地自架-Kubernetes，讓我看到自己的底層能力"><a href="#本地自架-Kubernetes，讓我看到自己的底層能力" class="headerlink" title="本地自架 Kubernetes，讓我看到自己的底層能力"></a>本地自架 Kubernetes，讓我看到自己的底層能力</h2><p>In a Kubernetes-related book, I saw the author recommend that beginners start with a cloud Kubernetes service because building it locally is not simple. Unless you are truly familiar with the underlying environment, it is easy to spend a lot of time stuck on installation, networking, and environment issues.</p>
-<p>我在某本 Kubernetes 相關書籍裡看到作者建議初學者可以先使用雲端的 Kubernetes 服務，因為本地自己架起來其實不簡單。除非你真的很熟悉底層環境，否則很容易花大量時間卡在安裝、網路與環境問題上。</p>
-<p>When I saw that paragraph, I smiled knowingly.</p>
+<h2 id="本地自架-Kubernetes，讓我看到自己的底層能力"><a href="#本地自架-Kubernetes，讓我看到自己的底層能力" class="headerlink" title="本地自架 Kubernetes，讓我看到自己的底層能力"></a>本地自架 Kubernetes，讓我看到自己的底層能力</h2><p>我在某本 Kubernetes 相關書籍裡看到作者建議初學者可以先使用雲端的 Kubernetes 服務，因為本地自己架起來其實不簡單。除非你真的很熟悉底層環境，否則很容易花大量時間卡在安裝、網路與環境問題上。</p>
 <p>看到那段話時，我其實有點會心一笑。</p>
-<p>Because I completely understand why the author gave that advice. Managed Kubernetes can indeed remove a lot of pain and help you enter the application deployment stage faster.</p>
 <p>因為我完全懂作者為什麼這樣建議。Managed Kubernetes 的確能讓你少掉很多痛苦，也能更快進入應用部署的階段。</p>
-<p>But this time, I deliberately chose to build it in a Local environment. Not because I enjoy making myself suffer, but because I wanted to know how it really works underneath.</p>
 <p>但我這次反而是刻意選擇在 Local 環境把它架起來。不是因為我喜歡把自己搞得很累，而是因為我想知道它底下到底怎麼跑。</p>
-<p>When you build the Cluster yourself and handle Nodes, CNI, Services, MetalLB, VIPs, network planning, and packet forwarding problems, you gain a grounded understanding. It is not the feeling of “I think I understand” after reading docs. It is the understanding that comes from actually hitting problems, tracing paths, changing settings, and finally making it run.</p>
 <p>當你自己把 Cluster 架起來，自己處理 Node、CNI、Service、MetalLB、VIP、網段規劃、封包轉送問題時，你會得到一種很踏實的理解。那不是看完文件後的「我好像懂了」，而是你真的碰過問題、查過路徑、改過設定，最後讓它跑起來。</p>
-<p>This matters a lot to me.</p>
 <p>這件事對我來說很重要。</p>
-<p>Because I write this blog not only to record learning, but also to let my future self, and perhaps future interviewers, see that I am not someone who only writes code at the application layer. I am also willing to go deeper and understand how systems are supported from below.</p>
 <p>因為我寫部落格，不只是為了記錄學習，也是為了讓未來的自己、甚至未來的面試官看到：我不是只會在應用層寫程式而已，我也願意往下理解系統是怎麼被撐起來的。</p>
-<p>Independently building and troubleshooting a Kubernetes Cluster in a Local environment is not just a flashy skill description to me. It is a learning journey I actually walked through.</p>
 <p>能在 Local 環境獨立完成 Kubernetes Cluster 的建置與排查，對我來說不是一句很炫的技能描述，而是一段實際走過的學習過程。</p>
 <hr>
-<h2 id="Conclusion-CCNA-Is-Not-Only-for-Network-Administrators-It-Is-a-Foundation-for-Modern-Engineers"><a href="#Conclusion-CCNA-Is-Not-Only-for-Network-Administrators-It-Is-a-Foundation-for-Modern-Engineers" class="headerlink" title="Conclusion: CCNA Is Not Only for Network Administrators. It Is a Foundation for Modern Engineers."></a>Conclusion: CCNA Is Not Only for Network Administrators. It Is a Foundation for Modern Engineers.</h2><h2 id="結論：CCNA-不是網管專用，而是現代工程師的地基"><a href="#結論：CCNA-不是網管專用，而是現代工程師的地基" class="headerlink" title="結論：CCNA 不是網管專用，而是現代工程師的地基"></a>結論：CCNA 不是網管專用，而是現代工程師的地基</h2><p>Looking back, I previously wrote an article about why I recommend backend engineers understand CCNA. At that time, I mainly looked at it from the perspective of Docker, backend deployment, Linux, and security.</p>
-<p>回頭看，我之前寫過一篇文章，分享為什麼我推薦後端工程師去了解 CCNA。那時候我主要是從 Docker、後端部署、Linux、資安的角度去看。</p>
-<p>Building Kubernetes locally this time made me even more certain of that idea.</p>
+<h2 id="結論：CCNA-不是網管專用，而是現代工程師的地基"><a href="#結論：CCNA-不是網管專用，而是現代工程師的地基" class="headerlink" title="結論：CCNA 不是網管專用，而是現代工程師的地基"></a>結論：CCNA 不是網管專用，而是現代工程師的地基</h2><p>回頭看，我之前寫過一篇文章，分享為什麼我推薦後端工程師去了解 CCNA。那時候我主要是從 Docker、後端部署、Linux、資安的角度去看。</p>
 <p>而這次本地架 Kubernetes，讓我更確定這個想法。</p>
-<p>CCNA is not something only network administrators need to understand. For modern backend engineers, Infra engineers, DevOps engineers, and anyone who truly wants to understand how systems operate, networking is an unavoidable foundation.</p>
 <p>CCNA 不是只有網管才需要懂的東西。對現代後端工程師、Infra 工程師、DevOps 工程師，甚至任何想真正理解系統運作的人來說，網路都是逃不掉的地基。</p>
-<p>Kubernetes simply magnifies this fact.</p>
 <p>Kubernetes 只是把這件事放大給你看。</p>
-<p>When you start dealing with a Cluster, you discover that packets flow behind every layer of abstraction. Pods do not communicate out of thin air. Services do not forward traffic out of thin air. VIPs do not exist out of thin air. LoadBalancers do not magically send traffic to the right place.</p>
 <p>當你開始處理 Cluster，你會發現每一層抽象背後都有封包在流動。Pod 不是憑空溝通，Service 不是憑空轉發，VIP 不是憑空存在，LoadBalancer 也不是憑空把流量送到正確位置。</p>
-<p>They are all supported by networking principles.</p>
 <p>它們背後都有網路原理在支撐。</p>
-<p>So if you ask me whether you need to understand CCNA before learning Kubernetes, my answer is: you do not necessarily need to get certified first, but you really should understand those concepts.</p>
 <p>所以如果你問我，學 Kubernetes 前要不要懂 CCNA？</p>
 <p>我的答案會是：不一定要先考證照，但真的該懂那些觀念。</p>
-<p>Because once you have that foundation, when you look at Kubernetes, you will see more than YAML and commands. You will see how a complete system connects compute, networking, and services.</p>
 <p>因為當你有了這些基礎，再去看 Kubernetes，你看到的就不只是 YAML 和指令，而是一個完整系統如何把計算、網路與服務串起來。</p>
-<p>This is also the direction I want to keep moving toward: not merely writing features, but becoming an engineer who understands the whole system and can handle real-world environment problems.</p>
 <p>這也是我希望自己持續走下去的方向：不是只會寫功能，而是成為一個能理解系統全貌、能處理真實環境問題的工程師。</p>
 
     </article>
@@ -681,7 +686,7 @@
             <p>Author：<a href="https://miruorange.github.io/blog/about/">Ken Hsu</a>
             <p>Link：<a href="https://miruorange.github.io/blog/2026/05/03/why-ccna-matters-when-building-kubernetes-locally/">https://miruorange.github.io/blog/2026/05/03/why-ccna-matters-when-building-kubernetes-locally/</a>
             <p>Publish date：<a href="https://miruorange.github.io/blog/2026/05/03/why-ccna-matters-when-building-kubernetes-locally/">May 3rd 2026, 9:30:00 pm</a>
-            <p>Update date：<a href="https://miruorange.github.io/blog/2026/05/03/why-ccna-matters-when-building-kubernetes-locally/">May 18th 2026, 8:58:47 pm</a>
+            <p>Update date：<a href="https://miruorange.github.io/blog/2026/05/03/why-ccna-matters-when-building-kubernetes-locally/">May 19th 2026, 9:13:13 pm</a>
             <p>License：本文依 <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a> 授權</p>
         </div>
     <!-- paginator -->
@@ -741,7 +746,7 @@
                 <div class="toc-catalog">
                     <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
                 </div>
-                <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Kubernetes-Is-Not-Just-About-Running-kubectl-apply"><span class="toc-number">1.</span> <span class="toc-text">Kubernetes Is Not Just About Running kubectl apply</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Kubernetes-%E4%B8%8D%E6%98%AF%E5%8F%AA%E6%9C%83-kubectl-apply-%E5%B0%B1%E5%A5%BD"><span class="toc-number">2.</span> <span class="toc-text">Kubernetes 不是只會 kubectl apply 就好</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#The-First-Question-Should-Nodes-Be-in-the-Same-Subnet-or-Across-Subnets"><span class="toc-number">3.</span> <span class="toc-text">The First Question: Should Nodes Be in the Same Subnet or Across Subnets?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E5%80%8B%E5%95%8F%E9%A1%8C%EF%BC%9ANode-%E8%A6%81%E5%90%8C%E7%B6%B2%E6%AE%B5%E9%82%84%E6%98%AF%E8%B7%A8%E7%B6%B2%E6%AE%B5%EF%BC%9F"><span class="toc-number">4.</span> <span class="toc-text">第一個問題：Node 要同網段還是跨網段？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Flannel%E2%80%99s-VXLAN-Is-Basically-Putting-a-Jacket-Around-Packets"><span class="toc-number">5.</span> <span class="toc-text">Flannel’s VXLAN Is Basically Putting a Jacket Around Packets</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Flannel-%E7%9A%84-VXLAN%EF%BC%8C%E5%85%B6%E5%AF%A6%E5%B0%B1%E6%98%AF%E5%9C%A8%E5%B9%AB%E5%B0%81%E5%8C%85%E5%8C%85%E4%B8%80%E5%B1%A4%E5%A4%96%E5%A5%97"><span class="toc-number">6.</span> <span class="toc-text">Flannel 的 VXLAN，其實就是在幫封包包一層外套</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MetalLB%E2%80%99s-VIP-How-Can-a-Nonexistent-IP-Receive-Packets"><span class="toc-number">7.</span> <span class="toc-text">MetalLB’s VIP: How Can a Nonexistent IP Receive Packets?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MetalLB-%E7%9A%84-VIP%EF%BC%9A%E9%82%A3%E5%80%8B%E4%B8%8D%E5%AD%98%E5%9C%A8%E7%9A%84-IP-%E7%82%BA%E4%BB%80%E9%BA%BC%E6%94%B6%E5%BE%97%E5%88%B0%E5%B0%81%E5%8C%85%EF%BC%9F"><span class="toc-number">8.</span> <span class="toc-text">MetalLB 的 VIP：那個不存在的 IP 為什麼收得到封包？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#From-ARP-to-BGP-Across-Subnets-Shouting-Is-Not-Enough"><span class="toc-number">9.</span> <span class="toc-text">From ARP to BGP: Across Subnets, Shouting Is Not Enough</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BE%9E-ARP-%E5%88%B0-BGP%EF%BC%9A%E8%B7%A8%E7%B6%B2%E6%AE%B5%E5%B0%B1%E4%B8%8D%E8%83%BD%E5%8F%AA%E9%9D%A0%E5%96%8A%E8%A9%B1"><span class="toc-number">10.</span> <span class="toc-text">從 ARP 到 BGP：跨網段就不能只靠喊話</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SNAT-and-DNAT-Traffic-Control-Behind-Kubernetes-Services"><span class="toc-number">11.</span> <span class="toc-text">SNAT and DNAT: Traffic Control Behind Kubernetes Services</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SNAT%E3%80%81DNAT%EF%BC%9AKubernetes-Service-%E8%83%8C%E5%BE%8C%E7%9A%84%E4%BA%A4%E9%80%9A%E6%8C%87%E6%8F%AE"><span class="toc-number">12.</span> <span class="toc-text">SNAT、DNAT：Kubernetes Service 背後的交通指揮</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Building-Kubernetes-Locally-Showed-Me-My-Low-Level-Capabilities"><span class="toc-number">13.</span> <span class="toc-text">Building Kubernetes Locally Showed Me My Low-Level Capabilities</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%AC%E5%9C%B0%E8%87%AA%E6%9E%B6-Kubernetes%EF%BC%8C%E8%AE%93%E6%88%91%E7%9C%8B%E5%88%B0%E8%87%AA%E5%B7%B1%E7%9A%84%E5%BA%95%E5%B1%A4%E8%83%BD%E5%8A%9B"><span class="toc-number">14.</span> <span class="toc-text">本地自架 Kubernetes，讓我看到自己的底層能力</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Conclusion-CCNA-Is-Not-Only-for-Network-Administrators-It-Is-a-Foundation-for-Modern-Engineers"><span class="toc-number">15.</span> <span class="toc-text">Conclusion: CCNA Is Not Only for Network Administrators. It Is a Foundation for Modern Engineers.</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B5%90%E8%AB%96%EF%BC%9ACCNA-%E4%B8%8D%E6%98%AF%E7%B6%B2%E7%AE%A1%E5%B0%88%E7%94%A8%EF%BC%8C%E8%80%8C%E6%98%AF%E7%8F%BE%E4%BB%A3%E5%B7%A5%E7%A8%8B%E5%B8%AB%E7%9A%84%E5%9C%B0%E5%9F%BA"><span class="toc-number">16.</span> <span class="toc-text">結論：CCNA 不是網管專用，而是現代工程師的地基</span></a></li></ol>
+                <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Kubernetes-Is-Not-Just-About-Running-kubectl-apply"><span class="toc-number">1.</span> <span class="toc-text">Kubernetes Is Not Just About Running kubectl apply</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#The-First-Question-Should-Nodes-Be-in-the-Same-Subnet-or-Across-Subnets"><span class="toc-number">2.</span> <span class="toc-text">The First Question: Should Nodes Be in the Same Subnet or Across Subnets?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Flannel%E2%80%99s-VXLAN-Is-Basically-Putting-a-Jacket-Around-Packets"><span class="toc-number">3.</span> <span class="toc-text">Flannel’s VXLAN Is Basically Putting a Jacket Around Packets</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MetalLB%E2%80%99s-VIP-How-Can-a-Nonexistent-IP-Receive-Packets"><span class="toc-number">4.</span> <span class="toc-text">MetalLB’s VIP: How Can a Nonexistent IP Receive Packets?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#From-ARP-to-BGP-Across-Subnets-Shouting-Is-Not-Enough"><span class="toc-number">5.</span> <span class="toc-text">From ARP to BGP: Across Subnets, Shouting Is Not Enough</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SNAT-and-DNAT-Traffic-Control-Behind-Kubernetes-Services"><span class="toc-number">6.</span> <span class="toc-text">SNAT and DNAT: Traffic Control Behind Kubernetes Services</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Building-Kubernetes-Locally-Showed-Me-My-Low-Level-Capabilities"><span class="toc-number">7.</span> <span class="toc-text">Building Kubernetes Locally Showed Me My Low-Level Capabilities</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Conclusion-CCNA-Is-Not-Only-for-Network-Administrators-It-Is-a-Foundation-for-Modern-Engineers"><span class="toc-number">8.</span> <span class="toc-text">Conclusion: CCNA Is Not Only for Network Administrators. It Is a Foundation for Modern Engineers.</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%AD%E6%96%87%E7%89%88"><span class="toc-number">9.</span> <span class="toc-text">中文版</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Kubernetes-%E4%B8%8D%E6%98%AF%E5%8F%AA%E6%9C%83-kubectl-apply-%E5%B0%B1%E5%A5%BD"><span class="toc-number">10.</span> <span class="toc-text">Kubernetes 不是只會 kubectl apply 就好</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E5%80%8B%E5%95%8F%E9%A1%8C%EF%BC%9ANode-%E8%A6%81%E5%90%8C%E7%B6%B2%E6%AE%B5%E9%82%84%E6%98%AF%E8%B7%A8%E7%B6%B2%E6%AE%B5%EF%BC%9F"><span class="toc-number">11.</span> <span class="toc-text">第一個問題：Node 要同網段還是跨網段？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Flannel-%E7%9A%84-VXLAN%EF%BC%8C%E5%85%B6%E5%AF%A6%E5%B0%B1%E6%98%AF%E5%9C%A8%E5%B9%AB%E5%B0%81%E5%8C%85%E5%8C%85%E4%B8%80%E5%B1%A4%E5%A4%96%E5%A5%97"><span class="toc-number">12.</span> <span class="toc-text">Flannel 的 VXLAN，其實就是在幫封包包一層外套</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MetalLB-%E7%9A%84-VIP%EF%BC%9A%E9%82%A3%E5%80%8B%E4%B8%8D%E5%AD%98%E5%9C%A8%E7%9A%84-IP-%E7%82%BA%E4%BB%80%E9%BA%BC%E6%94%B6%E5%BE%97%E5%88%B0%E5%B0%81%E5%8C%85%EF%BC%9F"><span class="toc-number">13.</span> <span class="toc-text">MetalLB 的 VIP：那個不存在的 IP 為什麼收得到封包？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BE%9E-ARP-%E5%88%B0-BGP%EF%BC%9A%E8%B7%A8%E7%B6%B2%E6%AE%B5%E5%B0%B1%E4%B8%8D%E8%83%BD%E5%8F%AA%E9%9D%A0%E5%96%8A%E8%A9%B1"><span class="toc-number">14.</span> <span class="toc-text">從 ARP 到 BGP：跨網段就不能只靠喊話</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SNAT%E3%80%81DNAT%EF%BC%9AKubernetes-Service-%E8%83%8C%E5%BE%8C%E7%9A%84%E4%BA%A4%E9%80%9A%E6%8C%87%E6%8F%AE"><span class="toc-number">15.</span> <span class="toc-text">SNAT、DNAT：Kubernetes Service 背後的交通指揮</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%AC%E5%9C%B0%E8%87%AA%E6%9E%B6-Kubernetes%EF%BC%8C%E8%AE%93%E6%88%91%E7%9C%8B%E5%88%B0%E8%87%AA%E5%B7%B1%E7%9A%84%E5%BA%95%E5%B1%A4%E8%83%BD%E5%8A%9B"><span class="toc-number">16.</span> <span class="toc-text">本地自架 Kubernetes，讓我看到自己的底層能力</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B5%90%E8%AB%96%EF%BC%9ACCNA-%E4%B8%8D%E6%98%AF%E7%B6%B2%E7%AE%A1%E5%B0%88%E7%94%A8%EF%BC%8C%E8%80%8C%E6%98%AF%E7%8F%BE%E4%BB%A3%E5%B7%A5%E7%A8%8B%E5%B8%AB%E7%9A%84%E5%9C%B0%E5%9F%BA"><span class="toc-number">17.</span> <span class="toc-text">結論：CCNA 不是網管專用，而是現代工程師的地基</span></a></li></ol>
             </div>
         <!-- sidebar -->
         <div class="sidebar sidebar-hide">

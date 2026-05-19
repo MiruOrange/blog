@@ -10,15 +10,15 @@
     <meta name="copyright" content="Ken Hsu">
         <meta name="keywords" content="python,full-stack,web,development,backend,frontend,database,server,client,network,security,algorithm,data structure,programming,software,engineering,computer,science,technology,learning,sharing,experience,knowledge,tutorial">
     <meta name="description" content="這是一篇關於技術學習的部落格文章，分享了撰寫技術筆記的過程。">
-    <meta name="description" content="The Short Answer First先上結論If you are just getting started with Linux, I recommend starting with Ubuntu. Why? Because it is simple, easy to use, has abundant learning resources, and Ubuntu is also the">
+    <meta name="description" content="The Short Answer FirstIf you are just getting started with Linux, I recommend starting with Ubuntu. Why? Because it is simple, easy to use, has abundant learning resources, and Ubuntu is also the defa">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux Journey Part 2: Which Linux Distribution Should I Learn?">
 <meta property="og:url" content="https://miruorange.github.io/blog/2024/11/16/linux-journey-part2-which-linux-distro-to-learn/index.html">
 <meta property="og:site_name" content="朝向全端之路：從基礎到進階的技術探索 by Ken">
-<meta property="og:description" content="The Short Answer First先上結論If you are just getting started with Linux, I recommend starting with Ubuntu. Why? Because it is simple, easy to use, has abundant learning resources, and Ubuntu is also the">
+<meta property="og:description" content="The Short Answer FirstIf you are just getting started with Linux, I recommend starting with Ubuntu. Why? Because it is simple, easy to use, has abundant learning resources, and Ubuntu is also the defa">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2024-11-16T02:34:26.000Z">
-<meta property="article:modified_time" content="2026-05-18T12:51:50.617Z">
+<meta property="article:modified_time" content="2026-05-19T13:13:13.667Z">
 <meta property="article:author" content="Ken Hsu">
 <meta property="article:tag" content="Linux">
 <meta name="twitter:card" content="summary">
@@ -448,101 +448,52 @@
             <div class="container container-unloaded">
                 <main class="main post-page">
     """    <article class="article-entry">
-        <h2 id="The-Short-Answer-First"><a href="#The-Short-Answer-First" class="headerlink" title="The Short Answer First"></a><strong>The Short Answer First</strong></h2><h2 id="先上結論"><a href="#先上結論" class="headerlink" title="先上結論"></a><strong>先上結論</strong></h2><p>If you are just getting started with Linux, I recommend starting with <strong>Ubuntu</strong>. Why? Because it is simple, easy to use, has abundant learning resources, and Ubuntu is also the default distribution commonly used with Windows WSL (Windows Subsystem for Linux). You can start right away without installing a virtual machine, which makes it very beginner-friendly.</p>
-<p>如果你剛開始接觸 Linux，我推薦你從 <strong>Ubuntu</strong> 開始學習。為什麼？因為它簡單好用，資源又多，而且 Windows 的 WSL（Windows Subsystem for Linux）預設用的就是 Ubuntu，直接開箱即用，不用安裝虛擬機，對於新手來說非常友善。</p>
+        <h2 id="The-Short-Answer-First"><a href="#The-Short-Answer-First" class="headerlink" title="The Short Answer First"></a><strong>The Short Answer First</strong></h2><p>If you are just getting started with Linux, I recommend starting with <strong>Ubuntu</strong>. Why? Because it is simple, easy to use, has abundant learning resources, and Ubuntu is also the default distribution commonly used with Windows WSL (Windows Subsystem for Linux). You can start right away without installing a virtual machine, which makes it very beginner-friendly.</p>
 <blockquote>
 <p>Speaking from my own experience, whether I am building side projects or working at the company, I mostly use Ubuntu. The point is that it is free and more than good enough. Also, the basic commands are similar across different distributions, so once you learn Ubuntu, switching to another distribution later will be much easier. You do not need to worry that your learning will go to waste.</p>
 </blockquote>
-<blockquote>
-<p>就拿我自己來說，不管是平常寫 Side Project 還是在公司裡工作，大多用的也是 Ubuntu！重點是它免費又夠用啊！而且不同版本之間，基本指令其實都差不多，學了 Ubuntu 以後，你要切換到別的版本也很快上手，完全不用擔心「學了白學」這種事。</p>
-</blockquote>
 <hr>
-<h2 id="What-Is-the-Linux-Kernel"><a href="#What-Is-the-Linux-Kernel" class="headerlink" title="What Is the Linux Kernel?"></a><strong>What Is the Linux Kernel?</strong></h2><h2 id="什麼叫做-Linux-的核心-Kernel"><a href="#什麼叫做-Linux-的核心-Kernel" class="headerlink" title="什麼叫做 Linux 的核心 (Kernel)"></a><strong>什麼叫做 Linux 的核心 (Kernel)</strong></h2><p>To understand Linux, we first need to understand what a “kernel” is.</p>
-<p>要了解 Linux，先來搞清楚什麼是「核心」。</p>
+<h2 id="What-Is-the-Linux-Kernel"><a href="#What-Is-the-Linux-Kernel" class="headerlink" title="What Is the Linux Kernel?"></a><strong>What Is the Linux Kernel?</strong></h2><p>To understand Linux, we first need to understand what a “kernel” is.</p>
 <p>A computer is basically a machine assembled from many hardware components. To make it work, there needs to be a “translator” that communicates our requests to the hardware. For example, when you press a key on the keyboard, how does the computer know which key you pressed? These things are handled by the operating system kernel, and the <strong>Linux kernel</strong> is that translator.</p>
-<p>電腦其實就像一堆硬體零件拼起來的機器，想讓它動起來，總得有個「翻譯官」幫我們把需求講給硬體聽。比如你敲鍵盤，電腦怎麼知道你按的是哪個鍵？這些事情全靠作業系統的核心處理，而 <strong>Linux 核心</strong> 就是這個翻譯官。</p>
 <p>As an analogy, a computer is like a car, and the Linux kernel is its engine. With an engine, the car can run. But what if there is no steering wheel, frame, or seats? You still cannot really drive it. That is why we need additional tools and software around the kernel, and those are what we commonly call distributions.</p>
-<p>打個比方，電腦就像一輛車，Linux 核心是它的「引擎」。有了引擎，車子才能跑起來，但如果沒有方向盤、車架和座椅呢？那這車也沒法開。所以，我們需要在核心之外，再配上一些工具和軟體，這些就是我們常說的「發行版本」。</p>
 <hr>
-<h2 id="What-Is-a-Linux-Distribution"><a href="#What-Is-a-Linux-Distribution" class="headerlink" title="What Is a Linux Distribution?"></a><strong>What Is a Linux Distribution?</strong></h2><h2 id="什麼是-Linux-發行版本"><a href="#什麼是-Linux-發行版本" class="headerlink" title="什麼是 Linux 發行版本"></a><strong>什麼是 Linux 發行版本</strong></h2><p>Simply put, a Linux distribution is a packaged version that combines the kernel with other useful tools. It makes Linux easier to use and serves different types of users.</p>
-<p>簡單來說，Linux 發行版本就是把「核心」和其他實用工具包裝在一起的一個「套裝版」，用起來更方便，適合不同需求的使用者。</p>
+<h2 id="What-Is-a-Linux-Distribution"><a href="#What-Is-a-Linux-Distribution" class="headerlink" title="What Is a Linux Distribution?"></a><strong>What Is a Linux Distribution?</strong></h2><p>Simply put, a Linux distribution is a packaged version that combines the kernel with other useful tools. It makes Linux easier to use and serves different types of users.</p>
 <p>Just like cars come in different models, some are built for racing, some are good for driving children to school, and some are designed for cargo. Linux distributions also come in many choices. Although they share the same kernel, their tools and design goals can be very different. Here are a few well-known distributions:</p>
-<p>就像車有不同的型號一樣，有的車適合賽車手，有的適合帶孩子上下學，有的專為運貨設計。同樣，Linux 的發行版本也有很多選擇，雖然它們的核心（引擎）一樣，但裡面的工具和設計方向可能很不一樣。下面我介紹幾個比較有名的版本：</p>
 <h3 id="Ubuntu"><a href="#Ubuntu" class="headerlink" title="Ubuntu"></a><strong>Ubuntu</strong></h3><h3 id="Ubuntu-1"><a href="#Ubuntu-1" class="headerlink" title="Ubuntu"></a><strong>Ubuntu</strong></h3><ul>
-<li><p><strong>Nature</strong>: Free software developed by Canonical, with community participation in maintenance.</p>
-</li>
-<li><p><strong>Advantages</strong>:</p>
-<ul>
+<li><strong>Nature</strong>: Free software developed by Canonical, with community participation in maintenance.</li>
+<li><strong>Advantages</strong>:<ul>
 <li>Free and easy to get started with, very friendly to beginners.</li>
 <li>A huge amount of learning resources and community support are available online.</li>
 <li>Updates are relatively fast, so you can try many newer features.</li>
 </ul>
 </li>
-<li><p><strong>Disadvantages</strong>:</p>
-<ul>
+<li><strong>Disadvantages</strong>:<ul>
 <li>Although there are LTS versions with long-term support, if you run into very complex issues, you may still need to research and solve them yourself because it does not come with dedicated enterprise support like commercial products.</li>
-</ul>
-</li>
-<li><p><strong>性質</strong>：免費軟體，由 Canonical 公司開發，社群也有參與維護。</p>
-</li>
-<li><p><strong>優點</strong>：</p>
-<ul>
-<li>免費而且容易上手，對初學者非常友好。</li>
-<li>網上有超多學習資源和社群可以幫你解答問題。</li>
-<li>更新速度快，可以試到不少最新的功能。</li>
-</ul>
-</li>
-<li><p><strong>缺點</strong>：</p>
-<ul>
-<li>雖然有「LTS」長期支援版，但如果真的遇到很複雜的問題，可能還是得靠自己多查資料，因為不像商業產品那樣有專人技術支援。</li>
 </ul>
 </li>
 </ul>
 <blockquote>
 <p>Best for: beginners who want to try Linux, and developers who need to quickly set up a development environment.</p>
 </blockquote>
-<blockquote>
-<p>適合誰：想試試 Linux 的新手、需要快速搭建開發環境的程式設計師。</p>
-</blockquote>
 <hr>
 <h3 id="Red-Hat-RHEL"><a href="#Red-Hat-RHEL" class="headerlink" title="Red Hat (RHEL)"></a><strong>Red Hat (RHEL)</strong></h3><h3 id="Red-Hat-RHEL-1"><a href="#Red-Hat-RHEL-1" class="headerlink" title="Red Hat (RHEL)"></a><strong>Red Hat (RHEL)</strong></h3><ul>
-<li><p><strong>Nature</strong>: A commercial distribution developed by Red Hat, with enterprise-level support.</p>
-</li>
-<li><p><strong>Advantages</strong>:</p>
-<ul>
+<li><strong>Nature</strong>: A commercial distribution developed by Red Hat, with enterprise-level support.</li>
+<li><strong>Advantages</strong>:<ul>
 <li>Extremely stable and widely used by companies as a server operating system.</li>
 <li>Provides professional technical support, with strong security and reliability.</li>
 <li>Its certifications, such as RHCE and RHCA, are highly recognized in the IT industry.</li>
 </ul>
 </li>
-<li><p><strong>Disadvantages</strong>:</p>
-<ul>
+<li><strong>Disadvantages</strong>:<ul>
 <li>It requires a paid license, which can be expensive for individual users.</li>
-</ul>
-</li>
-<li><p><strong>性質</strong>：商業版，由 Red Hat 公司開發，提供企業級支援。</p>
-</li>
-<li><p><strong>優點</strong>：</p>
-<ul>
-<li>非常穩定，很多公司用它來當伺服器系統。</li>
-<li>有專業的技術支援，安全性和可靠性都很高。</li>
-<li>它家的證照（比如 RHCE、RHCA）在 IT 界可是「黃金招牌」，很多大公司都認。</li>
-</ul>
-</li>
-<li><p><strong>缺點</strong>：</p>
-<ul>
-<li>要花錢買授權，對於個人來說成本比較高。</li>
 </ul>
 </li>
 </ul>
 <blockquote>
 <p>Best for: enterprise users, or engineers who want to deeply study enterprise Linux.</p>
 </blockquote>
-<blockquote>
-<p>適合誰：公司用戶，或者想深度學習企業級 Linux 的工程師。</p>
-</blockquote>
 <hr>
-<h3 id="A-Quick-Look-at-Other-Distributions"><a href="#A-Quick-Look-at-Other-Distributions" class="headerlink" title="A Quick Look at Other Distributions"></a><strong>A Quick Look at Other Distributions</strong></h3><h3 id="其他發行版本簡介"><a href="#其他發行版本簡介" class="headerlink" title="其他發行版本簡介"></a><strong>其他發行版本簡介</strong></h3><ol>
+<h3 id="A-Quick-Look-at-Other-Distributions"><a href="#A-Quick-Look-at-Other-Distributions" class="headerlink" title="A Quick Look at Other Distributions"></a><strong>A Quick Look at Other Distributions</strong></h3><ol>
 <li><p><strong>Debian</strong></p>
 <ul>
 <li>A very stable distribution and the upstream source of Ubuntu. It is suitable for people who value stability and do not need too many new features.</li>
@@ -568,6 +519,67 @@
 <li>A minimal and lightweight distribution, very suitable for resource-constrained environments such as containerized systems.</li>
 </ul>
 </li>
+</ol>
+<hr>
+<h2 id="Why-Do-I-Recommend-Ubuntu"><a href="#Why-Do-I-Recommend-Ubuntu" class="headerlink" title="Why Do I Recommend Ubuntu?"></a><strong>Why Do I Recommend Ubuntu?</strong></h2><p>For beginners, Ubuntu is truly one of the friendliest choices. Here are the reasons:</p>
+<ol>
+<li><strong>Huge amount of resources</strong>: Whether you are looking for tutorial videos or forum answers, searching for Ubuntu-related questions usually leads to useful results.</li>
+<li><strong>WSL support</strong>: WSL on Windows commonly installs Ubuntu by default, saving you from a lot of complicated setup so you can start right away.</li>
+<li><strong>Stable yet modern</strong>: It balances stability with newer features, making it suitable for learning and development.</li>
+</ol>
+<blockquote>
+<p>The key point is that Ubuntu has a low learning barrier and relatively few beginner traps, allowing you to focus on learning the basics of Linux.</p>
+</blockquote>
+<hr>
+<h2 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a><strong>Conclusion</strong></h2><p>Learning Linux is like starting a brand-new adventure. It may feel difficult at first, but once you choose the right distribution, the learning curve becomes much smoother. For beginners, I still recommend starting with <strong>Ubuntu</strong>. After you become familiar with it, you can try more specialized distributions such as RHEL or Kali.</p>
+<p>In the next article, I will walk you through installing Ubuntu with <strong>WSL</strong>, so your Linux journey can truly begin with hands-on practice. Ready to get started? See you in the next post.</p>
+<hr>
+<h2 id="中文版"><a href="#中文版" class="headerlink" title="中文版"></a>中文版</h2><h2 id="先上結論"><a href="#先上結論" class="headerlink" title="先上結論"></a><strong>先上結論</strong></h2><p>如果你剛開始接觸 Linux，我推薦你從 <strong>Ubuntu</strong> 開始學習。為什麼？因為它簡單好用，資源又多，而且 Windows 的 WSL（Windows Subsystem for Linux）預設用的就是 Ubuntu，直接開箱即用，不用安裝虛擬機，對於新手來說非常友善。</p>
+<blockquote>
+<p>就拿我自己來說，不管是平常寫 Side Project 還是在公司裡工作，大多用的也是 Ubuntu！重點是它免費又夠用啊！而且不同版本之間，基本指令其實都差不多，學了 Ubuntu 以後，你要切換到別的版本也很快上手，完全不用擔心「學了白學」這種事。</p>
+</blockquote>
+<hr>
+<h2 id="什麼叫做-Linux-的核心-Kernel"><a href="#什麼叫做-Linux-的核心-Kernel" class="headerlink" title="什麼叫做 Linux 的核心 (Kernel)"></a><strong>什麼叫做 Linux 的核心 (Kernel)</strong></h2><p>要了解 Linux，先來搞清楚什麼是「核心」。</p>
+<p>電腦其實就像一堆硬體零件拼起來的機器，想讓它動起來，總得有個「翻譯官」幫我們把需求講給硬體聽。比如你敲鍵盤，電腦怎麼知道你按的是哪個鍵？這些事情全靠作業系統的核心處理，而 <strong>Linux 核心</strong> 就是這個翻譯官。</p>
+<p>打個比方，電腦就像一輛車，Linux 核心是它的「引擎」。有了引擎，車子才能跑起來，但如果沒有方向盤、車架和座椅呢？那這車也沒法開。所以，我們需要在核心之外，再配上一些工具和軟體，這些就是我們常說的「發行版本」。</p>
+<hr>
+<h2 id="什麼是-Linux-發行版本"><a href="#什麼是-Linux-發行版本" class="headerlink" title="什麼是 Linux 發行版本"></a><strong>什麼是 Linux 發行版本</strong></h2><p>簡單來說，Linux 發行版本就是把「核心」和其他實用工具包裝在一起的一個「套裝版」，用起來更方便，適合不同需求的使用者。</p>
+<p>就像車有不同的型號一樣，有的車適合賽車手，有的適合帶孩子上下學，有的專為運貨設計。同樣，Linux 的發行版本也有很多選擇，雖然它們的核心（引擎）一樣，但裡面的工具和設計方向可能很不一樣。下面我介紹幾個比較有名的版本：</p>
+<ul>
+<li><strong>性質</strong>：免費軟體，由 Canonical 公司開發，社群也有參與維護。</li>
+<li><strong>優點</strong>：<ul>
+<li>免費而且容易上手，對初學者非常友好。</li>
+<li>網上有超多學習資源和社群可以幫你解答問題。</li>
+<li>更新速度快，可以試到不少最新的功能。</li>
+</ul>
+</li>
+<li><strong>缺點</strong>：<ul>
+<li>雖然有「LTS」長期支援版，但如果真的遇到很複雜的問題，可能還是得靠自己多查資料，因為不像商業產品那樣有專人技術支援。</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>適合誰：想試試 Linux 的新手、需要快速搭建開發環境的程式設計師。</p>
+</blockquote>
+<hr>
+<ul>
+<li><strong>性質</strong>：商業版，由 Red Hat 公司開發，提供企業級支援。</li>
+<li><strong>優點</strong>：<ul>
+<li>非常穩定，很多公司用它來當伺服器系統。</li>
+<li>有專業的技術支援，安全性和可靠性都很高。</li>
+<li>它家的證照（比如 RHCE、RHCA）在 IT 界可是「黃金招牌」，很多大公司都認。</li>
+</ul>
+</li>
+<li><strong>缺點</strong>：<ul>
+<li>要花錢買授權，對於個人來說成本比較高。</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>適合誰：公司用戶，或者想深度學習企業級 Linux 的工程師。</p>
+</blockquote>
+<hr>
+<h3 id="其他發行版本簡介"><a href="#其他發行版本簡介" class="headerlink" title="其他發行版本簡介"></a><strong>其他發行版本簡介</strong></h3><ol>
 <li><p><strong>Debian</strong></p>
 <ul>
 <li>非常穩定的版本，也是 Ubuntu 的上游來源。適合追求穩定性、不需要太多新功能的人。</li>
@@ -595,32 +607,17 @@
 </li>
 </ol>
 <hr>
-<h2 id="Why-Do-I-Recommend-Ubuntu"><a href="#Why-Do-I-Recommend-Ubuntu" class="headerlink" title="Why Do I Recommend Ubuntu?"></a><strong>Why Do I Recommend Ubuntu?</strong></h2><h2 id="為什麼推薦-Ubuntu？"><a href="#為什麼推薦-Ubuntu？" class="headerlink" title="為什麼推薦 Ubuntu？"></a><strong>為什麼推薦 Ubuntu？</strong></h2><p>For beginners, Ubuntu is truly one of the friendliest choices. Here are the reasons:</p>
-<p>對於新手來說，Ubuntu 真的是最友好的選擇，理由如下：</p>
+<h2 id="為什麼推薦-Ubuntu？"><a href="#為什麼推薦-Ubuntu？" class="headerlink" title="為什麼推薦 Ubuntu？"></a><strong>為什麼推薦 Ubuntu？</strong></h2><p>對於新手來說，Ubuntu 真的是最友好的選擇，理由如下：</p>
 <ol>
-<li><p><strong>Huge amount of resources</strong>: Whether you are looking for tutorial videos or forum answers, searching for Ubuntu-related questions usually leads to useful results.</p>
-</li>
-<li><p><strong>WSL support</strong>: WSL on Windows commonly installs Ubuntu by default, saving you from a lot of complicated setup so you can start right away.</p>
-</li>
-<li><p><strong>Stable yet modern</strong>: It balances stability with newer features, making it suitable for learning and development.</p>
-</li>
-<li><p><strong>資源超多</strong>：不管是教學影片還是解答論壇，搜尋 Ubuntu 相關問題幾乎都能找到答案。</p>
-</li>
-<li><p><strong>WSL 支援</strong>：Windows 提供的 WSL 預設就安裝 Ubuntu，免去一堆繁瑣的設定，直接上手。</p>
-</li>
-<li><p><strong>穩定又現代</strong>：穩定性和新功能兼具，對於平時學習、開發都很適合。</p>
-</li>
+<li><strong>資源超多</strong>：不管是教學影片還是解答論壇，搜尋 Ubuntu 相關問題幾乎都能找到答案。</li>
+<li><strong>WSL 支援</strong>：Windows 提供的 WSL 預設就安裝 Ubuntu，免去一堆繁瑣的設定，直接上手。</li>
+<li><strong>穩定又現代</strong>：穩定性和新功能兼具，對於平時學習、開發都很適合。</li>
 </ol>
-<blockquote>
-<p>The key point is that Ubuntu has a low learning barrier and relatively few beginner traps, allowing you to focus on learning the basics of Linux.</p>
-</blockquote>
 <blockquote>
 <p>重點是，Ubuntu 的學習門檻低，幾乎不會踩坑，讓你可以專注學習 Linux 的基礎操作。</p>
 </blockquote>
 <hr>
-<h2 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a><strong>Conclusion</strong></h2><h2 id="結語"><a href="#結語" class="headerlink" title="結語"></a><strong>結語</strong></h2><p>Learning Linux is like starting a brand-new adventure. It may feel difficult at first, but once you choose the right distribution, the learning curve becomes much smoother. For beginners, I still recommend starting with <strong>Ubuntu</strong>. After you become familiar with it, you can try more specialized distributions such as RHEL or Kali.</p>
-<p>學 Linux，就像開啟了一場全新的冒險。雖然一開始有點難，但只要選對了發行版本，學習曲線會變得很平緩。對於剛入門的人，我還是建議先從 <strong>Ubuntu</strong> 開始，熟悉之後你可以再試試像 RHEL 或 Kali 這樣的專業發行版。</p>
-<p>In the next article, I will walk you through installing Ubuntu with <strong>WSL</strong>, so your Linux journey can truly begin with hands-on practice. Ready to get started? See you in the next post.</p>
+<h2 id="結語"><a href="#結語" class="headerlink" title="結語"></a><strong>結語</strong></h2><p>學 Linux，就像開啟了一場全新的冒險。雖然一開始有點難，但只要選對了發行版本，學習曲線會變得很平緩。對於剛入門的人，我還是建議先從 <strong>Ubuntu</strong> 開始，熟悉之後你可以再試試像 RHEL 或 Kali 這樣的專業發行版。</p>
 <p>下一篇文章，我會帶你從 <strong>WSL 開始安裝 Ubuntu</strong>，一起實戰操作，讓你的 Linux 征途真正啟動！準備好動手了嗎？我們下一篇見！😊</p>
 
     </article>
@@ -635,7 +632,7 @@
             <p>Author：<a href="https://miruorange.github.io/blog/about/">Ken Hsu</a>
             <p>Link：<a href="https://miruorange.github.io/blog/2024/11/16/linux-journey-part2-which-linux-distro-to-learn/">https://miruorange.github.io/blog/2024/11/16/linux-journey-part2-which-linux-distro-to-learn/</a>
             <p>Publish date：<a href="https://miruorange.github.io/blog/2024/11/16/linux-journey-part2-which-linux-distro-to-learn/">November 16th 2024, 10:34:26 am</a>
-            <p>Update date：<a href="https://miruorange.github.io/blog/2024/11/16/linux-journey-part2-which-linux-distro-to-learn/">May 18th 2026, 8:51:50 pm</a>
+            <p>Update date：<a href="https://miruorange.github.io/blog/2024/11/16/linux-journey-part2-which-linux-distro-to-learn/">May 19th 2026, 9:13:13 pm</a>
             <p>License：本文依 <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a> 授權</p>
         </div>
     <!-- paginator -->
@@ -699,7 +696,7 @@
                 <div class="toc-catalog">
                     <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
                 </div>
-                <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#The-Short-Answer-First"><span class="toc-number">1.</span> <span class="toc-text">The Short Answer First</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%88%E4%B8%8A%E7%B5%90%E8%AB%96"><span class="toc-number">2.</span> <span class="toc-text">先上結論</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#What-Is-the-Linux-Kernel"><span class="toc-number">3.</span> <span class="toc-text">What Is the Linux Kernel?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E9%BA%BC%E5%8F%AB%E5%81%9A-Linux-%E7%9A%84%E6%A0%B8%E5%BF%83-Kernel"><span class="toc-number">4.</span> <span class="toc-text">什麼叫做 Linux 的核心 (Kernel)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#What-Is-a-Linux-Distribution"><span class="toc-number">5.</span> <span class="toc-text">What Is a Linux Distribution?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E9%BA%BC%E6%98%AF-Linux-%E7%99%BC%E8%A1%8C%E7%89%88%E6%9C%AC"><span class="toc-number">6.</span> <span class="toc-text">什麼是 Linux 發行版本</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Ubuntu"><span class="toc-number">6.1.</span> <span class="toc-text">Ubuntu</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Ubuntu-1"><span class="toc-number">6.2.</span> <span class="toc-text">Ubuntu</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Red-Hat-RHEL"><span class="toc-number">6.3.</span> <span class="toc-text">Red Hat (RHEL)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Red-Hat-RHEL-1"><span class="toc-number">6.4.</span> <span class="toc-text">Red Hat (RHEL)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#A-Quick-Look-at-Other-Distributions"><span class="toc-number">6.5.</span> <span class="toc-text">A Quick Look at Other Distributions</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B6%E4%BB%96%E7%99%BC%E8%A1%8C%E7%89%88%E6%9C%AC%E7%B0%A1%E4%BB%8B"><span class="toc-number">6.6.</span> <span class="toc-text">其他發行版本簡介</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Why-Do-I-Recommend-Ubuntu"><span class="toc-number">7.</span> <span class="toc-text">Why Do I Recommend Ubuntu?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%82%BA%E4%BB%80%E9%BA%BC%E6%8E%A8%E8%96%A6-Ubuntu%EF%BC%9F"><span class="toc-number">8.</span> <span class="toc-text">為什麼推薦 Ubuntu？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Conclusion"><span class="toc-number">9.</span> <span class="toc-text">Conclusion</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B5%90%E8%AA%9E"><span class="toc-number">10.</span> <span class="toc-text">結語</span></a></li></ol>
+                <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#The-Short-Answer-First"><span class="toc-number">1.</span> <span class="toc-text">The Short Answer First</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#What-Is-the-Linux-Kernel"><span class="toc-number">2.</span> <span class="toc-text">What Is the Linux Kernel?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#What-Is-a-Linux-Distribution"><span class="toc-number">3.</span> <span class="toc-text">What Is a Linux Distribution?</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Ubuntu"><span class="toc-number">3.1.</span> <span class="toc-text">Ubuntu</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Ubuntu-1"><span class="toc-number">3.2.</span> <span class="toc-text">Ubuntu</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Red-Hat-RHEL"><span class="toc-number">3.3.</span> <span class="toc-text">Red Hat (RHEL)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Red-Hat-RHEL-1"><span class="toc-number">3.4.</span> <span class="toc-text">Red Hat (RHEL)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#A-Quick-Look-at-Other-Distributions"><span class="toc-number">3.5.</span> <span class="toc-text">A Quick Look at Other Distributions</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Why-Do-I-Recommend-Ubuntu"><span class="toc-number">4.</span> <span class="toc-text">Why Do I Recommend Ubuntu?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Conclusion"><span class="toc-number">5.</span> <span class="toc-text">Conclusion</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%AD%E6%96%87%E7%89%88"><span class="toc-number">6.</span> <span class="toc-text">中文版</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%88%E4%B8%8A%E7%B5%90%E8%AB%96"><span class="toc-number">7.</span> <span class="toc-text">先上結論</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E9%BA%BC%E5%8F%AB%E5%81%9A-Linux-%E7%9A%84%E6%A0%B8%E5%BF%83-Kernel"><span class="toc-number">8.</span> <span class="toc-text">什麼叫做 Linux 的核心 (Kernel)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E9%BA%BC%E6%98%AF-Linux-%E7%99%BC%E8%A1%8C%E7%89%88%E6%9C%AC"><span class="toc-number">9.</span> <span class="toc-text">什麼是 Linux 發行版本</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B6%E4%BB%96%E7%99%BC%E8%A1%8C%E7%89%88%E6%9C%AC%E7%B0%A1%E4%BB%8B"><span class="toc-number">9.1.</span> <span class="toc-text">其他發行版本簡介</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%82%BA%E4%BB%80%E9%BA%BC%E6%8E%A8%E8%96%A6-Ubuntu%EF%BC%9F"><span class="toc-number">10.</span> <span class="toc-text">為什麼推薦 Ubuntu？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B5%90%E8%AA%9E"><span class="toc-number">11.</span> <span class="toc-text">結語</span></a></li></ol>
             </div>
         <!-- sidebar -->
         <div class="sidebar sidebar-hide">
